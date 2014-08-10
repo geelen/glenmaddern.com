@@ -1,0 +1,13 @@
+section(_layout='p1-2' _type='center')
+  h2(_after='hr' _type='upcase')= preview.title
+  ol(_flex='large-only justify-center align-stretch')
+    each slug in Object.keys(preview.objects).slice(0,3)
+      - project = preview.objects[slug]
+      li(_flex-child='thirds' _layout='p1 mb1' _flex='column')
+        figure(_layout='pb1')
+          a(target='_blank' href=project.url _link='subtle' _layout='block')
+            img(src='/assets/images/#{project.image}' _layout='block w100%' _border='polariod')
+        figcaption(_type='lh1.4' _flex-child='grow1' _layout='pb0.5')
+          h3(_type='h5 semibold')= project.title
+          h4= project.strap
+        a(target='_blank' href=project.url _type='small2 italic' _link='inline')= project.url
