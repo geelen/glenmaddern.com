@@ -6,55 +6,56 @@
   width: 100%;
 }
 
-@for $i from 0 through 4 {
-  [_layout~=#{"p" + $i}] {
+$sizes: 0, 0.5, 1, 2, 3, 4;
+@each $i in $sizes {
+  [_layout~="p#{$i}"] {
     padding: $i * 1rem;
   }
 
-  [_layout~=#{"pt" + $i}] {
+  [_layout~="pt#{$i}"] {
     padding-top: $i * 1rem;
   }
 
-  [_layout~=#{"pr" + $i}] {
+  [_layout~="pr#{$i}"] {
     padding-right: $i * 1rem;
   }
 
-  [_layout~=#{"pb" + $i}] {
+  [_layout~="pb#{$i}"] {
     padding-bottom: $i * 1rem;
   }
 
-  [_layout~=#{"pl" + $i}] {
+  [_layout~="pl#{$i}"] {
     padding-left: $i * 1rem;
   }
 
-  @for $j from 1 through 4 {
-    [_layout~=#{"p" + $i + "-" + $j}] {
+  @each $j in $sizes {
+    [_layout~="p#{$i}-#{$j}"] {
       padding: $i * 1rem $j * 1rem;
     }
   }
 
-  [_layout~=#{"m" + $i}] {
+  [_layout~="m#{$i}"] {
     margin: $i * 1rem;
   }
 
-  [_layout~=#{"mt" + $i}] {
+  [_layout~="mt#{$i}"] {
     margin-top: $i * 1rem;
   }
 
-  [_layout~=#{"mr" + $i}] {
+  [_layout~="mr#{$i}"] {
     margin-right: $i * 1rem;
   }
 
-  [_layout~=#{"mb" + $i}] {
+  [_layout~="mb#{$i}"] {
     margin-bottom: $i * 1rem;
   }
 
-  [_layout~=#{"ml" + $i}] {
+  [_layout~="ml#{$i}"] {
     margin-left: $i * 1rem;
   }
 
-  @for $j from 1 through 4 {
-    [_layout~=#{"m" + $i + "-" + $j}] {
+  @each $j in $sizes {
+    [_layout~="m#{$i}-#{$j}"] {
       margin: $i * 1rem $j * 1rem;
     }
   }

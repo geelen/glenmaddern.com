@@ -8,18 +8,18 @@ header(_flex='align-center justify-center wrap' _layout='p4')
 main
   section(_layout='p1-2' _type='center')
     h2(_after='hr' _type='upcase') Projects
-    ol(_flex='large-only justify-center align-stretch' _layout='p2-0')
+    ol(_flex='large-only justify-center align-stretch')
       - projects = public.projects._data
       each slug in Object.keys(projects).slice(0,3)
         - project = projects[slug]
         li(_flex-child='thirds' _layout='p1 mb1' _flex='column')
-          figure
-            a(target='_blank' href=project.url _link='subtle' _layout='block pt1 pb1')
+          figure(_layout='pb1')
+            a(target='_blank' href=project.url _link='subtle' _layout='block')
               img(src='/assets/images/projects/#{project.image}' _layout='block w100%' _border='polariod')
-          figcaption(_type='lh1.4' _flex-child='grow1')
+          figcaption(_type='lh1.4' _flex-child='grow1' _layout='pb0.5')
             h3(_type='h5 semibold')= project.title
             h4= project.strap
-            a(target='_blank' href=project.url _type='small2 italic' _link='inline')= project.url
+          a(target='_blank' href=project.url _type='small2 italic' _link='inline')= project.url
 
   .preview-list
     h2 Talks
