@@ -13,8 +13,6 @@
 [_after~="down-chevron"] {
   @extend %_after_abs;
   &::after {
-    margin-top: 1rem;
-    margin-left: -1rem;
     top: 100%;
     left: 50%;
     width: 1rem;
@@ -22,6 +20,15 @@
     border: 2px solid;
     border-top-color: transparent;
     border-left-color: transparent;
-    transform: rotate(45deg);
+    transform: translateX(-0.5rem) rotate(45deg);
   }
+}
+
+[_after~="hr"]::after {
+  color: inherit;
+  display: block;
+  width: 50%;
+  margin: 1rem auto;
+  border-top: 1px solid;
+  opacity: 0.2;
 }

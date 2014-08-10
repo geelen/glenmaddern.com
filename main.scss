@@ -18,60 +18,10 @@ body {
   background-position: 50% 50%;
   background-size: cover;
 }
-hr {
-  content: '';
-  color: inherit;
-  display: block;
-  width: 50%;
-  margin: 1rem auto;
-  border-top: 1px solid;
-  opacity: 0.2;
-}
-
-.home-page__nav {
-  padding: 2rem;
-  text-transform: uppercase;
-}
-.home-page__nav > h1 {
-  font-weight: 600;
-}
-.home-page__nav > ul > li {
-  padding-left: 1rem;
-}
-
-.home-page__header {
-  padding: 1rem;
-}
-.home-page__header > h1 {
-  margin: 1rem;
-  text-align: center;
-  font-size: 1.5rem;
-}
-.home-page__header > h1 > strong {
-  font-size: 3em;
-  display: block;
-  font-weight: 100;
-  margin: 1rem 0;
-}
-.home-page__header > h1 > small {
-  font-weight: 400;
-}
-.home-page__header > h1 > span {
-  font-weight: 600;
-}
-.home-page__header > figure {
-  margin: 1rem;
-  width: 40vw;
-  height: 50vw;
-  border-radius: 1rem;
-}
-.breakpoint-small .home-page__header > figure {
-  width: 66vw;
-  height: 66vw;
-}
 
 @import '_shared/layout';
 @import '_shared/flex';
 @import '_shared/type';
 @import '_shared/link';
 @import '_shared/after';
+@import '_shared/border';

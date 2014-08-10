@@ -1,45 +1,45 @@
-.home-page
-  header.home-page__header(_flex='align-center justify-center wrap')
-    h1(_flex-child='grow1' _after='down-chevron')
-      small My name is
-      strong Glen Maddern
-      small and I do
-      span  rad web stuff
+header(_flex='align-center justify-center wrap' _layout='p4')
+  h1(_flex-child='grow1' _after='down-chevron' _layout='p1' _type='h4 center')
+    = "My name is "
+    span(_type='h1 thin' _layout='block p1') Glen Maddern
+    = " and I do"
+    span(_type='semibold')  rad web stuff
 
-  main
+main
+  section(_layout='p1-2' _type='center')
+    h2(_after='hr' _type='upcase') Projects
+    ol(_flex='large-only justify-center align-stretch' _layout='p2-0')
+      - projects = public.projects._data
+      each slug in Object.keys(projects).slice(0,3)
+        - project = projects[slug]
+        li(_flex-child='thirds' _layout='p1 mb1' _flex='column')
+          figure
+            a(target='_blank' href=project.url _link='subtle' _layout='block pt1 pb1')
+              img(src='/assets/images/projects/#{project.image}' _layout='block w100%' _border='polariod')
+          figcaption(_type='lh1.4' _flex-child='grow1')
+            h3(_type='h5 semibold')= project.title
+            h4= project.strap
+            a(target='_blank' href=project.url _type='small2 italic' _link='inline')= project.url
 
-    section(_layout='p1-2')
-      h2 Projects
-      ol(_flex='large-only justify-center align-stretch')
-        - projects = public.projects._data
-        each slug in Object.keys(projects).slice(0,3)
-          - project = projects[slug]
-          li(_flex-child='thirds')
-            a(target='_blank' href=project.url _link="block subtle" _type='center')
-              h3(_type='h4' _layout='mb1' _type='upcase')= project.title
-              h4 The GIF tag the internet deserves
-              img(src='/assets/images/projects/#{project.image}')
-
-    .preview-list
-      h2 Talks
-      hr
-      ol(_flex='large-only justify-center align-stretch')
-        li.preview-list__item(_flex='thirds')
-          header(_flex-child='grow1')
-            h3 A GIF Odyssey
-            h4 Mountain West JS 2014
-          a(href='https://www.youtube.com/watch?v=evzlNvboGTs' target='_blank')
-            img(src='/assets/images/talks/a_gif_odyssey.jpg')
-        li.preview-list__item(_flex='thirds')
-          header(_flex-child='grow1')
-            h3 The Z Dimension
-            h4 Web Directions South 2013
-          a(href='https://www.youtube.com/watch?v=xFtgUguXHMw' target='_blank')
-            img(src='/assets/images/talks/the_z_dimension.jpg')
-        li.preview-list__item(_flex='thirds')
-          header(_flex-child='grow1')
-            h3 JavaScript's Slightly Stricter Mode
-            h4 Web Directions Code 2013
-          a(href='https://www.youtube.com/watch?v=gq95_h-IrHo' target='_blank')
-            img(src='/assets/images/talks/strict_mode.jpg')
-  footer
+  .preview-list
+    h2 Talks
+    ol(_flex='large-only justify-center align-stretch')
+      li.preview-list__item(_flex='thirds')
+        header(_flex-child='grow1')
+          h3 A GIF Odyssey
+          h4 Mountain West JS 2014
+        a(href='https://www.youtube.com/watch?v=evzlNvboGTs' target='_blank')
+          img(src='/assets/images/talks/a_gif_odyssey.jpg')
+      li.preview-list__item(_flex='thirds')
+        header(_flex-child='grow1')
+          h3 The Z Dimension
+          h4 Web Directions South 2013
+        a(href='https://www.youtube.com/watch?v=xFtgUguXHMw' target='_blank')
+          img(src='/assets/images/talks/the_z_dimension.jpg')
+      li.preview-list__item(_flex='thirds')
+        header(_flex-child='grow1')
+          h3 JavaScript's Slightly Stricter Mode
+          h4 Web Directions Code 2013
+        a(href='https://www.youtube.com/watch?v=gq95_h-IrHo' target='_blank')
+          img(src='/assets/images/talks/strict_mode.jpg')
+footer

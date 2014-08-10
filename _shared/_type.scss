@@ -1,0 +1,88 @@
+/*
+  FONT WEIGHTS
+*/
+
+[_type~="thin"] {
+  font-weight: 100;
+}
+
+[_type~="light"] {
+  font-weight: 300;
+}
+
+[_type~="regular"] {
+  font-weight: 400;
+}
+
+[_type~="semibold"] {
+  font-weight: 600;
+}
+
+/*
+  HEADERS
+*/
+
+[_type~="h1"] {
+  font-size: 4.5rem;
+}
+
+[_type~="h2"] {
+  font-size: 3rem;
+}
+
+[_type~="h3"] {
+  font-size: 2rem;
+}
+
+[_type~="h4"] {
+  font-size: 1.5rem;
+}
+
+[_type~="h5"] {
+  font-size: 1.2rem;
+}
+
+/*
+  SMALL TYPE
+*/
+
+[_type~="small1"] {
+  font-size: 0.8rem;
+}
+
+[_type~="small2"] {
+  font-size: 0.7rem;
+}
+
+[_type~="small3"] {
+  font-size: 0.6rem;
+}
+
+
+/*
+  LINE-HEIGHT
+*/
+
+[_type~="lh1.2"] {
+  line-height: 1.2;
+}
+
+[_type~="lh1.4"] {
+  line-height: 1.4;
+}
+
+/*
+  TRANSFORMATIONS
+*/
+
+[_type~="upcase"] {
+  text-transform: uppercase;
+}
+
+[_type~="center"] {
+  text-align: center;
+}
+
+[_type~="italic"] {
+  font-style: italic;
+}

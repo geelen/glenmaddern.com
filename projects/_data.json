@@ -9,11 +9,12 @@
     "title": "<x-beat>",
     "strap": "Beat-matched playback for GIFs & more",
     "url": "http://geelen.github.io/x-beat",
-    "image": "x-beat.jpg"
+    "image": "x_beat.jpg"
   },
   "dumb.domains": {
     "title": "dumb.domains",
     "strap": "The internet is dumb and awesome again",
-    "url": "http://dumb.domains"
+    "url": "http://dumb.domains",
+    "image": "dumb_domains.png"
   }
 }

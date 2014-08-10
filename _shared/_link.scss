@@ -6,10 +6,16 @@
 }
 
 [_link~="subtle"] {
-  text-decoration: none;
   color: inherit;
 }
 
-[_link~="block"] {
-  display: block;
+[_link~="inline"] {
+  color: hsl(0, 50%, 40%);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:active {
+    color: hsl(0, 50%, 50%);
+  }
 }
