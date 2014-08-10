@@ -1,0 +1,39 @@
+[_flex] {
+  display: flex;
+}
+
+[_flex~="column"] {
+  flex-direction: column;
+}
+
+[_flex~="align-center"] {
+  align-items: center;
+}
+
+[_flex~="align-end"] {
+  align-items: flex-end;
+}
+
+[_flex~="align-stretch"] {
+  align-items: stretch;
+}
+
+[_flex~="wrap"] {
+  flex-wrap: wrap;
+}
+
+[_flex~="justify-center"] {
+  justify-content: center;
+}
+
+[_flex-child~="shrink0"] {
+  flex-shrink: 0;
+}
+
+[_flex-child~="grow1"] {
+  flex-grow: 1;
+}
+
+[_flex-child~="thirds"] {
+  flex: 0 0 33.33%;
+}

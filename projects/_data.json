@@ -1,0 +1,19 @@
+{
+  "x-gif": {
+    "title": "<x-gif>",
+    "strap": "The GIF tag the internet deserves",
+    "url": "http://geelen.github.io/x-gif",
+    "image": "x_gif.jpg"
+  },
+  "x-beat": {
+    "title": "<x-beat>",
+    "strap": "Beat-matched playback for GIFs & more",
+    "url": "http://geelen.github.io/x-beat",
+    "image": "x-beat.jpg"
+  },
+  "dumb.domains": {
+    "title": "dumb.domains",
+    "strap": "The internet is dumb and awesome again",
+    "url": "http://dumb.domains"
+  }
+}

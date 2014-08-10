@@ -1,0 +1,15 @@
+[_link] {
+  &:hover, &:active, &:selected {
+    color: inherit;
+  }
+  text-decoration: underline;
+}
+
+[_link~="subtle"] {
+  text-decoration: none;
+  color: inherit;
+}
+
+[_link~="block"] {
+  display: block;
+}
