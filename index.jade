@@ -1,6 +1,53 @@
-h1 Welcome to Harp.
-h3 This is yours to own. Enjoy.
-ul
-  each article, slug in public.articles._data
-    li
-      a(href="/articles/#{ slug }") #{ article.title }
+.home-page
+  header.home-page__header(data-flex='align-center justify-center wrap')
+    h1(data-flex-child='grow1' data-chevron='down')
+      small My name is
+      strong Glen Maddern
+      small and I do
+      span  rad web stuff
+  main
+    .preview-list
+      h2 Projects
+      hr
+      ol(data-flex='large-only justify-center align-stretch')
+        li.preview-list__item(data-flex-child='thirds' data-flex='column')
+          header(data-flex-child='grow1')
+            h3 <x-gif>
+            h4 The GIF tag the internet deserves
+          a(href='http://geelen.github.io/x-gif/' target='_blank')
+            img(src='/assets/images/projects/x_gif.jpg')
+        li.preview-list__item(data-flex-child='thirds' data-flex='column')
+          header(data-flex-child='grow1')
+            h3 dumb.domains
+            h4 The internet is dumb and awesome again
+          a(href='http://dumb.domains' target='_blank')
+            img(src='/assets/images/projects/dumb_domains.png')
+        li.preview-list__item(data-flex-child='thirds' data-flex='column')
+          header(data-flex-child='grow1')
+            h3 Goodfilms
+            h4 Goodfilms - Social Movie Reviews
+          a(href='http://goodfil.ms' target='_blank')
+            img(src='/assets/images/projects/goodfilms.jpg')
+    .preview-list
+      h2 Talks
+      hr
+      ol(data-flex='large-only justify-center align-stretch')
+        li.preview-list__item(data-flex-child='thirds' data-flex='column')
+          header(data-flex-child='grow1')
+            h3 A GIF Odyssey
+            h4 Mountain West JS 2014
+          a(href='https://www.youtube.com/watch?v=evzlNvboGTs' target='_blank')
+            img(src='/assets/images/talks/a_gif_odyssey.jpg')
+        li.preview-list__item(data-flex-child='thirds' data-flex='column')
+          header(data-flex-child='grow1')
+            h3 The Z Dimension
+            h4 Web Directions South 2013
+          a(href='https://www.youtube.com/watch?v=xFtgUguXHMw' target='_blank')
+            img(src='/assets/images/talks/the_z_dimension.jpg')
+        li.preview-list__item(data-flex-child='thirds' data-flex='column')
+          header(data-flex-child='grow1')
+            h3 JavaScript's Slightly Stricter Mode
+            h4 Web Directions Code 2013
+          a(href='https://www.youtube.com/watch?v=gq95_h-IrHo' target='_blank')
+            img(src='/assets/images/talks/strict_mode.jpg')
+  footer
