@@ -1,0 +1,38 @@
+/*
+  MARKDOWN
+
+  A package of styles that target the tags Markdown generates
+*/
+
+[_Markdown] {
+  h2 {
+    @extend [_layout~="pt2"];
+    @extend [_layout~="pb1"];
+    @extend [_type~="lh1.2"];
+    @extend [_type~="h4"];
+    @extend [_type~="center"];
+    @extend [_type~="bold"];
+  }
+  p {
+    @extend [_type~="lh1.5"];
+    @extend [_type~="regular"];
+    @extend [_layout~="pb1"];
+  }
+  figure {
+    @extend [_layout~="p1"];
+    img {
+      @extend [_border~="polariod"];
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    figcaption {
+      @extend [_layout~="pt1"];
+      @extend [_type~="center"];
+    }
+  }
+  a {
+    @extend [_link];
+    @extend [_link~="inline"];
+  }
+}

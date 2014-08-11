@@ -1,0 +1,4 @@
+each key in keys
+  - article = public.articles._data[key]
+  a(href="articles/#{key}")
+    h1= article.title

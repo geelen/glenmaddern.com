@@ -6,6 +6,11 @@
   width: 100%;
 }
 
+[_layout~="max960"] {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 $sizes: 0, 0.5, 1, 2, 3, 4;
 @each $i in $sizes {
   [_layout~="p#{$i}"] {

@@ -1,12 +1,19 @@
 header(_flex='align-center justify-center wrap' _layout='p4')
   h1(_flex-child='grow1' _after='down-chevron' _layout='p1' _type='h4 center')
     = "My name is "
-    span(_type='h1 thin' _layout='block p1') Glen Maddern
+    span(_type='h1 light' _layout='block p1') Glen Maddern
     = " and I do"
     span(_type='semibold')  rad web stuff
 
-main
-  != partial('_shared/preview_list', {preview: {title: 'Projects', objects: public.projects._data}})
-  != partial('_shared/preview_list', {preview: {title: 'Talks', objects: public.talks._data}})
-
-footer
+main(_layout='max960 p1')
+  section(_layout='p1-2' _type='center')
+    h2(_after='hr' _type='upcase') Articles
+    - articles = public.articles._data
+    != partial('_shared/blog_headlines', {keys: Object.keys(articles).slice(0,3)})
+    p See more on the BLAH
+  section(_layout='p1-2' _type='center')
+    h2(_after='hr' _type='upcase') Projects
+    != partial('_shared/preview_list', {preview: {title: 'Projects', objects: public.projects._data}})
+  section(_layout='p1-2' _type='center')
+    h2(_after='hr' _type='upcase') Talks
+    != partial('_shared/preview_list', {preview: {title: 'Talks', objects: public.talks._data}})

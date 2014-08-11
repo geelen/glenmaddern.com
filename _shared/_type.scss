@@ -2,20 +2,28 @@
   FONT WEIGHTS
 */
 
-[_type~="thin"] {
-  font-weight: 100;
-}
-
 [_type~="light"] {
   font-weight: 300;
 }
 
-[_type~="regular"] {
+[_type~="normal"] {
   font-weight: 400;
+}
+
+[_type~="medium"] {
+  font-weight: 500;
 }
 
 [_type~="semibold"] {
   font-weight: 600;
+}
+
+[_type~="bold"] {
+  font-weight: 700;
+}
+
+[_type~="black"] {
+  font-weight: 900;
 }
 
 /*
@@ -31,7 +39,7 @@
 }
 
 [_type~="h3"] {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 [_type~="h4"] {
@@ -63,12 +71,10 @@
   LINE-HEIGHT
 */
 
-[_type~="lh1.2"] {
-  line-height: 1.2;
-}
-
-[_type~="lh1.4"] {
-  line-height: 1.4;
+@for $i from 0 through 6 {
+  [_type~="lh1.#{$i}"] {
+    line-height: 1 + 0.1 * $i;
+  }
 }
 
 /*
@@ -85,4 +91,11 @@
 
 [_type~="italic"] {
   font-style: italic;
+}
+
+[_type~="truncate"] {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
 }
