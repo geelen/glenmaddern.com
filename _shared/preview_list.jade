@@ -1,4 +1,4 @@
-ol(_flex='large-only justify-center align-stretch')
+ol(_flex='justify-center align-stretch' _layout='mobile-block')
   each slug in Object.keys(preview.objects).slice(0,3)
     - project = preview.objects[slug]
     li(_flex-child='thirds' _layout='p1 mb1' _flex='column' _type='lh1.4')

@@ -1,0 +1,7 @@
+[_background~="white"] {
+  background: white;
+}
+
+[_background~="gradient"] {
+  background: linear-gradient(-20deg, hsl(0,50%,96%) 20%, hsl(90,50%,98%) 50%, hsl(180,50%,96%) 80%);
+}

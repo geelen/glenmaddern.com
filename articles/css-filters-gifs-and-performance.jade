@@ -1,8 +1,5 @@
 main(_layout='max960 p1-2')
-  header(_layout='p3-0')
-    h1(_type='h3 black center')= title
-    h2(_type='h5 italic center lh1.4' _layout='pt1') Or, how to persist in not learning Photoshop
-
+  != partial('_header')
   article(_Markdown)
     :markdown
       A few months ago, I blatantly ripped off Charlie Gleason's idea. His [presentation](http://superhighfives.github.io/tweetflight-presentation/) at MelbJS featured greyscale, full-screen, animated GIFs (of his own face, among other things) behind the text on many slides. I discovered that he'd painstakingly edited and optimised each GIF in Photoshop so it looked good behind the text on each slide.

@@ -5,13 +5,22 @@
 */
 
 [_Markdown] {
-  h2 {
+  h1,h2,h3 {
     @extend [_layout~="pt2"];
     @extend [_layout~="pb1"];
     @extend [_type~="lh1.2"];
+  }
+  h2 {
     @extend [_type~="h4"];
-    @extend [_type~="center"];
     @extend [_type~="bold"];
+    @extend [_type~="center"];
+  }
+  h3 {
+    @extend [_type~="h4"];
+  }
+  h4 {
+    @extend [_type~="bold"];
+    @extend [_layout~="p0.5-0"];
   }
   p {
     @extend [_type~="serif"];
@@ -52,13 +61,19 @@
     @extend [_before~="bullet"];
   }
   pre {
-    @extend [_type~="mono"];
-    @extend [_type~="small4"];
-    @extend [_type~="lh1.2"];
     @extend [_layout~="m1-auto"];
-    @extend [_border~="simple"];
+    code {
+      @extend [_type~="small4"];
+      @extend [_layout~="p0.5"];
+    }
   }
   code {
-    @extend [_layout~="p0.5"];
+    @extend [_type~="mono"];
+    @extend [_type~="lh1.2"];
+    @extend [_type~="small3"];
+    @extend [_background~="white"];
+    @extend [_border~="simple"];
+    @extend [_layout~="p0.2"];
+    @extend [_layout~="m0.2"];
   }
 }

@@ -2,7 +2,11 @@
   display: block;
 }
 
-$sizes: 0, 0.5, 1, 2, 3, 4;
+.breakpoint-small [_layout~="mobile-block"] {
+  display: block;
+}
+
+$sizes: 0, 0.2, 0.5, 1, 2, 3, 4;
 @each $i in $sizes {
   [_layout~="p#{$i}"] {
     padding: $i * 1rem;

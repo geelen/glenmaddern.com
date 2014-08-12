@@ -1,10 +1,11 @@
-@import '_shared/layout';
-@import '_shared/flex';
-@import '_shared/type';
-@import '_shared/link';
-@import '_shared/before';
-@import '_shared/after';
-@import '_shared/border';
+@import '_shared/traits/layout';
+@import '_shared/traits/flex';
+@import '_shared/traits/type';
+@import '_shared/traits/link';
+@import '_shared/traits/before';
+@import '_shared/traits/after';
+@import '_shared/traits/border';
+@import '_shared/traits/background';
 
 @import '_shared/modules/markdown';
 
@@ -19,9 +20,9 @@
   min-height: 100%;
 }
 :root.breakpoint-small {
-  font-size: 12px;
+  font-size: 16px;
 }
 body {
-  background: linear-gradient(-20deg, hsl(0,50%,96%) 20%, hsl(90,50%,98%) 50%, hsl(180,50%,96%) 80%);
+  @extend [_background~="gradient"];
   min-height: 100%;
 }
