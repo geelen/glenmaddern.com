@@ -13,3 +13,7 @@ html(lang="en")
     != partial("_shared/nav")
     != yield
     footer
+
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/tomorrow.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js")
+    script hljs.initHighlightingOnLoad();

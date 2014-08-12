@@ -1,9 +1,21 @@
+@import '_shared/layout';
+@import '_shared/flex';
+@import '_shared/type';
+@import '_shared/link';
+@import '_shared/before';
+@import '_shared/after';
+@import '_shared/border';
+
+@import '_shared/modules/markdown';
+
 *,*::before,*::after {
   box-sizing: border-box;
 }
 :root {
+  @extend [_type~="sans"];
   color: hsl(220, 50%, 25%);
-  font: 400 20px 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans';
+  font-weight: 400;
+  font-size: 20px;
   min-height: 100%;
 }
 :root.breakpoint-small {
@@ -13,17 +25,3 @@ body {
   background: linear-gradient(-20deg, hsl(0,50%,96%) 20%, hsl(90,50%,98%) 50%, hsl(180,50%,96%) 80%);
   min-height: 100%;
 }
-[data-background~="cover"] {
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
-}
-
-@import '_shared/layout';
-@import '_shared/flex';
-@import '_shared/type';
-@import '_shared/link';
-@import '_shared/after';
-@import '_shared/border';
-
-@import '_shared/modules/markdown';

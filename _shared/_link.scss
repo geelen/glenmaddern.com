@@ -19,3 +19,8 @@
     color: hsl(0, 50%, 50%);
   }
 }
+
+[_link~="invisible"] {
+  text-decoration: none;
+  color: inherit;
+}

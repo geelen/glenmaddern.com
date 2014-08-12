@@ -1,0 +1,8 @@
+[_before]::before {
+  content: '';
+}
+
+[_before~="bullet"]::before {
+  content: '\2022';
+  padding-right: 0.5rem;
+}

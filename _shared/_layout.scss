@@ -2,15 +2,6 @@
   display: block;
 }
 
-[_layout~="w100%"] {
-  width: 100%;
-}
-
-[_layout~="max960"] {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 $sizes: 0, 0.5, 1, 2, 3, 4;
 @each $i in $sizes {
   [_layout~="p#{$i}"] {
@@ -64,4 +55,25 @@ $sizes: 0, 0.5, 1, 2, 3, 4;
       margin: $i * 1rem $j * 1rem;
     }
   }
+
+  [_layout~="m#{$i}-auto"] {
+    margin: $i * 1rem auto;
+  }
+}
+
+[_layout~="w100%"] {
+  width: 100%;
+}
+
+[_layout~="mw100%"] {
+  max-width: 100%;
+}
+
+[_layout~="intrinsic-width"] {
+  width: intrinsic;
+}
+
+[_layout~="max960"] {
+  @extend [ _layout ~= "m0-auto" ];
+  max-width: 960px;
 }

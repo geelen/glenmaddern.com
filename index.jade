@@ -5,15 +5,15 @@ header(_flex='align-center justify-center wrap' _layout='p4')
     = " and I do"
     span(_type='semibold')  rad web stuff
 
-main(_layout='max960 p1')
-  section(_layout='p1-2' _type='center')
+main(_layout='max960 p1' _type='center')
+  section(_layout='p1-2')
     h2(_after='hr' _type='upcase') Articles
     - articles = public.articles._data
     != partial('_shared/blog_headlines', {keys: Object.keys(articles).slice(0,3)})
     p See more on the BLAH
-  section(_layout='p1-2' _type='center')
+  section(_layout='p1-2')
     h2(_after='hr' _type='upcase') Projects
     != partial('_shared/preview_list', {preview: {title: 'Projects', objects: public.projects._data}})
-  section(_layout='p1-2' _type='center')
+  section(_layout='p1-2')
     h2(_after='hr' _type='upcase') Talks
     != partial('_shared/preview_list', {preview: {title: 'Talks', objects: public.talks._data}})

@@ -1,4 +1,20 @@
 /*
+  FONT FAMILIES
+*/
+
+[_type~="sans"] {
+  font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans';
+}
+
+[_type~="serif"] {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+[_type~="mono"] {
+  font-family: "Consolas", "Menlo", "Courier", monospace;
+}
+
+/*
   FONT WEIGHTS
 */
 
@@ -55,14 +71,18 @@
 */
 
 [_type~="small1"] {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 [_type~="small2"] {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 [_type~="small3"] {
+  font-size: 0.7rem;
+}
+
+[_type~="small4"] {
   font-size: 0.6rem;
 }
 

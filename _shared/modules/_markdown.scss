@@ -14,25 +14,51 @@
     @extend [_type~="bold"];
   }
   p {
-    @extend [_type~="lh1.5"];
-    @extend [_type~="regular"];
-    @extend [_layout~="pb1"];
+    @extend [_type~="serif"];
+    @extend [_type~="lh1.6"];
+    @extend [_type~="small1"];
+    @extend [_layout~="mb1"];
   }
   figure {
     @extend [_layout~="p1"];
     img {
       @extend [_border~="polariod"];
-      display: block;
-      max-width: 100%;
-      margin: 0 auto;
+      @extend [_layout~="mw100%"];
+      @extend [_layout~="block"];
+      @extend [_layout~="m0-auto"];
     }
     figcaption {
+      @extend [_type~="serif"];
       @extend [_layout~="pt1"];
       @extend [_type~="center"];
+      @extend [_type~="small3"];
+      @extend [_type~="italic"];
+      @extend [_type~="lh1.4"];
     }
   }
   a {
     @extend [_link];
     @extend [_link~="inline"];
+  }
+  ul {
+    @extend [_type~="small2"];
+    @extend [_type~="serif"];
+    @extend [_layout~="m1-0"];
+  }
+  li {
+    @extend [_layout~="pl0.5"];
+    @extend [_layout~="m0.5-0"];
+    @extend [_type~="lh1.2"];
+    @extend [_before~="bullet"];
+  }
+  pre {
+    @extend [_type~="mono"];
+    @extend [_type~="small4"];
+    @extend [_type~="lh1.2"];
+    @extend [_layout~="m1-auto"];
+    @extend [_border~="simple"];
+  }
+  code {
+    @extend [_layout~="p0.5"];
   }
 }
