@@ -4,23 +4,30 @@ var reload      = browserSync.reload;
 var harp        = require('harp');
 
 /**
- * Serve the Harp Site
+ * Serve the Harp Site from the src directory
  */
-gulp.task('serve', function (done) {
+gulp.task('serve', function () {
   harp.server(__dirname + '/src', {
     port: 9000
   }, function () {
     browserSync({
       proxy: "localhost:9000",
       open: false,
+      /* Hide the notification. It gets annoying */
       notify: {
         styles: ['opacity: 0', 'position: absolute']
       }
     });
-    gulp.watch("src/**/*.scss", function (e) {
+    /**
+     * Watch for scss changes, tell BrowserSync to refresh main.css
+     */
+    gulp.watch("src/**/*.scss", function () {
       reload("main.css", {stream: true});
     });
-    gulp.watch(["src/**/*.jade", "src/**/*.json"], function (e) {
+    /**
+     * Watch for all other changes, reload the whole page
+     */
+    gulp.watch(["src/**/*.jade", "src/**/*.json"], function () {
       reload();
     });
   })
