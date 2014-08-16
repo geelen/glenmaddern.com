@@ -15,8 +15,10 @@
 }
 
 [_link~="inline"] {
-  color: hsl(0, 50%, 40%);
-  text-decoration: none;
+  &, &:hover, &:visited {
+    color: hsl(0, 50%, 40%);
+    text-decoration: none;
+  }
   &:hover {
     text-decoration: underline;
   }
@@ -26,6 +28,8 @@
 }
 
 [_link~="invisible"] {
-  text-decoration: none;
-  color: inherit;
+  &, &:hover, &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
 }

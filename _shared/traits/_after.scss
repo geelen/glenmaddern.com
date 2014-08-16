@@ -1,10 +1,17 @@
-[_after]::after {
+[_after]::after, [_before]::before {
   content: '';
 }
 
 %_after_abs {
   position: relative;
   &::after {
+    display: block;
+    position: absolute;
+  }
+}
+%_before_abs {
+  position: relative;
+  &::before {
     display: block;
     position: absolute;
   }
@@ -24,11 +31,17 @@
   }
 }
 
-[_after~="hr"]::after {
+[_after~="hr"]::after,
+[_before~="hr"]::before {
   color: inherit;
   display: block;
   width: 50%;
   margin: 1rem auto;
   border-top: 1px solid;
   opacity: 0.2;
+}
+
+[_before~="bullet"]::before {
+  content: '\2022';
+  padding-right: 0.5rem;
 }

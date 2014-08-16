@@ -26,8 +26,8 @@
   justify-content: center;
 }
 
-[_flex~="justify-center"] {
-  justify-content: center;
+[_flex~="justify-end"] {
+  justify-content: flex-end;
 }
 
 [_flex-child~="shrink0"] {

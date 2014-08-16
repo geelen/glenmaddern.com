@@ -119,3 +119,7 @@
   text-overflow: ellipsis;
   width: 100%;
 }
+
+[_type~="right"] {
+  text-align: right;
+}

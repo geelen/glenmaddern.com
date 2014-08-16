@@ -1,0 +1,4 @@
+main(_layout='max960 p1' _type='center')
+  section(_layout='p1-2')
+    - articles = public.articles._data
+    != partial('../_shared/blog_headlines', {keys: Object.keys(articles)})
