@@ -34,6 +34,10 @@
   flex-shrink: 0;
 }
 
+[_flex-child~="shrink1"] {
+  flex-shrink: 1;
+}
+
 [_flex-child~="grow1"] {
   flex-grow: 1;
 }

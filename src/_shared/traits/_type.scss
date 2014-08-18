@@ -46,23 +46,28 @@
   HEADERS
 */
 
-[_type~="h1"] {
+[_type~="h1"],
+.breakpoint-small [_type~="small:h1"] {
   font-size: 4.5rem;
 }
 
-[_type~="h2"] {
-  font-size: 3rem;
+[_type~="h2"],
+.breakpoint-small [_type~="small:h2"] {
+  font-size: 3.5rem;
 }
 
-[_type~="h3"] {
+[_type~="h3"],
+.breakpoint-small [_type~="small:h3"] {
   font-size: 2.5rem;
 }
 
-[_type~="h4"] {
+[_type~="h4"],
+.breakpoint-small [_type~="small:h4"] {
   font-size: 1.5rem;
 }
 
-[_type~="h5"] {
+[_type~="h5"],
+.breakpoint-small [_type~="small:h5"] {
   font-size: 1.2rem;
 }
 

@@ -77,12 +77,10 @@ $sizes: 0, 0.2, 0.5, 1, 2, 3, 4;
   width: intrinsic;
 }
 
-[_layout~="max960"] {
-  @extend [ _layout ~= "m0-auto" ];
-  max-width: 960px;
-}
-
-[_layout~="max840"] {
-  @extend [ _layout ~= "m0-auto" ];
-  max-width: 840px;
+$widths: 480, 600, 720, 840, 960;
+@each $i in $widths {
+  [_layout~="max#{$i}"] {
+    @extend [ _layout ~= "m0-auto" ];
+    max-width: 1px * $i;
+  }
 }

@@ -1,3 +1,0 @@
-# Glen Maddern
-
-Hi there!
