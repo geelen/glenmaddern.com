@@ -5,7 +5,6 @@
 */
 
 [_Markdown] {
-  @extend [_layout~="p0-1"];
   h1,h2,h3 {
     @extend [_layout~="pt2"];
     @extend [_layout~="pb1"];

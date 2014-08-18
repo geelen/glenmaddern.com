@@ -1,3 +1,18 @@
+$breakpoints: "small", "medium", "large";
+$prefix: "_";
+
+@mixin rule($value) {
+  [#{$prefix}#{$attr}~="#{$value}"] {
+    @content;
+  }
+
+  @each $bp in $breakpoints {
+    .breakpoint-#{$bp} [#{$prefix}#{$attr}~="#{$bp}:#{$value}"] {
+      @extend [#{$prefix}#{$attr}~="#{$value}"];
+    }
+  }
+}
+
 @import '_shared/traits/layout';
 @import '_shared/traits/flex';
 @import '_shared/traits/type';
@@ -21,7 +36,7 @@
   min-height: 100%;
 }
 :root.breakpoint-small {
-  font-size: 16px;
+  font-size: 18px;
 }
 body {
   @extend [_background~="gradient"];

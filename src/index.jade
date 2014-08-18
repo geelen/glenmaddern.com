@@ -1,11 +1,11 @@
-header(_flex='align-center justify-center wrap' _layout='p4')
+header(_flex='align-center justify-center wrap' _layout='p4-0')
   h1(_flex-child='grow1' _after='down-chevron' _layout='p1' _type='h4 center')
     = "My name is "
-    span(_type='h1 light' _layout='block p1') Glen Maddern
+    span(_type='h1 small:h2 light' _layout='block p1') Glen Maddern
     = " and I do"
     span(_type='semibold')  rad web stuff
 
-main(_layout='max960 p1' _type='center')
+main(_layout='max960 p1-0' _type='center')
   section(_layout='p1-2')
     h2(_after='hr' _type='upcase') Articles
     - articles = public.articles._data
