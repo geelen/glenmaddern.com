@@ -1,7 +1,7 @@
 ol(_flex='justify-center align-stretch' _layout='small:block')
   each slug in Object.keys(preview.objects).slice(0,3)
     - project = preview.objects[slug]
-    li(_flex-child='thirds' _layout='p1 mb1' _flex='column' _type='lh1.4')
+    li(_flex-child='thirds' _layout='p1 small:mb1' _flex='column' _type='lh1.4')
       figure(_layout='pb1')
         a(target='_blank' href=project.url _link='subtle' _layout='block')
           img(src='/assets/images/#{project.image}' _layout='block w100%' _border='polaroid')

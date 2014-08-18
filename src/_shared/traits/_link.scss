@@ -35,3 +35,9 @@ $attr: 'link';
     color: inherit;
   }
 }
+
+@include val("obvious") {
+  &::after {
+    content: ' ↵';
+  }
+}

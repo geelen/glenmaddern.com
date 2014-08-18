@@ -72,6 +72,10 @@ $attr: "type";
   SMALL TYPE
 */
 
+@include val("small0") {
+  font-size: 1.0rem;
+}
+
 @include val("small1") {
   font-size: 0.9rem;
 }
@@ -124,4 +128,8 @@ $attr: "type";
 
 @include val("right") {
   text-align: right;
+}
+
+@include val("nobreak") {
+  white-space: nowrap;
 }

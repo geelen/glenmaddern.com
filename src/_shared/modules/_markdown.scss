@@ -30,6 +30,9 @@ $attr: "Markdown";
   p {
     @include extend("layout", "max720", "mb1");
     @include extend("type", "serif", "lh1.6", "small1");
+    .breakpoint-small {
+      @include extend("type", "small0");
+    }
   }
   figure {
     @include extend("layout", "max840", "p1");

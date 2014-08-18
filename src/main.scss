@@ -46,7 +46,7 @@ $prefix: "_";
   min-height: 100%;
 }
 :root.breakpoint-small {
-  font-size: 18px;
+  font-size: 16px;
 }
 body {
   @extend [_background~="gradient"];
