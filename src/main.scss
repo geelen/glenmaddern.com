@@ -17,6 +17,12 @@ $prefix: "_";
     }
   }
 }
+@mixin extend($attr, $values...) {
+  @extend [#{$prefix}#{$attr}];
+  @each $value in $values {
+    @extend [#{$prefix}#{$attr}~="#{$value}"];
+  }
+}
 
 @import '_shared/traits/layout';
 @import '_shared/traits/flex';

@@ -4,87 +4,67 @@
   A package of styles that target the tags Markdown generates
 */
 
-[_Markdown] {
+$attr: "Markdown";
+
+@include attr {
   h1,h2,h3 {
-    @extend [_layout~="pt2"];
-    @extend [_layout~="pb1"];
-    @extend [_type~="lh1.2"];
+    @include extend("layout", "pt2", "pb1");
+    @include extend("type", "lh1.2");
   }
   h2 {
-    @extend [_type~="h4"];
-    @extend [_type~="bold"];
-    @extend [_type~="center"];
+    @include extend("type", "h4", "bold", "center");
   }
   h3 {
-    @extend [_type~="h4"];
+    @include extend("type", "h4");
   }
   h4 {
-    @extend [_layout~="max720"];
-    @extend [_type~="bold"];
-    @extend [_layout~="p0.5-0"];
+    @include extend("layout", "max720", "p0.5-0");
+    @include extend("type", "bold");
   }
   h1, h2 {
-    @extend [_layout~="max840"];
+    @include extend("layout", "max840");
   }
   h3, h4 {
-    @extend [_layout~="max720"];
+    @include extend("layout", "max720");
   }
   p {
-    @extend [_layout~="max720"];
-    @extend [_type~="serif"];
-    @extend [_type~="lh1.6"];
-    @extend [_type~="small1"];
-    @extend [_layout~="mb1"];
+    @include extend("layout", "max720", "mb1");
+    @include extend("type", "serif", "lh1.6", "small1");
   }
   figure {
-    @extend [_layout~="max840"];
-    @extend [_layout~="p1"];
+    @include extend("layout", "max840", "p1");
     img {
-      @extend [_border~="polariod"];
-      @extend [_layout~="mw100%"];
-      @extend [_layout~="block"];
-      @extend [_layout~="m0-auto"];
+      @include extend("layout", "mw100%", "block", "m0-auto");
+      @include extend("border", "polaroid");
     }
     figcaption {
-      @extend [_type~="serif"];
-      @extend [_layout~="pt1"];
-      @extend [_type~="center"];
-      @extend [_type~="small3"];
-      @extend [_type~="italic"];
-      @extend [_type~="lh1.4"];
+      @include extend("type", "serif", "lh1.4", "small3", "italic", "center");
+      @include extend("layout", "pt1");
     }
   }
   a {
-    @extend [_link];
-    @extend [_link~="inline"];
+    @include extend("link", "inline");
   }
   ul {
-    @extend [_layout~="max720"];
-    @extend [_type~="small2"];
-    @extend [_type~="serif"];
-    @extend [_layout~="m1-auto"];
+    @include extend("layout", "max720", "m1-auto");
+    @include extend("type", "serif", "small2");
   }
   li {
-    @extend [_layout~="pl0.5"];
-    @extend [_layout~="m0.5-0"];
-    @extend [_type~="lh1.2"];
-    @extend [_before~="bullet"];
+    @include extend("layout", "pl0.5", "m0.5-0");
+    @include extend("type", "lh1.4");
+    @include extend("before", "bullet");
   }
   pre {
-    @extend [_layout~="m1-auto"];
-    @extend [_layout~="max840"];
+    @include extend("layout", "max840", "m1-auto");
     code {
-      @extend [_type~="small4"];
-      @extend [_layout~="p0.5"];
+      @include extend("type", "small4");
+      @include extend("layout", "p0.5", "m0");
     }
   }
   code {
-    @extend [_type~="mono"];
-    @extend [_type~="lh1.2"];
-    @extend [_type~="small3"];
-    @extend [_background~="white"];
-    @extend [_border~="simple"];
-    @extend [_layout~="p0.2"];
-    @extend [_layout~="m0.2"];
+    @include extend("type", "mono", "lh1.2", "small3");
+    @include extend("background", "white");
+    @include extend("border", "simple");
+    @include extend("layout", "p0.2", "m0.2");
   }
 }
