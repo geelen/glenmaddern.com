@@ -14,11 +14,11 @@ main(_layout='max960' _type='center')
   section(_layout='p2-1')
     h2(_after='hr' _type='upcase') Projects
     - projects = public.projects._data
-    != partial('_shared/preview_list', {preview: {title: 'Projects', objects: projects, keys: Object.keys(projects).slice(0,3)}})
+    != partial('_shared/preview_list', {preview: {objects: projects, keys: Object.keys(projects).slice(0,3)}})
     a(href='/projects' _link='inline obvious' _type='small3') All projects
 
   section(_layout='p2-1')
     h2(_after='hr' _type='upcase') Talks
     - talks = public.talks._data
-    != partial('_shared/preview_list', {preview: {title: 'Talks', objects: talks, keys: Object.keys(talks).slice(0,3)}})
+    != partial('_shared/preview_list', {preview: {objects: talks, keys: Object.keys(talks).slice(0,3)}})
     a(href='/talks' _link='inline obvious' _type='small3') All talks

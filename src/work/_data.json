@@ -1,0 +1,20 @@
+{
+  "coinjar": {
+    "title": "CoinJar",
+    "strap": "Marketing and mobile app development",
+    "url": "https://www.coinjar.com.au",
+    "image": "coinjar.jpg"
+  },
+  "the-z-dimension": {
+    "title": "Path - Eliminate Dengue",
+    "strap": "Content editing & publishing platform",
+    "url": false,
+    "image": "dengue.jpg"
+  },
+  "javascripts-slightly-stricter-mode": {
+    "title": "My Room",
+    "strap": "Interactive, animated SVG art project",
+    "url": "http://myroom.org.au",
+    "image": "my_room.gif"
+  }
+}
