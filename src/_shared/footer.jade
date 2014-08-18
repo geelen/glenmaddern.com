@@ -1,6 +1,11 @@
 footer(_layout='max960 pt2 pb4' _before='hr')
-  figure(_flex='justify-center align-center')
-    img(src='/assets/images/me_360.jpg' _border='round polariod' _size='4' _layout='mr1')
-    figcaption(_type='small1 center lh1.4' _size='20*auto')
-      span(_type='semibold center') Glen Maddern
+  figure(_flex='justify-center align-center' _size='24*auto' _layout='m0-auto mw100%')
+    img(_flex-child='shrink0' src='/assets/images/me_360.jpg' _border='round polariod' _size='4' _layout='mr1')
+    figcaption(_type='small1 center lh1.4')
+      span(_type='bold center') Glen Maddern
       |  is an independent Web Developer from Melbourne, Australia.
+      br
+      = "You should "
+      span(_type='semibold') get in touch
+      = " at "
+      a(href='mailto:glenmaddern@gmail.com' _link='inline') glenmaddern@gmail.com
