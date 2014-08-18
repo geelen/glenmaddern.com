@@ -1,7 +1,9 @@
-[_background~="white"] {
+$attr: "background";
+
+@include val("white") {
   background: white;
 }
 
-[_background~="gradient"] {
+@include val("gradient") {
   background: linear-gradient(-20deg, hsl(0,50%,96%) 20%, hsl(90,50%,98%) 50%, hsl(180,50%,96%) 80%);
 }

@@ -2,15 +2,17 @@
   FONT FAMILIES
 */
 
-[_type~="sans"] {
+$attr: "type";
+
+@include val("sans") {
   font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans';
 }
 
-[_type~="serif"] {
+@include val("serif") {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-[_type~="mono"] {
+@include val("mono") {
   font-family: "Consolas", "Menlo", "Courier", monospace;
 }
 
@@ -18,27 +20,27 @@
   FONT WEIGHTS
 */
 
-[_type~="light"] {
+@include val("light") {
   font-weight: 300;
 }
 
-[_type~="normal"] {
+@include val("normal") {
   font-weight: 400;
 }
 
-[_type~="medium"] {
+@include val("medium") {
   font-weight: 500;
 }
 
-[_type~="semibold"] {
+@include val("semibold") {
   font-weight: 600;
 }
 
-[_type~="bold"] {
+@include val("bold") {
   font-weight: 700;
 }
 
-[_type~="black"] {
+@include val("black") {
   font-weight: 900;
 }
 
@@ -46,28 +48,23 @@
   HEADERS
 */
 
-[_type~="h1"],
-.breakpoint-small [_type~="small:h1"] {
+@include val("h1") {
   font-size: 4.5rem;
 }
 
-[_type~="h2"],
-.breakpoint-small [_type~="small:h2"] {
+@include val("h2") {
   font-size: 3.5rem;
 }
 
-[_type~="h3"],
-.breakpoint-small [_type~="small:h3"] {
+@include val("h3") {
   font-size: 2.5rem;
 }
 
-[_type~="h4"],
-.breakpoint-small [_type~="small:h4"] {
+@include val("h4") {
   font-size: 1.5rem;
 }
 
-[_type~="h5"],
-.breakpoint-small [_type~="small:h5"] {
+@include val("h5") {
   font-size: 1.2rem;
 }
 
@@ -75,19 +72,19 @@
   SMALL TYPE
 */
 
-[_type~="small1"] {
+@include val("small1") {
   font-size: 0.9rem;
 }
 
-[_type~="small2"] {
+@include val("small2") {
   font-size: 0.8rem;
 }
 
-[_type~="small3"] {
+@include val("small3") {
   font-size: 0.7rem;
 }
 
-[_type~="small4"] {
+@include val("small4") {
   font-size: 0.6rem;
 }
 
@@ -97,7 +94,7 @@
 */
 
 @for $i from 0 through 6 {
-  [_type~="lh1.#{$i}"] {
+  @include val("lh1.#{$i}") {
     line-height: 1 + 0.1 * $i;
   }
 }
@@ -106,25 +103,25 @@
   TRANSFORMATIONS
 */
 
-[_type~="upcase"] {
+@include val("upcase") {
   text-transform: uppercase;
 }
 
-[_type~="center"] {
+@include val("center") {
   text-align: center;
 }
 
-[_type~="italic"] {
+@include val("italic") {
   font-style: italic;
 }
 
-[_type~="truncate"] {
+@include val("truncate") {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
 }
 
-[_type~="right"] {
+@include val("right") {
   text-align: right;
 }

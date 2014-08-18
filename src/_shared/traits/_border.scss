@@ -1,15 +1,17 @@
-[_border~="round"] {
+$attr: "border";
+
+@include val("round") {
   border-radius: 50%;
 }
 
-[_border~="polariod"] {
+@include val("polariod") {
   box-shadow: 0 0 0 1px #eee, 0 0 0 7px white, 0 0 0 8px #ddd;
 }
 
-[_border~="frame"] {
+@include val("frame") {
   box-shadow: 0 0 0 7px white, 0 0 0 8px #ddd;
 }
 
-[_border~="simple"] {
+@include val("simple") {
   box-shadow: 0 0 0 1px #ddd;
 }

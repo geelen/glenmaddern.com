@@ -1,7 +1,12 @@
 $breakpoints: "small", "medium", "large";
 $prefix: "_";
 
-@mixin rule($value) {
+@mixin attr() {
+  [#{$prefix}#{$attr}] {
+    @content;
+  }
+}
+@mixin val($value) {
   [#{$prefix}#{$attr}~="#{$value}"] {
     @content;
   }
@@ -17,7 +22,6 @@ $prefix: "_";
 @import '_shared/traits/flex';
 @import '_shared/traits/type';
 @import '_shared/traits/link';
-@import '_shared/traits/before';
 @import '_shared/traits/after';
 @import '_shared/traits/border';
 @import '_shared/traits/background';

@@ -1,11 +1,13 @@
-[_link] {
+$attr: 'link';
+
+@include attr {
   &:hover, &:active, &:visited {
     color: inherit;
   }
   text-decoration: underline;
 }
 
-[_link~="subtle"] {
+@include val("subtle") {
   color: inherit;
   text-decoration: none;
 
@@ -14,7 +16,7 @@
   }
 }
 
-[_link~="inline"] {
+@include val("inline") {
   &, &:hover, &:visited {
     color: hsl(0, 50%, 40%);
     text-decoration: none;
@@ -27,7 +29,7 @@
   }
 }
 
-[_link~="invisible"] {
+@include val("invisible") {
   &, &:hover, &:visited {
     text-decoration: none;
     color: inherit;

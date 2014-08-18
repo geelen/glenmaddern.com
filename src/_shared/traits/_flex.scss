@@ -1,47 +1,51 @@
-[_flex] {
+$attr: "flex";
+
+@include attr {
   display: flex;
 }
 
-[_flex~="column"] {
+@include val("column") {
   flex-direction: column;
 }
 
-[_flex~="align-center"] {
+@include val("align-center") {
   align-items: center;
 }
 
-[_flex~="align-end"] {
+@include val("align-end") {
   align-items: flex-end;
 }
 
-[_flex~="align-stretch"] {
+@include val("align-stretch") {
   align-items: stretch;
 }
 
-[_flex~="wrap"] {
+@include val("wrap") {
   flex-wrap: wrap;
 }
 
-[_flex~="justify-center"] {
+@include val("justify-center") {
   justify-content: center;
 }
 
-[_flex~="justify-end"] {
+@include val("justify-end") {
   justify-content: flex-end;
 }
 
-[_flex-child~="shrink0"] {
+$attr: "flex-child";
+
+@include val("shrink0") {
   flex-shrink: 0;
 }
 
-[_flex-child~="shrink1"] {
+@include val("shrink1") {
   flex-shrink: 1;
 }
 
-[_flex-child~="grow1"] {
+@include val("grow1") {
   flex-grow: 1;
 }
 
-[_flex-child~="thirds"] {
+@include val("thirds") {
   flex: 0 0 33.33%;
 }
