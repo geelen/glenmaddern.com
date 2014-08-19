@@ -27,7 +27,7 @@ gulp.task('serve', function () {
     /**
      * Watch for all other changes, reload the whole page
      */
-    gulp.watch(["src/**/*.jade", "src/**/*.json"], function () {
+    gulp.watch(["src/**/*.jade", "src/**/*.json", "src/**/*.md"], function () {
       reload();
     });
   })

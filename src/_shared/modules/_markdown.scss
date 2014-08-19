@@ -70,4 +70,14 @@ $attr: "Markdown";
     @include extend("border", "simple");
     @include extend("layout", "p0.2", "m0.2");
   }
+  blockquote p {
+    @include extend("type", "semibold", "h5", "lh1.2");
+    @include extend("border", "thick-left");
+  }
+  strong {
+    @include extend("type", "semibold");
+  }
+  em {
+    @include extend("type", "italic");
+  }
 }

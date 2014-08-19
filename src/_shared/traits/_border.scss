@@ -15,3 +15,8 @@ $attr: "border";
 @include val("simple") {
   box-shadow: 0 0 0 1px #ddd;
 }
+
+@include val("thick-left") {
+  border-left: 0.2rem solid;
+  padding-left: 1rem;
+}
