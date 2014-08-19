@@ -1,7 +1,7 @@
-ol(_flex='justify-center align-stretch' _layout='small:block')
+ol(_flex='justify-center align-stretch wrap' _layout='small:block')
   each key in preview.keys
     - project = preview.objects[key]
-    li(_flex-child='thirds' _layout='p1 small:mb1' _flex='column' _type='lh1.4')
+    li(_flex-child='1/3 medium:1/2' _layout='p1 small:mb1' _flex='column' _type='lh1.4')
       figure(_layout='pb1')
         if project.url
           a(target='_blank' href=project.url _link='subtle' _layout='block')
@@ -10,8 +10,9 @@ ol(_flex='justify-center align-stretch' _layout='small:block')
           img(src='/assets/images/#{project.image}' _layout='block w100%' _border='polaroid')
       figcaption(_flex-child='grow1' _layout='pb0.5')
         h3(_type='h5 semibold')= project.title
-        h4= project.strap
+        h4(_layout='mb0.2')= project.strap
         if project.url
-          a(target='_blank' href=project.url _type='small3 italic truncate' _link='inline')= project.url
+          a(target='_blank' href=project.url _type='small3 italic truncate' _link='inline')
+            = project.url.replace(/https?:\/\//,'')
         else
           span(_type='small3 italic truncate') Not publicly accessible

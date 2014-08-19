@@ -1,7 +1,7 @@
 {
   "coinjar": {
     "title": "CoinJar",
-    "strap": "Marketing and mobile app development",
+    "strap": "Bitcoin merchant & online wallet",
     "url": "https://www.coinjar.com.au",
     "image": "coinjar.jpg"
   },
@@ -16,5 +16,17 @@
     "strap": "Interactive, animated SVG art project",
     "url": "http://myroom.org.au",
     "image": "my_room.gif"
+  },
+  "trova": {
+    "title": "Trova",
+    "strap": "Fashion blog & storefront",
+    "url": "http://www.trova.com.au/",
+    "image": "trova.jpg"
+  },
+  "goodfilms": {
+    "title": "Goodfilms",
+    "strap": "A social network for film lovers",
+    "url": "http://goodfil.ms/",
+    "image": "goodfilms.jpg"
   }
 }

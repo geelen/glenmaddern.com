@@ -1,4 +1,10 @@
 {
+  "gifs-vs-web-components": {
+    "title": "GIFs vs Web Components",
+    "strap": "Cascadia JS 2014",
+    "url": "https://www.youtube.com/watch?v=uNEkQabSt4Q",
+    "image": "cascadia.jpg"
+  },
   "a-gif-odyssey": {
     "title": "A GIF Odyssey",
     "strap": "Mountain West JS 2014",

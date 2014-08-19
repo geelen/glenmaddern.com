@@ -11,6 +11,7 @@ main(_layout='max960' _type='center')
     - articles = public.articles._data
     != partial('_shared/blog_headlines', {keys: Object.keys(articles).slice(0,3)})
     a(href='/articles' _link='inline' _type='small1') more...
+
   section(_layout='p2-1')
     h2(_after='hr' _type='upcase') Projects
     - projects = public.projects._data
@@ -22,3 +23,9 @@ main(_layout='max960' _type='center')
     - talks = public.talks._data
     != partial('_shared/preview_list', {preview: {objects: talks, keys: Object.keys(talks).slice(0,3)}})
     a(href='/talks' _link='inline obvious' _type='small3') All talks
+
+  section(_layout='p2-1')
+    h2(_after='hr' _type='upcase') Work
+    - work = public.work._data
+    != partial('_shared/preview_list', {preview: {objects: work, keys: Object.keys(work).slice(0,3)}})
+    a(href='/work' _link='inline obvious' _type='small3') All work

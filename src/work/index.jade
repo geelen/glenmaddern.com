@@ -1,5 +1,5 @@
 main(_layout='max960 p1' _type='center')
-  section(_layout='p2-1')
-    h2(_after='hr' _type='upcase') Work
+  section(_layout='p2-0')
+    h2(_after='hr' _type='upcase') Recent Work
     - work = public.work._data
     != partial('../_shared/preview_list', {preview: {objects: work, keys: Object.keys(work)}})

@@ -46,6 +46,9 @@ $attr: "flex-child";
   flex-grow: 1;
 }
 
-@include val("thirds") {
+@include val("1/3") {
   flex: 0 0 33.33%;
+}
+@include val("1/2") {
+  flex: 0 0 50%;
 }
