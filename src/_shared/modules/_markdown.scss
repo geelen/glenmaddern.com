@@ -71,6 +71,7 @@ $attr: "Markdown";
     @include extend("layout", "p0.2", "m0.2");
   }
   blockquote p {
+    @include extend("layout", "m2-0");
     @include extend("type", "semibold", "h5", "lh1.2");
     @include extend("border", "thick-left");
   }

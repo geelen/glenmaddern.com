@@ -1,4 +1,4 @@
-A few months ago, I read an article by Harry Roberts where he introduced an interesting concept for working with related classes in CSS. In his [article](http://csswizardry.com/2014/05/grouping-related-classes-in-your-markup/), he describes the use of the `[]` characters in class attributes to help understand their purpose at a quick glance. He presents this example:
+A few months ago, I read an article by Harry Roberts where he introduced an interesting concept for working with related classes in CSS. In his [article](http://csswizardry.com/2014/05/grouping-related-classes-in-your-markup/), he describes the use of the `[]` characters in class attributes to help understand their purpose at a quick glance. He presents this example, arguing that it makes the class declaration more *scannable* - that is, more understandable at a glance:
 
 ````markup
 <div class="[ foo  foo--bar ]  [ baz  baz--foo ]">
@@ -6,7 +6,7 @@ A few months ago, I read an article by Harry Roberts where he introduced an inte
 
 I must admit, I was initially extremely uncomfortable with the technique. The idea of classes with names like `[` and `]`, that match no CSS, that are repeated within a single class attribute, that are purely designed for *humans* rather than the browser seemed, well, wrong. I still think that, actually, but it got me thinking about markup & semantics much more deeply, so thanks Harry!
 
-As I looked into it, several people were suggesting similar approaches, such as using `/` ([Ben Everard](http://beneverard.co.uk/blog/using-slashes-within-the-html-class-attribute/)), or `|` ([Stephen Nolan](https://twitter.com/sn0lan/status/439384690680942592)), but the feeling of unnaturalness persisted. All I could think was:
+As I looked into it, several people were suggesting similar approaches, such as using `/`&nbsp;([Ben Everard](http://beneverard.co.uk/blog/using-slashes-within-the-html-class-attribute/)), or `|`&nbsp;([Stephen Nolan](https://twitter.com/sn0lan/status/439384690680942592)), but the feeling of unnaturalness persisted. All I could think was:
 
 > How do you have so many classes that it seems reasonable to propose something like this?
 
@@ -14,9 +14,9 @@ Because, let's be clear, this **is not reasonable**. This is a tiny layer of ven
 
 ## More vs fewer classes - a brief aside
 
-The crazy thing is, while I immediately knew I didn't like seeing so many classes on a single element, people like Harry were just so damn *persuasive* with appeals to things like OOCSS and the [Single Responsibility Principal](http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/), and from my own experience building a series of sites of increasing complexity.
+The surprising thing was, while the presence of so many classes in the markup was unsettling to me, people like Harry were just so damn *persuasive*. Appealing to things like OOCSS and the [Single Responsibility Principal](http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/), and from my own experience building a series of sites of increasing complexity, I felt like there must be something to it.
 
-I had previously adopted a version of BEM that emphasised isolation over reuse, as it suited the kinds of projects I was doing. But the tradeoff there is *fragmentation* - when you find yourself with 10 different link styles, 12 shades of blue, etc. Nicole Sullivan, creator of OOCSS, gave a fantastic [presentation](https://www.youtube.com/watch?v=0NDyopLKE1w) last year in Melbourne that spoke exactly to that problem far better than I can here.
+I had previously adopted a version of BEM that emphasised **isolation over reuse**, as it suited the kinds of projects I was doing. But the tradeoff there is *fragmentation* - when you find yourself with 10 different link styles, 12 shades of blue, etc. Nicole Sullivan, creator of OOCSS, gave a fantastic [presentation](https://www.youtube.com/watch?v=0NDyopLKE1w) last year in Melbourne that spoke exactly to that problem far better than I can here.
 
 It felt like the accepted solution was to dive deeper into the capabilities of CSS pre-processors in order to have the isolation of BEM but the consistency of OOCSS. For example, instead of this:
 
@@ -44,9 +44,9 @@ you would have:
 }
 ```
 
-That worked reasonably well, and allowed me to blend the ease of by-default style isolation that BEM gives you and keep a handle on fragmentation at the same time. And so things were ok, for a while.
+I ended up with files full of mixins and placeholders like `_typography.scss` and `_brand.scss`, which allowed me to blend the ease of by-default style isolation that I was using BEM for and keep a handle on fragmentation at the same time. And so things were ok, for a while.
 
-## Modifiers: how the -- kills BEM
+## Modifiers: how the M breaks BEM
 
 Doing any research on the topic of CSS class naming & maintainability, you're bound to come across Nicolas Gallagher's excellent article ["About HTML semantics and front-end architecture"](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/). One part in particular caught my attention, which he calls 'single-class' vs 'multi-class' patterns for modifiers. To summarize, the two potential versions of your HTML look like this:
 
@@ -67,11 +67,11 @@ That's facilitated through two alternative CSS patterns:
 .btn--large { /* large button styles */ }
 ```
 
-The difference here is whether `btn--large` has *any meaning* if it is present without `btn`. The single-class pattern says yes, which avoids the pitfall of them not being present together. It's also less repetitious, and with SASS's @extend functionality it isn't much of a burden on the CSS side, but it has a truly fatal flaw.
+The difference here is whether `btn--large` is sufficient *on its own*, or whether it depends on the class `btn` being present. The single-class pattern says yes, it feels simpler and avoids the case where someone forgets to include `btn`. It's also less repetitious, and with SASS's `@extend` functionality it doesn't feel like much of a burden on the CSS side, but it has a truly fatal flaw.
 
 ## Contextual overrides
 
-Let's say your buttons in your header nav don't have a background colour. With multi-class modifiers, all buttons, large or small, rounded or square, etc, still include the class `btn`, so you can target them like so:
+Let's say your buttons in your site-level navigation don't have a background colour. With multi-class modifiers, all buttons, large or small, rounded or square, etc, still include the class `btn`, so you can target them like so:
 
 ```css
 header > nav > .btn { background: none; }
@@ -85,7 +85,7 @@ header > nav {
 }
 ```
 
-Obviously, this is not ideal - adding another button style means adding another override anywhere that needs it. So generally people suggest the multi-class pattern as a result. But there's an alternative.
+Obviously, this is not ideal - adding another button style means adding another override anywhere that needs it. I've seen quite a few proposed solutions to this, the most obvious of which is to simply return to the multiple-class style ([Nicholas Gallagher](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/), [Ben Smithett](http://bensmithett.com/bem-modifiers-multiple-classes-vs-extend/)). [Tommy Marshall](http://viget.com/extend/bem-multiple-modifiers-and-experimenting-with-attribute-selectors) 
 
 ## Why the fuck are we using classes?
 
