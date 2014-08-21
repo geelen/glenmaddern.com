@@ -4,6 +4,11 @@ $attr: "border";
   border-radius: 50%;
 }
 
+@include val("none") {
+  border: none;
+  box-shadow: none;
+}
+
 @include val("polaroid") {
   box-shadow: 0 0 0 1px #eee, 0 0 0 7px white, 0 0 0 8px #ddd;
 }
