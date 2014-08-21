@@ -14,7 +14,7 @@ Because, let's be clear, **this is madness**. Readable, scannable HTML is a wort
 
 ## More vs fewer classes - a brief aside
 
-The surprising thing was, while the presence of so many classes in the markup was unsettling to me, people like Harry were just so damn *persuasive*. Appealing to things like OOCSS and the [Single Responsibility Principal](http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/), and from my own experience building a series of sites of increasing complexity, I could tell there was value in the *decomposition* of styling behaviour, but it wasn't until recently that I found a way to implement it.
+The surprising thing was, while the presence of so many classes in the markup was unsettling to me, people like Harry were just so damn *persuasive*. Appealing to things like OOCSS and the [Single Responsibility Principal](http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/), and from my own experience building a series of sites of increasing complexity, I could tell there was value in the *decomposition* of styling behaviour, but it wasn't until recently that I found a way to implement it that I was happy with.
 
 I had previously adopted a version of BEM that emphasised **isolation over reuse** &dash; each new block inherits no styling by default, allowing components to be developed separately and avoids the risk of breaking something elsewhere on the site. But the tradeoff there is *fragmentation* &dash; when you find yourself with 10 different link styles, 12 shades of blue, 18 subtly different button styles etc. Nicole Sullivan, the creator of OOCSS, gave a fantastic [presentation](https://www.youtube.com/watch?v=0NDyopLKE1w) last year in Melbourne that spoke about how common that problem was, and how to recover from it.
 
@@ -37,10 +37,10 @@ you would have:
 ```scss
 .btn { /* button styles */ }
 .btn--large {
-  @extend large-type;
+  @extend %large-type;
 }
 .btn--rounded {
-  @extend rounded-borders;
+  @extend %rounded-borders;
 }
 ```
 
@@ -99,28 +99,34 @@ header > nav > [class^='btn'] { /* Overrides for all buttons */ }
 
 This achieves easy contextual overrides for a single-class pattern, but is fatally flawed from the start. Most damningly, if *another* class appears before `btn--large`, the prefix selector doesn't match, and everything breaks. Also, there's no obvious way of permitting multiple variants such as `btn--large--rounded`.
 
-I appreciate the inventiveness of this approach, but it's a dead end. And it's where I got stuck, too, until I asked myself one question.
+I appreciate the inventiveness of this approach, but it's a dead end. And it's where I got stuck, too, until something occurred to me.
 
 ## Why the fuck are we using classes?
 
 Forgive my bluntness, but can anyone give me a good reason why classes are the *only* place we add styling information? Here's what the [HTML living standard](http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#classes) has to say: 
 
+> **3.2.5.7 The class attribute**
+> 
 > The attribute, if specified, must have a value that is a set of space-separated tokens representing the various classes that the element belongs to.
-> <br><br>
+> 
 > There are no additional restrictions on the tokens authors can use in the class attribute, but authors are encouraged to use values that describe the nature of the content, rather than values that describe the desired presentation of the content.
 
-So yes, it makes perfect sense that we use classes to describe 'the nature of the content', but it feels like we're asking more of the humble class attribute than it can give us. For example, we use BEM-style names like `primary-nav__sub-nav--current`, as well as utilities like `u-textTruncate` or `left` and JavaScript hooks like `js-doSomething`, and so we spend a lot of time coming up with readable names that don't conflict with any others. It's manageable through convention & discipline, sure, but we're operating in a **global namespace**, and no amount of naming conventions can change that. But before we talk about AM, my proposed solution, we need to brush up on a lesser-known feature of CSS.
+So yes, it makes perfect sense that we use classes to describe 'the nature of the content', but it feels like we're asking more of the humble class attribute than it can give us. This one attribute holds everything, from enormous BEM-style names like `primary-nav__sub-nav--current` to utilities like `u-textTruncate` or `left` or `clearfix`, to JavaScript hooks like `js-whatevs`, and so we spend a lot of time coming up with names that don't conflict with any others but are still vaguely readable. 
+
+It's manageable through convention & discipline, and even helped by techniques like Harry's at the top of this article, but the truth is we're operating in a **global namespace**, and no amount of conventions can change that. Which is what makes AM different.
+
+But before we can talk about that, we need to brush up on a lesser-known feature of CSS.
 
 ## Welcome ~=, the magic selector
 
-It turns out browsers since IE7 have had a particularly powerful CSS rule called the *space-separated attribute selector*, described [here on CSS Tricks](http://css-tricks.com/attribute-selectors/#rel-space). It matches arbitrary attribute values, separated by spaces, just like classes. So the following two lines of CSS are equivalent:
+It turns out browsers since IE7 have had a particularly powerful CSS rule called the *space-separated attribute selector*, described [here on CSS Tricks](http://css-tricks.com/attribute-selectors/#rel-space). It matches arbitrary attribute values, separated by spaces, just like they were classes. So the following two lines of CSS are equivalent:
 
 ```css
-.dat-markup { /* dem rules */ };
-[class~='dat-markup'] { /* dem rules */ };
+.dat-class { /* dem styles */ };
+[class~='dat-class'] { /* dem styles */ };
 ```
 
-In the same way that `<div class='a b c'>` doesn't care which order the `a`, `b` and `c` are in, or what else is present, neither does the `~=` selector. But `~=` isn't limited to the `class` attribute. It can work on anything.
+In the same way that `<div class='a b c'>` doesn't care which order the `a`, `b` and `c` are in, or what else is present, neither does the `~=` selector. But `~=` isn't limited to the `class` attribute, it can work on any attribute. And it's the key to a whole new approach.
 
 # Attribute Modules
 
@@ -141,11 +147,14 @@ Attribute Modules, or AM, at its core is about *defining namespaces* for your st
 .row { /* max-width, clearfixes */ }
 .column-1 { /* 1/12th width, floated */ }
 .column-2 { /* 1/6th width, floated */ }
+.column-3 { /* 1/4th width, floated */ }
+.column-4 { /* 1/3rd width, floated */ }
+.column-5 { /* 5/12th width, floated */ }
 /* etc */
 .column-12 { /* 100% width, floated */ }
 ```
 
-Now let's build it with *attribute modules*. We have two modules, rows and columns. Rows, so far, have no variations. Columns have 12.
+Now let's build it with *attribute modules*. We have two modules, **rows** and **columns**. Rows, so far, have no variations. Columns have 12.
 
 ```markup
 <div am-row>
@@ -161,17 +170,20 @@ Now let's build it with *attribute modules*. We have two modules, rows and colum
 [am-row] { /* max-width, clearfixes */ }
 [am-column~="1"] { /* 1/12th width, floated */ }
 [am-column~="2"] { /* 1/6th width, floated */ }
+[am-column~="3"] { /* 1/4th width, floated */ }
+[am-column~="4"] { /* 1/3rd width, floated */ }
+[am-column~="5"] { /* 5/12th width, floated */ }
 /* etc */
 [am-column~="12"] { /* 100% width, floated */ }
 ```
 
-The first thing you will notice is the `am-` prefix. This is a core part of AM, and ensures that *attribute modules do not conflict with existing attributes*. You can use any prefix you like &dash; I've experimented with `ui-`, `css-` and on this site I've simply used an underscore. If HTML validity is important to you or your project, simply choose a prefix that begins with `data-`, the idea is the same.
+The first thing you will notice is the `am-` prefix. This is a core part of AM, and ensures that attribute modules *do not conflict with existing attributes*. You can use any prefix you like &dash; I've experimented with `ui-`, `css-` and others, but settled on `am-` for these examples. If HTML validity is important to you or your project, simply choose a prefix that begins with `data-`, the idea is the same.
 
 The second thing you might notice is that values like `"1"`, `"4"` or `"12"` would make *terrible* class names &dash; they're far too generic and the chances of collisions would be high. But because we've defined our own namespace, in effect carving off a little place for us to work, we are free to use the most concise, meaningful tokens we choose.
 
 ## Flexibility with attribute values
 
-So far, the differences are pretty minor. But since each module defines its own namespace, you have complete freedom with the values you use. For example, we could change things to the following:
+So far, the differences are pretty minor. But since each module defines its own namespace, let's try a slightly different scheme for our values:
 
 ```markup
 <div am-row>
@@ -188,20 +200,23 @@ So far, the differences are pretty minor. But since each module defines its own 
 [am-column] { /* 100% width, floated */ }
 [am-column~="1/12"] { /* 1/12th width */ }
 [am-column~="1/6"] { /* 1/6th width */ }
+[am-column~="1/4"] { /* 1/4th width */ }
+[am-column~="1/3"] { /* 1/3rd width */ }
+[am-column~="5/12"] { /* 5/12ths width */ }
 /* etc */
 ```
 
-Here we've used more relevant naming (`"1/3"` instead of `"4"`), as well as used a *default* style for a column &dash; that is, the attribute `column` with no value is treated as a full-width column. However, we've also been able to move repeated logic (the fact that columns are floated) into this attribute rule. 
+Now we're able to use naming that makes sense for our domain &dash; a width of `1/3` makes immediate sense whereas `4` needs us to remember we're using a 12-column grid. But we've also been able to define a *default* style for all columns &dash; that is, the attribute `column` with no value is treated as a full-width column. However, we've also been able to move repeated logic (the fact that columns are floated) into this attribute rule.
 
 ## Styling both attributes and values
 
 Again, this is one of the key benefits of this approach. The *presence* of an attribute, e.g. `am-button`, can and should be styled. The particular *values* of each attribute then alter and adapt these base styles.
 
-In the grid example above, we're doing exactly that: the markup `am-column="1/3"` matches *both* `[am-column]` and `[am-column~="1/3"]` styles, so the result is the base styles + variations. It gives us a way to capture the fact that *all columns are columns* without needing to duplicate classes (e.g. `class='column column-4'`) or use SASS's `@extend` functionality.
+In the grid example above, we're doing exactly that: the markup `am-column="1/3"` matches styles at *both* `[am-column]` and `[am-column~="1/3"]`, so the result is the base styles + variations. It gives us a way to capture the fact that *all columns are columns* without needing to duplicate classes or use SASS's `@extend` functionality.
 
 ## The zero-class approach to BEM modifiers
 
-Back to our single-class vs multi-class patterns for BEM modifiers, AM enables a zero-class one. For our button examples above, this is how the markup looks:
+Back to our single-class vs multi-class patterns for BEM modifiers, AM gives us a zero-class option. For our button examples above, this is how the markup looks:
 
 ```markup
 <a am-button>Normal button</a>
@@ -221,10 +236,10 @@ By creating a new Attribute Module `am-button`, we can separate out the styles t
 header > nav > [am-button] { background: none; }
 ```
 
-Now it doesn't matter what variant of button we choose to use, or how many variants we choose to define, the point is that  *all buttons* must match the selector `[am-button]`, so we know our override will be valid.
+Now it doesn't matter what variant of button we choose to use, or how many variants we choose to define, the point is that  *all buttons* will match the selector `[am-button]`, so we know our override will be valid.
 
 ## The AM Specification
 
-Myself, [Ben Schwarz](http://germanforblack.com/) and [Ben Smithett](http://bensmithett.com/) have begun work on a [formal specification](https://github.com/amcss/attribute-module-specification) for AM if you'd like to read more about how these techniques extend to blocks, elements, breakpoints & more.
+Myself, [Ben Schwarz](http://germanforblack.com/) and [Ben Smithett](http://bensmithett.com/) have begun work on a [formal specification](https://github.com/amcss/attribute-module-specification) for AM. If you'd like to read more about how these techniques extend to blocks, elements, breakpoints & more, head there, and if you have questions, please [raise an issue](https://github.com/amcss/attribute-module-specification/issues).
 
-We're also setting up a documentation site with a much wider range of AM examples at [amcss.github.io](http://amcss.github.io/). If you're interesting in contributing feedback, examples, edge-cases or point to your own AM libraries, please reach out to us [on GitHub](https://github.com/amcss/amcss.github.io).
+We're also setting up a documentation site with a much wider range of AM examples at [amcss.github.io](http://amcss.github.io/). If you're interesting in contributing feedback, examples, edge-cases or would like us to point to your own AM libraries, please reach out to us [on GitHub](https://github.com/amcss/amcss.github.io).

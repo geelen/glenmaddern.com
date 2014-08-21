@@ -43,7 +43,7 @@ gulp.task('serve', function () {
 gulp.task('default', ['serve']);
 
 gulp.task('build-release', function (done) {
-  harp.compile('src', 'dist', done);
+  harp.compile('src', __dirname + '/dist', done);
 });
 gulp.task('publish', ['build-release'], function () {
   var aws = require('./.aws.json'),
