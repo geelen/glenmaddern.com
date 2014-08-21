@@ -1,4 +1,8 @@
 main(_layout='p1')
   != partial('_header')
-  article(_Markdown)
+  p(_type='italic' _layout='max720')
+    = "This post is still being written. Follow me "
+    a(href='https://twitter.com/glenmaddern' _link='inline') on Twitter
+    |  to hear when it goes live.
+  //article(_Markdown)
     != partial('_introducing_am_css')
