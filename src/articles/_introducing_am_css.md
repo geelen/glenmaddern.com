@@ -109,13 +109,11 @@ Forgive my bluntness, but can anyone give me a good reason why classes are the *
 > <br><br>
 > There are no additional restrictions on the tokens authors can use in the class attribute, but authors are encouraged to use values that describe the nature of the content, rather than values that describe the desired presentation of the content.
 
-Whether it's more of a BEM-style isolated styling hook or an OOCSS-style reusable buidling block, it still has to find a unique name inside this soup of tokens we use as classes. And we've taken to using `js-` to separate out the JS-specific hooks from the styling ones, and libraries like SuitCSS use `u-` to delineate utilities, but it's still the one big **global namespace**. And that's a symptom of a wider problem.
-
-It occurred to me a little while ago that maybe we should look for ways to break away from the humble `class=''` tag as soon as we can.
+So yes, it makes perfect sense that we use classes to describe 'the nature of the content', but it feels like we're asking more of the humble class attribute than it can give us. For example, we use BEM-style names like `primary-nav__sub-nav--current`, as well as utilities like `u-textTruncate` or `left` and JavaScript hooks like `js-doSomething`, and so we spend a lot of time coming up with readable names that don't conflict with any others. It's manageable through convention & discipline, sure, but we're operating in a **global namespace**, and no amount of naming conventions can change that. But before we talk about AM, my proposed solution, we need to brush up on a lesser-known feature of CSS.
 
 ## Welcome ~=, the magic selector
 
-It turns out browsers since IE7 have had a particularly powerful CSS rule called the *space-separated attribute selector*, described [here](http://css-tricks.com/attribute-selectors/#rel-space) on CSS Tricks. It matches arbitrary attribute values, separated by spaces, just like classes. So the following two lines of CSS are equivalent:
+It turns out browsers since IE7 have had a particularly powerful CSS rule called the *space-separated attribute selector*, described [here on CSS Tricks](http://css-tricks.com/attribute-selectors/#rel-space). It matches arbitrary attribute values, separated by spaces, just like classes. So the following two lines of CSS are equivalent:
 
 ```css
 .dat-markup { /* dem rules */ };
@@ -123,6 +121,10 @@ It turns out browsers since IE7 have had a particularly powerful CSS rule called
 ```
 
 In the same way that `<div class='a b c'>` doesn't care which order the `a`, `b` and `c` are in, or what else is present, neither does the `~=` selector. But `~=` isn't limited to the `class` attribute. It can work on anything.
+
+# Attribute Modules
+
+Attribute Modules, or AM, at its core is about *defining namespaces* for your styles to live in. Let's begin with a simple example, the grid:
 
 ## The zero-class approach
 

@@ -7,25 +7,25 @@
 $attr: "Markdown";
 
 @include attr {
-  h1,h2,h3 {
-    @include extend("layout", "pt2", "pb1");
+  h1,h2,h3,h4 {
     @include extend("type", "lh1.2");
   }
+  h1 {
+    @include extend("after", "hr");
+    @include extend("layout", "max840", "pt3", "pb2");
+    @include extend("type", "h3", "bold", "center");
+  }
   h2 {
+    @include extend("layout", "max840", "pt2", "pb1");
     @include extend("type", "h4", "bold", "center");
   }
   h3 {
     @include extend("type", "h4");
+    @include extend("layout", "max720");
   }
   h4 {
-    @include extend("layout", "max720", "p0.5-0");
     @include extend("type", "bold");
-  }
-  h1, h2 {
-    @include extend("layout", "max840");
-  }
-  h3, h4 {
-    @include extend("layout", "max720");
+    @include extend("layout", "max720", "p0.5-0");
   }
   p {
     @include extend("layout", "max720", "mb1");
