@@ -13,6 +13,6 @@ ol(_flex='justify-center align-stretch wrap' _layout='small:block')
         h4(_layout='mb0.2')= project.strap
         if project.url
           a(target='_blank' href=project.url _type='small3 italic truncate' _link='inline')
-            = project.url.replace(/https?:\/\//,'')
+            = project.url.replace(/^https?:\/\//,'').replace(/\/$/,'')
         else
           span(_type='small3 italic truncate') Not publicly accessible

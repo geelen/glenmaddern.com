@@ -1,4 +1,4 @@
-A few months ago, I read an article by Harry Roberts where he introduced an interesting concept for working with related classes in CSS. In his [article](http://csswizardry.com/2014/05/grouping-related-classes-in-your-markup/), he describes the use of the `[]` characters in class attributes to help understand their purpose at a quick glance. He presents this example, arguing that it makes the class declaration more *scannable* - that is, more understandable at a glance:
+A few months ago, I read an [article by Harry Roberts](http://csswizardry.com/2014/05/grouping-related-classes-in-your-markup/) where he introduced an interesting concept for working with related classes in CSS. In his article, he describes the use of the `[]` characters in class attributes to help understand their purpose at a quick glance. He presents this example, arguing that it makes the class declaration more *scannable* - that is, more understandable at a glance:
 
 ````markup
 <div class="[ foo  foo--bar ]  [ baz  baz--foo ]">
