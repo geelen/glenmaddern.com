@@ -16,9 +16,9 @@ Because, let's be clear, **this is madness**. Readable, scannable HTML is a wort
 
 The surprising thing was, while the presence of so many classes in the markup was unsettling to me, people like Harry were just so damn *persuasive*. Appealing to things like OOCSS and the [Single Responsibility Principal](http://csswizardry.com/2012/04/the-single-responsibility-principle-applied-to-css/), and from my own experience building a series of sites of increasing complexity, I could tell there was value in the *decomposition* of styling behaviour, but it wasn't until recently that I found a way to implement it.
 
-I had previously adopted a version of BEM that emphasised **isolation over reuse** &dash; each new block inherits no styling by default, allowing components to be developed separately and avoids the risk of breaking something elsewhere on the site. But the tradeoff there is *fragmentation* &dash; when you find yourself with 10 different link styles, 12 shades of blue, 18 subtly different button styles etc. Nicole Sullivan, creator of OOCSS, gave a fantastic [presentation](https://www.youtube.com/watch?v=0NDyopLKE1w) last year in Melbourne that spoke exactly to that problem far better than I can here.
+I had previously adopted a version of BEM that emphasised **isolation over reuse** &dash; each new block inherits no styling by default, allowing components to be developed separately and avoids the risk of breaking something elsewhere on the site. But the tradeoff there is *fragmentation* &dash; when you find yourself with 10 different link styles, 12 shades of blue, 18 subtly different button styles etc. Nicole Sullivan, the creator of OOCSS, gave a fantastic [presentation](https://www.youtube.com/watch?v=0NDyopLKE1w) last year in Melbourne that spoke about how common that problem was, and how to recover from it.
 
-It felt like the accepted solution was to dive deeper into the capabilities of CSS pre-processors in order to have the isolation of BEM but the consistency of OOCSS. For example, instead of this:
+For me, it felt like the accepted solution was to dive into the capabilities of CSS pre-processors in order to have the isolation of BEM but the consistency of OOCSS. For example, instead of this:
 
 ```markup
 <a class='btn large rounded'>
@@ -124,28 +124,107 @@ In the same way that `<div class='a b c'>` doesn't care which order the `a`, `b`
 
 # Attribute Modules
 
-Attribute Modules, or AM, at its core is about *defining namespaces* for your styles to live in. Let's begin with a simple example, the grid:
-
-## The zero-class approach
-
-Instead of the single-class vs multi-class pattern, I present a zero-class one. For our button examples above, this is how the markup looks:
+Attribute Modules, or AM, at its core is about *defining namespaces* for your styles to live in. Let's begin with a simple example, a grid, first as classes:
 
 ```markup
-<div am-btn>Normal button</div>
-<div am-btn='large'>Large button</div>
-<div am-btn='rounded'>Rounded button</div>
-<div am-btn='large rounded'>Large rounded button</div>
+<div class="row">
+    <div class="column-12">Full</div>
+</div>
+<div class="row">
+    <div class="column-4">Thirds</div>
+    <div class="column-4">Thirds</div>
+    <div class="column-4">Thirds</div>
+</div>
 ```
-``` css
-[am-btn] { /* default button styles here */ }
-[am-btn~="large"] { @extend large-type; }
-[am-btn~="rounded"] { @extend rounded-borders; }
-```
-
-I've defined a new *attribute* called `am-btn`, that maps quite well to the `.btn` of the previous examples. But the variations on the base button style are now captured inside the attribute *value*. In effect, the attribute `am-btn` has now declared a new *namespace* for variations to apply within. The words `large` and `rounded` have no *inherent* styles, they can only apply if found within the attribute `am-btn`.
-
-Moreover, since the *presence* of the attribute `am-btn` can itself be a styling hook, there is now a selector that will be matched for any button. No matter how many variations of buttons appear in the future, the following *contextual override* will still be valid:
 
 ```css
-header > nav > [am-btn] { background: none; }
+.row { /* max-width, clearfixes */ }
+.column-1 { /* 1/12th width, floated */ }
+.column-2 { /* 1/6th width, floated */ }
+/* etc */
+.column-12 { /* 100% width, floated */ }
 ```
+
+Now let's build it with *attribute modules*. We have two modules, rows and columns. Rows, so far, have no variations. Columns have 12.
+
+```markup
+<div am-row>
+    <div am-column="12">Full</div>
+</div>
+<div am-row>
+    <div am-column="4">Thirds</div>
+    <div am-column="4">Thirds</div>
+    <div am-column="4">Thirds</div>
+</div>
+```
+```css
+[am-row] { /* max-width, clearfixes */ }
+[am-column~="1"] { /* 1/12th width, floated */ }
+[am-column~="2"] { /* 1/6th width, floated */ }
+/* etc */
+[am-column~="12"] { /* 100% width, floated */ }
+```
+
+The first thing you will notice is the `am-` prefix. This is a core part of AM, and ensures that *attribute modules do not conflict with existing attributes*. You can use any prefix you like &dash; I've experimented with `ui-`, `css-` and on this site I've simply used an underscore. If HTML validity is important to you or your project, simply choose a prefix that begins with `data-`, the idea is the same.
+
+The second thing you might notice is that values like `"1"`, `"4"` or `"12"` would make *terrible* class names &dash; they're far too generic and the chances of collisions would be high. But because we've defined our own namespace, in effect carving off a little place for us to work, we are free to use the most concise, meaningful tokens we choose.
+
+## Flexibility with attribute values
+
+So far, the differences are pretty minor. But since each module defines its own namespace, you have complete freedom with the values you use. For example, we could change things to the following:
+
+```markup
+<div am-row>
+    <div am-column>Full</div>
+</div>
+<div am-row>
+    <div am-column="1/3">Thirds</div>
+    <div am-column="1/3">Thirds</div>
+    <div am-column="1/3">Thirds</div>
+</div>
+```
+```css
+[am-row] { /* max-width, clearfixes */ }
+[am-column] { /* 100% width, floated */ }
+[am-column~="1/12"] { /* 1/12th width */ }
+[am-column~="1/6"] { /* 1/6th width */ }
+/* etc */
+```
+
+Here we've used more relevant naming (`"1/3"` instead of `"4"`), as well as used a *default* style for a column &dash; that is, the attribute `column` with no value is treated as a full-width column. However, we've also been able to move repeated logic (the fact that columns are floated) into this attribute rule. 
+
+## Styling both attributes and values
+
+Again, this is one of the key benefits of this approach. The *presence* of an attribute, e.g. `am-button`, can and should be styled. The particular *values* of each attribute then alter and adapt these base styles.
+
+In the grid example above, we're doing exactly that: the markup `am-column="1/3"` matches *both* `[am-column]` and `[am-column~="1/3"]` styles, so the result is the base styles + variations. It gives us a way to capture the fact that *all columns are columns* without needing to duplicate classes (e.g. `class='column column-4'`) or use SASS's `@extend` functionality.
+
+## The zero-class approach to BEM modifiers
+
+Back to our single-class vs multi-class patterns for BEM modifiers, AM enables a zero-class one. For our button examples above, this is how the markup looks:
+
+```markup
+<a am-button>Normal button</a>
+<a am-button='large'>Large button</a>
+<a am-button='rounded'>Rounded button</a>
+<a am-button='large rounded'>Large rounded button</a>
+```
+``` css
+[am-button] { /* base button styles */ }
+[am-button~="large"] { /* large button styles */ }
+[am-button~="rounded"] { /* round button styles */ }
+```
+
+By creating a new Attribute Module `am-button`, we can separate out the styles that are common to all buttons, to those that make a button large, to those that round a button's corners. Not only can we then freely combine these variations (e.g. `am-button='large rounded'), we can also target the *attribute itself* for any contextual overrides:
+
+```css
+header > nav > [am-button] { background: none; }
+```
+
+Now it doesn't matter what variant of button we choose to use, or how many variants we choose to define, the point is that  *all buttons* must match the selector `[am-button]`, so we know our override will be valid.
+
+## The AM Specification
+
+Myself, [Ben Schwarz](http://germanforblack.com/) and [Ben Smithett](http://bensmithett.com/) have begun work on a [formal specification](https://github.com/amcss/attribute-module-specification) for AM if you'd like to read more about how these techniques extend to blocks, elements, breakpoints & more.
+
+We're also setting up a documentation site with a much wider range of AM examples at [amcss.github.io](http://amcss.github.io/). If you're interesting in contributing feedback, examples, edge-cases or point to your own AM libraries, please reach out to us [on GitHub](https://github.com/amcss/amcss.github.io).

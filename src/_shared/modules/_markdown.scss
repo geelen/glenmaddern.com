@@ -29,7 +29,7 @@ $attr: "Markdown";
   }
   p {
     @include extend("layout", "max720", "mb1");
-    @include extend("type", "serif", "lh1.6", "small1");
+    @include extend("type", "serif", "lh1.6", "small1", "light");
     .breakpoint-small {
       @include extend("type", "small0");
     }
@@ -58,14 +58,14 @@ $attr: "Markdown";
     @include extend("before", "bullet");
   }
   pre {
-    @include extend("layout", "max840", "m1-auto");
+    @include extend("layout", "max840", "m1-auto", "intrinsic-width");
     code {
       @include extend("type", "small4");
       @include extend("layout", "p0.5", "m0");
     }
   }
   code {
-    @include extend("type", "mono", "lh1.2", "small3");
+    @include extend("type", "mono", "lh1.2", "small3", "unbroken");
     @include extend("background", "white");
     @include extend("border", "simple");
     @include extend("layout", "p0.2", "m0.2");

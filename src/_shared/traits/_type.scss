@@ -97,7 +97,7 @@ $attr: "type";
   LINE-HEIGHT
 */
 
-@for $i from 0 through 6 {
+@for $i from 0 through 8 {
   @include val("lh1.#{$i}") {
     line-height: 1 + 0.1 * $i;
   }
@@ -131,6 +131,6 @@ $attr: "type";
   text-align: right;
 }
 
-@include val("nobreak") {
-  white-space: nowrap;
+@include val("unbroken") {
+  white-space: pre;
 }
