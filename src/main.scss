@@ -50,5 +50,6 @@ $prefix: "_";
 }
 body {
   @extend [_background~="gradient"];
+  text-rendering: optimizeLegibility;
   min-height: 100%;
 }

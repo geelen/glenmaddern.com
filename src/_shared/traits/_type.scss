@@ -9,7 +9,7 @@ $attr: "type";
 }
 
 @include val("serif") {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family:  Palatino, Georgia, "Times New Roman", Times, serif;
 }
 
 @include val("mono") {
