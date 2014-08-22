@@ -6,25 +6,25 @@ header(_flex='align-center justify-center wrap' _layout='p4-0')
     span(_type='semibold')  rad web stuff
 
 main(_layout='max960' _type='center')
-  section(_layout='p2-1')
+  section(_layout='p3-1 small:p2-1')
     h2(_after='hr' _type='upcase') Articles
     - articles = public.articles._data
     != partial('_shared/blog_headlines', {keys: Object.keys(articles).slice(0,3)})
     a(href='/articles' _link='inline' _type='small1') more...
 
-  section(_layout='p2-1')
+  section(_layout='p3-1 small:p2-1')
     h2(_after='hr' _type='upcase') Projects
     - projects = public.projects._data
     != partial('_shared/preview_list', {preview: {objects: projects, keys: Object.keys(projects).slice(0,3)}})
     a(href='/projects' _link='inline obvious' _type='small3') All projects
 
-  section(_layout='p2-1')
+  section(_layout='p3-1 small:p2-1')
     h2(_after='hr' _type='upcase') Talks
     - talks = public.talks._data
     != partial('_shared/preview_list', {preview: {objects: talks, keys: Object.keys(talks).slice(0,3)}})
     a(href='/talks' _link='inline obvious' _type='small3') All talks
 
-  section(_layout='p2-1')
+  section(_layout='p3-1 small:p2-1')
     h2(_after='hr' _type='upcase') Work
     - work = public.work._data
     != partial('_shared/preview_list', {preview: {objects: work, keys: Object.keys(work).slice(0,3)}})
