@@ -1,5 +1,6 @@
+header(_layout='max600 pt4')
+  h2(_after='hr' _type='upcase' _type='h3 semibold center') Projects
 main(_layout='max960 p1' _type='center')
   section(_layout='p2-1')
-    h2(_after='hr' _type='upcase') Projects
     - projects = public.projects._data
     != partial('../_shared/preview_list', {preview: {objects: projects, keys: Object.keys(projects)}})

@@ -17,15 +17,18 @@ $attr: 'link';
 }
 
 @include val("inline") {
+  transition: color 0.1s;
   &, &:hover, &:visited {
     color: hsl(0, 50%, 40%);
     text-decoration: none;
   }
   &:hover {
-    text-decoration: underline;
+    color: hsl(0, 50%, 50%);
   }
   &:active {
+    transition: none;
     color: hsl(0, 50%, 50%);
+    text-decoration: underline;
   }
 }
 

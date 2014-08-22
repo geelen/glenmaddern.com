@@ -1,5 +1,6 @@
+header(_layout='max600 pt4')
+  h2(_after='hr' _type='upcase' _type='h3 semibold center') Recent Work
 main(_layout='max960 p1' _type='center')
   section(_layout='p2-0')
-    h2(_after='hr' _type='upcase') Recent Work
     - work = public.work._data
     != partial('../_shared/preview_list', {preview: {objects: work, keys: Object.keys(work)}})
