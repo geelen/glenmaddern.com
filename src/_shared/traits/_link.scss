@@ -32,12 +32,17 @@ $attr: 'link';
 @include val("invisible") {
   &, &:hover, &:visited {
     text-decoration: none;
-    color: inherit;
   }
 }
 
 @include val("obvious") {
   &::after {
     content: ' ↵';
+  }
+}
+
+@include val("shadow") {
+  &:hover, &:active {
+    box-shadow: 0 0 20px -3px;
   }
 }
