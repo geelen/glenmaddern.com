@@ -41,13 +41,3 @@ $attr: 'link';
     content: ' ↵';
   }
 }
-
-@include val("blocky") {
-  &, &:hover, &:visited {
-    text-decoration: none;
-    color: inherit;
-  }
-  &:hover, &:active {
-    box-shadow: 0 1px 0;
-  }
-}
