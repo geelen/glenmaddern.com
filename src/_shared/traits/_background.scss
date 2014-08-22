@@ -5,5 +5,5 @@ $attr: "background";
 }
 
 @include val("gradient") {
-  background: linear-gradient(-20deg, hsl(0,50%,96%) 20%, hsl(90,50%,98%) 50%, hsl(180,50%,96%) 80%);
+  background: linear-gradient(-20deg, hsl(0,50%,98%) 0%, hsl(90,50%,97%) 40%, hsl(180,50%,96%) 80%);
 }
