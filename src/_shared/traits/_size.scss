@@ -1,6 +1,6 @@
 $attr: "size";
 
-$sizes: 0.5, 1, 2, 3, 4, 6, 8, 12, 16, ;
+$sizes: 0.5, 1, 1.5, 2, 3, 4, 6, 8, 12, 16, ;
 @each $i in $sizes {
   @include val("#{$i}") {
     width: 1rem * $i;
