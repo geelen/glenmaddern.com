@@ -16,12 +16,12 @@ $attr: "Markdown";
     @include extend("type", "h3", "bold", "center");
   }
   h2 {
-    @include extend("layout", "max840", "pt2", "pb1");
+    @include extend("layout", "max840", "pt3", "pb1");
     @include extend("type", "h4", "bold", "center");
   }
   h3 {
-    @include extend("type", "h4");
-    @include extend("layout", "max720");
+    @include extend("type", "h4", "bold");
+    @include extend("layout", "max720", "p1-0");
   }
   h4 {
     @include extend("type", "bold");
