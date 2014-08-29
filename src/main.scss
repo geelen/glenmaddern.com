@@ -17,10 +17,22 @@ $prefix: "_";
     }
   }
 }
-@mixin extend($attr, $values...) {
+
+@mixin extend($attr, $value: "") {
   @extend [#{$prefix}#{$attr}];
-  @each $value in $values {
-    @extend [#{$prefix}#{$attr}~="#{$value}"];
+  $string: $value;
+  $continue: true;
+  @while $continue {
+    $next-space: str-index($string, ' ');
+    @if type-of($next-space) == number {
+      $next-word: str-slice($string, 1, $next-space - 1);
+      $string: str-slice($string, $next-space + 1);
+    }
+    @else {
+      $next-word: $string;
+      $continue: false;
+    }
+    @extend [#{$prefix}#{$attr}~="#{$next-word}"];
   }
 }
 
