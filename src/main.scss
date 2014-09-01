@@ -1,21 +1,39 @@
 $breakpoints: "small", "medium", "large";
 $prefix: "_";
+$attr: false;
 
 @mixin attr() {
-  [#{$prefix}#{$attr}] {
-    @content;
-  }
-}
-@mixin val($value) {
-  [#{$prefix}#{$attr}~="#{$value}"] {
-    @content;
-  }
-
-  @each $bp in $breakpoints {
-    .breakpoint-#{$bp} [#{$prefix}#{$attr}~="#{$bp}:#{$value}"] {
-      @extend [#{$prefix}#{$attr}~="#{$value}"];
+  @if $attr {
+    [#{$prefix}#{$attr}] {
+      @content;
     }
   }
+  @else {
+    @warn "attr() needs to be called within an AM block";
+  }
+}
+
+@mixin val($value) {
+  @if $attr {
+    [#{$prefix}#{$attr}~="#{$value}"] {
+      @content;
+    }
+
+    @each $bp in $breakpoints {
+      .breakpoint-#{$bp} [#{$prefix}#{$attr}~="#{$bp}:#{$value}"] {
+        @extend [#{$prefix}#{$attr}~="#{$value}"];
+      }
+    }
+  }
+  @else {
+    @warn "attr() needs to be called within an AM block";
+  }
+}
+
+@mixin AM($local-attr) {
+  $attr: $local-attr;
+  @content;
+  $attr: false;
 }
 
 @mixin extend($attr, $value: "") {
