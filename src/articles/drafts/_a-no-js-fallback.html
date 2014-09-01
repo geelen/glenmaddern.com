@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>A no-JS fallback: an alternative approach to progressive enhancement - exported from Medium</title>
+  <style>
+    * {
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 17px;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.6;
+      margin: 30px 0 0 0;
+      margin-bottom: 18px;
+      margin-top: 33px;
+      color: #333;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin: 10px 0 20px 0;
+      color: #333;
+    }
+
+    header {
+      width: 640px;
+      margin: auto;
+    }
+
+    section {
+      width: 640px;
+      margin: auto;
+    }
+
+    section p {
+      margin-bottom: 27px;
+      font-size: 20px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    section img {
+      max-width: 640px;
+    }
+
+    footer {
+      padding: 0 20px;
+      margin: 50px 0;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+<article>
+  <header>
+    <h1>A no-JS fallback: an alternative approach to progressive enhancement</h1>
+  </header>
+  <section data-field="subtitle">
+    Just run the JavaScript for them…
+  </section>
+  <section data-field="image">
+    <img src="https://d262ilb51hltx0.cloudfront.net/proxy/0*LL_E9DJt28NLIm_8.jpeg">
+  </section>
+  <section data-field="body">
+    <section class=" section--first section--last">
+      <div class="section-divider layoutSingleColumn">
+        <hr class="section-divider">
+      </div>
+      <div class="section-content">
+        <div class="section-inner u-fillWidth">
+          <figure class="graf--figure postField--fillWidthCroppedCoverImage graf--first">
+            <div class="aspectRatioPlaceholder is-locked">
+              <div class="aspect-ratio-fill" style="padding-bottom: 42%;"></div>
+              <img class="graf-image" data-image-id="0*LL_E9DJt28NLIm_8.jpeg" data-width="1400" data-height="588"
+                   src="https://d262ilb51hltx0.cloudfront.net/fit/t/1320/554/0*LL_E9DJt28NLIm_8.jpeg"></div>
+          </figure>
+        </div>
+        <div class="section-inner layoutSingleColumn"><h2 name="title" class="graf--h2"><a id="title"></a>A no-JS
+          fallback: an alternative approach to progressive enhancement</h2><h4 name="subtitle" class="graf--h4"><a
+          id="subtitle"></a>Just run the JavaScript for them…</h4>
+
+          <p class="graf--p graf--empty"><br></p>
+
+          <p name="f040" class="graf--p"><a id="f040"></a>There’s been a fair bit of <a
+            href="/r/?url=http%3A%2F%2Ftomdale.net%2F2013%2F09%2Fprogressive-enhancement-is-dead%2F"
+            data-href="/r/?url=http%3A%2F%2Ftomdale.net%2F2013%2F09%2Fprogressive-enhancement-is-dead%2F"
+            class="markup--anchor markup--p-anchor">activity</a> on the <a
+            href="/r/?url=http%3A%2F%2Fbradfrostweb.com%2Fblog%2Fpost%2Ffuck-you%2F"
+            data-href="/r/?url=http%3A%2F%2Fbradfrostweb.com%2Fblog%2Fpost%2Ffuck-you%2F"
+            class="markup--anchor markup--p-anchor">topic</a> of Progressive Enhancement (PE) the <a
+            href="/r/?url=http%3A%2F%2Fatlantajones.com%2Fblog%2Fmy-take-on-progressive-enhancement"
+            data-href="/r/?url=http%3A%2F%2Fatlantajones.com%2Fblog%2Fmy-take-on-progressive-enhancement"
+            class="markup--anchor markup--p-anchor">last</a> few <a href="/r/?url=http%3A%2F%2Fgist.io%2F6426610"
+                                                                    data-href="/r/?url=http%3A%2F%2Fgist.io%2F6426610"
+                                                                    class="markup--anchor markup--p-anchor">weeks</a>,
+            which happens from time to time. But each time the discussion comes up, the web has moved on a little, and
+            the arguments subtly change.I decided I’d weigh in, not with whether or not PE is important, but with an
+            idea for a technical workaround.</p>
+
+          <p name="9adc" class="graf--p"><a id="9adc"></a>An idea that is largely, but hopefully not entirely, <strong
+            class="markup--strong markup--p-strong">quite dumb </strong>indeed.</p>
+          <figure name="ccd4" class="graf--figure"><a id="ccd4"></a>
+
+            <div class="aspectRatioPlaceholder is-locked" style="max-width: 500px; max-height: 286px;">
+              <div class="aspect-ratio-fill" style="padding-bottom: 57.199999999999996%;"></div>
+              <img class="graf-image" data-image-id="0*cqQCTqwLFlhWf1tp.gif" data-width="500" data-height="286"
+                   src="https://d262ilb51hltx0.cloudfront.net/max/880/0*cqQCTqwLFlhWf1tp.gif"></div>
+            <figcaption class="imageCaption">How is Whistler going to use your fancy JS site? (credit: <a
+              href="/r/?url=http%3A%2F%2Fiwdrm.tumblr.com%2Fpost%2F3181676800"
+              data-href="/r/?url=http%3A%2F%2Fiwdrm.tumblr.com%2Fpost%2F3181676800"
+              class="markup--anchor markup--figure-anchor">iwdrm</a>)
+            </figcaption>
+          </figure>
+          <h3 name="9e38" class="graf--h3"><a id="9e38"></a>Assumptions</h3>
+
+          <p name="9bc1" class="graf--p"><a id="9bc1"></a>Before we begin, let’s get some things out of the way.</p>
+
+          <p name="db0d" class="graf--p"><a id="db0d"></a><strong class="markup--strong markup--p-strong">If every one
+            of our users was using the same, JS-enabled environment, we wouldn’t bother with progressive
+            enhancement. </strong>I don’t think this is a contentious point — if our code was executing in a controlled
+            environment, it would be more like an application than a website. And writing PE-style code (HTML-first,
+            unobtrusive JS) would seem like an arbitrary, limiting choice. The capabilities and advantages that JS
+            application frameworks offer aren’t for nothing.</p>
+
+          <p name="bef9" class="graf--p"><a id="bef9"></a><strong class="markup--strong markup--p-strong">It’s not
+            always about users without JS.</strong> It’s also when <a
+            href="/r/?url=http%3A%2F%2Fjakearchibald.com%2F2013%2Fprogressive-enhancement-still-important%2F"
+            data-href="/r/?url=http%3A%2F%2Fjakearchibald.com%2F2013%2Fprogressive-enhancement-still-important%2F"
+            class="markup--anchor markup--p-anchor">your JS breaks</a>. Usually on a device or browser you’re not
+            regularly testing. Yes, you can test more thoroughly, but you can’t test everything.</p>
+
+          <p name="ceb9" class="graf--p"><a id="ceb9"></a><strong class="markup--strong markup--p-strong">Client-side
+            rendering is what breaks hardest.</strong> It’s also what gives you the most flexibility, but when your HTML
+            contains an empty body tag, and something goes wrong with your JS, you get posted on <a
+              href="/r/?url=http%3A%2F%2Fsighjavascript.tumblr.com%2F"
+              data-href="/r/?url=http%3A%2F%2Fsighjavascript.tumblr.com%2F" class="markup--anchor markup--p-anchor">Sigh,
+              Javascript</a>.</p>
+
+          <h3 name="12f2" class="graf--h3"><a id="12f2"></a>The (dumb) idea</h3>
+          <figure name="aca6" class="graf--figure postField--insetLeftImage"><a id="aca6"></a>
+
+            <div class="aspectRatioPlaceholder is-locked" style="max-width: 250px; max-height: 375px;">
+              <div class="aspect-ratio-fill" style="padding-bottom: 150%;"></div>
+              <img class="graf-image" data-image-id="0*TQUGLXJRYwH6Z-nS.png" data-width="250" data-height="375"
+                   src="https://d262ilb51hltx0.cloudfront.net/max/660/0*TQUGLXJRYwH6Z-nS.png"></div>
+            <figcaption class="imageCaption">Opera Mini had it right all along! (source: <a
+              href="/r/?url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FOpera_Mini"
+              data-href="/r/?url=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FOpera_Mini"
+              class="markup--anchor markup--figure-anchor">wikipedia</a>)
+            </figcaption>
+          </figure>
+          <p name="3d02" class="graf--p"><a id="3d02"></a>The idea is, quite simply, to run a JS-enabled client on a
+            server, then return the rendered HTML to the ‘dumb’ client. You can now use all the JS you want, you just
+            need to be aware you <em class="markup--em markup--p-em">might not be running on the user’s machine</em>.
+            This has some implications for how you build you app, but first let’s see what’s involved in getting this
+            going.</p>
+
+          <p name="45b5" class="graf--p"><a id="45b5"></a>We’re going to start by making an app <em
+            class="markup--em markup--p-em">work</em> without JS, but getting it <em class="markup--em markup--p-em">working
+            well</em> is another thing altogether.</p><h4 name="0faa" class="graf--h4"><a id="0faa"></a>Detecting
+            clients without JS</h4>
+
+          <p name="84a0" class="graf--p"><a id="84a0"></a>Firstly, you need a way to identify your no-JS users.
+            Thankfully, our benevolent internet forebears gave us the supreme weapon — <strong
+              class="markup--strong markup--p-strong">noscript</strong>.</p>
+          <pre name="67a1" class="graf--pre"><a id="67a1"></a>&lt;noscript&gt;<br> &lt;meta http-equiv=&quot;refresh&quot; content=&quot;0; url=&#39;?nojs=true&#39;&quot;&gt;<br>&lt;/noscript&gt;</pre>
+          <p name="a32b" class="graf--p"><a id="a32b"></a>This tells the browser to visit <strong
+            class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">?nojs=true</em></strong> after 0
+            seconds, which will stay on the current URL, but append or replace the query-string. If the user hits back,
+            they’ll hit the redirect again and land here again, which is annoying (but sadly not that uncommon). I
+            haven’t figured out a way to fix that yet.</p><h4 name="8cac" class="graf--h4"><a id="8cac"></a>Bouncing
+            back to JS land</h4>
+
+          <p name="afca" class="graf--p"><a id="afca"></a>We’ve given ourselves something to work with — a param <strong
+            class="markup--strong markup--p-strong">nojs</strong> on the server side, but what if someone with JS lands
+            on this page by accident? Well, a very small piece of JS will bounce them out of no-js mode and back onto
+            our happy, JS-enabled world.</p>
+          <pre name="7c97" class="graf--pre"><a id="7c97"></a>&lt;script type=&quot;text/javascript&quot;&gt;<br>  (function(r, l, h) {<br>    if (l[h].match(r)) l[h] = l[h].replace(r, &#39;&#39;);<br>  })(/\?nojs=true/, window.location, &#39;href&#39;);<br>&lt;/script&gt;</pre>
+          <p name="5723" class="graf--p"><a id="5723"></a>Yes, that is how I write JS these days. No local variables, no
+            surrender. This checks if <strong class="markup--strong markup--p-strong"><em
+              class="markup--em markup--p-em">window.location.href</em></strong> has our query string and removes it,
+            which will trigger a redirect.</p><h4 name="6e83" class="graf--h4"><a id="6e83"></a>Why not Google?</h4>
+
+          <p name="bd52" class="graf--p"><a id="bd52"></a>Lastly, Google employs <a
+            href="/r/?url=https%3A%2F%2Fdevelopers.google.com%2Fwebmasters%2Fajax-crawling%2Fdocs%2Fgetting-started"
+            data-href="/r/?url=https%3A%2F%2Fdevelopers.google.com%2Fwebmasters%2Fajax-crawling%2Fdocs%2Fgetting-started"
+            class="markup--anchor markup--p-anchor">a similar technique</a> to index JS-heavy webapps. By adding the
+            following snippet to our HEAD:</p>
+          <pre name="5918" class="graf--pre"><a id="5918"></a>&lt;meta name=”fragment” content=”!”&gt;</pre>
+          <p name="3c07" class="graf--p"><a id="3c07"></a>we declare that our app requires JS to be run before it gets
+            indexed, in which case Google will return with a query string that includes:</p>
+          <pre name="b7f8" class="graf--pre"><a id="b7f8"></a>?_escaped_fragment_=</pre>
+          <p name="4df2" class="graf--p"><a id="4df2"></a>So, we can use either <strong
+            class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">_escaped_fragment_</em></strong>
+            or <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">nojs</em></strong> to
+            detect we need to provide a snapshot, not our normal app. And hey, we just SEO-ed our JS site for free. Rad!
+          </p><h4 name="d363" class="graf--h4"><a id="d363"></a>A simple switching proxy</h4>
+
+          <p name="b2e5" class="graf--p"><a id="b2e5"></a>So now we need to send normal, modern, JS-lovin’ browsers to
+            our live site, and direct the others off elsewhere. You could add something to your existing Nginx or Apache
+            config, but here’s the key snippet of a <a
+              href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fswitching-proxy%2Fblob%2Fmaster%2Fswitching-proxy.js"
+              data-href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fswitching-proxy%2Fblob%2Fmaster%2Fswitching-proxy.js"
+              class="markup--anchor markup--p-anchor">simple NodeJS server</a> to do just that:</p>
+          <pre name="045b" class="graf--pre"><a id="045b"></a>var app = http.createServer(function (req, resp) {<br>  var noJsQueryString = /[\?&amp;](nojs=true|_escaped_url_fragment=)/;<br>  var needsJsFallback = req.url.match(noJsQueryString);<br>  var host = (needsJsFallback) ? nojsFallback : target;<br> <br>  req.headers.host = host.replace(/^https?:\/\//, &#39;&#39;);<br>  var opts = {<br>    url: host + req.url,<br>    headers: req.headers<br>  };<br>  request(opts).pipe(resp);<br>});</pre>
+          <p name="62cb" class="graf--p"><a id="62cb"></a>This checks the request to see if the url matches either of
+            our two keywords, and switches the host of the outgoing request to either <strong
+              class="markup--strong markup--p-strong"><em
+              class="markup--em markup--p-em">needsJsFallback</em></strong><em class="markup--em markup--p-em"> or </em><strong
+              class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">target</em></strong>, which
+            are our two servers. We pass through all the headers through to the request, but change the <strong
+              class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Host</em></strong> to be the
+            server we’re sending to.</p>
+
+          <h3 name="b9e5" class="graf--h3"><a id="b9e5"></a>Rendering HTML for our noJS friends</h3>
+          <figure name="206f" class="graf--figure postField--insetLeftImage"><a id="206f"></a>
+
+            <div class="aspectRatioPlaceholder is-locked" style="max-width: 350px; max-height: 206px;">
+              <div class="aspect-ratio-fill" style="padding-bottom: 58.8%;"></div>
+              <img class="graf-image" data-image-id="0*3yVXBYNtq1n7UHUQ.jpeg" data-width="500" data-height="294"
+                   data-action="zoom" data-action-value="0*3yVXBYNtq1n7UHUQ.jpeg"
+                   src="https://d262ilb51hltx0.cloudfront.net/max/660/0*3yVXBYNtq1n7UHUQ.jpeg"></div>
+            <figcaption class="imageCaption">This.</figcaption>
+          </figure>
+          <p name="edd4" class="graf--p"><a id="edd4"></a>This is the most complex part of the whole solution. To
+            reliably simulate a JS-equipped browser on a server, that allows a JS-rendered app to be navigable, is
+            non-trivial.</p><h4 name="c93a" class="graf--h4"><a id="c93a"></a>The easy bit</h4>
+
+          <p name="9125" class="graf--p"><a id="9125"></a>We can spin up a dead simple <a
+            href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fnojs-fallback%2Fblob%2Fmaster%2Fnojs-fallback.js"
+            data-href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fnojs-fallback%2Fblob%2Fmaster%2Fnojs-fallback.js"
+            class="markup--anchor markup--p-anchor">little NodeJS app</a> to receive these requests and retrieve the
+            HTML from a little utility we’ll call <strong class="markup--strong markup--p-strong"><em
+              class="markup--em markup--p-em">fakeBrowser</em></strong>:</p>
+          <pre name="63a5" class="graf--pre"><a
+            id="63a5"></a>var app = http.createServer(function (req, resp) {<br>  <strong
+            class="markup--strong markup--pre-strong">fakeBrowser.loadPage(req.url)</strong>.then(function (html) {<br>    var parsed = cheerio.load(html);<br>    parsed(&#39;noscript&#39;).remove();<br>    resp.writeHead(200, {&#39;Content-Type&#39;: &#39;text/html&#39;});<br>    resp.end(parsed.html());<br>  });<br>});</pre>
+          <p name="44c9" class="graf--p"><a id="44c9"></a>We ask it to load a page at <strong
+            class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">req.url</em></strong> and, when
+            it’s ready, we send the HTML back in the response. The only slight complication is that we want to strip out
+            any <strong class="markup--strong markup--p-strong"><em
+              class="markup--em markup--p-em">noscript</em></strong> tags, since they’re no longer relevant, but the
+            end-user’s browser will probably interpret them, leading to a nasty endless redirect-loop.</p><h4
+            name="ff78" class="graf--h4"><a id="ff78"></a>The hard bit</h4>
+
+          <p name="f371" class="graf--p"><a id="f371"></a>Spinning up a headless JS-capable browser to take HTML
+            snapshots for an interactive use case like this isn’t easy. PhantomJS, being based on Webkit and reasonably
+            reliable, seems to be the best option, but it’s not really designed for being run in this manner.</p>
+
+          <p name="1f49" class="graf--p"><a id="1f49"></a>Prior to PhantomJS 1.8, there wasn’t a particularly good way
+            to wrap up a Phantom process in order to have it load a page an take a snapshot like we need. In <a
+              href="/r/?url=http%3A%2F%2Fwww.yearofmoo.com%2F2012%2F11%2Fangularjs-and-seo.html"
+              data-href="/r/?url=http%3A%2F%2Fwww.yearofmoo.com%2F2012%2F11%2Fangularjs-and-seo.html"
+              class="markup--anchor markup--p-anchor">Year of Moo’s article</a> on SEO with AngularJS sites offers a
+            simple shell-script to generate static HTML files, but that’s clearly insufficient. On NPM, our options
+            aren’t much better. The <a href="/r/?url=https%3A%2F%2Fgithub.com%2FObvious%2Fphantomjs"
+                                       data-href="/r/?url=https%3A%2F%2Fgithub.com%2FObvious%2Fphantomjs"
+                                       class="markup--anchor markup--p-anchor"><strong
+              class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">phantomjs</em></strong></a>
+            package simply wraps up the binary, and <a
+              href="/r/?url=https%3A%2F%2Fgithub.com%2Fsgentle%2Fphantomjs-node"
+              data-href="/r/?url=https%3A%2F%2Fgithub.com%2Fsgentle%2Fphantomjs-node"
+              class="markup--anchor markup--p-anchor"><strong class="markup--strong markup--p-strong"><em
+              class="markup--em markup--p-em">phantomjs-node</em></strong></a>, which does offer a more Node-friendly
+            API, also includes the following reassuring caveat:</p>
+          <blockquote name="c47b" class="graf--blockquote"><a id="c47b"></a><strong
+            class="markup--strong markup--blockquote-strong">How does it work?</strong><br>Don’t ask. The things these
+            eyes have seen.
+          </blockquote>
+          <h4 name="1f8c" class="graf--h4"><a id="1f8c"></a>Enter Ghostdriver</h4>
+          <figure name="e9fd" class="graf--figure postField--insetLeftImage"><a id="e9fd"></a>
+
+            <div class="aspectRatioPlaceholder is-locked" style="max-width: 350px; max-height: 280px;">
+              <div class="aspect-ratio-fill" style="padding-bottom: 80.10000000000001%;"></div>
+              <img class="graf-image" data-image-id="0*YnLYaAFH7eU1xObM.jpeg" data-width="377" data-height="302"
+                   data-action="zoom" data-action-value="0*YnLYaAFH7eU1xObM.jpeg"
+                   src="https://d262ilb51hltx0.cloudfront.net/max/660/0*YnLYaAFH7eU1xObM.jpeg"></div>
+            <figcaption class="imageCaption">I can think of no good reason why this isn’t their logo.</figcaption>
+          </figure>
+          <p name="61b3" class="graf--p"><a id="61b3"></a>Thankfully, <a
+            href="/r/?url=https%3A%2F%2Fgithub.com%2Fdetro%2Fghostdriver"
+            data-href="/r/?url=https%3A%2F%2Fgithub.com%2Fdetro%2Fghostdriver" class="markup--anchor markup--p-anchor">Ghostdriver</a>
+            has come along and seems to be an excellent solution. It’s a pure-JS implementation of the well-understood
+            <a href="/r/?url=http%3A%2F%2Fdocs.seleniumhq.org%2Fprojects%2Fwebdriver%2F"
+               data-href="/r/?url=http%3A%2F%2Fdocs.seleniumhq.org%2Fprojects%2Fwebdriver%2F"
+               class="markup--anchor markup--p-anchor">Selenium Webdriver API</a>, and it’s bundled with PhantomJS
+            stable from 1.8 onwards. It could hardly be easier to run, too:</p>
+          <pre name="4d22" class="graf--pre"><a id="4d22"></a>phantomjs --webdriver=PORT</pre>
+          <p name="9350" class="graf--p"><a id="9350"></a>Then, all we need is a simple NodeJS Webdriver interface, like
+            the rad <a href="/r/?url=https%3A%2F%2Fgithub.com%2Fadmc%2Fwd"
+                       data-href="/r/?url=https%3A%2F%2Fgithub.com%2Fadmc%2Fwd" class="markup--anchor markup--p-anchor"><strong
+              class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">wd</em></strong></a>, and
+            we’re set:</p>
+          <pre name="a6d4" class="graf--pre"><a id="a6d4"></a>module.exports = function (wdHost, wdPort, target) {<br>  var driver = <strong
+            class="markup--strong markup--pre-strong">wd.promiseRemote(wdHost, wdPort)</strong>;<br>  return {<br>    loadPage: function (url) {<br>      return <strong
+            class="markup--strong markup--pre-strong">driver.init()</strong><br>        .then(function () {<br>          return <strong
+            class="markup--strong markup--pre-strong">driver.get(target + url)</strong>;<br>        })<br>        .then(function () {<br>          return <strong
+            class="markup--strong markup--pre-strong">driver.source()</strong>;<br>        });<br>     }<br>  };<br>}</pre>
+          <p name="24f8" class="graf--p"><a id="24f8"></a>We’re using <strong
+            class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">wd</em></strong>’s promises API,
+            which I find <a
+              href="/r/?url=http%3A%2F%2Fblog.jcoglan.com%2F2013%2F03%2F30%2Fcallbacks-are-imperative-promises-are-functional-nodes-biggest-missed-opportunity%2F"
+              data-href="/r/?url=http%3A%2F%2Fblog.jcoglan.com%2F2013%2F03%2F30%2Fcallbacks-are-imperative-promises-are-functional-nodes-biggest-missed-opportunity%2F"
+              class="markup--anchor markup--p-anchor">much more pleasant</a> than Node libraries’ usual callback soup,
+            and simply perform two operations — get the page, then return the source. We’re wrapping this up in an
+            export that gives our nice <strong class="markup--strong markup--p-strong"><em
+              class="markup--em markup--p-em">fakeBrowser.loadPage</em></strong> API we used earlier. This is
+            effectively all we need to do to get the basic case working, hooray!</p><h4 name="cfe3" class="graf--h4"><a
+            id="cfe3"></a>When do you take the snapshot?</h4>
+
+          <p name="e8e8" class="graf--p"><a id="e8e8"></a>The first problem you might encounter is that your snapshot is
+            firing <em class="markup--em markup--p-em">before</em> the content has been fully rendered. In my testing,
+            this wasn’t a huge issue — it looks like <strong class="markup--strong markup--p-strong"><em
+              class="markup--em markup--p-em">driver.get</em></strong> is returning when the <strong
+              class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">load</em></strong> event is
+            being fired, which happens after all resources are loaded. Which, it seems, includes HTML partials:</p>
+
+          <p name="f250" class="graf--p"><a id="f250"></a>[IMG of network view]</p>
+
+          <p name="8598" class="graf--p"><a id="8598"></a>But, if you find the rendered HTML incomplete, you have
+            options. In Year of Moo’s article, they test the body tag for a data-status attribute, but given that
+            Webdriver has support for localStorage, you can simply flag that it’s ok to scrape:</p>
+          <pre name="ef7d" class="graf--pre"><a id="ef7d"></a>// AngularJS snippet<br>$timeout(function() {<br>  $scope.api = &quot;Loaded!&quot;;<br>  localStorage.setItem(&#39;nojsSnapshotGo&#39;, true);<br>}, 1000);</pre>
+          <p name="ac95" class="graf--p"><a id="ac95"></a>The full client side code is <a
+            href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fnojs-demo-app%2Fblob%2Fmaster%2Fapp%2Fscripts%2Fcontrollers%2Fmain.js"
+            data-href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fnojs-demo-app%2Fblob%2Fmaster%2Fapp%2Fscripts%2Fcontrollers%2Fmain.js"
+            class="markup--anchor markup--p-anchor">on Github</a>.</p>
+          <pre name="a1bc" class="graf--pre"><a id="a1bc"></a>// Load the page to start with<br>var page = driver.init()<br>  .then(function () {<br>    return driver.get(target + url);<br>  });<br> <br>// loop takes three arguments:<br>//   - a promise we&#39;re initially waiting for<br>//   - a function that returns a promise of the next value<br>//   - a function to test each value that&#39;s returned<br>// and returns a promise that will be resolved when the<br>// test finally matches<br>var finishedLoading = <strong
+            class="markup--strong markup--pre-strong">loop</strong>(page, function () {<br>  return <strong
+            class="markup--strong markup--pre-strong">driver.getLocalStorageKey(&#39;nojsSnapshotGo&#39;)</strong>;<br>}, function (val) {<br> return <strong
+            class="markup--strong markup--pre-strong">val === &quot;true&quot;</strong>;<br>});<br> <br>// Snapshot ready, send it back<br>return finishedLoading<br>  .then(function () {<br>    return driver.source();<br>  });</pre>
+          <p name="2973" class="graf--p"><a id="2973"></a>The full code, including the implementation of <strong
+            class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">loop</em></strong>, is <a
+            href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fnojs-fallback%2Fblob%2Fmaster%2Flib%2Fwebdriver-interface.js"
+            data-href="/r/?url=https%3A%2F%2Fgithub.com%2Fgeelen%2Fnojs-fallback%2Fblob%2Fmaster%2Flib%2Fwebdriver-interface.js"
+            class="markup--anchor markup--p-anchor">on Github</a> too.</p><h4 name="c525" class="graf--h4"><a
+            id="c525"></a>Putting it all together</h4>
+
+          <p name="a6d5" class="graf--p"><a id="a6d5"></a>[Code on heroku]</p>
+
+          <h3 name="241e" class="graf--h3"><a id="241e"></a>What does any of this mean?</h3>
+
+          <p name="2cd7" class="graf--p"><a id="2cd7"></a>On one hand, this is a hackish, convoluted and potentially
+            brittle arrangement of moving pieces doing jobs they weren’t designed to do. Oh yes, it’s definitely all
+            those things.</p>
+
+          <p name="1912" class="graf--p"><a id="1912"></a>But on the other hand, this allows you to write
+            client-side-rendered web applications <em class="markup--em markup--p-em">without leaving anyone behind</em>.
+            It’s inverted the problem — instead of HTML being the starting point for all users, it’s only presented to
+            those users without the capability to access something better. HTML is an output, not an input. It lets you
+            break the web, without breaking the web.</p>
+
+          <p name="360b" class="graf--p"><a id="360b"></a>Which is kinda neat.</p><h4 name="6c34" class="graf--h4"><a
+            id="6c34"></a>Potential</h4>
+
+          <p name="66bb" class="graf--p"><a id="66bb"></a>I think the most promising aspect of this approach is when
+            combined with a healthy acceptance-test suite and continuous integration. I can envisage an automated test
+            suite that checks a basic level of functionality, that runs once with JS and once without.</p>
+
+          <p name="56bb" class="graf--p"><a id="56bb"></a>This could give you a new option for graceful degradation. If
+            your application encountered an uncaught exception, and you weren’t sure what state it was in, you could
+            fall back to the static HTML for the remainder of that session. You could simply serve static HTML to users
+            of old Internet Explorer browsers, or Android Browser (fast becoming the IE of mobile web). You could focus
+            your efforts on making the experience as good as possible for some, without leaving <em
+              class="markup--em markup--p-em">anyone</em> with nothing.</p>
+
+          <p name="2f4c" class="graf--p graf--last"><a id="2f4c"></a>Restrictions</p></div>
+      </div>
+    </section>
+  </section>
+  <footer><p>Exported from <a href="https://medium.com">Medium</a> on September 1, 2014.</p>
+
+    <p><a href="https://medium.com/p/158223425fa7">View the original</a></p></footer>
+</article>
+
+</body>
+</html>
