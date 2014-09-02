@@ -1,4 +1,9 @@
+[_layout~="block"] {
+
+}
+
 @include AM("layout") {
+
   @include val("block") {
     display: block;
   }

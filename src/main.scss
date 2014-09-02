@@ -54,6 +54,7 @@ $attr: false;
   }
 }
 
+@import '_shared/reset';
 @import '_shared/traits/layout';
 @import '_shared/traits/flex';
 @import '_shared/traits/type';
