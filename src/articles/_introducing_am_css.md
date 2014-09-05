@@ -238,8 +238,8 @@ header > nav > [am-button] { background: none; }
 
 Now it doesn't matter what variant of button we choose to use, or how many variants we choose to define, the point is that  *all buttons* will match the selector `[am-button]`, so we know our override will be valid.
 
-## The AM Specification
+## The AMCSS Project
 
 Myself, [Ben Schwarz](http://germanforblack.com/) and [Ben Smithett](http://bensmithett.com/) have begun work on a [formal specification](https://github.com/amcss/attribute-module-specification) for AM. If you'd like to read more about how these techniques extend to blocks, elements, breakpoints & more, head there, and if you have questions, please [raise an issue](https://github.com/amcss/attribute-module-specification/issues).
 
-We're also setting up a documentation site with a much wider range of AM examples at [amcss.github.io](http://amcss.github.io/). If you're interesting in contributing feedback, examples, edge-cases or would like us to point to your own AM libraries, please reach out to us [on GitHub](https://github.com/amcss/amcss.github.io).
+We've also started a documentation site with a wider range of AM examples at [amcss.github.io](http://amcss.github.io/). If you're interesting in contributing feedback, examples, edge-cases or would like us to point to your own AM libraries, please reach out to us [on GitHub](https://github.com/amcss/amcss.github.io).
