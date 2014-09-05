@@ -2,3 +2,5 @@ header(_layout='p3-0' _type='lh1.2')
   h1(_type='h3 small:h4 black center')= title
   if strap
     h2(_type='h5 italic center' _layout='pt1')= strap
+  if date
+    time(datetime=date _layout='block pt0.5' _type='small3 center')= date

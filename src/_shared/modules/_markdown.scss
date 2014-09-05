@@ -60,7 +60,7 @@
       @include extend(layout, "max840 m1-auto");
       code {
         @include extend(type, "small3 lh1.4");
-        @include extend(layout, "p0.5 m0");
+        @include extend(layout, "p0.5 m0 block");
       }
     }
     code {

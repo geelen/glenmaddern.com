@@ -26,7 +26,7 @@ For me, it felt like the accepted solution was to dive into the capabilities of 
 ```css
 .btn { /* button styles */ }
 .large { /* global large-type modifier */ }
-.rounder { /* global rounded-border modifier */ }
+.rounded { /* global rounded-border modifier */ }
 ```
 
 you would have:
@@ -97,7 +97,7 @@ Obviously, this is not ideal - adding another button variant means checking anyw
 header > nav > [class^='btn'] { /* Overrides for all buttons */ }
 ```
 
-This achieves easy contextual overrides for a single-class pattern, but is fatally flawed from the start. Most damningly, if *another* class appears before `btn--large`, the prefix selector doesn't match, and everything breaks. Also, there's no obvious way of permitting multiple variants such as `btn--large--rounded`.
+This achieves easy contextual overrides for a single-class pattern, but it's too brittle to be a serious option. Most damningly, if *another* class appears before `btn--large`, the prefix selector doesn't match, and everything breaks. Also, there's no obvious way of permitting multiple variants such as `btn--large--rounded`.
 
 I appreciate the inventiveness of this approach, but it's a dead end. And it's where I got stuck, too, until something occurred to me.
 
@@ -119,7 +119,7 @@ But before we can talk about that, we need to brush up on a lesser-known feature
 
 ## Welcome ~=, the magic selector
 
-It turns out browsers since IE7 have had a particularly powerful CSS rule called the *space-separated attribute selector*, described [here on CSS Tricks](http://css-tricks.com/attribute-selectors/#rel-space). It matches arbitrary attribute values, separated by spaces, just like they were classes. So the following two lines of CSS are equivalent:
+It turns out browsers since IE7 have had a particularly powerful CSS rule called the **space-separated attribute selector**, described [here on CSS Tricks](http://css-tricks.com/attribute-selectors/#rel-space). It matches arbitrary attribute values, separated by spaces, just like they were classes. So the following two lines of CSS are equivalent:
 
 ```css
 .dat-class { /* dem styles */ };
@@ -157,24 +157,24 @@ Attribute Modules, or AM, at its core is about *defining namespaces* for your st
 Now let's build it with *attribute modules*. We have two modules, **rows** and **columns**. Rows, so far, have no variations. Columns have 12.
 
 ```markup
-<div am-row>
-    <div am-column="12">Full</div>
+<div am-Row>
+    <div am-Column="12">Full</div>
 </div>
-<div am-row>
-    <div am-column="4">Thirds</div>
-    <div am-column="4">Thirds</div>
-    <div am-column="4">Thirds</div>
+<div am-Row>
+    <div am-Column="4">Thirds</div>
+    <div am-Column="4">Thirds</div>
+    <div am-Column="4">Thirds</div>
 </div>
 ```
 ```css
-[am-row] { /* max-width, clearfixes */ }
-[am-column~="1"] { /* 1/12th width, floated */ }
-[am-column~="2"] { /* 1/6th width, floated */ }
-[am-column~="3"] { /* 1/4th width, floated */ }
-[am-column~="4"] { /* 1/3rd width, floated */ }
-[am-column~="5"] { /* 5/12th width, floated */ }
+[am-Row] { /* max-width, clearfixes */ }
+[am-Column~="1"] { /* 1/12th width, floated */ }
+[am-Column~="2"] { /* 1/6th width, floated */ }
+[am-Column~="3"] { /* 1/4th width, floated */ }
+[am-Column~="4"] { /* 1/3rd width, floated */ }
+[am-Column~="5"] { /* 5/12th width, floated */ }
 /* etc */
-[am-column~="12"] { /* 100% width, floated */ }
+[am-Column~="12"] { /* 100% width, floated */ }
 ```
 
 The first thing you will notice is the `am-` prefix. This is a core part of AM, and ensures that attribute modules *do not conflict with existing attributes*. You can use any prefix you like &dash; I've experimented with `ui-`, `css-` and others, but settled on `am-` for these examples. If HTML validity is important to you or your project, simply choose a prefix that begins with `data-`, the idea is the same.
@@ -186,57 +186,57 @@ The second thing you might notice is that values like `"1"`, `"4"` or `"12"` wou
 So far, the differences are pretty minor. But since each module defines its own namespace, let's try a slightly different scheme for our values:
 
 ```markup
-<div am-row>
-    <div am-column>Full</div>
+<div am-Row>
+    <div am-Column>Full</div>
 </div>
-<div am-row>
-    <div am-column="1/3">Thirds</div>
-    <div am-column="1/3">Thirds</div>
-    <div am-column="1/3">Thirds</div>
+<div am-Row>
+    <div am-Column="1/3">Thirds</div>
+    <div am-Column="1/3">Thirds</div>
+    <div am-Column="1/3">Thirds</div>
 </div>
 ```
 ```css
-[am-row] { /* max-width, clearfixes */ }
-[am-column] { /* 100% width, floated */ }
-[am-column~="1/12"] { /* 1/12th width */ }
-[am-column~="1/6"] { /* 1/6th width */ }
-[am-column~="1/4"] { /* 1/4th width */ }
-[am-column~="1/3"] { /* 1/3rd width */ }
-[am-column~="5/12"] { /* 5/12ths width */ }
+[am-Row] { /* max-width, clearfixes */ }
+[am-Column] { /* 100% width, floated */ }
+[am-Column~="1/12"] { /* 1/12th width */ }
+[am-Column~="1/6"] { /* 1/6th width */ }
+[am-Column~="1/4"] { /* 1/4th width */ }
+[am-Column~="1/3"] { /* 1/3rd width */ }
+[am-Column~="5/12"] { /* 5/12ths width */ }
 /* etc */
 ```
 
-Now we're able to use naming that makes sense for our domain &dash; a width of `1/3` makes immediate sense whereas `4` needs us to remember we're using a 12-column grid. But we've also been able to define a *default* style for all columns &dash; that is, the attribute `column` with no value is treated as a full-width column. However, we've also been able to move repeated logic (the fact that columns are floated) into this attribute rule.
+Now we're able to use naming that makes sense for our domain &dash; a width of `1/3` makes immediate sense whereas `4` needs us to remember we're using a 12-column grid. But we've also been able to define a **default** style for all columns &dash; that is, the attribute `column` with no value is treated as a full-width column. And as a bonus, we've also been able to move repeated logic (the fact that columns are floated left) into this attribute rule.
 
 ## Styling both attributes and values
 
-Again, this is one of the key benefits of this approach. The *presence* of an attribute, e.g. `am-button`, can and should be styled. The particular *values* of each attribute then alter and adapt these base styles.
+This is one of the key benefits of this approach. The *presence* of an attribute, e.g. `am-Button`, can and should be styled. The particular *values* of each attribute then alter and adapt these base styles.
 
-In the grid example above, we're doing exactly that: the markup `am-column="1/3"` matches styles at *both* `[am-column]` and `[am-column~="1/3"]`, so the result is the base styles + variations. It gives us a way to capture the fact that *all columns are columns* without needing to duplicate classes or use SASS's `@extend` functionality.
+In the grid example above, we're doing exactly that: the markup `am-Column="1/3"` matches *both* `[am-Column]` and `[am-Column~="1/3"]`, so the result is the base styles + variations. It gives us a way to capture the fact that *all columns are columns* without needing to duplicate classes or use SASS's `@extend` functionality.
 
 ## The zero-class approach to BEM modifiers
 
 Back to our single-class vs multi-class patterns for BEM modifiers, AM gives us a zero-class option. For our button examples above, this is how the markup looks:
 
 ```markup
-<a am-button>Normal button</a>
-<a am-button='large'>Large button</a>
-<a am-button='rounded'>Rounded button</a>
-<a am-button='large rounded'>Large rounded button</a>
+<a am-Button>Normal button</a>
+<a am-Button='large'>Large button</a>
+<a am-Button='rounded'>Rounded button</a>
+<a am-Button='large rounded'>Large rounded button</a>
 ```
 ``` css
-[am-button] { /* base button styles */ }
-[am-button~="large"] { /* large button styles */ }
-[am-button~="rounded"] { /* round button styles */ }
+[am-Button] { /* base button styles */ }
+[am-Button~="large"] { /* large button styles */ }
+[am-Button~="rounded"] { /* round button styles */ }
 ```
 
-By creating a new Attribute Module `am-button`, we can separate out the styles that are common to all buttons, to those that make a button large, to those that round a button's corners. Not only can we then freely combine these variations (e.g. `am-button='large rounded'), we can also target the *attribute itself* for any contextual overrides:
+By creating a new Attribute Module `am-Button`, we can separate out the styles that are common to all buttons, to those that make a button large, to those that round a button's corners. Not only can we then freely combine these variations (e.g. `am-Button='large rounded'`), we can also target the *attribute itself* for any contextual overrides:
 
 ```css
-header > nav > [am-button] { background: none; }
+header > nav > [am-Button] { background: none; }
 ```
 
-Now it doesn't matter what variant of button we choose to use, or how many variants we choose to define, the point is that  *all buttons* will match the selector `[am-button]`, so we know our override will be valid.
+Now it doesn't matter what variant of button we choose to use, or how many variants we choose to define, the point is that  *all buttons* will match the selector `[am-Button]`, so we know our override will be valid.
 
 ## The AMCSS Project
 
