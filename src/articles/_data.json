@@ -1,4 +1,9 @@
 {
+  "javascript-in-2015": {
+    "title": "JavaScript in 2015",
+    "strap": "A whole new world",
+    "date": "2015-01-07"
+  },
   "introducing-am-css": {
     "title": "Introducing AM - Attribute Modules for CSS",
     "strap": "Moving beyond class-based styling",
