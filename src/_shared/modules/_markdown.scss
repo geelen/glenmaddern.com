@@ -93,5 +93,8 @@
     small {
       @include extend(type, "small2");
     }
+    form {
+      @include extend(layout, "max720 m1-auto");
+    }
   }
 }

@@ -39,7 +39,7 @@ The resulting [source code](https://github.com/geelen/loopgifs) and [live versio
 
 #### Call for Feedback
 
-This is my first serious attempt at a screencast, so if you watched it and have some thoughts on how I could improve, get in touch! And if you'd like to hear about when the next one launches, pop your email in here:
+This is my first serious attempt at a screencast, so if you watched it and have some thoughts, get in touch! And if you'd like to hear about when the next one launches, pop your email in here:
 
 <form _form action="http://glenmaddern.createsend.com/t/t/s/hyshd/" method="post">
   <input id="fieldEmail" name="cm-hyshd-hyshd" type="email" required placeholder="Email" />
