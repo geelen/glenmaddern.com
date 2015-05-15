@@ -3,6 +3,9 @@
     "directories": {
       "baseURL": "src"
     },
+    "dependencies": {
+      "metaquery": "npm:metaquery@^1.2.5"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
       "babel-runtime": "npm:babel-runtime@^5.1.13",
