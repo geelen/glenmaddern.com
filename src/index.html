@@ -8,14 +8,18 @@
     <meta name="breakpoint" content="medium" media="(min-width: 521px) and (max-width: 900px)">
     <meta name="breakpoint" content="large" media="(min-width: 901px)">
     <script type="text/javascript" src="jspm_packages/npm/metaquery@1.2.5/metaquery.min.js" inline></script>
-    <link rel="stylesheet" href="/main.css">
   </head>
   <body>
-    <main></main>
+    <main>
+      <h1>SUP?</h1>
+    </main>
 
     <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
     <script>
-      System.import("main")
+      System.import("main").then(function() {
+        console.log("### DONE IN " + Math.round(performance.now()) / 1000 + " SECONDS")
+      })
     </script>
 
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/tomorrow.min.css">-->
