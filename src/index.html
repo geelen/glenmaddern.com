@@ -7,11 +7,16 @@
     <meta name="breakpoint" content="small" media="(max-width: 520px)">
     <meta name="breakpoint" content="medium" media="(min-width: 521px) and (max-width: 900px)">
     <meta name="breakpoint" content="large" media="(min-width: 901px)">
-    <script type="text/javascript" src="jspm_packages/npm/metaquery@1.2.5/metaquery.min.js"></script>
+    <script type="text/javascript" src="jspm_packages/npm/metaquery@1.2.5/metaquery.min.js" inline></script>
     <link rel="stylesheet" href="/main.css">
   </head>
   <body>
     <main></main>
+
+    <script src="jspm_packages/system.js"></script>
+    <script>
+      System.import("main")
+    </script>
 
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/tomorrow.min.css">-->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>-->
