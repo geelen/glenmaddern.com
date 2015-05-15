@@ -8,3 +8,4 @@ if (navigator.userAgent.match(/phantomjs/i)) {
   React.render(React.createElement(App), mainElem)
 }
 
+console.log("Main rendered in " + Math.round(performance.now()) / 1000 + "s")
