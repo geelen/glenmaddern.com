@@ -21,6 +21,7 @@ System.config({
     "jsx": "github:geelen/plugin-live-jsx@master",
     "metaquery": "npm:metaquery@1.2.5",
     "plugin-postcss": "github:geelen/plugin-postcss@master",
+    "postcss": "npm:postcss@4.1.11",
     "react": "npm:react@0.13.3",
     "react-router": "npm:react-router@0.13.3",
     "github:geelen/plugin-live-jsx@master": {
@@ -31,7 +32,7 @@ System.config({
       "react-tools": "npm:react-tools@0.13.3"
     },
     "github:geelen/plugin-postcss@master": {
-      "postcss": "npm:postcss@4.1.10"
+      "postcss": "npm:postcss@4.1.11"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -516,7 +517,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
-    "npm:postcss@4.1.10": {
+    "npm:postcss@4.1.11": {
       "es6-promise": "npm:es6-promise@2.1.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "js-base64": "npm:js-base64@2.1.8",
