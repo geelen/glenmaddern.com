@@ -2,21 +2,14 @@ import React from 'react'
 import Router from 'react-router'
 let {RouteHandler} = Router
 
+import Nav from './nav.jsx!'
 import './app.css!'
 
 export default class App extends React.Component {
   render() {
     return <div>
-      <nav _flex="align-center" _layout="p1 max960" _type="upcase small2 lh1.4">
-        <h1 _flex-child="grow1" _type="semibold"><a href="/" _link="invisible">Glen Maddern</a></h1>
-        <ul _flex="align-center wrap justify-end">
-          <li _layout="pl1"><a href="/articles" _link="subtle">Articles</a></li>
-          <li _layout="pl1"><a href="/projects" _link="subtle">Projects</a></li>
-          <li _layout="pl1"><a href="/talks" _link="subtle">Talks</a></li>
-          <li _layout="pl1"><a href="/work" _link="subtle">Work</a></li>
-        </ul>
-      </nav>
-      <RouteHandler/>
+      <Nav />
+      <RouteHandler />
       <footer _layout="p2 small:p1 mb2 max840" _before="hr">
         <figure _layout="max600" _flex="justify-center align-center"><img _flex-child="shrink0" src="/assets/images/me_160.jpg" _border="round polaroid" _size="4" _layout="mr1"/>
           <figcaption _type="small1 center lh1.4"><span _type="bold">Glen Maddern</span> is an independent Web Developer from Melbourne, Australia.
