@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-  $ = require('gulp-load-plugins')();
+  $ = require('gulp-load-plugins')(),
+  paths = require('./scraping/paths')
 
 gulp.task('jspm-bundle', function () {
   return gulp.src('')
@@ -17,7 +18,7 @@ gulp.task('bundle', ['jspm-bundle'], function () {
 gulp.task('snapshots', function () {
   return gulp.src('')
     .pipe($.shell([
-      'phantomjs scraping/scrape.js http://localhost:1984 "/"'
+      'node scraping/run-scraper.js'
     ]))
 })
 
@@ -25,6 +26,10 @@ gulp.task('html', ['snapshots'], function () {
   return gulp.src('scraping/snapshots/*.html')
     .pipe($.htmlReplace({
       'js': ['bundle.js']
+    }))
+    .pipe($.rename(function (file) {
+      var path = paths[parseInt(file.basename)]
+      file.basename = path == '/' ? 'index' : path.replace(/^\//,'')
     }))
     .pipe(gulp.dest('dist/'))
 })
