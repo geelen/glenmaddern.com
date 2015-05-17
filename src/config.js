@@ -22,6 +22,7 @@ System.config({
     "metaquery": "npm:metaquery@1.2.5",
     "plugin-postcss": "github:geelen/plugin-postcss@master",
     "react": "npm:react@0.13.3",
+    "react-router": "npm:react-router@0.13.3",
     "github:geelen/plugin-live-jsx@master": {
       "pascal-case": "npm:pascal-case@1.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -544,15 +545,16 @@ System.config({
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
+    "npm:react-router@0.13.3": {
+      "object-assign": "npm:object-assign@2.0.0",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "qs": "npm:qs@2.4.1",
+      "react": "npm:react@0.13.3"
+    },
     "npm:react-tools@0.13.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commoner": "npm:commoner@0.10.1",
       "jstransform": "npm:jstransform@10.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
-    "npm:react@0.13.3": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "envify": "npm:envify@3.4.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:react@0.13.3": {

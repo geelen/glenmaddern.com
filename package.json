@@ -7,7 +7,8 @@
       "jsx": "github:geelen/plugin-live-jsx@master",
       "metaquery": "npm:metaquery@^1.2.5",
       "plugin-postcss": "github:geelen/plugin-postcss@master",
-      "react": "npm:react@^0.14.0-alpha1"
+      "react": "npm:react@^0.14.0-alpha1",
+      "react-router": "npm:react-router@^0.13.3"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
