@@ -1,42 +1,38 @@
 :footer {
-  @layout p2 p1:small mb2 max840;
+  layout: p2 p1--small mb2 max840;
 }
 
 :figure {
-  @layout max600;
-  @flex justify-center align-center;
+  layout: max600;
+  flex: justify-center align-center;
 }
 
 :img {
-  @flex-child no-shrink;
-  @border round polaroid;
-  @size 4;
-  @layout mr1;
+  flex-child: no-shrink;
+  border: round polaroid;
+  size: 4;
+  layout: mr1;
 }
 
 :figcaption {
-  @type small1 center lh1.4;
+  type: small1 center lh1.4;
 }
 
 :me {
-  @type bold;
+  type: bold;
 }
 
 :links {
-  @flex justify-center align-center;
-  @layout pt0.5;
+  flex: justify-center align-center;
+  layout: pt0.5;
 }
 
 :link {
-  @link inline;
-  @layout block;
+  link: inline;
+  layout: block;
 }
 
 :svg {
-  @size 1.5;
-  @layout ml0.5 mr0.5;
-
-  &:nth-child(2) {
-    color: blue;
-  }
+  size: 1.5;
+  layout: ml0.5 mr0.5;
 }

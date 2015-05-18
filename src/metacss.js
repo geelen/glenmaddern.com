@@ -6,7 +6,7 @@ import nested from 'postcss-nested'
 import TCSS from './tcss-plugin'
 
 let tcss = new TCSS()
-let plugins = [inlineComment, tcss.getPlugin(), nested],
+let plugins = [inlineComment, tcss.getPlugin(), nested, Autoprefixer],
   { fetch: __fetch, hotReload, bundle } = pluginPostcss(plugins)
 
 let fetch = (load, f) => {

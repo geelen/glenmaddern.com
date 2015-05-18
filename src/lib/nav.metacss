@@ -1,40 +1,30 @@
 :nav {
-  visibility: visible;
+  flex: align-center;
+  type: lh1 .4 small2 upcase;
+  layout: p1 max960;
 
-  traits {
-    flex: align-center;
-    type: lh1.4 small2 upcase;
-    layout: p1 max960;
+  & {
+    visibility: visible;
   }
 }
 
 :h1 {
-  traits {
-    flex-child: grow;
-    type: semibold;
-  }
+  flex-child: grow;
+  type: semibold;
 }
 
 :list {
-  traits {
-    flex: align-center wrap justify-end;
-  }
+  flex: align-center wrap justify-end;
 }
 
 :li {
-  traits {
-    layout: p1;
-  }
+  layout: p1;
 }
 
 :home {
-  traits {
-    link: invisible;
-  }
+  link: invisible;
 }
 
 :navlinks {
-  traits {
-    link: subtle;
-  }
+  link: subtle;
 }

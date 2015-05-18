@@ -39,50 +39,29 @@ export default class TCSS {
     if (this.currentFile) {
       if (!this.scopes.get(this.currentFile)) this.scopes.set(this.currentFile, {})
       this.key = rule.selector.replace(/^:/, '')
-      rule.eachInside(child => {
-        if (child.type == "rule" && child.selector == "traits") {
-          this.handleTraits(child)
-        } else if (child.type == "atrule") {
-          this.handleAtTrait(child)
+      let oneOffs = []
+      rule.each(child => {
+        if (child.type === 'decl') {
+          let traitName = child.prop;
+          this.addClass(`t-${ traitName}`)
+          if (child.value) child.value.split(" ").forEach(v => {
+            this.addClass(`t-${traitName}--${v}`)
+          })
+        } else if (child.type === 'rule' && child.selector === '&') {
+          oneOffs = oneOffs.concat(child.nodes)
         }
+        child.removeSelf()
       })
-      if (rule.nodes.length > 0) {
+      if (oneOffs.length > 0) {
         let className = toClassName([this.currentFile, rule.selector].join())
         this.addClass(className)
         rule.selector = "." + className
+        rule.nodes = oneOffs
       } else {
         rule.removeSelf()
       }
     } else {
       console.error(`Missing SOURCE to export scoped rule ${rule.selector}`)
-    }
-  }
-
-  handleTraits(traitNode) {
-    if (this.key) {
-      traitNode.each(rule => {
-        let traitName = rule.prop;
-        this.addClass(`t-${ traitName}`)
-        if (rule.value) rule.value.split(" ").forEach(v => {
-          this.addClass(`t-${traitName}--${v}`)
-        })
-      })
-      traitNode.removeSelf()
-    } else {
-      console.error(`Traits can only be included within placeholders!`)
-    }
-  }
-
-  handleAtTrait(rule) {
-    if (this.key) {
-      let traitName = rule.name;
-      this.addClass(`t-${traitName}`)
-      if (rule.params) rule.params.split(" ").forEach(v => {
-        this.addClass(`t-${traitName}--${v}`)
-      })
-      rule.removeSelf()
-    } else {
-      console.error(`Traits can only be included within placeholders!`)
     }
   }
 
@@ -117,11 +96,11 @@ export default class TCSS {
       rule.parent.insertBefore(rule, variant)
     })
     breakpoints.medias.forEach(media => {
-      let postfix = variant => variant.clone({selector: `${variant.selector}\\:${media.name}`})
+      let postfix = variant => variant.clone({selector: `${variant.selector}--${media.name}`})
       rule.parent.insertBefore(rule, new AtRule({name: 'media', params: media.expr, nodes: traitVariants.map(postfix)}))
     })
     breakpoints.classes.forEach(name => {
-      let postfix = variant => variant.clone({selector: `.breakpoint-${name} ${variant.selector}\\:${name}`})
+      let postfix = variant => variant.clone({selector: `.breakpoint-${name} ${variant.selector}--${name}`})
       rule.parent.insertBefore(rule, new AtRule({name: 'media', nodes: traitVariants.map(postfix)}))
     })
 
