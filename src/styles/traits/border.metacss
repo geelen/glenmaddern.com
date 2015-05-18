@@ -1,0 +1,27 @@
+@trait border {
+  round {
+    border-radius: 50%;
+  }
+
+  none {
+    border: none;
+    box-shadow: none;
+  }
+
+  polaroid {
+    box-shadow: 0 0 0 1px #eee, 0 0 0 7px white, 0 0 0 8px #ddd;
+  }
+
+  frame {
+    box-shadow: 0 0 0 7px white, 0 0 0 8px #ddd;
+  }
+
+  simple {
+    box-shadow: 0 0 0 1px #ddd;
+  }
+
+  thick-left {
+    border-left: 0.2rem solid;
+    padding-left: 1rem;
+  }
+}

@@ -1,0 +1,156 @@
+@trait size {
+  /* 0.5 */
+  0.5 {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  0.5*auto {
+    width: 0.5rem;
+    height: auto;
+  }
+  auto*0.5 {
+    width: 0.5rem;
+    height: auto;
+  }
+
+  0.5*1 {
+    width: 0.5rem * 1rem;
+    height: 0.5rem * 1rem;
+  }
+  0.5*1.5 {
+    width: 0.5rem * 1.5rem;
+    height: 0.5rem * 1.5rem;
+  }
+  0.5*2 {
+    width: 0.5rem * 2rem;
+    height: 0.5rem * 2rem;
+  }
+  0.5*4 {
+    width: 0.5rem * 4rem;
+    height: 0.5rem * 4rem;
+  }
+
+  /* 1 */
+  1 {
+    width: 1rem;
+    height: 1rem;
+  }
+  1*auto {
+    width: 1rem;
+    height: auto;
+  }
+  auto*1 {
+    width: 1rem;
+    height: auto;
+  }
+
+  1*0.5 {
+    width: 1rem * 0.5rem;
+    height: 1rem * 0.5rem;
+  }
+  1*1.5 {
+    width: 1rem * 1.5rem;
+    height: 1rem * 1.5rem;
+  }
+  1*2 {
+    width: 1rem * 2rem;
+    height: 1rem * 2rem;
+  }
+  1*4 {
+    width: 1rem * 4rem;
+    height: 1rem * 4rem;
+  }
+
+  /* 1.5 */
+  1.5 {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  1.5*auto {
+    width: 1.5rem;
+    height: auto;
+  }
+  auto*1.5 {
+    width: 1.5rem;
+    height: auto;
+  }
+
+  1.5*0.5 {
+    width: 1.5rem * 0.5rem;
+    height: 1.5rem * 0.5rem;
+  }
+  1.5*1 {
+    width: 1.5rem * 1rem;
+    height: 1.5rem * 1rem;
+  }
+  1.5*2 {
+    width: 1.5rem * 2rem;
+    height: 1.5rem * 2rem;
+  }
+  1.5*4 {
+    width: 1.5rem * 4rem;
+    height: 1.5rem * 4rem;
+  }
+
+  /* 2 */
+  2 {
+    width: 2rem;
+    height: 2rem;
+  }
+  2*auto {
+    width: 2rem;
+    height: auto;
+  }
+  auto*2 {
+    width: 2rem;
+    height: auto;
+  }
+
+  2*0.5 {
+    width: 2rem * 0.5rem;
+    height: 2rem * 0.5rem;
+  }
+  2*1 {
+    width: 2rem * 1rem;
+    height: 2rem * 1rem;
+  }
+  2*1.5 {
+    width: 2rem * 1.5rem;
+    height: 2rem * 1.5rem;
+  }
+  2*4 {
+    width: 2rem * 4rem;
+    height: 2rem * 4rem;
+  }
+
+  /* 4 */
+  4 {
+    width: 4rem;
+    height: 4rem;
+  }
+  4*auto {
+    width: 4rem;
+    height: auto;
+  }
+  auto*4 {
+    width: 4rem;
+    height: auto;
+  }
+
+  4*0.5 {
+    width: 4rem * 0.5rem;
+    height: 4rem * 0.5rem;
+  }
+  4*1 {
+    width: 4rem * 1rem;
+    height: 4rem * 1rem;
+  }
+  4*1.5 {
+    width: 4rem * 1.5rem;
+    height: 4rem * 1.5rem;
+  }
+  4*2 {
+    width: 4rem * 2rem;
+    height: 4rem * 2rem;
+  }
+}

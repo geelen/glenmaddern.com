@@ -114,7 +114,6 @@ export default class TCSS {
     })
 
     traitVariants.forEach(variant => {
-      console.log(variant)
       rule.parent.insertBefore(rule, variant)
     })
     breakpoints.medias.forEach(media => {
