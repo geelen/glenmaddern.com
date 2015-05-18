@@ -114,11 +114,16 @@ export default class TCSS {
     })
 
     traitVariants.forEach(variant => {
+      console.log(variant)
       rule.parent.insertBefore(rule, variant)
     })
     breakpoints.medias.forEach(media => {
-      let postfix = variant => new Rule({selector: variant.selector + '\\:' + media.name, nodes: variant.nodes})
+      let postfix = variant => variant.clone({selector: `${variant.selector}\\:${media.name}`})
       rule.parent.insertBefore(rule, new AtRule({name: 'media', params: media.expr, nodes: traitVariants.map(postfix)}))
+    })
+    breakpoints.classes.forEach(name => {
+      let postfix = variant => variant.clone({selector: `.breakpoint-${name} ${variant.selector}\\:${name}`})
+      rule.parent.insertBefore(rule, new AtRule({name: 'media', nodes: traitVariants.map(postfix)}))
     })
 
     rule.removeSelf()
