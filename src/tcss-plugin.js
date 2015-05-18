@@ -41,6 +41,8 @@ export default class TCSS {
       rule.eachInside(child => {
         if (child.type == "rule" && child.selector == "traits") {
           this.handleTraits(child)
+        } else if (child.type == "atrule") {
+          this.handleAtTrait(child)
         }
       })
       if (rule.nodes.length > 0) {
@@ -70,6 +72,19 @@ export default class TCSS {
     }
   }
 
+  handleAtTrait(rule) {
+    if (this.key) {
+      let traitName = rule.name;
+      this.addClass(`t-${traitName}`)
+      if (rule.params) rule.params.split(" ").forEach(v => {
+        this.addClass(`t-${traitName}--${v}`)
+      })
+      rule.removeSelf()
+    } else {
+      console.error(`Traits can only be included within placeholders!`)
+    }
+  }
+
   addClass(newClass) {
     let scope = this.scopes.get(this.currentFile)
     scope[this.key] = scope[this.key] ? `${scope[this.key]} ${newClass}` : newClass
@@ -77,8 +92,8 @@ export default class TCSS {
 
   defineTrait(rule) {
     //rule.parent.insertBefore(rule, new Rule({selector: `.t-${rule.params}`, nodes: rule.nodes}))
-    rule.eachRule(child => {
-      if (!child.nodes) return
+    rule.each(child => {
+      if (!(child.type == 'rule' && child.nodes)) return
       if (child.selector == ':default') {
         child.selector = `.t-${rule.params}`
       } else {

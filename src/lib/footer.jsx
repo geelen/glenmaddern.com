@@ -2,9 +2,11 @@ import React from 'react'
 import Router from 'react-router'
 let Link = Router.Link
 
+import styles from './footer.metacss!'
+
 export default class Footer extends React.Component {
   render() {
-    return <footer _layout="p2 small:p1 mb2 max840" _before="hr">
+    return <footer className={styles.footer}>
       <figure _layout="max600" _flex="justify-center align-center"><img _flex-child="shrink0" src="/assets/images/me_160.jpg" _border="round polaroid" _size="4" _layout="mr1"/>
         <figcaption _type="small1 center lh1.4"><span _type="bold">Glen Maddern</span> is an independent Web Developer from Melbourne, Australia.
           <div _layout="pt0.5">You should <span _type="semibold">get in touch</span> using one of the following useful internet services:

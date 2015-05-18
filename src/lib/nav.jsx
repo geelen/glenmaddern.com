@@ -14,9 +14,15 @@ export default class Nav extends React.Component {
         <li className={styles.li}>
           <Link to="Articles" className={styles.navlinks}>Articles</Link>
         </li>
-        <li className={styles.li}><a className={styles.navlinks} href="/projects">Projects</a></li>
-        <li className={styles.li}><a className={styles.navlinks} href="/talks">Talks</a></li>
-        <li className={styles.li}><a className={styles.navlinks} href="/work">Work</a></li>
+        <li className={styles.li}>
+          <a className={styles.navlinks} href="/projects">Projects</a>
+        </li>
+        <li className={styles.li}>
+          <a className={styles.navlinks} href="/talks">Talks</a>
+        </li>
+        <li className={styles.li}>
+          <a className={styles.navlinks} href="/work">Work</a>
+        </li>
       </ul>
     </nav>
   }

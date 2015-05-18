@@ -1,0 +1,3 @@
+:footer {
+  @layout p2 p1:small mb2 max840;
+}
