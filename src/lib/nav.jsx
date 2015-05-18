@@ -6,7 +6,7 @@ import styles from './nav.metacss!'
 
 export default class Nav extends React.Component {
   render() {
-    return <nav className={styles.nav} _flex="align-center" _layout="p1 max960" _type="upcase small2 lh1.4">
+    return <nav className={styles.nav}>
       <h1 _flex-child="grow1" _type="semibold">
         <Link to="Home" _link="invisible">Glen Maddern</Link>
       </h1>

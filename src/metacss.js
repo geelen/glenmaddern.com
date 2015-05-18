@@ -4,7 +4,7 @@ import Autoprefixer from './autoprefixer'
 import TCSS from './tcss-plugin'
 
 let tcss = new TCSS()
-let plugins = [Autoprefixer, tcss.getPlugin()],
+let plugins = [tcss.getPlugin()],
   { fetch: __fetch, hotReload, bundle } = pluginPostcss(plugins)
 
 let fetch = (load, f) => {

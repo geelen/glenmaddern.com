@@ -1,6 +1,9 @@
 :nav {
-  font-size: 2rem;
+  visibility: visible;
+
   traits {
+    flex: align-center;
     type: lh1.4 small2 upcase;
+    layout: p1 max960;
   }
 }
