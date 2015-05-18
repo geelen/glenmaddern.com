@@ -1,6 +1,6 @@
 :nav {
   flex: align-center;
-  type: lh1 .4 small2 upcase;
+  type: small2 upcase;
   layout: p1 max960;
 
   & {
@@ -18,7 +18,7 @@
 }
 
 :li {
-  layout: p1;
+  layout: pl1;
 }
 
 :home {

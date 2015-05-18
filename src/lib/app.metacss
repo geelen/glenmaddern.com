@@ -1,4 +1,4 @@
-body {
-  background: papayawhip;
-  font-family: Avenir;
+:body {
+  layout: p1 p0--small;
+  type: sans;
 }

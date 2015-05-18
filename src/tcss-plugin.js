@@ -2,6 +2,8 @@ import postcss from 'postcss'
 import Rule from 'postcss/lib/rule'
 import AtRule from 'postcss/lib/at-rule'
 
+const blackList = [':root', ':host']
+
 export default class TCSS {
   constructor() {
     this.scopes = new Map()
@@ -21,7 +23,7 @@ export default class TCSS {
     css.each(rule => {
       if (rule.type == "comment" && rule.text.startsWith("SOURCE")) {
         this.handleSourceComment(rule)
-      } else if (rule.type == "rule" && rule.selector.startsWith(":")) {
+      } else if (rule.type == "rule" && rule.selector.startsWith(":") && blackList.indexOf(rule.selector) === -1) {
         this.handlePlaceholder(rule)
       } else if (rule.type == "atrule" && rule.name == "trait") {
         this.defineTrait(rule)
