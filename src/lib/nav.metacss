@@ -1,0 +1,6 @@
+:nav {
+  font-size: 2rem;
+  traits {
+    type: lh1.4 small2 upcase;
+  }
+}

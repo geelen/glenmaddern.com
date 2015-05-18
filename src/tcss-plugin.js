@@ -65,7 +65,7 @@ export default class TCSS {
         let traitName = rule.prop;
         this.addClass(`t-${ traitName}`)
         if (rule.value) rule.value.split(" ").forEach(v => {
-          this.addClass(`t-${traitName}:${v}`)
+          this.addClass(`t-${traitName}--${v}`)
         })
       })
       traitNode.removeSelf()
@@ -85,7 +85,7 @@ export default class TCSS {
     rule.eachRule(child => {
       if (!child.nodes) return;
       this.traits[rule.params].push(child.selector)
-      child.selector = `.t-${rule.params}\\:${child.selector}`
+      child.selector = `.t-${rule.params}--${child.selector.replace(/([^\w\-_])/g, "\\$1")}`
       rule.remove(child)
       rule.parent.insertBefore(rule, child)
     })
