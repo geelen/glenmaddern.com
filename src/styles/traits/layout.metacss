@@ -1,4 +1,9 @@
 @trait layout {
+  @breakpoint-media small (max-width: 520px);
+  @breakpoint-media medium (min-width: 521px) and (max-width: 900px);
+  @breakpoint-media large (min-width: 901px);
+  @breakpoint-class lol;
+
   block {
     display: block;
   }

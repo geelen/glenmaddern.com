@@ -1,5 +1,6 @@
 import postcss from 'postcss'
 import Rule from 'postcss/lib/rule'
+import AtRule from 'postcss/lib/at-rule'
 
 export default class TCSS {
   constructor() {
@@ -91,16 +92,35 @@ export default class TCSS {
   }
 
   defineTrait(rule) {
+    let breakpoints = {classes: [], medias: []},
+      traitVariants = []
     //rule.parent.insertBefore(rule, new Rule({selector: `.t-${rule.params}`, nodes: rule.nodes}))
     rule.each(child => {
-      if (!(child.type == 'rule' && child.nodes)) return
-      if (child.selector == ':default') {
-        child.selector = `.t-${rule.params}`
-      } else {
-        child.selector = `.t-${rule.params}--${child.selector.replace(/([^\w\-_])/g, "\\$1")}`
+      if (child.type === 'rule' && child.nodes) {
+        if (child.selector === ':default') {
+          child.selector = `.t-${rule.params}`
+        } else {
+          child.selector = `.t-${rule.params}--${child.selector.replace(/([^\w\-_])/g, "\\$1")}`
+        }
+        traitVariants.push(child)
+      } else if (child.type === 'atrule') {
+        if (child.name === 'breakpoint-class') {
+          breakpoints.classes.push(child.params)
+        } else if (child.name === 'breakpoint-media') {
+          let [name,...expr] = child.params.split(' ')
+          breakpoints.medias.push({name, expr: expr.join(' ')})
+        }
       }
-      rule.parent.insertBefore(rule, child)
     })
+
+    traitVariants.forEach(variant => {
+      rule.parent.insertBefore(rule, variant)
+    })
+    breakpoints.medias.forEach(media => {
+      let postfix = variant => new Rule({selector: variant.selector + '\\:' + media.name, nodes: variant.nodes})
+      rule.parent.insertBefore(rule, new AtRule({name: 'media', params: media.expr, nodes: traitVariants.map(postfix)}))
+    })
+
     rule.removeSelf()
   }
 }
