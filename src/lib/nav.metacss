@@ -7,3 +7,34 @@
     layout: p1 max960;
   }
 }
+
+:h1 {
+  traits {
+    flex-child: grow;
+    type: semibold;
+  }
+}
+
+:list {
+  traits {
+    flex: align-center wrap justify-end;
+  }
+}
+
+:li {
+  traits {
+    layout: p1;
+  }
+}
+
+:home {
+  traits {
+    link: invisible;
+  }
+}
+
+:navlinks {
+  traits {
+    link: subtle;
+  }
+}

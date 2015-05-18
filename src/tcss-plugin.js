@@ -3,7 +3,6 @@ import Rule from 'postcss/lib/rule'
 
 export default class TCSS {
   constructor() {
-    this.traits = {}
     this.scopes = new Map()
   }
 
@@ -23,10 +22,8 @@ export default class TCSS {
         this.handleSourceComment(rule)
       } else if (rule.type == "rule" && rule.selector.startsWith(":")) {
         this.handlePlaceholder(rule)
-      } else if (rule.type == "atrule" && rule.name == "define-trait") {
+      } else if (rule.type == "atrule" && rule.name == "trait") {
         this.defineTrait(rule)
-      } else {
-        console.log(rule)
       }
     })
   }
@@ -59,7 +56,6 @@ export default class TCSS {
   }
 
   handleTraits(traitNode) {
-    console.log(traitNode)
     if (this.key) {
       traitNode.each(rule => {
         let traitName = rule.prop;
@@ -80,13 +76,14 @@ export default class TCSS {
   }
 
   defineTrait(rule) {
-    this.traits[rule.params] = []
-    rule.parent.insertBefore(rule, new Rule({selector: `.t-${rule.params}`, nodes: rule.nodes}))
+    //rule.parent.insertBefore(rule, new Rule({selector: `.t-${rule.params}`, nodes: rule.nodes}))
     rule.eachRule(child => {
-      if (!child.nodes) return;
-      this.traits[rule.params].push(child.selector)
-      child.selector = `.t-${rule.params}--${child.selector.replace(/([^\w\-_])/g, "\\$1")}`
-      rule.remove(child)
+      if (!child.nodes) return
+      if (child.selector == ':default') {
+        child.selector = `.t-${rule.params}`
+      } else {
+        child.selector = `.t-${rule.params}--${child.selector.replace(/([^\w\-_])/g, "\\$1")}`
+      }
       rule.parent.insertBefore(rule, child)
     })
     rule.removeSelf()

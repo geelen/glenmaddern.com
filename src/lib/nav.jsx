@@ -7,16 +7,16 @@ import styles from './nav.metacss!'
 export default class Nav extends React.Component {
   render() {
     return <nav className={styles.nav}>
-      <h1 _flex-child="grow1" _type="semibold">
-        <Link to="Home" _link="invisible">Glen Maddern</Link>
+      <h1 className={styles.h1}>
+        <Link to="Home" className={styles.home}>Glen Maddern</Link>
       </h1>
-      <ul _flex="align-center wrap justify-end">
-        <li _layout="pl1">
-          <Link to="Articles" _link="subtle">Articles</Link>
+      <ul className={styles.list}>
+        <li className={styles.li}>
+          <Link to="Articles" className={styles.navlinks}>Articles</Link>
         </li>
-        <li _layout="pl1"><a href="/projects" _link="subtle">Projects</a></li>
-        <li _layout="pl1"><a href="/talks" _link="subtle">Talks</a></li>
-        <li _layout="pl1"><a href="/work" _link="subtle">Work</a></li>
+        <li className={styles.li}><a className={styles.navlinks} href="/projects">Projects</a></li>
+        <li className={styles.li}><a className={styles.navlinks} href="/talks">Talks</a></li>
+        <li className={styles.li}><a className={styles.navlinks} href="/work">Work</a></li>
       </ul>
     </nav>
   }

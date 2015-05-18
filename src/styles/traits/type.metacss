@@ -1,4 +1,4 @@
-@define-trait type {
+@trait type {
   /*
     FONT FAMILIES
   */

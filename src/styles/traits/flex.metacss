@@ -1,5 +1,7 @@
-@define-trait flex {
-  display: flex;
+@trait flex {
+  :default {
+    display: flex;
+  }
 
   column {
     flex-direction: column;
@@ -30,16 +32,16 @@
   }
 }
 
-@define-trait flex-child {
-  shrink0 {
+@trait flex-child {
+  no-shrink {
     flex-shrink: 0;
   }
 
-  shrink1 {
+  shrink {
     flex-shrink: 1;
   }
 
-  grow1 {
+  grow {
     flex-grow: 1;
   }
 

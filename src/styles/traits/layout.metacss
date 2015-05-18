@@ -1,4 +1,4 @@
-@define-trait layout {
+@trait layout {
   block {
     display: block;
   }

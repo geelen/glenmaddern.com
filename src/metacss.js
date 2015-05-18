@@ -1,10 +1,12 @@
 import pluginPostcss from 'plugin-postcss'
 import Autoprefixer from './autoprefixer'
+import inlineComment from 'postcss-inline-comment'
+import nested from 'postcss-nested'
 
 import TCSS from './tcss-plugin'
 
 let tcss = new TCSS()
-let plugins = [tcss.getPlugin()],
+let plugins = [inlineComment, tcss.getPlugin(), nested],
   { fetch: __fetch, hotReload, bundle } = pluginPostcss(plugins)
 
 let fetch = (load, f) => {
