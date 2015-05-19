@@ -11,6 +11,18 @@
     }
   }
 
+  line-after {
+    &::after {
+      content: '';
+      color: inherit;
+      display: block;
+      width: 50%;
+      margin: 1rem auto;
+      border-top: 1px solid;
+      opacity: 0.2;
+    }
+  }
+
   chevron-after {
     position: relative;
 

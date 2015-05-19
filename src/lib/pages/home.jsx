@@ -3,6 +3,8 @@ import Router from 'react-router'
 let Link = Router.Link
 
 import styles from './home.metacss!'
+import articles from '../articles/index'
+import BlogHeadlines from '../components/blog-headlines.jsx!'
 
 export default class Home extends React.Component {
   render() {
@@ -14,9 +16,7 @@ export default class Home extends React.Component {
         </h1>
       </header>
       <div className={styles.main}>
-        <section className={styles.section}>
-          <h2 _after="hr" _type="upcase">Articles</h2>
-        </section>
+        <BlogHeadlines name="Articles" articles={articles} num={3}/>
       </div>
     </div>
   }

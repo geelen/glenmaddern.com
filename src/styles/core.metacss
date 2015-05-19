@@ -9,8 +9,14 @@
   min-height: 100%;
 }
 
+@media (max-width: 520px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
 body {
-  background: linear-gradient(180deg, hsl(0, 50%, 98%) 0%, hsl(90, 50%, 97%) 40%, hsl(180, 50%, 96%) 80%);
+  background: linear-gradient(180deg, hsl(0, 50%, 98%) 0%, hsl(90, 50%, 97%) 60%, hsl(180, 50%, 96%) 100%);
   text-rendering: optimizeLegibility;
   min-height: 100%;
 }

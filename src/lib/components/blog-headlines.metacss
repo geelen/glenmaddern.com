@@ -1,0 +1,32 @@
+:section {
+  layout: p3-1 p2-1--small;
+}
+
+:h2 {
+  divider: line-after;
+  type: upcase;
+}
+
+:a {
+  link: subtle;
+  layout: block pb1;
+  type: lh1.2;
+}
+
+:h5 {
+  type: h6 bold;
+}
+
+:span {
+  type: small3 italic;
+  link: invisible;
+}
+
+:unbroken {
+  type: unbroken;
+}
+
+:more {
+  link: inline;
+  type: small1;
+}
