@@ -2,10 +2,6 @@
   flex: align-center;
   type: small2 upcase;
   layout: p1 max960;
-
-  & {
-    visibility: visible;
-  }
 }
 
 :h1 {

@@ -32,14 +32,14 @@ export default class TCSS {
   }
 
   handleSourceComment(rule) {
-    let match = rule.text.match(/SOURCE=(.*)/);
-    this.currentFile = match ? match[1] : null;
+    let match = rule.text.match(/SOURCE=(.*)/)
+    this.currentFile = match ? match[1] : null
+    this.scopes.set(this.currentFile, {})
   }
 
   handlePlaceholder(rule) {
     let toClassName = (f) => `${f.replace(/\W/g, '_')}`
     if (this.currentFile) {
-      if (!this.scopes.get(this.currentFile)) this.scopes.set(this.currentFile, {})
       this.key = rule.selector.replace(/^:/, '')
       let oneOffs = []
       rule.each(child => {

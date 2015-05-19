@@ -18,6 +18,7 @@
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
     <script>
+      System.trace = true
       System.import("lib/index").then(function() {
         console.log("### DONE IN " + Math.round(performance.now()) / 1000 + " SECONDS")
       })
