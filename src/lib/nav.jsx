@@ -6,7 +6,6 @@ import styles from './nav.metacss!'
 
 export default class Nav extends React.Component {
   render() {
-    console.log(styles)
     return <nav className={styles.nav}>
       <h1 className={styles.h1}>
         <Link to="Home" className={styles.home}>Glen Maddern</Link>
