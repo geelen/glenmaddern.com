@@ -13,11 +13,11 @@ export default class Home extends React.Component {
           I do<span className="t-type--semibold"> rad web stuff</span>
         </h1>
       </header>
-      <main _layout="max960" _type="center">
-        <section _layout="p3-1 small:p2-1">
+      <div className={styles.main}>
+        <section className={styles.section}>
           <h2 _after="hr" _type="upcase">Articles</h2>
         </section>
-      </main>
+      </div>
     </div>
   }
 }

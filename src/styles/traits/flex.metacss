@@ -3,7 +3,7 @@
     display: flex;
   }
 
-  column {
+  vertical {
     flex-direction: column;
   }
 

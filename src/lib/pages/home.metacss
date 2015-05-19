@@ -12,3 +12,12 @@
   type: h1 h2--small light;
   layout: block p1;
 }
+
+:main {
+  layout: max960;
+  type: center;
+}
+
+:section {
+  layout: p3-1 p2-1--small;
+}

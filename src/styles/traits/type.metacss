@@ -7,7 +7,7 @@
     FONT FAMILIES
   */
   sans {
-    font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans';
+    font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans', sans-serif;
   }
 
   serif {
