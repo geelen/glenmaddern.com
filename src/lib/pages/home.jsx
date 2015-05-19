@@ -4,7 +4,9 @@ let Link = Router.Link
 
 import styles from './home.metacss!'
 import articles from '../articles/index'
+import projects from '../projects/index'
 import BlogHeadlines from '../components/blog-headlines.jsx!'
+import PreviewList from '../components/preview-list.jsx!'
 
 export default class Home extends React.Component {
   render() {
@@ -16,7 +18,8 @@ export default class Home extends React.Component {
         </h1>
       </header>
       <div className={styles.main}>
-        <BlogHeadlines name="Articles" articles={articles} num={3}/>
+        <BlogHeadlines name="Articles" items={articles} num={3}/>
+        <PreviewList name="Projects" items={projects} num={3}/>
       </div>
     </div>
   }

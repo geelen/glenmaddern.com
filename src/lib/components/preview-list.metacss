@@ -1,0 +1,25 @@
+:outer {
+  flex: justify-center align-stretch wrap;
+  layout: block--small;
+}
+
+:li {
+  flex-child: 1/3 1/2--medium;
+  layout: p1;
+  flex: vertical;
+  type: lh1.4;
+}
+
+:figure {
+  layout: pb1;
+}
+
+:a {
+  link: subtle shadow;
+  layout: block;
+}
+
+:img {
+  layout: block w100%;
+  border: polaroid;
+}
