@@ -27,6 +27,7 @@ System.config({
     "postcss-nested": "npm:postcss-nested@0.3.1",
     "react": "npm:react@0.13.3",
     "react-router": "npm:react-router@0.13.3",
+    "showdown": "github:showdownjs/showdown@0.5.1",
     "github:geelen/plugin-live-jsx@master": {
       "pascal-case": "npm:pascal-case@1.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0",
