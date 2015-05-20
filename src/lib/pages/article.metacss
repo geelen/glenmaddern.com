@@ -1,0 +1,114 @@
+:outer {
+  layout: p1;
+}
+
+:header {
+  layout: p3-0;
+  type: lh1.2;
+}
+
+:heading1 {
+  type: h3 h4--small black center;
+}
+
+:heading2 {
+  type: h5 italic center;
+  layout: pt1;
+}
+
+:date {
+  layout: block pt0.5;
+  type: small3 center;
+}
+
+/* MARKDOWN STYLES */
+:markdown {
+}
+
+:h1 {
+  layout: max840 pt3 pb2;
+  type: lh1.2 h3 bold center;
+  divider: line-after;
+}
+
+:h2 {
+  layout: max840 pt3 pb1;
+  type: lh1.2 h4 bold center;
+}
+
+:h3 {
+  layout: max720 p1-0;
+  type: lh1.2 h4 bold;
+}
+
+:h4 {
+  layout: max720 p0.5-0;
+  type: lh1.2 bold;
+}
+
+:p {
+  layout: max720 mb1;
+  type: serif lh1.4 small1 small0--small;
+}
+
+:figure {
+  layout: max840 p1;
+}
+
+:img {
+  layout: mw100% block m0-auto;
+  border: polaroid;
+}
+
+:figcaption {
+  type: serif lh1.4 small3 italic center;
+  layout: pt1;
+}
+
+:a {
+  link: inline;
+}
+
+
+:ul {
+  layout: max720 m1-auto;
+  type: serif small2;
+}
+
+:li {
+  layout: pl0.5 m0.5-0;
+  type: lh1.4;
+  /* BEFORE: BULLET */
+}
+
+:pre {
+  layout: max840 m1-auto;
+}
+
+:code {
+  type: mono lh1.2 small3 unbroken;
+  background: white;
+  border: simple;
+  layout: p0.25 m0.25;
+}
+
+:blockquote {
+  layout: max720 m2-auto p0-1;
+  border: thick-left;
+}
+
+:strong {
+  type: semibold;
+}
+
+:em {
+  type: italic;
+}
+
+:small {
+  type: small2;
+}
+
+:form {
+  layout: max720 m1-auto;
+}

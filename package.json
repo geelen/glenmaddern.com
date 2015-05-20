@@ -5,6 +5,7 @@
     },
     "dependencies": {
       "jsx": "github:geelen/plugin-live-jsx@master",
+      "md": "github:guybedford/system-md@^0.0.1",
       "metaquery": "npm:metaquery@^1.2.5",
       "plugin-postcss": "github:geelen/plugin-postcss@master",
       "postcss": "npm:postcss@^4.1.11",

@@ -19,6 +19,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.4.2",
     "core-js": "npm:core-js@0.9.9",
     "jsx": "github:geelen/plugin-live-jsx@master",
+    "md": "github:guybedford/system-md@0.0.1",
     "metaquery": "npm:metaquery@1.2.5",
     "plugin-postcss": "github:geelen/plugin-postcss@master",
     "postcss": "npm:postcss@4.1.11",
@@ -35,6 +36,9 @@ System.config({
     },
     "github:geelen/plugin-postcss@master": {
       "postcss": "npm:postcss@4.1.11"
+    },
+    "github:guybedford/system-md@0.0.1": {
+      "showdown": "github:showdownjs/showdown@0.3.4"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -102,6 +106,14 @@ System.config({
     "npm:asn1.js@1.0.5": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "bn.js": "npm:bn.js@1.3.0",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "inherits": "npm:inherits@2.0.1",
+      "minimalistic-assert": "npm:minimalistic-assert@1.0.0",
+      "vm": "github:jspm/nodelibs-vm@0.1.0"
+    },
+    "npm:asn1.js@1.0.6": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "bn.js": "npm:bn.js@2.0.5",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "inherits": "npm:inherits@2.0.1",
       "minimalistic-assert": "npm:minimalistic-assert@1.0.0",
@@ -487,7 +499,7 @@ System.config({
       "wrappy": "npm:wrappy@1.0.1"
     },
     "npm:parse-asn1@3.0.0": {
-      "asn1.js": "npm:asn1.js@1.0.5",
+      "asn1.js": "npm:asn1.js@1.0.6",
       "browserify-aes": "npm:browserify-aes@1.0.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.1",
