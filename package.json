@@ -13,7 +13,8 @@
       "postcss-nested": "npm:postcss-nested@^0.3.1",
       "react": "npm:react@^0.14.0-alpha1",
       "react-router": "npm:react-router@^0.13.3",
-      "showdown": "github:showdownjs/showdown@^0.5.1"
+      "showdown": "github:showdownjs/showdown@^0.5.1",
+      "text": "github:systemjs/plugin-text@^0.0.2"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",

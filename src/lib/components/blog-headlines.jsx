@@ -20,7 +20,7 @@ export default class BlogHeadlines extends React.Component {
         })
       }
       {
-        firstN.length < this.props.items.length ? <a className={styles.more} href="/articles">more...</a> : {}
+        firstN.length < this.props.items.length ? <Link to={this.props.name} className={styles.more}>more...</Link> : {}
       }
     </section>
   }

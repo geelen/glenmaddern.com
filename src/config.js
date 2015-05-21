@@ -28,6 +28,7 @@ System.config({
     "react": "npm:react@0.13.3",
     "react-router": "npm:react-router@0.13.3",
     "showdown": "github:showdownjs/showdown@0.5.1",
+    "text": "github:systemjs/plugin-text@0.0.2",
     "github:geelen/plugin-live-jsx@master": {
       "pascal-case": "npm:pascal-case@1.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0",
