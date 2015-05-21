@@ -1,5 +1,6 @@
 import React from 'react'
 import Article from './article.jsx!'
+import YoutubePlayer from '../components/youtube-player.jsx!'
 
 let JavascriptIn2015 = <Article
   slug="javascript-in-2015"
@@ -36,12 +37,9 @@ They're both incredible pieces of open-source work with burgeoning communities, 
 
 Rather than go on in detail about how this all hangs together, I thought I'd try my hand at a screencast that shows you, in 10-and-a-half minutes, what using JSPM, SystemJS and ES6 is like. We're going to build something that scrapes the top GIFs from [/r/perfectloops](http://www.reddit.com/r/perfectloops) and displays them.
 
-<figure>
-<div am-Youtube="screencast">
-<iframe src="//www.youtube.com/embed/iukBMY4apvI" frameborder="0" allowfullscreen></iframe>
-</div>
-</figure>
-
+`}
+  <YoutubePlayer videoId="iukBMY4apvI" />
+  {`
 The resulting [source code](https://github.com/geelen/loopgifs) and [live version](http://geelen.github.io/loopgifs) are up on GitHub, but the interesting bit is the process in getting there, so watch the vid.
 
 ---
