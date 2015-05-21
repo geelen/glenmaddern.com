@@ -74,14 +74,18 @@ export default class TCSS {
   lookForMixins(rule) {
     rule.eachAtRule("include-trait", child => {
       let [traitName, ...variants] = child.params.split(' '),
-        traits = this.traits.get(traitName),
-        def = traits.get(':default')
-      if (def) child.parent.insertBefore(child, def)
-      variants.forEach(v => {
-        let variant = traits.get(v)
-        if (variant) child.parent.insertBefore(child, variant)
-      })
-      child.removeSelf()
+        traits = this.traits.get(traitName)
+      if (traits) {
+        let def = traits.get(':default')
+        if (def) child.parent.insertBefore(child, def)
+        variants.forEach(v => {
+          let variant = traits.get(v)
+          if (variant) child.parent.insertBefore(child, variant)
+        })
+        child.removeSelf()
+      } else {
+        console.warn(`Missing trait ${traitName}`)
+      }
     })
   }
 
