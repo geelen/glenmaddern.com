@@ -1,8 +1,8 @@
 import React from 'react'
-import AbstractArticle from './abstract-article.jsx!'
+import Article from './article.jsx!'
 
-let JavascriptIn2015 = <AbstractArticle
-  key="javascript-in-2015"
+let JavascriptIn2015 = <Article
+  slug="javascript-in-2015"
   title="JavaScript in 2015"
   strap="A whole new world"
   date="2015-01-07"
@@ -54,6 +54,6 @@ This is my first serious attempt at a screencast, so if you watched it and have 
   <input id="fieldEmail" name="cm-hyshd-hyshd" type="email" required placeholder="Email" />
   <button type="submit">Subscribe</button>
 </form>
-`}</AbstractArticle>
+`}</Article>
 
 export default JavascriptIn2015

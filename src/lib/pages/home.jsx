@@ -2,8 +2,8 @@ import React from 'react'
 import Router from 'react-router'
 let Link = Router.Link
 
-import styles from './home.metacss!'
-import articles from '../articles/index'
+import styles from './pages.metacss!'
+import articles from '../articles/index.jsx!'
 import projects from '../projects/index'
 import BlogHeadlines from '../components/blog-headlines.jsx!'
 import PreviewList from '../components/preview-list.jsx!'
