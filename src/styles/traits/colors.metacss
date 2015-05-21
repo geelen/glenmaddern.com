@@ -1,0 +1,5 @@
+@trait colors {
+  white-background {
+    background: white;
+  }
+}

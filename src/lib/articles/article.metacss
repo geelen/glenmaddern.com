@@ -4,7 +4,7 @@
 
 :header {
   layout: p3-0;
-  type: lh1.2;
+  type: lh1 .2;
 }
 
 :heading1 {
@@ -17,7 +17,7 @@
 }
 
 :date {
-  layout: block pt0.5;
+  layout: block pt0 .5;
   type: small3 center;
 }
 
@@ -90,25 +90,30 @@
 
     code {
       @include-trait type mono lh1.2 small3 unbroken;
-      @include-trait background white;
+      @include-trait colors white-background;
       @include-trait border simple;
       @include-trait layout p0.25 m0.25;
     }
 
     blockquote {
       @include-trait layout max720 m2-auto p0-1;
-      @include-trait border thick-left;
 
       p {
         @include-trait border thick-left;
         @include-trait layout m0-2 pt0.5;
-        @include-trait type small3;
+        @include-trait type small2;
         &:first-child {
-          @include extend(layout, "pt0");
+          @include-trait layout pt0;
         }
 
+        strong {
+          @include-trait type h5 semibold;
+        }
         @media (max-width: 520px) {
           @include-trait layout m0;
+          strong {
+            @include-trait type h6;
+          }
         }
       }
     }

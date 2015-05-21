@@ -152,6 +152,7 @@
   m0-2    { margin: 0 2rem; }
   m0-3    { margin: 0 3rem; }
   m0-4    { margin: 0 4rem; }
+  m0-auto { margin: 0 auto; }
 
   m0.25-0    { margin: 0.25rem 0; }
   m0.25-0.25 { margin: 0.25rem 0.25rem; }
@@ -160,6 +161,7 @@
   m0.25-2    { margin: 0.25rem 2rem; }
   m0.25-3    { margin: 0.25rem 3rem; }
   m0.25-4    { margin: 0.25rem 4rem; }
+  m0.25-auto { margin: 0.25rem auto; }
 
   m0.5-0    { margin: 0.5rem 0; }
   m0.5-0.25 { margin: 0.5rem 0.25rem; }
@@ -168,6 +170,7 @@
   m0.5-2    { margin: 0.5rem 2rem; }
   m0.5-3    { margin: 0.5rem 3rem; }
   m0.5-4    { margin: 0.5rem 4rem; }
+  m0.5-auto { margin: 0.5rem auto; }
 
   m1-0    { margin: 1rem 0; }
   m1-0.25 { margin: 1rem 0.25rem; }
@@ -176,6 +179,7 @@
   m1-2    { margin: 1rem 2rem; }
   m1-3    { margin: 1rem 3rem; }
   m1-4    { margin: 1rem 4rem; }
+  m1-auto { margin: 1rem auto; }
 
   m2-0    { margin: 2rem 0; }
   m2-0.25 { margin: 2rem 0.25rem; }
@@ -184,6 +188,7 @@
   m2-2    { margin: 2rem 2rem; }
   m2-3    { margin: 2rem 3rem; }
   m2-4    { margin: 2rem 4rem; }
+  m2-auto { margin: 2rem auto; }
 
   m3-0    { margin: 3rem 0; }
   m3-0.25 { margin: 3rem 0.25rem; }
@@ -192,6 +197,7 @@
   m3-2    { margin: 3rem 2rem; }
   m3-3    { margin: 3rem 3rem; }
   m3-4    { margin: 3rem 4rem; }
+  m3-auto { margin: 3rem auto; }
 
   m4-0    { margin: 4rem 0; }
   m4-0.25 { margin: 4rem 0.25rem; }
@@ -200,6 +206,7 @@
   m4-2    { margin: 4rem 2rem; }
   m4-3    { margin: 4rem 3rem; }
   m4-4    { margin: 4rem 4rem; }
+  m3-auto { margin: 3rem auto; }
 
   mt0    { margin-top: 0;    }
   mt0.25 { margin-top: 0.25rem; }

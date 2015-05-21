@@ -6,18 +6,17 @@ import styles from './article.metacss!'
 
 export default class Article extends React.Component {
   render() {
+    let children = typeof this.props.children === "string" ? [this.props.children] : this.props.children
     return <article className={styles.article}>
       <header className={styles.header}>
         <h1 className={styles.heading1}>{this.props.title}</h1>
         { this.props.strap ? <h2 className={styles.heading2}>{this.props.strap}</h2> : {}}
         { this.props.date ? <time className={styles.date} dateTime={this.props.date}>{this.props.date}</time> : {}}
       </header>
-      {this.props.children.map(child => {
-        if (typeof child === "string") {
-          return <div className={styles.markdown} dangerouslySetInnerHTML={{__html: converter.makeHtml(child)}}></div>
-        } else {
-          return child
-        }
+      {children.map(child => {
+        return typeof child === "string" ?
+          <div className={styles.markdown} dangerouslySetInnerHTML={{__html: converter.makeHtml(child)}}></div>
+          : child
       })}
     </article>
   }
