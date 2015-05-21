@@ -1,4 +1,5 @@
-import a from './javascript-in-2015.jsx!'
-import b from './introducing-am-css.jsx!'
+import js2015 from './javascript-in-2015.jsx!'
+import amcss from './introducing-am-css.jsx!'
+import metaquery from './metaquery.jsx!'
 
-export default [a,b]
+export default [js2015, amcss, metaquery]

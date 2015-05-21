@@ -4,7 +4,7 @@
 
 :header {
   layout: p3-0;
-  type: lh1 .2;
+  type: lh1.2;
 }
 
 :heading1 {
@@ -17,7 +17,7 @@
 }
 
 :date {
-  layout: block pt0 .5;
+  layout: block pt0.5;
   type: small3 center;
 }
 
@@ -85,6 +85,7 @@
       code {
         @include-trait type small3 lh1.4;
         @include-trait layout p0.5 m0 block;
+        overflow: auto;
       }
     }
 
@@ -127,7 +128,8 @@
     }
 
     small {
-      @include-trait type small2;
+      @include-trait type small2 lh1.4;
+      @include-trait layout inline-block;
     }
 
     form {
