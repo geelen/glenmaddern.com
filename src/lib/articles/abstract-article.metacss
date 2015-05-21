@@ -1,0 +1,6 @@
+:markdown {
+  & {
+    @include-trait flex vertical;
+    @include-trait type lh1.8;
+  }
+}

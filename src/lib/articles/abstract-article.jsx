@@ -2,7 +2,7 @@ import React from 'react'
 import showdown from 'showdown'
 let converter = new showdown.converter()
 
-let styles = {}
+import styles from './abstract-article.metacss!'
 
 export default class AbstractArticle extends React.Component {
   render() {

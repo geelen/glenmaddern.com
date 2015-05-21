@@ -22,8 +22,6 @@
 }
 
 /* MARKDOWN STYLES */
-:markdown {
-}
 
 :h1 {
   layout: max840 pt3 pb2;

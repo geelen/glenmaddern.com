@@ -2,11 +2,12 @@ import postcss from 'postcss'
 import Rule from 'postcss/lib/rule'
 import AtRule from 'postcss/lib/at-rule'
 
-const blackList = [':root', ':host']
+const blackList = [':root', ':host', ':not']
 
 export default class TCSS {
   constructor() {
     this.scopes = new Map()
+    this.traits = new Map()
   }
 
   getPlugin() {
@@ -21,11 +22,13 @@ export default class TCSS {
   plugin(css, result) {
     this.currentFile = null
     css.each(rule => {
-      if (rule.type == "comment" && rule.text.startsWith("SOURCE")) {
+      if (rule.type === "comment" && rule.text.startsWith("SOURCE")) {
         this.handleSourceComment(rule)
-      } else if (rule.type == "rule" && rule.selector.startsWith(":") && blackList.indexOf(rule.selector) === -1) {
+      } else if (rule.type === "rule" && rule.selector.startsWith(":") && blackList.indexOf(rule.selector) === -1) {
         this.handlePlaceholder(rule)
-      } else if (rule.type == "atrule" && rule.name == "trait") {
+      } else if (rule.type === "rule") {
+        this.lookForMixins(rule)
+      } else if (rule.type === "atrule" && rule.name === "trait") {
         this.defineTrait(rule)
       }
     })
@@ -50,6 +53,7 @@ export default class TCSS {
             this.addClass(`t-${traitName}--${v}`)
           })
         } else if (child.type === 'rule' && child.selector === '&') {
+          this.lookForMixins(child)
           oneOffs = oneOffs.concat(child.nodes)
         }
         child.removeSelf()
@@ -67,17 +71,34 @@ export default class TCSS {
     }
   }
 
+  lookForMixins(rule) {
+    rule.eachAtRule("include-trait", child => {
+      let [traitName, ...variants] = child.params.split(' '),
+        traits = this.traits.get(traitName),
+        def = traits.get(':default')
+      if (def) child.parent.insertBefore(child, def)
+      variants.forEach(v => {
+        let variant = traits.get(v)
+        if (variant) child.parent.insertBefore(child, variant)
+      })
+      child.removeSelf()
+    })
+  }
+
   addClass(newClass) {
     let scope = this.scopes.get(this.currentFile)
     scope[this.key] = scope[this.key] ? `${scope[this.key]} ${newClass}` : newClass
   }
 
   defineTrait(rule) {
-    let breakpoints = {classes: [], medias: []},
+    let traitCache = new Map(),
+      breakpoints = {classes: [], medias: []},
       traitVariants = []
+    this.traits.set(rule.params, traitCache)
     //rule.parent.insertBefore(rule, new Rule({selector: `.t-${rule.params}`, nodes: rule.nodes}))
     rule.each(child => {
       if (child.type === 'rule' && child.nodes) {
+        traitCache.set(child.selector, child.nodes)
         if (child.selector === ':default') {
           child.selector = `.t-${rule.params}`
         } else {
