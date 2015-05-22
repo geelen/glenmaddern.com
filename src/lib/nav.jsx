@@ -15,13 +15,13 @@ export default class Nav extends React.Component {
           <Link to="Articles" className={styles.navlinks}>Articles</Link>
         </li>
         <li className={styles.li}>
-          <a className={styles.navlinks} href="/projects">Projects</a>
+          <Link to="ListPage" params={{page: "projects"}} className={styles.navlinks}>Projects</Link>
         </li>
         <li className={styles.li}>
-          <a className={styles.navlinks} href="/talks">Talks</a>
+          <Link to="ListPage" params={{page: "talks"}} className={styles.navlinks}>Talks</Link>
         </li>
         <li className={styles.li}>
-          <a className={styles.navlinks} href="/work">Work</a>
+          <Link to="ListPage" params={{page: "work"}} className={styles.navlinks}>Work</Link>
         </li>
       </ul>
     </nav>

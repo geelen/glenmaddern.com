@@ -38,7 +38,7 @@ export default class PreviewList extends React.Component {
         })
       }</ol>
       {
-        firstN.length < slugs.length ? <Link to="ListPage" params={{page: this.props.name}} className={styles.more}>All {this.props.name.toLowerCase()}</Link> : {}
+        firstN.length < slugs.length ? <Link to="ListPage" params={{page: this.props.name.toLowerCase()}} className={styles.more}>All {this.props.name.toLowerCase()}</Link> : {}
       }
     </section>
   }
