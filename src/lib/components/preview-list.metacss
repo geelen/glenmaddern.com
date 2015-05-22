@@ -11,10 +11,9 @@
 }
 
 :figure {
-  layout: pb1;
 }
 
-:a {
+:figure_a {
   link: subtle shadow;
   layout: block;
 }
@@ -22,4 +21,31 @@
 :img {
   layout: block w100%;
   border: polaroid;
+}
+
+:caption {
+  flex-child: grow;
+  layout: pt1 pb0.5;
+}
+
+:h3 {
+  type: h5 semibold;
+}
+
+:h4 {
+  layout: mb0.25;
+}
+
+:link {
+  type: small3 italic truncate;
+  link: inline;
+}
+
+:span {
+  type: small3 italic truncate;
+}
+
+:more {
+  link: inline obvious;
+  type: small3;
 }

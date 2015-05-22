@@ -1,4 +1,8 @@
 @trait flex {
+  @breakpoint-media small (max-width: 520px);
+  @breakpoint-media medium (min-width: 521px) and (max-width: 900px);
+  @breakpoint-media large (min-width: 901px);
+
   :default {
     display: flex;
   }
@@ -33,6 +37,10 @@
 }
 
 @trait flex-child {
+  @breakpoint-media small (max-width: 520px);
+  @breakpoint-media medium (min-width: 521px) and (max-width: 900px);
+  @breakpoint-media large (min-width: 901px);
+
   no-shrink {
     flex-shrink: 0;
   }
