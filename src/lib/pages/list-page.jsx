@@ -1,13 +1,14 @@
 import React from 'react'
 
 import styles from './pages.metacss!'
-import projects from '../projects/index.jsx!'
+import portfolio from  './portfolio.jsx!'
 import PreviewList from '../components/preview-list.jsx!'
 
 export default class ListPage extends React.Component {
   render() {
+    let items = portfolio[this.props.params.page]
     return <div className={styles.main}>
-      <PreviewList name={this.props.params.page} items={projects}/>
+      {items ? <PreviewList name={this.props.params.page} items={items}/> : <h1 className={styles.error}>NOT FOUND</h1> }
     </div>
   }
 }

@@ -17,3 +17,11 @@
   layout: max960;
   type: center;
 }
+
+:error {
+  layout: p2;
+  type: h2 bold center;
+  & {
+    color: red;
+  }
+}
