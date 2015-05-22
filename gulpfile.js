@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 gulp.task('jspm-bundle', function () {
   return gulp.src('')
     .pipe($.shell([
-      'jspm bundle-sfx lib/main dist/bundle.js'
+      'jspm bundle-sfx lib/index dist/bundle.js'
     ]))
 })
 
