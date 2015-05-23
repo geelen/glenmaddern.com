@@ -1,8 +1,8 @@
-:header {
+:HomepageHeader {
   layout: pt4 pb4;
 }
 
-:h1 {
+:BigMessage {
   layout: pb1;
   type: h4 center;
   divider: chevron-after;
@@ -21,7 +21,9 @@
 :error {
   layout: p2;
   type: h2 bold center;
-  & {
-    color: red;
-  }
+  colors: red;
+}
+
+:bold {
+  type: semibold;
 }

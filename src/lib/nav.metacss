@@ -4,7 +4,7 @@
   layout: p1 max960;
 }
 
-:h1 {
+:name {
   flex-child: grow;
   type: semibold;
 }

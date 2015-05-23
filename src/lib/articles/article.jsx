@@ -9,7 +9,7 @@ export default class Article extends React.Component {
     let children = typeof this.props.children === "string" ? [this.props.children] : this.props.children
     return <article className={styles.article}>
       <header className={styles.header}>
-        <h1 className={styles.heading1}>{this.props.title}</h1>
+        <h1 className={styles.title}>{this.props.title}</h1>
         { this.props.strap ? <h2 className={styles.heading2}>{this.props.strap}</h2> : {}}
         { this.props.date ? <time className={styles.date} dateTime={this.props.date}>{this.props.date}</time> : {}}
       </header>

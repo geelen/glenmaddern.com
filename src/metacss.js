@@ -11,7 +11,7 @@ let plugins = [inlineComment, tcss.getPlugin(), nested/*, Autoprefixer*/],
 
 let fetch = (load, f) => {
   return __fetch(load, f).then(_ => {
-    let filename = load.metadata.pluginArgument.replace(/\?.*$/, '')
+    let filename = load.metadata.loaderArgument.replace(/\?.*$/, '')
     return `module.exports = ${tcss.getClasses(filename)}`
   })
 }

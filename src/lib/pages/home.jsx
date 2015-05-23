@@ -11,10 +11,10 @@ import PreviewList from '../components/preview-list.jsx!'
 export default class Home extends React.Component {
   render() {
     return <div>
-      <header className={styles.header}>
-        <h1 className={styles.h1}>
+      <header className={styles.HomepageHeader}>
+        <h1 className={styles.BigMessage}>
           My name is <span className={styles.me}>Glen Maddern</span> and
-          I do<span className="t-type--semibold"> rad web stuff</span>
+          I do<span className={styles.bold}> rad web stuff</span>
         </h1>
       </header>
       <div className={styles.main}>
