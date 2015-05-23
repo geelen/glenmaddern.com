@@ -4,7 +4,7 @@ let {RouteHandler} = Router
 
 import Nav from './nav.jsx!'
 import Footer from './footer.jsx!'
-import styles from './app.metacss!'
+import styles from './app.metacss'
 
 export default class App extends React.Component {
   render() {

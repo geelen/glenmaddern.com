@@ -2,7 +2,7 @@ import React from 'react'
 import showdown from 'showdown'
 let converter = new showdown.converter()
 
-import styles from './article.metacss!'
+import styles from './article.metacss'
 
 export default class Article extends React.Component {
   render() {

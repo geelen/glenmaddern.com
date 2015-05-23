@@ -2,7 +2,7 @@ import React from 'react'
 import Router from 'react-router'
 let Link = Router.Link
 
-import styles from './footer.metacss!'
+import styles from './footer.metacss'
 
 export default class Footer extends React.Component {
   render() {

@@ -14,6 +14,10 @@ System.config({
 });
 
 System.config({
+  meta: {'*.metacss': {loader: 'metacss'}}
+})
+
+System.config({
   "map": {
     "babel": "npm:babel-core@5.4.7",
     "babel-runtime": "npm:babel-runtime@5.4.7",
