@@ -1,3 +1,5 @@
+@traits("../../styles/traits/");
+
 .HomepageHeader {
   composes: pt4 pb4 from "../../styles/traits/layout.css";
 }
@@ -18,7 +20,7 @@
   composes: max960 from "../../styles/traits/layout.css";
 }
 
-.error {
+.error:traits {
   layout: p2;
   type: h2 bold center;
   colors: red;

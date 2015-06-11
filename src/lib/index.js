@@ -1,8 +1,8 @@
 import React from 'react'
 import Router from 'react-router'
 import routes from './routes.jsx!'
-//import '../styles/index'
-//
+import '../styles/index'
+
 let mainElem = document.querySelector('main')
 Router.run(routes, Router.HistoryLocation, (Root) => {
   if (navigator.userAgent.match(/phantomjs/i)) {
