@@ -1,8 +1,8 @@
-*,*::before,*::after {
+:global(*,*::before,*::after) {
   box-sizing: border-box;
 }
 
-:root {
+:global(:root) {
   color: hsl(220, 50%, 25%);
   font-weight: 400;
   font-size: 20px;
@@ -10,12 +10,12 @@
 }
 
 @media (max-width: 520px) {
-  :root {
+  :global(:root) {
     font-size: 18px;
   }
 }
 
-body {
+:global(body) {
   background: linear-gradient(-20deg, hsl(0, 50%, 98%) 0%, hsl(90, 50%, 97%) 40%, hsl(180, 50%, 96%) 80%);
   text-rendering: optimizeLegibility;
   min-height: 100%;

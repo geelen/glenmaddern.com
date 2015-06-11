@@ -8,6 +8,6 @@
 //import './traits/colors.metacss'
 
 import './reset.css!'
-//import './core.metacss'
+import './core.css!'
 
 export let __hotReload = true
