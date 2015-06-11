@@ -4,12 +4,13 @@
 
 .BigMessage {
   composes: pb1 from "../../styles/traits/layout.css";
-  type: h4 center;
-  divider: chevron-after;
+  composes: h4 from "../../styles/traits/type.css";
+  composes: chevron-after from "../../styles/traits/divider.css";
 }
 
 .me {
-  type: h1 h2--small light;
+  composes: h1 h2--small from "../../styles/traits/type.css";
+  composes: light from "../../styles/traits/type.css";
   layout: block p1;
 }
 
