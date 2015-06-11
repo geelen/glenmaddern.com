@@ -16,4 +16,3 @@ export default class App extends React.Component {
     //</div>
   }
 }
-export let __hotReload = true
