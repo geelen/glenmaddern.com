@@ -5,14 +5,14 @@ let {RouteHandler} = Router
 //import Nav from './nav.jsx!'
 //import Footer from './footer.jsx!'
 //import styles from './app.metacss'
+let styles = {}
 
 export default class App extends React.Component {
   render() {
-    return <h1>HIYO</h1>
-    //return <div className={styles.body}>
-    //  <Nav />
-    //  <RouteHandler />
+    return <div className={styles.body}>
+      <RouteHandler />
+    </div>
     //  <Footer />
-    //</div>
+    //  <Nav />
   }
 }

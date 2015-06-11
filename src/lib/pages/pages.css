@@ -1,29 +1,29 @@
-:HomepageHeader {
+.HomepageHeader {
   layout: pt4 pb4;
 }
 
-:BigMessage {
+.BigMessage {
   layout: pb1;
   type: h4 center;
   divider: chevron-after;
 }
 
-:me {
+.me {
   type: h1 h2--small light;
   layout: block p1;
 }
 
-:main {
+.main {
   layout: max960;
   type: center;
 }
 
-:error {
+.error {
   layout: p2;
   type: h2 bold center;
   colors: red;
 }
 
-:bold {
+.bold {
   type: semibold;
 }

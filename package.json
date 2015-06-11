@@ -4,6 +4,7 @@
       "baseURL": "src"
     },
     "dependencies": {
+      "css": "npm:jspm-loader-css-modules@^0.1.1",
       "jsx": "github:geelen/plugin-live-jsx@master",
       "md": "github:guybedford/system-md@^0.0.1",
       "metaquery": "npm:metaquery@^1.2.5",
