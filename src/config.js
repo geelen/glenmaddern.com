@@ -34,7 +34,7 @@ System.config({
     "postcss": "npm:postcss@4.1.11",
     "postcss-inline-comment": "npm:postcss-inline-comment@1.0.4",
     "postcss-nested": "npm:postcss-nested@0.3.2",
-    "react": "npm:react@0.14.0-alpha3",
+    "react": "npm:react@0.13.3",
     "react-router": "npm:react-router@0.13.3",
     "showdown": "github:showdownjs/showdown@0.5.4",
     "text": "github:systemjs/plugin-text@0.0.2",

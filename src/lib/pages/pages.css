@@ -4,19 +4,18 @@
 
 .BigMessage {
   composes: pb1 from "../../styles/traits/layout.css";
-  composes: h4 from "../../styles/traits/type.css";
+  composes: h4 center from "../../styles/traits/type.css";
   composes: chevron-after from "../../styles/traits/divider.css";
 }
 
 .me {
-  composes: h1 h2--small from "../../styles/traits/type.css";
-  composes: light from "../../styles/traits/type.css";
-  layout: block p1;
+  composes: h1 h2--small light from "../../styles/traits/type.css";
+  composes: block p1 from "../../styles/traits/layout.css";
 }
 
 .main {
-  layout: max960;
-  type: center;
+  composes: center from "../../styles/traits/type.css";
+  composes: max960 from "../../styles/traits/layout.css";
 }
 
 .error {
