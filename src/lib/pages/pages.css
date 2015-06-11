@@ -1,9 +1,9 @@
 .HomepageHeader {
-  layout: pt4 pb4;
+  composes: pt4 pb4 from "../../styles/traits/layout.css";
 }
 
 .BigMessage {
-  layout: pb1;
+  composes: pb1 from "../../styles/traits/layout.css";
   type: h4 center;
   divider: chevron-after;
 }
