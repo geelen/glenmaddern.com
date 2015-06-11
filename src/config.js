@@ -266,7 +266,7 @@ System.config({
       "postcss-modules-local-by-default": "npm:postcss-modules-local-by-default@0.0.8",
       "postcss-modules-scope": "npm:postcss-modules-scope@0.0.6"
     },
-    "npm:css-selector-tokenizer@0.3.1": {
+    "npm:css-selector-tokenizer@0.4.0": {
       "fastparse": "npm:fastparse@1.1.1"
     },
     "npm:diffie-hellman@3.0.2": {
@@ -566,11 +566,11 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:postcss-modules-local-by-default@0.0.8": {
-      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.3.1",
+      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.4.0",
       "postcss": "npm:postcss@4.1.11"
     },
     "npm:postcss-modules-scope@0.0.6": {
-      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.3.1",
+      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.4.0",
       "postcss": "npm:postcss@4.1.11",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
