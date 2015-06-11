@@ -101,8 +101,8 @@ import url from './logo.png';
 import styles from './main-nav.css';
 export default class MainNav extends React.Component {
   render() {
-    return <nav className={styles.nav}>
-      <img src={url} className={styles.logo}/>
+    return <nav className={styles.Nav}>
+      <img src={url} className={styles.Logo}/>
       ...
     </nav>
   }
@@ -113,4 +113,37 @@ This approach has been popping up in a lot of places in the last few months. On 
 
 ## A New Syntax
 
-Mark, Tobias & I started pursuing this idea further and developed it into a project called [CSS Modules](https://github.com/css-modules/css-modules), but first we needed a standard way for the information to cross the CSS-JS boundary. All my original work had been specific to JSPM, all Mark's and Tobias' had been tied to Webpack. But there wasn't anything inherently loader-specific about the *idea*, so we decided to combine our efforts.
+Mark, Tobias & I started pursuing this idea further and developed it into a project called [CSS Modules](https://github.com/css-modules/css-modules), but first we needed a standard way for the information to cross the CSS-JS boundary. All my original work had been specific to JSPM, all Mark's and Tobias' had been tied to Webpack. But there wasn't anything inherently loader-specific about the *idea*, so we decided to combine our efforts. This is what we came up with.
+
+# ICSS: Interoperable CSS
+
+Firstly, there is a real specification that you should consult for more detail, but here's a high-level introduction.
+
+### :export
+
+To start, we need the ability for a CSS file to map a local class name to something automatically generated.
+
+```
+:export {
+  Nav: _nav_nav_afd97dfs867;
+  Logo; _nav_logo_97fd867fsfg;
+}
+```someo
+
+```
+:import("./utils.css") {
+  __imported_util_class: HorizontalNav;
+  __imported_util_variable: SharedUtilVar;
+}
+:export {
+  Nav: _nav_nav_afd97dfs867 __imported_util_class;
+	Logo: _nav_logo_97fd867fsfg;
+}
+._nav_nav_a4b2c4d1f9 {
+  /* local styles */
+}
+
+```
+
+### Designed as a compile target
+
