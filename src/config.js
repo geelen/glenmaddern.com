@@ -263,7 +263,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "postcss": "npm:postcss@4.1.11",
       "postcss-modules-extract-imports": "npm:postcss-modules-extract-imports@0.0.4",
-      "postcss-modules-local-by-default": "npm:postcss-modules-local-by-default@0.0.7",
+      "postcss-modules-local-by-default": "npm:postcss-modules-local-by-default@0.0.8",
       "postcss-modules-scope": "npm:postcss-modules-scope@0.0.6"
     },
     "npm:css-selector-tokenizer@0.3.1": {
@@ -565,7 +565,7 @@ System.config({
       "postcss": "npm:postcss@4.1.11",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:postcss-modules-local-by-default@0.0.7": {
+    "npm:postcss-modules-local-by-default@0.0.8": {
       "css-selector-tokenizer": "npm:css-selector-tokenizer@0.3.1",
       "postcss": "npm:postcss@4.1.11"
     },
