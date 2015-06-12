@@ -26,6 +26,5 @@ export default new CSSLoader( [
   traits,
   Core.localByDefault,
   Core.extractImports,
-  Core.scope,
-  ( css ) => console.log( css.toResult().css )
+  Core.scope
 ], __moduleName )
