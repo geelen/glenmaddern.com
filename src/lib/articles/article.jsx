@@ -1,6 +1,5 @@
 import React from 'react'
-import showdown from 'showdown'
-let converter = new showdown.converter()
+import md from '../../markdown'
 
 import styles from './article.css!'
 
@@ -15,7 +14,7 @@ export default class Article extends React.Component {
       </header>
       {children.map(child => {
         return typeof child === "string" ?
-          <div className={styles.markdown} dangerouslySetInnerHTML={{__html: converter.makeHtml(child)}}></div>
+          <div className={styles.markdown} dangerouslySetInnerHTML={{__html: md(child)}}></div>
           : child
       })}
     </article>

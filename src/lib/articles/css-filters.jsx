@@ -1,6 +1,6 @@
 import React from 'react'
 import Article from './article.jsx!'
-import body from './css-filters.md!text'
+import body from './css-filters.md!'
 
 let CssFilters = <Article
   slug="css-filters-gifs-and-performance"
