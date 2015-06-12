@@ -5,7 +5,7 @@ import styles from './article.css!'
 
 export default class Article extends React.Component {
   render() {
-    let children = typeof this.props.children === "string" ? [this.props.children] : this.props.children
+    let children = typeof this.props.children === "object" ? this.props.children : [this.props.children]
     return <article className={styles.article}>
       <header className={styles.header}>
         <h1 className={styles.title}>{this.props.title}</h1>
@@ -14,8 +14,8 @@ export default class Article extends React.Component {
       </header>
       {children.map(child => {
         return typeof child === "string" ?
-          <div className={styles.markdown} dangerouslySetInnerHTML={{__html: md(child)}}></div>
-          : child
+          <div className={styles.markdown} dangerouslySetInnerHTML={{__html: child}}></div>
+          : typeof child === "function" ? child(styles) : child
       })}
     </article>
   }

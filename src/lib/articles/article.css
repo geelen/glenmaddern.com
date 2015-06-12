@@ -21,6 +21,10 @@
   type: small3 center;
 }
 
+.h2 {
+  color: red;
+}
+
 /*.markdown:traits {*/
   /*& {*/
     /*h1 {*/

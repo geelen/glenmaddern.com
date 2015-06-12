@@ -26,8 +26,10 @@ System.config({
     "babel": "npm:babel-core@5.5.6",
     "babel-runtime": "npm:babel-runtime@5.5.6",
     "core-js": "npm:core-js@0.9.15",
+    "highlight.js": "npm:highlight.js@8.6.0",
     "jspm-loader-css": "npm:jspm-loader-css@0.1.1",
     "jsx": "github:geelen/plugin-live-jsx@master",
+    "marked": "npm:marked@0.3.3",
     "md": "github:guybedford/system-md@0.0.1",
     "metaquery": "npm:metaquery@1.2.5",
     "plugin-postcss": "github:geelen/plugin-postcss@master",
@@ -36,6 +38,7 @@ System.config({
     "postcss-nested": "npm:postcss-nested@0.3.2",
     "react": "npm:react@0.13.3",
     "react-router": "npm:react-router@0.13.3",
+    "react-tools": "npm:react-tools@0.14.0-alpha3",
     "showdown": "github:showdownjs/showdown@0.5.4",
     "text": "github:systemjs/plugin-text@0.0.2",
     "github:geelen/plugin-live-jsx@master": {
@@ -302,6 +305,10 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
+    "npm:esprima-fb@15001.1.0-dev-harmony-fb": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
     "npm:esprima@1.0.4": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1"
@@ -420,6 +427,10 @@ System.config({
     "npm:hash.js@1.0.3": {
       "inherits": "npm:inherits@2.0.1"
     },
+    "npm:highlight.js@8.6.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
     "npm:hooker@0.2.3": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -479,6 +490,17 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "source-map": "npm:source-map@0.1.31"
+    },
+    "npm:jstransform@11.0.1": {
+      "base62": "npm:base62@1.1.0",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "commoner": "npm:commoner@0.10.1",
+      "esprima-fb": "npm:esprima-fb@15001.1.0-dev-harmony-fb",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "object-assign": "npm:object-assign@2.1.1",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "source-map": "npm:source-map@0.4.2",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:lodash@0.9.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
@@ -617,6 +639,11 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commoner": "npm:commoner@0.10.1",
       "jstransform": "npm:jstransform@10.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:react-tools@0.14.0-alpha3": {
+      "commoner": "npm:commoner@0.10.1",
+      "jstransform": "npm:jstransform@11.0.1",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:react@0.13.3": {

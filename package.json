@@ -5,8 +5,10 @@
     },
     "dependencies": {
       "css": "npm:jspm-loader-css-modules@^0.1.1",
+      "highlight.js": "npm:highlight.js@^8.6.0",
       "jspm-loader-css": "npm:jspm-loader-css@^0.1.1",
       "jsx": "github:geelen/plugin-live-jsx@master",
+      "marked": "npm:marked@^0.3.3",
       "md": "github:guybedford/system-md@^0.0.1",
       "metaquery": "npm:metaquery@^1.2.5",
       "plugin-postcss": "github:geelen/plugin-postcss@master",
@@ -15,6 +17,7 @@
       "postcss-nested": "npm:postcss-nested@^0.3.1",
       "react": "npm:react@^0.13.0",
       "react-router": "npm:react-router@^0.13.3",
+      "react-tools": "npm:react-tools@^0.14.0-alpha3",
       "showdown": "github:showdownjs/showdown@^0.5.1",
       "text": "github:systemjs/plugin-text@^0.0.2"
     },
