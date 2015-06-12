@@ -1,7 +1,0 @@
-each key in keys
-  - article = public.articles._data[key]
-  a(href="/articles/#{key}" _link="subtle" _layout="block pb1" _type='lh1.2')
-    h5(_type='h6 bold')= article.title
-    span(_type='small3 italic' _link="invisible")
-      = article.strap
-      span(_type='unbroken')  - #{article.date}
