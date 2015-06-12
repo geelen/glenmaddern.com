@@ -1,23 +1,23 @@
 @traits("../../styles/traits/");
 
-.HomepageHeader {
-  composes: pt4 pb4 from "../../styles/traits/layout.css";
+.HomepageHeader:traits {
+  layout: pt4 pb4;
 }
 
-.BigMessage {
-  composes: pb1 from "../../styles/traits/layout.css";
-  composes: h4 center from "../../styles/traits/type.css";
-  composes: chevron-after from "../../styles/traits/divider.css";
+.BigMessage:traits {
+  layout: pb1;
+  type: h4 center;
+  divider: chevron-after;
 }
 
-.me {
-  composes: h1 h2--small light from "../../styles/traits/type.css";
-  composes: block p1 from "../../styles/traits/layout.css";
+.me:traits {
+  type: h1 h2--small light;
+  layout: block p1;
 }
 
-.main {
-  composes: center from "../../styles/traits/type.css";
-  composes: max960 from "../../styles/traits/layout.css";
+.main:traits {
+  type: center;
+  layout: max960;
 }
 
 .error:traits {
@@ -26,6 +26,6 @@
   colors: red;
 }
 
-.bold {
+.bold:traits {
   type: semibold;
 }
