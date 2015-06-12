@@ -1,14 +1,14 @@
-:outer {
+@traits("../../styles/traits/");
+
+.outer:traits {
   layout: max840 p1 mb1;
 }
 
-:inner {
-  & {
+.inner {
     position: relative;
     padding-top: 65%;
-  }
 }
 
-:iframe {
+.iframe:traits {
   layout: abs-fill;
 }

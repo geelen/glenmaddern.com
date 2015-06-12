@@ -1,39 +1,41 @@
-:footer {
+@traits("../../styles/traits/");
+
+.footer:traits {
   layout: p2 p1--small mb2 max840;
   divider: line-before;
 }
 
-:figure {
+.figure:traits {
   layout: max600;
   flex: justify-center align-center;
 }
 
-:img {
+.img:traits {
   flex-child: no-shrink;
   border: round polaroid;
   size: 4;
   layout: mr1;
 }
 
-:figcaption {
+.figcaption:traits {
   type: small1 center lh1.4;
 }
 
-:me {
+.me:traits {
   type: bold;
 }
 
-:links {
+.links:traits {
   flex: justify-center align-center;
   layout: pt0.5;
 }
 
-:link {
+.link:traits {
   link: inline;
   layout: block;
 }
 
-:svg {
+.svg:traits {
   size: 1.5;
   layout: ml0.5 mr0.5;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './pages.metacss'
+import styles from './pages.css!'
 import portfolio from  './portfolio.jsx!'
 import PreviewList from '../components/preview-list.jsx!'
 

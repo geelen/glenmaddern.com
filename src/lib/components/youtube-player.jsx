@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './youtube-player.metacss'
+import styles from './youtube-player.css!'
 
 export default class YoutubePlayer extends React.Component {
   render() {

@@ -2,7 +2,7 @@ import React from 'react'
 import Router from 'react-router'
 let Link = Router.Link
 
-import styles from './nav.metacss'
+import styles from './nav.css!'
 
 export default class Nav extends React.Component {
   render() {

@@ -3,10 +3,10 @@ import Router from 'react-router'
 let Link = Router.Link
 
 import styles from './pages.css!'
-//import articles from '../articles/index.jsx!'
-//import portfolio from  './portfolio.jsx!'
-//import BlogHeadlines from '../components/blog-headlines.jsx!'
-//import PreviewList from '../components/preview-list.jsx!'
+import articles from '../articles/index.jsx!'
+import portfolio from  './portfolio.jsx!'
+import BlogHeadlines from '../components/blog-headlines.jsx!'
+import PreviewList from '../components/preview-list.jsx!'
 
 export default class Home extends React.Component {
   render() {

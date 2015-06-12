@@ -2,7 +2,7 @@ import React from 'react'
 import Router from 'react-router'
 let Link = Router.Link
 
-import styles from './pages.metacss'
+import styles from './pages.css!'
 import articles from '../articles/index.jsx!'
 import BlogHeadlines from '../components/blog-headlines.jsx!'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Router from 'react-router'
 let Link = Router.Link
 
-import styles from './blog-headlines.metacss'
+import styles from './blog-headlines.css!'
 
 export default class BlogHeadlines extends React.Component {
   render() {

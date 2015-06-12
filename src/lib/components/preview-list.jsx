@@ -2,8 +2,8 @@ import React from 'react'
 import Router from 'react-router'
 let Link = Router.Link
 
-import shared from './blog-headlines.metacss'
-import styles from './preview-list.metacss'
+import shared from './blog-headlines.css!'
+import styles from './preview-list.css!'
 
 export default class PreviewList extends React.Component {
   render() {
