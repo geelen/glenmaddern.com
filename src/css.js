@@ -15,7 +15,7 @@ function traits( css ) {
     if ( rule.selector.match( traitRegexp ) ) {
       rule.selector = rule.selector.replace( traitRegexp, '' )
       rule.eachDecl( decl => {
-        decl.value = `${decl.value} from "${traitPath}${decl.prop}.css"`
+        decl.value = `${decl.prop} ${decl.value} from "${traitPath}${decl.prop}.css"`
         decl.prop = 'composes'
       } )
     }

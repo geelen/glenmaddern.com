@@ -1,7 +1,7 @@
 @traits("../../styles/traits/");
 
 .section:traits {
-  layout: p3-1 p2-1--small;
+  layout: p3 p2-1--small;
 }
 
 .h2:traits {
@@ -12,7 +12,7 @@
 .a:traits {
   link: subtle;
   layout: block pb1;
-  type: lh1.2;
+  type: lh12;
 }
 
 .h5:traits {

@@ -4,7 +4,7 @@
 
 :header {
   layout: p3-0;
-  type: lh1.2;
+  type: lh12;
 }
 
 :title {
@@ -25,28 +25,28 @@
   /*& {*/
     /*h1 {*/
       /*@include-trait layout max840 pt3 pb2;*/
-      /*@include-trait type lh1.2 h3 bold center;*/
+      /*@include-trait type lh12 h3 bold center;*/
       /*@include-trait divider line-after;*/
     /*}*/
 
     /*h2 {*/
       /*@include-trait layout max840 pt3 pb1;*/
-      /*@include-trait type lh1.2 h4 bold center;*/
+      /*@include-trait type lh12 h4 bold center;*/
     /*}*/
 
     /*h3 {*/
       /*@include-trait layout max720 p1-0;*/
-      /*@include-trait type lh1.2 h4 bold;*/
+      /*@include-trait type lh12 h4 bold;*/
     /*}*/
 
     /*h4 {*/
       /*@include-trait layout max720 p0.5-0;*/
-      /*@include-trait type lh1.2 bold;*/
+      /*@include-trait type lh12 bold;*/
     /*}*/
 
     /*p {*/
       /*@include-trait layout max720 mb1;*/
-      /*@include-trait type serif lh1.4 small1;*/
+      /*@include-trait type serif lh14 small1;*/
       /*@media (max-width: 520px) {*/
         /*@include-trait type small0;*/
       /*}*/
@@ -60,7 +60,7 @@
         /*@include-trait border polaroid;*/
       /*}*/
       /*figcaption {*/
-        /*@include-trait type serif lh1.4 small3 italic center;*/
+        /*@include-trait type serif lh14 small3 italic center;*/
         /*@include-trait layout pt1;*/
       /*}*/
     /*}*/
@@ -76,21 +76,21 @@
 
     /*li {*/
       /*@include-trait layout pl0.5 m0.5-0;*/
-      /*@include-trait type lh1.4;*/
+      /*@include-trait type lh14;*/
       /*@include-trait before bullet;*/
     /*}*/
 
     /*pre {*/
       /*@include-trait layout max840 m1-auto;*/
       /*code {*/
-        /*@include-trait type small3 lh1.4;*/
+        /*@include-trait type small3 lh14;*/
         /*@include-trait layout p0.5 m0 block;*/
         /*overflow: auto;*/
       /*}*/
     /*}*/
 
     /*code {*/
-      /*@include-trait type mono lh1.2 small3 unbroken;*/
+      /*@include-trait type mono lh12 small3 unbroken;*/
       /*@include-trait colors white-background;*/
       /*@include-trait border simple;*/
       /*@include-trait layout p0.25 m0.25;*/
@@ -128,7 +128,7 @@
     /*}*/
 
     /*small {*/
-      /*@include-trait type small2 lh1.4;*/
+      /*@include-trait type small2 lh14;*/
       /*@include-trait layout inline-block;*/
     /*}*/
 

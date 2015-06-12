@@ -94,19 +94,19 @@
   /*
     LINE-HEIGHT
   */
-  lh1.0 {
+  lh10 {
     line-height: 1.0;
   }
-  lh1.2 {
+  lh12 {
     line-height: 1.2;
   }
-  lh1.4 {
+  lh14 {
     line-height: 1.4;
   }
-  lh1.6 {
+  lh16 {
     line-height: 1.6
   }
-  lh1.8 {
+  lh18 {
     line-height: 1.8
   }
 

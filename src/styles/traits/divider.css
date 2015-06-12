@@ -1,3 +1,7 @@
+.divider {
+
+}
+
 .line-before::before {
   content: '';
   color: inherit;

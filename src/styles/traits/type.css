@@ -1,3 +1,7 @@
+.type {
+
+}
+
 .sans {
   font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans', sans-serif;
 }
@@ -54,6 +58,10 @@
   font-size: 1.2rem;
 }
 
+.h6 {
+  font-size: 1rem;
+}
+
 .small0 {
   font-size: 1.0rem;
 }
@@ -74,23 +82,23 @@
   font-size: 0.6rem;
 }
 
-.lh1\.0 {
+.lh10 {
   line-height: 1.0;
 }
 
-.lh1\.2 {
+.lh12 {
   line-height: 1.2;
 }
 
-.lh1\.4 {
+.lh14 {
   line-height: 1.4;
 }
 
-.lh1\.6 {
+.lh16 {
   line-height: 1.6;
 }
 
-.lh1\.8 {
+.lh18 {
   line-height: 1.8;
 }
 
@@ -199,23 +207,23 @@
     font-size: 0.6rem
   }
 
-  .lh1\.0--small.lh1\.0--small {
+  .lh10--small.lh10--small {
     line-height: 1.0
   }
 
-  .lh1\.2--small.lh1\.2--small {
+  .lh12--small.lh12--small {
     line-height: 1.2
   }
 
-  .lh1\.4--small.lh1\.4--small {
+  .lh14--small.lh14--small {
     line-height: 1.4
   }
 
-  .lh1\.6--small.lh1\.6--small {
+  .lh16--small.lh16--small {
     line-height: 1.6
   }
 
-  .lh1\.8--small.lh1\.8--small {
+  .lh18--small.lh18--small {
     line-height: 1.8
   }
 
@@ -325,23 +333,23 @@
     font-size: 0.6rem
   }
 
-  .lh1\.0--medium.lh1\.0--medium {
+  .lh10--medium.lh10--medium {
     line-height: 1.0
   }
 
-  .lh1\.2--medium.lh1\.2--medium {
+  .lh12--medium.lh12--medium {
     line-height: 1.2
   }
 
-  .lh1\.4--medium.lh1\.4--medium {
+  .lh14--medium.lh14--medium {
     line-height: 1.4
   }
 
-  .lh1\.6--medium.lh1\.6--medium {
+  .lh16--medium.lh16--medium {
     line-height: 1.6
   }
 
-  .lh1\.8--medium.lh1\.8--medium {
+  .lh18--medium.lh18--medium {
     line-height: 1.8
   }
 
@@ -451,23 +459,23 @@
     font-size: 0.6rem
   }
 
-  .lh1\.0--large.lh1\.0--large {
+  .lh10--large.lh10--large {
     line-height: 1.0
   }
 
-  .lh1\.2--large.lh1\.2--large {
+  .lh12--large.lh12--large {
     line-height: 1.2
   }
 
-  .lh1\.4--large.lh1\.4--large {
+  .lh14--large.lh14--large {
     line-height: 1.4
   }
 
-  .lh1\.6--large.lh1\.6--large {
+  .lh16--large.lh16--large {
     line-height: 1.6
   }
 
-  .lh1\.8--large.lh1\.8--large {
+  .lh18--large.lh18--large {
     line-height: 1.8
   }
 

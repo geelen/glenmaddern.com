@@ -20,3 +20,7 @@
   text-rendering: optimizeLegibility;
   min-height: 100%;
 }
+
+:global .undefined {
+  box-shadow: 0 0 10px purple;
+}

@@ -18,11 +18,11 @@ export default class Home extends React.Component {
         </h1>
       </header>
       <div className={styles.main}>
+        <BlogHeadlines name="Articles" items={articles} num={3}/>
+        <PreviewList name="Projects" items={portfolio.projects} num={3}/>
+        <PreviewList name="Talks" items={portfolio.talks} num={3}/>
+        <PreviewList name="Work" items={portfolio.work} num={3}/>
       </div>
     </div>
-      //<BlogHeadlines name="Articles" items={articles} num={3}/>
-      //<PreviewList name="Projects" items={portfolio.projects} num={3}/>
-      //<PreviewList name="Talks" items={portfolio.talks} num={3}/>
-      //<PreviewList name="Work" items={portfolio.work} num={3}/>
   }
 }

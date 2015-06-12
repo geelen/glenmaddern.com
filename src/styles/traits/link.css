@@ -1,8 +1,8 @@
-.t-link {
+.link {
   text-decoration: underline;
 }
 
-.t-link:hover, .t-link:active, .t-link:visited {
+.link:hover, .link:active, .link:visited {
   color: inherit;
 }
 

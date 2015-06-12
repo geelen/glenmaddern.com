@@ -1,85 +1,89 @@
-.t-flex-child--no-shrink {
+.flex-child {
+
+}
+
+.no-shrink {
   flex-shrink: 0;
 }
 
-.t-flex-child--shrink {
+.shrink {
   flex-shrink: 1;
 }
 
-.t-flex-child--grow {
+.grow {
   flex-grow: 1;
 }
 
-.t-flex-child--1\/3 {
+._1\/3 {
   flex: 0 0 33.33%;
 }
 
-.t-flex-child--1\/2 {
+._1\/2 {
   flex: 0 0 50%;
 }
 
 @media (max-width: 520px) {
-  .t-flex-child--no-shrink--small.t-flex-child--no-shrink--small {
+  .no-shrink--small.no-shrink--small {
     flex-shrink: 0
   }
 
-  .t-flex-child--shrink--small.t-flex-child--shrink--small {
+  .shrink--small.shrink--small {
     flex-shrink: 1
   }
 
-  .t-flex-child--grow--small.t-flex-child--grow--small {
+  .grow--small.grow--small {
     flex-grow: 1
   }
 
-  .t-flex-child--1\/3--small.t-flex-child--1\/3--small {
+  ._1\/3--small._1\/3--small {
     flex: 0 0 33.33%
   }
 
-  .t-flex-child--1\/2--small.t-flex-child--1\/2--small {
+  ._1\/2--small._1\/2--small {
     flex: 0 0 50%
   }
 }
 
 @media (min-width: 521px) and (max-width: 900px) {
-  .t-flex-child--no-shrink--medium.t-flex-child--no-shrink--medium {
+  .no-shrink--medium.no-shrink--medium {
     flex-shrink: 0
   }
 
-  .t-flex-child--shrink--medium.t-flex-child--shrink--medium {
+  .shrink--medium.shrink--medium {
     flex-shrink: 1
   }
 
-  .t-flex-child--grow--medium.t-flex-child--grow--medium {
+  .grow--medium.grow--medium {
     flex-grow: 1
   }
 
-  .t-flex-child--1\/3--medium.t-flex-child--1\/3--medium {
+  ._1\/3--medium._1\/3--medium {
     flex: 0 0 33.33%
   }
 
-  .t-flex-child--1\/2--medium.t-flex-child--1\/2--medium {
+  ._1\/2--medium._1\/2--medium {
     flex: 0 0 50%
   }
 }
 
 @media (min-width: 901px) {
-  .t-flex-child--no-shrink--large.t-flex-child--no-shrink--large {
+  .no-shrink--large.no-shrink--large {
     flex-shrink: 0
   }
 
-  .t-flex-child--shrink--large.t-flex-child--shrink--large {
+  .shrink--large.shrink--large {
     flex-shrink: 1
   }
 
-  .t-flex-child--grow--large.t-flex-child--grow--large {
+  .grow--large.grow--large {
     flex-grow: 1
   }
 
-  .t-flex-child--1\/3--large.t-flex-child--1\/3--large {
+  ._1\/3--large._1\/3--large {
     flex: 0 0 33.33%
   }
 
-  .t-flex-child--1\/2--large.t-flex-child--1\/2--large {
+  ._1\/2--large._1\/2--large {
     flex: 0 0 50%
   }
 }
