@@ -13,7 +13,7 @@
 .img:traits {
   flex-child: no-shrink;
   border: round polaroid;
-  size: 4;
+  size: s-4;
   layout: mr1;
 }
 
@@ -27,7 +27,7 @@
 
 .links:traits {
   flex: justify-center align-center;
-  layout: pt0.5;
+  layout: pt_half;
 }
 
 .link:traits {
@@ -36,6 +36,6 @@
 }
 
 .svg:traits {
-  size: 1.5;
-  layout: ml0.5 mr0.5;
+  size: s-1_5;
+  layout: ml_half mr_half;
 }

@@ -6,7 +6,7 @@
 }
 
 .li:traits {
-  flex-child: 1/3 1/2--medium;
+  flex-child: one-third one-half--medium;
   layout: p1;
   flex: vertical;
   type: lh14;
@@ -21,13 +21,13 @@
 }
 
 .img:traits {
-  layout: block w100%;
+  layout: block w100;
   border: polaroid;
 }
 
 .caption:traits {
   flex-child: grow;
-  layout: pt1 pb0.5;
+  layout: pt1 pb_half;
 }
 
 .h3:traits {
@@ -35,7 +35,7 @@
 }
 
 .h4:traits {
-  layout: mb0.25;
+  layout: mb_quarter;
 }
 
 .link:traits {

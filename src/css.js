@@ -24,7 +24,10 @@ function traits( css ) {
 
 export default new CSSLoader( [
   traits,
+    css => console.log(css.toResult().css),
   Core.localByDefault,
+    css => console.log(css.toResult().css),
   Core.extractImports,
-  Core.scope
+  Core.scope,
+  css => console.log(css.toResult().css)
 ], __moduleName )

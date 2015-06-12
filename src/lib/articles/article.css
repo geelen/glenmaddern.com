@@ -17,7 +17,7 @@
 }
 
 .date:traits {
-  layout: block pt0.5;
+  layout: block pt_half;
   type: small3 center;
 }
 
@@ -101,7 +101,7 @@
 
       /*p {*/
         /*@include-trait border thick-left;*/
-        /*@include-trait layout m0-2 pt0.5;*/
+        /*@include-trait layout m0-2 pt_half;*/
         /*@include-trait type small2;*/
         /*&:first-child {*/
           /*@include-trait layout pt0;*/
