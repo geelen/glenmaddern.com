@@ -11,7 +11,7 @@
   type: semibold;
 }
 
-.list:trait {
+.list:traits {
   flex: align-center wrap justify-end;
 }
 

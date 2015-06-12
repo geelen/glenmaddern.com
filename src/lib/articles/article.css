@@ -1,27 +1,27 @@
-:article {
+.article.traits:traits {
   layout: p1;
 }
 
-:header {
+.header:traits {
   layout: p3-0;
   type: lh12;
 }
 
-:title {
+.title:traits {
   type: h3 h4--small black center;
 }
 
-:heading2 {
+.heading2:traits {
   type: h5 italic center;
   layout: pt1;
 }
 
-:date {
+.date:traits {
   layout: block pt0.5;
   type: small3 center;
 }
 
-/*:markdown {*/
+/*.markdown:traits {*/
   /*& {*/
     /*h1 {*/
       /*@include-trait layout max840 pt3 pb2;*/
