@@ -1,4 +1,3 @@
-//import fm from 'front-matter'
 import marked from 'marked'
 import hljs from 'highlight.js'
 let renderer = new marked.Renderer()
