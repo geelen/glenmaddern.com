@@ -1,6 +1,6 @@
 @traits("../styles/traits/");
 
 .body:traits {
-  layout: p1 p0--small;
+  layout: p2 p1--small;
   type: sans;
 }

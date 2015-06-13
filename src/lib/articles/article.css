@@ -50,7 +50,11 @@
   type: mono lh12 small3 unbroken;
   colors: white-background;
   border: simple;
-  layout: p_quarter m_quarter;
+}
+.code {
+  padding: 0.25em 0.5em;
+  margin: 0.1em 0.25em;
+  display: inline-block;
 }
 
 .pre_code {

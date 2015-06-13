@@ -2,7 +2,7 @@ import React from 'react'
 
 import js2015 from './javascript-in-2015.jsx!'
 import amcss from './introducing-am-css.jsx!'
-import metaquery from './metaquery.jsx!'
+import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
 
 export default {
