@@ -1,0 +1,34 @@
+@traits("../../styles/traits/");
+
+.section:traits {
+  layout: p3 p2-1--small;
+}
+
+.h2:traits {
+  divider: line-after;
+  type: upcase;
+}
+
+.a:traits {
+  link: subtle;
+  layout: block pb1;
+  type: lh12;
+}
+
+.h5:traits {
+  type: h6 bold;
+}
+
+.span:traits {
+  type: small3 italic;
+  link: invisible;
+}
+
+.unbroken:traits {
+  type: unbroken;
+}
+
+.more:traits {
+  link: inline;
+  type: small1;
+}

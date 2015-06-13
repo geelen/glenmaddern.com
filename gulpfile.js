@@ -1,79 +1,35 @@
-var gulp        = require('gulp');
-var awspublish  = require('gulp-awspublish');
-var rename      = require('gulp-rename');
-var browserSync = require('browser-sync');
-var reload      = browserSync.reload;
-var harp        = require('harp');
-var es          = require('event-stream');
+var gulp = require( 'gulp' ),
+  $ = require( 'gulp-load-plugins' )(),
+  paths = require( './scraping/paths' )
 
-/**
- * Serve the Harp Site from the src directory
- */
-gulp.task('serve', function () {
-  harp.server(__dirname + '/src', {
-    port: 9000
-  }, function () {
-    browserSync({
-      proxy: "localhost:9000",
-      open: false,
-      /* Hide the notification. It gets annoying */
-      notify: {
-        styles: ['opacity: 0', 'position: absolute']
-      }
-    });
-    /**
-     * Watch for scss changes, tell BrowserSync to refresh main.css
-     */
-    gulp.watch("src/**/*.scss", function () {
-      reload("main.css", {stream: true});
-    });
-    /**
-     * Watch for all other changes, reload the whole page
-     */
-    gulp.watch(["src/**/*.jade", "src/**/*.json", "src/**/*.md"], function () {
-      reload();
-    });
-  })
-});
+gulp.task( 'jspm-bundle', function () {
+  return gulp.src( '' )
+    .pipe( $.shell( [
+      'jspm bundle-sfx lib/index dist/bundle.js'
+    ] ) )
+} )
 
-/**
- * Default task, running just `gulp` will compile the sass,
- * compile the harp site, launch BrowserSync & watch files.
- */
-gulp.task('default', ['serve']);
+gulp.task( 'bundle', ['jspm-bundle'], function () {
+  return gulp.src( 'dist/bundle.js' )
+    .pipe( $.uglify() )
+    .pipe( gulp.dest( 'dist' ) )
+} )
 
-gulp.task('build-release', function (done) {
-  harp.compile('src', __dirname + '/dist', done);
-});
-gulp.task('publish', ['build-release'], function () {
-  var aws = require('./.aws.json'),
-    publisher = awspublish.create(aws);
+gulp.task( 'snapshots', function () {
+  return gulp.src( '' )
+    .pipe( $.shell( [
+      'node snapshot.js "'+ paths.join(' ') +'"'
+    ] ) )
+} )
 
-  var html = gulp.src("dist/**/*.html")
-    .pipe(rename(function (path) {
-      // Drop the HTML
-      path.extname = '';
-      // Rename subdir/index to just subdir
-      if (path.basename === 'index' && path.dirname != '.') {
-        path.basename = path.dirname;
-        path.dirname = '.';
-      }
-    }))
-    .pipe(awspublish.gzip())
-    .pipe(publisher.publish({
-      'Cache-Control': 'max-age=86400, no-transform, public',
-      'Content-Type': 'text/html'
-    }));
+gulp.task( 'assets', function () {
+  return gulp.src( 'src/assets/**' )
+    .pipe( gulp.dest( 'dist/assets' ) )
+} )
 
-  var assets =  gulp.src(["dist/**", "!dist/**/*.html"])
-    .pipe(awspublish.gzip())
-    .pipe(publisher.publish({
-      'Cache-Control': 'max-age=86400, no-transform, public'
-    }));
+gulp.task( 'meta', function () {
+  return gulp.src( 'superstatic.json' )
+    .pipe( gulp.dest( 'dist' ) )
+} )
 
-  return es.merge(html, assets)
-    .pipe(publisher.cache())
-    .pipe(awspublish.reporter({
-      states: ['create', 'update', 'delete']
-    }));
-});
+gulp.task( 'build', ['bundle', 'assets', 'meta', 'snapshots'] )

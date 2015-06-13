@@ -1,0 +1,28 @@
+@traits("../../styles/traits/");
+
+.nav:traits {
+  flex: align-center;
+  type: small2 upcase;
+  layout: p1 max960;
+}
+
+.name:traits {
+  flex-child: grow;
+  type: semibold;
+}
+
+.list:traits {
+  flex: align-center wrap justify-end;
+}
+
+.li:traits {
+  layout: pl1;
+}
+
+.home:traits {
+  link: invisible;
+}
+
+.navlinks:traits {
+  link: subtle;
+}

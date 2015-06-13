@@ -1,0 +1,53 @@
+@traits("../../styles/traits/");
+
+.outer:traits {
+  flex: justify-center align-stretch wrap;
+  layout: block--small;
+}
+
+.li:traits {
+  flex-child: one-third one-half--medium;
+  layout: p1;
+  flex: vertical;
+  type: lh14;
+}
+
+.figure:traits {
+}
+
+.figure_a:traits {
+  link: subtle shadow;
+  layout: block;
+}
+
+.img:traits {
+  layout: block w100;
+  border: polaroid;
+}
+
+.caption:traits {
+  flex-child: grow;
+  layout: pt1 pb_half;
+}
+
+.h3:traits {
+  type: h5 semibold;
+}
+
+.h4:traits {
+  layout: mb_quarter;
+}
+
+.link:traits {
+  type: small3 italic truncate;
+  link: inline;
+}
+
+.span:traits {
+  type: small3 italic truncate;
+}
+
+.more:traits {
+  link: inline obvious;
+  type: small3;
+}

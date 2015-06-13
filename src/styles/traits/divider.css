@@ -1,0 +1,45 @@
+.divider {
+
+}
+
+.line-before::before {
+  content: '';
+  color: inherit;
+  display: block;
+  width: 50%;
+  margin: 1rem auto;
+  border-top: 1px solid;
+  opacity: 0.2;
+}
+
+.line-after::after {
+  content: '';
+  color: inherit;
+  display: block;
+  width: 50%;
+  margin: 1rem auto;
+  border-top: 1px solid;
+  opacity: 0.2;
+}
+
+.chevron-after {
+  position: relative;
+}
+
+.chevron-after::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: translateX(-0.5rem) rotate(45deg);
+}
+
+.bullet-before::before {
+  content: "\\2022";
+  padding-right: 0.5rem;
+}

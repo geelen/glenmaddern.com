@@ -1,0 +1,509 @@
+.type {
+
+}
+
+.sans {
+  font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans', sans-serif;
+}
+
+.serif {
+  font-family: Palatino, Georgia, "Times New Roman", Times, serif;
+}
+
+.mono {
+  font-family: "Consolas", "Menlo", "Courier", monospace;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.black {
+  font-weight: 900;
+}
+
+.h1 {
+  font-size: 4.5rem;
+}
+
+.h2 {
+  font-size: 3.5rem;
+}
+
+.h3 {
+  font-size: 2.5rem;
+}
+
+.h4 {
+  font-size: 1.5rem;
+}
+
+.h5 {
+  font-size: 1.2rem;
+}
+
+.h6 {
+  font-size: 1rem;
+}
+
+.small0 {
+  font-size: 1.0rem;
+}
+
+.small1 {
+  font-size: 0.9rem;
+}
+
+.small2 {
+  font-size: 0.8rem;
+}
+
+.small3 {
+  font-size: 0.7rem;
+}
+
+.small4 {
+  font-size: 0.6rem;
+}
+
+.lh10 {
+  line-height: 1.0;
+}
+
+.lh12 {
+  line-height: 1.2;
+}
+
+.lh14 {
+  line-height: 1.4;
+}
+
+.lh16 {
+  line-height: 1.6;
+}
+
+.lh18 {
+  line-height: 1.8;
+}
+
+.upcase {
+  text-transform: uppercase;
+}
+
+.center {
+  text-align: center;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: inline-block;
+}
+
+.right {
+  text-align: right;
+}
+
+.unbroken {
+  white-space: pre;
+}
+
+@media (max-width: 520px) {
+  .sans--small.sans--small {
+    font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans', sans-serif
+  }
+
+  .serif--small.serif--small {
+    font-family: Palatino, Georgia, "Times New Roman", Times, serif
+  }
+
+  .mono--small.mono--small {
+    font-family: "Consolas", "Menlo", "Courier", monospace
+  }
+
+  .light--small.light--small {
+    font-weight: 300
+  }
+
+  .normal--small.normal--small {
+    font-weight: 400
+  }
+
+  .medium--small.medium--small {
+    font-weight: 500
+  }
+
+  .semibold--small.semibold--small {
+    font-weight: 600
+  }
+
+  .bold--small.bold--small {
+    font-weight: 700
+  }
+
+  .black--small.black--small {
+    font-weight: 900
+  }
+
+  .h1--small.h1--small {
+    font-size: 4.5rem
+  }
+
+  .h2--small.h2--small {
+    font-size: 3.5rem
+  }
+
+  .h3--small.h3--small {
+    font-size: 2.5rem
+  }
+
+  .h4--small.h4--small {
+    font-size: 1.5rem
+  }
+
+  .h5--small.h5--small {
+    font-size: 1.2rem
+  }
+
+  .small0--small.small0--small {
+    font-size: 1.0rem
+  }
+
+  .small1--small.small1--small {
+    font-size: 0.9rem
+  }
+
+  .small2--small.small2--small {
+    font-size: 0.8rem
+  }
+
+  .small3--small.small3--small {
+    font-size: 0.7rem
+  }
+
+  .small4--small.small4--small {
+    font-size: 0.6rem
+  }
+
+  .lh10--small.lh10--small {
+    line-height: 1.0
+  }
+
+  .lh12--small.lh12--small {
+    line-height: 1.2
+  }
+
+  .lh14--small.lh14--small {
+    line-height: 1.4
+  }
+
+  .lh16--small.lh16--small {
+    line-height: 1.6
+  }
+
+  .lh18--small.lh18--small {
+    line-height: 1.8
+  }
+
+  .upcase--small.upcase--small {
+    text-transform: uppercase
+  }
+
+  .center--small.center--small {
+    text-align: center
+  }
+
+  .italic--small.italic--small {
+    font-style: italic
+  }
+
+  .truncate--small.truncate--small {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block
+  }
+
+  .right--small.right--small {
+    text-align: right
+  }
+
+  .unbroken--small.unbroken--small {
+    white-space: pre
+  }
+}
+
+@media (min-width: 521px) and (max-width: 900px) {
+  .sans--medium.sans--medium {
+    font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans', sans-serif
+  }
+
+  .serif--medium.serif--medium {
+    font-family: Palatino, Georgia, "Times New Roman", Times, serif
+  }
+
+  .mono--medium.mono--medium {
+    font-family: "Consolas", "Menlo", "Courier", monospace
+  }
+
+  .light--medium.light--medium {
+    font-weight: 300
+  }
+
+  .normal--medium.normal--medium {
+    font-weight: 400
+  }
+
+  .medium--medium.medium--medium {
+    font-weight: 500
+  }
+
+  .semibold--medium.semibold--medium {
+    font-weight: 600
+  }
+
+  .bold--medium.bold--medium {
+    font-weight: 700
+  }
+
+  .black--medium.black--medium {
+    font-weight: 900
+  }
+
+  .h1--medium.h1--medium {
+    font-size: 4.5rem
+  }
+
+  .h2--medium.h2--medium {
+    font-size: 3.5rem
+  }
+
+  .h3--medium.h3--medium {
+    font-size: 2.5rem
+  }
+
+  .h4--medium.h4--medium {
+    font-size: 1.5rem
+  }
+
+  .h5--medium.h5--medium {
+    font-size: 1.2rem
+  }
+
+  .small0--medium.small0--medium {
+    font-size: 1.0rem
+  }
+
+  .small1--medium.small1--medium {
+    font-size: 0.9rem
+  }
+
+  .small2--medium.small2--medium {
+    font-size: 0.8rem
+  }
+
+  .small3--medium.small3--medium {
+    font-size: 0.7rem
+  }
+
+  .small4--medium.small4--medium {
+    font-size: 0.6rem
+  }
+
+  .lh10--medium.lh10--medium {
+    line-height: 1.0
+  }
+
+  .lh12--medium.lh12--medium {
+    line-height: 1.2
+  }
+
+  .lh14--medium.lh14--medium {
+    line-height: 1.4
+  }
+
+  .lh16--medium.lh16--medium {
+    line-height: 1.6
+  }
+
+  .lh18--medium.lh18--medium {
+    line-height: 1.8
+  }
+
+  .upcase--medium.upcase--medium {
+    text-transform: uppercase
+  }
+
+  .center--medium.center--medium {
+    text-align: center
+  }
+
+  .italic--medium.italic--medium {
+    font-style: italic
+  }
+
+  .truncate--medium.truncate--medium {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block
+  }
+
+  .right--medium.right--medium {
+    text-align: right
+  }
+
+  .unbroken--medium.unbroken--medium {
+    white-space: pre
+  }
+}
+
+@media (min-width: 901px) {
+  .sans--large.sans--large {
+    font-family: 'Avenir Next', 'Helvetica Neue', 'Open Sans', 'Fira Sans', sans-serif
+  }
+
+  .serif--large.serif--large {
+    font-family: Palatino, Georgia, "Times New Roman", Times, serif
+  }
+
+  .mono--large.mono--large {
+    font-family: "Consolas", "Menlo", "Courier", monospace
+  }
+
+  .light--large.light--large {
+    font-weight: 300
+  }
+
+  .normal--large.normal--large {
+    font-weight: 400
+  }
+
+  .medium--large.medium--large {
+    font-weight: 500
+  }
+
+  .semibold--large.semibold--large {
+    font-weight: 600
+  }
+
+  .bold--large.bold--large {
+    font-weight: 700
+  }
+
+  .black--large.black--large {
+    font-weight: 900
+  }
+
+  .h1--large.h1--large {
+    font-size: 4.5rem
+  }
+
+  .h2--large.h2--large {
+    font-size: 3.5rem
+  }
+
+  .h3--large.h3--large {
+    font-size: 2.5rem
+  }
+
+  .h4--large.h4--large {
+    font-size: 1.5rem
+  }
+
+  .h5--large.h5--large {
+    font-size: 1.2rem
+  }
+
+  .small0--large.small0--large {
+    font-size: 1.0rem
+  }
+
+  .small1--large.small1--large {
+    font-size: 0.9rem
+  }
+
+  .small2--large.small2--large {
+    font-size: 0.8rem
+  }
+
+  .small3--large.small3--large {
+    font-size: 0.7rem
+  }
+
+  .small4--large.small4--large {
+    font-size: 0.6rem
+  }
+
+  .lh10--large.lh10--large {
+    line-height: 1.0
+  }
+
+  .lh12--large.lh12--large {
+    line-height: 1.2
+  }
+
+  .lh14--large.lh14--large {
+    line-height: 1.4
+  }
+
+  .lh16--large.lh16--large {
+    line-height: 1.6
+  }
+
+  .lh18--large.lh18--large {
+    line-height: 1.8
+  }
+
+  .upcase--large.upcase--large {
+    text-transform: uppercase
+  }
+
+  .center--large.center--large {
+    text-align: center
+  }
+
+  .italic--large.italic--large {
+    font-style: italic
+  }
+
+  .truncate--large.truncate--large {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: inline-block
+  }
+
+  .right--large.right--large {
+    text-align: right
+  }
+
+  .unbroken--large.unbroken--large {
+    white-space: pre
+  }
+}

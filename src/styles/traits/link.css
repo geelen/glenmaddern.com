@@ -1,0 +1,46 @@
+.link {
+  text-decoration: underline;
+}
+
+.link, .link:hover, .link:active, .link:visited {
+  color: inherit;
+}
+
+.subtle {
+  text-decoration: none;
+}
+
+.subtle:hover, .subtle:active {
+  text-decoration: underline;
+}
+
+.inline {
+  transition: color 0.1s;
+}
+
+.inline, .inline:hover, .inline:visited {
+  color: hsl(0, 50%, 40%);
+  text-decoration: none;
+}
+
+.inline:hover {
+  color: hsl(0, 50%, 50%);
+}
+
+.inline:active {
+  transition: none;
+  color: hsl(0, 50%, 50%);
+  text-decoration: underline;
+}
+
+.invisible, .invisible:hover, .invisible:visited {
+  text-decoration: none;
+}
+
+.obvious::after {
+  content: ' ↵';
+}
+
+.shadow:hover, .shadow:active {
+  box-shadow: 0 0 20px -3px;
+}

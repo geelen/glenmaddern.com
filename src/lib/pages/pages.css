@@ -1,0 +1,31 @@
+@traits("../../styles/traits/");
+
+.HomepageHeader:traits {
+  layout: pt4 pb4;
+}
+
+.BigMessage:traits {
+  layout: pb1;
+  type: h4 center;
+  divider: chevron-after;
+}
+
+.me:traits {
+  type: h1 h2--small light;
+  layout: block p1;
+}
+
+.main:traits {
+  type: center;
+  layout: max960;
+}
+
+.error:traits {
+  layout: p2;
+  type: h2 bold center;
+  colors: red;
+}
+
+.bold:traits {
+  type: semibold;
+}
