@@ -1,5 +1,5 @@
-import './reset.css!'
-import './core.css!'
+import './reset.css!css-global'
+import './core.css!css-global'
 
 import 'highlight.js/styles/tomorrow.css!css-global'
 
