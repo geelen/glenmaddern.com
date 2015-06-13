@@ -1,26 +1,24 @@
-:global *, :global *::before, :global *::after {
-  box-sizing: border-box;
-}
-
-:global :root {
-  color: hsl(220, 50%, 25%);
-  font-weight: 400;
-  font-size: 20px;
-  min-height: 100%;
-}
-
-@media (max-width: 520px) {
-  :global :root {
-    font-size: 18px;
+:global {
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
-}
 
-:global body {
-  background: linear-gradient(-20deg, hsl(0, 50%, 98%) 0%, hsl(90, 50%, 97%) 40%, hsl(180, 50%, 96%) 80%);
-  text-rendering: optimizeLegibility;
-  min-height: 100%;
-}
+  :root {
+    color: hsl(220, 50%, 25%);
+    font-weight: 400;
+    font-size: 20px;
+    min-height: 100%;
+  }
 
-:global .undefined {
-  box-shadow: 0 0 10px purple;
+  @media (max-width: 520px) {
+    :root {
+      font-size: 18px;
+    }
+  }
+
+  body {
+    background: linear-gradient(-20deg, hsl(0, 50%, 98%) 0%, hsl(90, 50%, 97%) 40%, hsl(180, 50%, 96%) 80%);
+    text-rendering: optimizeLegibility;
+    min-height: 100%;
+  }
 }

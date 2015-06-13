@@ -14,7 +14,7 @@
       "plugin-postcss": "github:geelen/plugin-postcss@master",
       "postcss": "npm:postcss@^4.1.11",
       "postcss-inline-comment": "npm:postcss-inline-comment@^1.0.3",
-      "postcss-nested": "npm:postcss-nested@^0.3.1",
+      "postcss-nested": "npm:postcss-nested@^0.3.2",
       "react": "npm:react@^0.13.0",
       "react-router": "npm:react-router@^0.13.3",
       "react-tools": "npm:react-tools@^0.14.0-alpha3",

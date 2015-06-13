@@ -2,53 +2,54 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+:global {
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
 
-:global html, :global body, :global div, :global span, :global applet, :global object, :global iframe,
-:global h1, :global h2, :global h3, :global h4, :global h5, :global h6, :global p, :global blockquote, :global pre,
-:global a, :global abbr, :global acronym, :global address, :global big, :global cite, :global code,
-:global del, :global dfn, :global em, :global img, :global ins, :global kbd, :global q, :global s, :global samp,
-:global small, :global strike, :global strong, :global sub, :global sup, :global tt, :global var,
-:global b, :global u, :global i, :global center,
-:global dl, :global dt, :global dd, :global ol, :global ul, :global li,
-:global fieldset, :global form, :global label, :global legend,
-:global table, :global caption, :global tbody, :global tfoot, :global thead, :global tr, :global th, :global td,
-:global article, :global aside, :global canvas, :global details, :global embed,
-:global figure, :global figcaption, :global footer, :global header, :global hgroup,
-:global menu, :global nav, :global output, :global ruby, :global section, :global summary,
-:global time, :global mark, :global audio, :global video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
 
-/* HTML5 display-role reset for older browsers */
-:global article,:global aside,:global details,:global figcaption,:global figure,
-:global footer,:global header,:global hgroup,:global menu,:global nav,:global section {
-  display: block;
-}
+  body {
+    line-height: 1;
+  }
 
-:global body {
-  line-height: 1;
-}
+  ol, ul {
+    list-style: none;
+  }
 
-:global ol, :global ul {
-  list-style: none;
-}
+  blockquote, q {
+    quotes: none;
+  }
 
-:global blockquote, :global q {
-  quotes: none;
-}
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
 
-:global blockquote:before, :global blockquote:after,
-:global q:before, :global q:after {
-  content: '';
-  content: none;
-}
-
-:global table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
 }

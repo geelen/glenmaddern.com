@@ -1,4 +1,5 @@
 import { CSSLoader, Core } from 'jspm-loader-css'
+import nested from 'postcss-nested'
 
 const traitRegexp = /\:traits$/
 function traits( css ) {
@@ -23,6 +24,7 @@ function traits( css ) {
 }
 
 export default new CSSLoader( [
+  nested,
   traits,
     //css => console.log(css.toResult().css),
   Core.localByDefault,
