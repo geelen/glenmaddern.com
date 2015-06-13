@@ -1,3 +1,4 @@
+import yaml from 'js-yaml'
 import marked from 'marked'
 import hljs from 'highlight.js'
 let renderer = new marked.Renderer()
@@ -20,16 +21,19 @@ renderer.link = ( href, title, text ) => `<a className={styles.a} href="${href}"
 
 export let fetch = ( load, fetch ) => {
   return fetch( load ).then( text => {
-    //console.log(fm)
-    //let content = fm( text );
-    let
-      mdToJsx = marked( text, { renderer, tables: false, smartypants: true } ).replace( /`/g, "\\`" ),
+    let frontMatter = text.match(/^---$([\s\S]*?)^---$([\s\S]*)$/m),
+      meta = {}
+    if (frontMatter) {
+      meta = yaml.safeLoad(frontMatter[1])
+      text = frontMatter[2]
+    }
+    let mdToJsx = marked( text, { renderer, tables: false, smartypants: true } ).replace( /`/g, "\\`" ),
       JsxToJs = reactTools.transformWithDetails( `<div className={styles.markdown}>${mdToJsx}</div>`, { es6module: true } )
     return `
       import React from 'react'
-      export default {
-        render: (styles, components) => ${JsxToJs.code}
-      }
+      let markdown = ${JSON.stringify(meta)}
+      markdown.render = (styles, components) => ${JsxToJs.code}
+      export default markdown
       export let __hotReload = true
     `
   } )

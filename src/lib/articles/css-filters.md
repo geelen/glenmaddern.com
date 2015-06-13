@@ -1,3 +1,8 @@
+---
+title: CSS filters, GIFs, and performance
+strap: Or, how to persist in not learning Photoshop
+date: "2013-07-02"
+---
 A few months ago, I blatantly ripped off Charlie Gleason's idea. His [presentation](http://superhighfives.github.io/tweetflight-presentation/) at MelbJS featured greyscale, full-screen, animated GIFs (of his own face, among other things) behind the text on many slides. I discovered that he'd painstakingly edited and optimised each GIF in Photoshop so it looked good behind the text on each slide.
 
 I wanted to do the same thing, but without all that work.

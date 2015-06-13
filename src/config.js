@@ -28,6 +28,7 @@ System.config({
     "core-js": "npm:core-js@0.9.15",
     "css-global": "npm:jspm-loader-css@0.1.1",
     "highlight.js": "npm:highlight.js@8.6.0",
+    "js-yaml": "npm:js-yaml@3.3.1",
     "jspm-loader-css": "npm:jspm-loader-css@0.1.1",
     "jsx": "npm:jspm-loader-jsx@0.0.1",
     "marked": "npm:marked@0.3.3",
@@ -116,6 +117,15 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1",
       "underscore": "npm:underscore@1.7.0",
       "underscore.string": "npm:underscore.string@2.4.0",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:argparse@1.0.2": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "lodash": "npm:lodash@3.9.3",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "sprintf-js": "npm:sprintf-js@1.0.2",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:asn1.js@2.0.4": {
@@ -314,6 +324,10 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
+    "npm:esprima@2.2.0": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
     "npm:exit@0.1.2": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
@@ -477,6 +491,16 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:js-yaml@3.3.1": {
+      "argparse": "npm:argparse@1.0.2",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "esprima": "npm:esprima@2.2.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
     "npm:jspm-loader-css-modules@0.1.1": {
       "jspm-loader-css": "npm:jspm-loader-css@0.1.1"
     },
@@ -514,6 +538,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:lodash@2.4.2": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:lodash@3.9.3": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:metaquery@1.2.5": {
