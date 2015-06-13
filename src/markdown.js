@@ -1,3 +1,4 @@
+//import fm from 'front-matter'
 import marked from 'marked'
 import hljs from 'highlight.js'
 let renderer = new marked.Renderer()
@@ -20,11 +21,16 @@ renderer.link = ( href, title, text ) => `<a className={styles.a} href="${href}"
 
 export let fetch = ( load, fetch ) => {
   return fetch( load ).then( text => {
-    let mdToJsx = marked( text, { renderer, tables: false, smartypants: true } ).replace( /`/g, "\\`" ),
+    //console.log(fm)
+    //let content = fm( text );
+    let
+      mdToJsx = marked( text, { renderer, tables: false, smartypants: true } ).replace( /`/g, "\\`" ),
       JsxToJs = reactTools.transformWithDetails( `<div className={styles.markdown}>${mdToJsx}</div>`, { es6module: true } )
     return `
       import React from 'react'
-      export default (styles, components) => ${JsxToJs.code}
+      export default {
+        render: (styles, components) => ${JsxToJs.code}
+      }
       export let __hotReload = true
     `
   } )

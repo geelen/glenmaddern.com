@@ -3,4 +3,9 @@ import amcss from './introducing-am-css.jsx!'
 import metaquery from './metaquery.jsx!'
 import cssfilters from './css-filters.jsx!'
 
-export default [js2015, amcss, metaquery, cssfilters]
+export default {
+  'javascript-in-2015': js2015,
+  'introducing-am-css': amcss,
+  'metaquery-and-the-end-of-media-queries': metaquery,
+  'css-filters-gifs-and-performance': cssfilters
+}

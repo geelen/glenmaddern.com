@@ -4,11 +4,9 @@ let Link = Router.Link
 
 import styles from './pages.css!'
 import articles from '../articles/index.jsx!'
-let articlesBySlug = {}
-articles.forEach(a => articlesBySlug[a.props.slug] = a)
 
 export default class ArticlePage extends React.Component {
   render() {
-    return articlesBySlug[this.props.params.slug] || <h1 className={styles.error}>NOT FOUND</h1>
+    return articles[this.props.params.slug] || <h1 className={styles.error}>NOT FOUND</h1>
   }
 }

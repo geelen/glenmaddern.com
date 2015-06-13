@@ -2,7 +2,6 @@ import React from 'react'
 import Article from './article.jsx!'
 
 let Metaquery = <Article
-  slug="metaquery-and-the-end-of-media-queries"
   title="Metaquery and the end of media queries"
   strap="A simpler approach to responsive CSS"
   date="2014-02-10"

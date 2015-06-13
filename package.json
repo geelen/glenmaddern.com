@@ -6,6 +6,7 @@
     "dependencies": {
       "css": "npm:jspm-loader-css-modules@^0.1.1",
       "css-global": "npm:jspm-loader-css@^0.1.1",
+      "front-matter": "npm:front-matter@^1.0.0",
       "highlight.js": "npm:highlight.js@^8.6.0",
       "jspm-loader-css": "npm:jspm-loader-css@^0.1.1",
       "jsx": "npm:jspm-loader-jsx@^0.0.1",

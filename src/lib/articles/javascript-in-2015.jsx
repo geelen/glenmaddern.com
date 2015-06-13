@@ -3,7 +3,6 @@ import Article from './article.jsx!'
 import YoutubePlayer from '../components/youtube-player.jsx!'
 
 let JavascriptIn2015 = <Article
-  slug="javascript-in-2015"
   title="JavaScript in 2015"
   strap="A whole new world"
   date="2015-01-07"

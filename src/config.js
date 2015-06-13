@@ -27,6 +27,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.5.6",
     "core-js": "npm:core-js@0.9.15",
     "css-global": "npm:jspm-loader-css@0.1.1",
+    "front-matter": "npm:front-matter@1.0.0",
     "highlight.js": "npm:highlight.js@8.6.0",
     "jspm-loader-css": "npm:jspm-loader-css@0.1.1",
     "jsx": "npm:jspm-loader-jsx@0.0.1",
@@ -324,6 +325,10 @@ System.config({
       "glob": "npm:glob@3.2.11",
       "lodash": "npm:lodash@2.4.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
+    },
+    "npm:front-matter@1.0.0": {
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "yaml-js": "npm:yaml-js@0.1.1"
     },
     "npm:glob@3.1.21": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -758,6 +763,11 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:yaml-js@0.1.1": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "util": "github:jspm/nodelibs-util@0.1.0"
     }
   }
 });
