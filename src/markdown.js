@@ -1,11 +1,12 @@
 import yaml from 'js-yaml'
 import marked from 'marked'
 import hljs from 'highlight.js'
+console.log(hljs.listLanguages())
 let renderer = new marked.Renderer()
 import reactTools from 'react-tools'
 
 const SimpleTag = ( tagName ) => ( body ) => `<${tagName} className={styles.${tagName}}>${body}</${tagName}>`
-renderer.code = ( code, language ) => `<pre className={styles.pre}><code className={styles.pre_code} dangerouslySetInnerHTML={{__html: ${JSON.stringify( hljs.highlight( language, code, true ).value )} }}></code></pre>`
+renderer.code = ( code, language ) => `<pre className={styles.pre}><code className={styles.pre_code} dangerouslySetInnerHTML={{__html: ${JSON.stringify( hljs.highlight( language || "bash", code, true ).value )} }}></code></pre>`
 renderer.paragraph = SimpleTag( 'p' )
 renderer.codespan = SimpleTag( 'code' )
 renderer.heading = ( text, level ) => `<h${level} className={styles['h' + ${level}]}>${text}</h${level}>`

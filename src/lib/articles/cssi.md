@@ -1,5 +1,8 @@
-# Rogue specifications
-A CSS format for the Loader Age
+---
+title: "Rogue specifications"
+strap: "A CSS format for the Loader Age"
+date: "2015-06-14"
+---
 
 It occurred to me recently that nobody is really happy with the current state of CSS, and that's pretty weird. I know and respect people who think CSS itself is fine/fucked, who think only they/nobody is doing it "right", who think the DOM/the language/other developers are the problem, who think more-isolation/less-isolation/write-it-in-JS/definitely-not-JS-but-maybe-not-CSS-either is the solution. You can pretty much take any combination of opinions there and you'll find someone intelligent, experienced & erudite arguing for it. Which is weird, right?
 
@@ -123,14 +126,14 @@ Firstly, there is a real specification that you should consult for more detail, 
 
 To start, we need the ability for a CSS file to map a local class name to something automatically generated.
 
-```
+```css
 :export {
   Nav: _nav_nav_afd97dfs867;
-  Logo; _nav_logo_97fd867fsfg;
+  Logo: _nav_logo_97fd867fsfg;
 }
-```someo
-
 ```
+
+```css
 :import("./utils.css") {
   __imported_util_class: HorizontalNav;
   __imported_util_variable: SharedUtilVar;
@@ -142,7 +145,6 @@ To start, we need the ability for a CSS file to map a local class name to someth
 ._nav_nav_a4b2c4d1f9 {
   /* local styles */
 }
-
 ```
 
 ### Designed as a compile target
