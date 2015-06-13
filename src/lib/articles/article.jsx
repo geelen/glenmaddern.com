@@ -15,7 +15,9 @@ export default class Article extends React.Component {
       {children.map(child => {
         return typeof child === "string" ?
           <div className={styles.markdown} dangerouslySetInnerHTML={{__html: child}}></div>
-          : typeof child === "function" ? child(styles) : child
+          : typeof child === "function" ?
+          <div className={styles.markdown} dangerouslySetInnerHTML={{__html: child(styles)}}></div>
+          : child
       })}
     </article>
   }

@@ -4,7 +4,7 @@ let renderer = new marked.Renderer()
 import reactTools from 'react-tools'
 
 renderer.heading = (text, level) => {
-  return `<h${level} className="\${styles['h' + ${level}]}">${text}</h${level}>`
+  return `<h${level} class="\${styles['h' + ${level}]}">${text}</h${level}>`
 }
 
 export let fetch = (load, fetch) => {
@@ -15,7 +15,7 @@ export let fetch = (load, fetch) => {
         console.log("Styles!")
         console.log(styles)
         console.log("Text!")
-        console.log(\`${marked(text, {renderer}).replace(/`/g,"\\`")}\`)
+        return \`${marked(text, {renderer}).replace(/`/g,"\\`")}\`
       }
     `
   })
