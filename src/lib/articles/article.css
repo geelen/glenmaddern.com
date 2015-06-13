@@ -1,4 +1,6 @@
-.article.traits:traits {
+@traits("../../styles/traits/");
+
+.article.traits {
   layout: p1;
 }
 
@@ -21,8 +23,8 @@
   type: small3 center;
 }
 
-.h2 {
-  color: red;
+.h2:traits {
+  layout: max840 pt3 pb1;
 }
 
 /*.markdown:traits {*/
