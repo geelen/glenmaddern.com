@@ -1,9 +1,0 @@
-@trait colors {
-  white-background {
-    background: white;
-  }
-
-  red {
-    color: red;
-  }
-}
