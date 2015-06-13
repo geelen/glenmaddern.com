@@ -38,6 +38,7 @@
     "gulp-shell": "^0.4.1",
     "gulp-uglify": "^1.2.0",
     "http-server": "^0.8.0",
+    "jspm": "^0.15.7",
     "portfinder": "^0.4.0",
     "pushserve": "^0.1.6"
   }
