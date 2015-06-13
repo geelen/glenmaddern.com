@@ -106,6 +106,7 @@
 
 .blockquote:traits {
   layout: max720 m2-auto p0-1;
+  border: thick-left;
 }
 
 .strong:traits {
@@ -130,4 +131,10 @@
   divider: line-before;
   layout: p2-0;
   border: none;
+}
+
+.pull:traits {
+  type: h4;
+  layout: max720 p1 mb2 mt2;
+  border: thick-left;
 }
