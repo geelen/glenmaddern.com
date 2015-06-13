@@ -29,7 +29,7 @@ System.config({
     "css-global": "npm:jspm-loader-css@0.1.1",
     "highlight.js": "npm:highlight.js@8.6.0",
     "jspm-loader-css": "npm:jspm-loader-css@0.1.1",
-    "jsx": "github:geelen/plugin-live-jsx@master",
+    "jsx": "npm:jspm-loader-jsx@0.0.1",
     "marked": "npm:marked@0.3.3",
     "md": "github:guybedford/system-md@0.0.1",
     "metaquery": "npm:metaquery@1.2.5",
@@ -483,6 +483,13 @@ System.config({
     "npm:jspm-loader-css@0.1.1": {
       "css-modules-loader-core": "npm:css-modules-loader-core@0.0.7",
       "path": "npm:path@0.11.14"
+    },
+    "npm:jspm-loader-jsx@0.0.1": {
+      "pascal-case": "npm:pascal-case@1.1.1",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "react": "npm:react@0.13.3",
+      "react-hot-api": "github:gaearon/react-hot-api@0.4.3",
+      "react-tools": "npm:react-tools@0.13.3"
     },
     "npm:jstransform@10.1.0": {
       "base62": "npm:base62@0.1.1",
