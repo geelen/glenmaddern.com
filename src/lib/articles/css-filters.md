@@ -8,7 +8,7 @@ A few months ago, I blatantly ripped off Charlie Gleason's idea. His [presentati
 I wanted to do the same thing, but without all that work.
 
 <figure className={styles.figure}>
-<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*9q22pEjd4s_jm1vU.png" />
+<img className={styles.img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*9q22pEjd4s_jm1vU.png" />
 <figcaption className={styles.figcaption}>The opening slide of my presentation</figcaption>
 </figure>
 

@@ -32,7 +32,7 @@
   layout: max840 p1;
 }
 
-.figure_img:traits {
+.img:traits {
   layout: mw100 block m0-auto;
   border: polaroid;
 }

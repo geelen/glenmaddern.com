@@ -32,7 +32,7 @@ export let fetch = ( load, fetch ) => {
     return `
       import React from 'react'
       let markdown = ${JSON.stringify(meta)}
-      markdown.render = (styles, components) => ${JsxToJs.code}
+      markdown.render = (styles, imports) => ${JsxToJs.code}
       export default markdown
       export let __hotReload = true
     `

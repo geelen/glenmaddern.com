@@ -1,6 +1,6 @@
 import React from 'react'
 
-import js2015 from './javascript-in-2015.jsx!'
+import js2015 from './js2015.md!markdown'
 import amcss from './amcss.md!markdown'
 import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
