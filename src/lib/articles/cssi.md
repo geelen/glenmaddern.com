@@ -140,7 +140,7 @@ To start, we need the ability for a CSS file to map a local class name to someth
 }
 :export {
   Nav: _nav_nav_afd97dfs867 __imported_util_class;
-	Logo: _nav_logo_97fd867fsfg;
+  Logo: _nav_logo_97fd867fsfg;
 }
 ._nav_nav_a4b2c4d1f9 {
   /* local styles */
