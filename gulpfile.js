@@ -1,6 +1,17 @@
 var gulp = require( 'gulp' ),
   $ = require( 'gulp-load-plugins' )(),
-  paths = require( './scraping/paths' )
+  paths = [
+    '/',
+    '/articles',
+    '/articles/rogue-specifications',
+    '/articles/javascript-in-2015',
+    '/articles/introducing-am-css',
+    '/articles/metaquery-and-the-end-of-media-queries',
+    '/articles/css-filters-gifs-and-performance',
+    '/projects',
+    '/talks',
+    '/work'
+  ]
 
 gulp.task( 'jspm-bundle', function () {
   return gulp.src( '' )
