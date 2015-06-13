@@ -27,6 +27,11 @@
   layout: max840 pt3 pb1;
 }
 
+.p:traits {
+  layout: max720 mb1;
+  type: serif lh14 small1 small0--small;
+}
+
 .pre:traits {
   layout: max840 m1-auto;
 }
@@ -68,14 +73,6 @@
     /*h4 {*/
       /*@include-trait layout max720 p0.5-0;*/
       /*@include-trait type lh12 bold;*/
-    /*}*/
-
-    /*p {*/
-      /*@include-trait layout max720 mb1;*/
-      /*@include-trait type serif lh14 small1;*/
-      /*@media (max-width: 520px) {*/
-        /*@include-trait type small0;*/
-      /*}*/
     /*}*/
 
     /*figure {*/

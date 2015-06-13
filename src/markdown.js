@@ -4,6 +4,7 @@ let renderer = new marked.Renderer()
 import reactTools from 'react-tools'
 
 renderer.code = (code, language) => `<pre class="\${styles.pre}"><code class="\${styles.pre_code}">${code}</code></pre>`
+renderer.paragraph = (text) => `<p class="\${styles.p}">${text}</p>`
 renderer.codespan = (code) => `<code class="\${styles.code}">${code}</code>`
 renderer.heading = (text, level) => `<h${level} class="\${styles['h' + ${level}]}">${text}</h${level}>`
 
