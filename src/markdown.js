@@ -3,9 +3,10 @@ import highlightJs from 'highlight.js'
 let renderer = new marked.Renderer()
 import reactTools from 'react-tools'
 
-renderer.heading = (text, level) => {
-  return `<h${level} class="\${styles['h' + ${level}]}">${text}</h${level}>`
-}
+renderer.code = (code, language) => `<pre class="\${styles.pre}"><code class="\${styles.pre_code}">${code}</code></pre>`
+renderer.codespan = (code) => `<code class="\${styles.code}">${code}</code>`
+renderer.heading = (text, level) => `<h${level} class="\${styles['h' + ${level}]}">${text}</h${level}>`
+
 
 export let fetch = (load, fetch) => {
   return fetch(load).then(text => {
@@ -17,6 +18,7 @@ export let fetch = (load, fetch) => {
         console.log("Text!")
         return \`${marked(text, {renderer}).replace(/`/g,"\\`")}\`
       }
+      export let __hotReload = true
     `
   })
 }

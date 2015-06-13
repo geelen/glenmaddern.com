@@ -27,6 +27,26 @@
   layout: max840 pt3 pb1;
 }
 
+.pre:traits {
+  layout: max840 m1-auto;
+}
+
+.code:traits {
+  type: mono lh12 small3 unbroken;
+  colors: white-background;
+  border: simple;
+  layout: p_quarter m_quarter;
+}
+.pre_code {
+  overflow: auto;
+}
+.pre_code:traits {
+  type: mono lh14 small3 unbroken;
+  colors: white-background;
+  border: simple;
+  layout: p_half m0 block;
+}
+
 /*.markdown:traits {*/
   /*& {*/
     /*h1 {*/
