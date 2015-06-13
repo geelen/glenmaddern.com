@@ -13,4 +13,5 @@ Router.run(routes, Router.HistoryLocation, (Root) => {
 })
 
 console.log("Main rendered in " + Math.round(performance.now()) / 1000 + "s")
+console.log("### DONE")
 export let __hotReload = true

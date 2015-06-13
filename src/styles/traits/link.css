@@ -2,7 +2,7 @@
   text-decoration: underline;
 }
 
-.link:hover, .link:active, .link:visited {
+.link, .link:hover, .link:active, .link:visited {
   color: inherit;
 }
 

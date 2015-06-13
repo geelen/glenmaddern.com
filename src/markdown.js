@@ -1,7 +1,6 @@
 import yaml from 'js-yaml'
 import marked from 'marked'
 import hljs from 'highlight.js'
-console.log(hljs.listLanguages())
 let renderer = new marked.Renderer()
 import reactTools from 'react-tools'
 

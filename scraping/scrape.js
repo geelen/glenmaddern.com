@@ -10,10 +10,9 @@ console.log(phantom.libraryPath)
 page.viewportSize = { width: 960, height: 720 }
 
 page.onConsoleMessage = function(message) {
+  console.log(message)
   if (message.match(/^### DONE/)) {
     doneCallback()
-  } else {
-    console.log(message)
   }
 };
 
