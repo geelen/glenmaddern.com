@@ -62,7 +62,7 @@
 }
 
 .pre_code:traits {
-  type: mono lh14 small3 unbroken;
+  type: mono lh16 small3 unbroken;
   colors: white-background;
   border: simple;
   layout: p_half m0 block;
