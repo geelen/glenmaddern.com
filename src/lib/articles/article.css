@@ -23,10 +23,6 @@
   type: small3 center;
 }
 
-.h2:traits {
-  layout: max840 pt3 pb1;
-}
-
 .p:traits {
   layout: max720 mb1;
   type: serif lh14 small1 small0--small;
@@ -68,105 +64,66 @@
   layout: p_half m0 block;
 }
 
-/*.markdown:traits {*/
-/*& {*/
-/*h1 {*/
-/*@include-trait layout max840 pt3 pb2;*/
-/*@include-trait type lh12 h3 bold center;*/
-/*@include-trait divider line-after;*/
-/*}*/
+.h1:traits {
+  layout: max840 pt3 pb2;
+  type: lh12 h3 bold center;
+  divider: line-after;
+}
 
-/*h2 {*/
-/*@include-trait layout max840 pt3 pb1;*/
-/*@include-trait type lh12 h4 bold center;*/
-/*}*/
+.h2:traits {
+  layout: max840 pt3 pb1;
+  type: lh12 h4 bold center;
+}
 
-/*h3 {*/
-/*@include-trait layout max720 p1-0;*/
-/*@include-trait type lh12 h4 bold;*/
-/*}*/
+.h3:traits {
+  layout: max720 p1-0;
+  type: lh12 h4 bold;
+}
 
-/*h4 {*/
-/*@include-trait layout max720 p0.5-0;*/
-/*@include-trait type lh12 bold;*/
-/*}*/
+.h4:traits {
+  layout: max720 p_half-0;
+  type: lh12 bold;
+}
 
-/*a {*/
-/*@include-trait link inline;*/
-/*}*/
+.a:traits {
+  link: inline;
+}
 
-/*ul {*/
-/*@include-trait layout max720 m1-auto;*/
-/*@include-trait type serif small2;*/
-/*}*/
+.ul:traits {
+  layout: max720 m1-auto;
+  type: serif small2;
+}
 
-/*li {*/
-/*@include-trait layout pl0.5 m0.5-0;*/
-/*@include-trait type lh14;*/
-/*@include-trait before bullet;*/
-/*}*/
+.li:traits {
+  layout: pl_half m_half-0;
+  type: lh14;
+  divider: bullet-before;
+}
 
-/*pre {*/
-/*@include-trait layout max840 m1-auto;*/
-/*code {*/
-/*@include-trait type small3 lh14;*/
-/*@include-trait layout p0.5 m0 block;*/
-/*overflow: auto;*/
-/*}*/
-/*}*/
+.blockquote:traits {
+  layout: max720 m2-auto p0-1;
+}
 
-/*code {*/
-/*@include-trait type mono lh12 small3 unbroken;*/
-/*@include-trait colors white-background;*/
-/*@include-trait border simple;*/
-/*@include-trait layout p0.25 m0.25;*/
-/*}*/
+.strong:traits {
+  type: semibold;
+}
 
-/*blockquote {*/
-/*@include-trait layout max720 m2-auto p0-1;*/
+.em:traits {
+  type: italic;
+}
 
-/*p {*/
-/*@include-trait border thick-left;*/
-/*@include-trait layout m0-2 pt_half;*/
-/*@include-trait type small2;*/
-/*&:first-child {*/
-/*@include-trait layout pt0;*/
-/*}*/
+.small:traits {
+  type: small2 lh14;
+  layout: inline-block;
+}
 
-/*strong {*/
-/*@include-trait type h5 semibold;*/
-/*}*/
-/*@media (max-width: 520px) {*/
-/*@include-trait layout m0;*/
-/*strong {*/
-/*@include-trait type h6;*/
-/*}*/
-/*}*/
-/*}*/
-/*}*/
+.form:traits {
+  layout: max720 m1-auto;
+  type: center;
+}
 
-/*strong {*/
-/*@include-trait type semibold;*/
-/*}*/
-
-/*em {*/
-/*@include-trait type italic;*/
-/*}*/
-
-/*small {*/
-/*@include-trait type small2 lh14;*/
-/*@include-trait layout inline-block;*/
-/*}*/
-
-/*form {*/
-/*@include-trait layout max720 m1-auto;*/
-/*@include-trait type center;*/
-/*}*/
-
-/*hr {*/
-/*@include-trait divider line-before;*/
-/*@include-trait layout p2-0;*/
-/*border: none;*/
-/*}*/
-/*}*/
-/*}*/
+.hr:traits {
+  divider: line-before;
+  layout: p2-0;
+  border: none;
+}

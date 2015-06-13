@@ -38,3 +38,8 @@
   border-left-color: transparent;
   transform: translateX(-0.5rem) rotate(45deg);
 }
+
+.bullet-before::before {
+  content: "\\2022";
+  padding-right: 0.5rem;
+}
