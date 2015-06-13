@@ -21,7 +21,7 @@ renderer.link = (href, title, text) => `<a className={styles.a} href="${href}" t
 export let fetch = (load, fetch) => {
   return fetch(load).then(text => {
     console.log(text)
-    let mdToJsx = marked(text, {renderer}).replace(/`/g,"\\`"),
+    let mdToJsx = marked(text, {renderer, tables: false}).replace(/`/g,"\\`"),
       JsxToJs = reactTools.transformWithDetails( `<div className={styles.markdown}>${mdToJsx}</div>`, { es6module: true } )
     return `
       import React from 'react'
