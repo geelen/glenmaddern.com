@@ -18,7 +18,7 @@ gulp.task( 'bundle', ['jspm-bundle'], function () {
 gulp.task( 'snapshots', function () {
   return gulp.src( '' )
     .pipe( $.shell( [
-      'node scraping/run-scraper.js'
+      'node snapshot.js "'+ paths.join(' ') +'"'
     ] ) )
 } )
 
@@ -27,16 +27,9 @@ gulp.task( 'assets', function () {
     .pipe( gulp.dest( 'dist/assets' ) )
 } )
 
-gulp.task( 'html', ['snapshots', 'assets'], function () {
-  return gulp.src( 'scraping/snapshots/*.html' )
-    .pipe( $.htmlReplace( {
-      'js': ['/bundle.js']
-    } ) )
-    .pipe( $.rename( function ( file ) {
-      var path = paths[parseInt( file.basename )]
-      file.basename = path == '/' ? 'index' : path.replace( /^\//, '' )
-    } ) )
-    .pipe( gulp.dest( 'dist/' ) )
+gulp.task( 'meta', function () {
+  return gulp.src( 'superstatic.json' )
+    .pipe( gulp.dest( 'dist' ) )
 } )
 
-gulp.task( 'build', ['bundle', 'html'] )
+gulp.task( 'build', ['bundle', 'assets', 'meta', 'snapshots'] )
