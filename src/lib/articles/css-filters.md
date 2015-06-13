@@ -15,9 +15,9 @@ This post is about some of the things I learned along the way.
 
 If you're trying to convey an emotion in a presentation, it's hard to beat a well-chosen GIF. Alternatively, if you're procrastinating instead of writing your presentation, searching for the perfect GIF will distract you for hours. It's a win-win.
 
-<figure>
-<img src="https://d262ilb51hltx0.cloudfront.net/max/600/0*e3xBfsYk9_YJGZBy.gif" />
-<figcaption>Sneakers (1999)<br/>&lt;3: IWDRM.tumblr.com</figcaption>
+<figure className={styles.figure}>
+<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/600/0*e3xBfsYk9_YJGZBy.gif" />
+<figcaption className={styles.figcaption}>Sneakers (1999)<br/>&lt;3: IWDRM.tumblr.com</figcaption>
 </figure>
 
 Most GIFs out there are poor-quality, badly optimised and jarring when looped. But not all. Blogs like [If We Don't, Remember Me](http://iwdrm.tumblr.com/) and [Tech Noir](http://technoir.nl/) prove just what's possible with the format, capturing the feeling of a particular scene from a film in a way no static image can (note: [All Movie Gifs](http://allmoviegifs.tumblr.com/allmovies) has a great list of film GIFs, but of usually far lower quality). So the lesson is, good GIFs are out there: find them!
@@ -28,9 +28,9 @@ I'm not sure if that headline will surprise anyone. But it turns out, trying to 
 
 How bad? [This bad](http://codepen.io/geelen/pen/EJGsd). Maximise this and feel the slowness. Jump into Timeline mode and watch that 60fps (and even the 30fps) target sail past:
 
-<figure>
-<img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*DWd75neDN6BXoCM1.png" />
-<figcaption>Timeline profile for the 'Slow' version.</figcaption>
+<figure className={styles.figure}>
+<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*DWd75neDN6BXoCM1.png" />
+<figcaption className={styles.figcaption}>Timeline profile for the 'Slow' version.</figcaption>
 </figure>
 
 
@@ -80,9 +80,9 @@ Then we apply the filter and scale the image up to fit:
 
 And then we're done:
 
-<figure>
-<img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*5s7eIjD8fsyl57QA.png" />
-<figcaption>Timeline profile for the "fast" version</figcaption>
+<figure className={styles.figure}>
+<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*5s7eIjD8fsyl57QA.png" />
+<figcaption className={styles.figcaption}>Timeline profile for the "fast" version</figcaption>
 </figure>
 
 At first glance, it looks like we only sped things up by 40% (160ms/frame down to 100ms), but this is actually a 10fps GIF, so Chrome is just waiting until the next GIF frame is ready. All our painting, blurring and scaling is actually happening in the first 30ms.
