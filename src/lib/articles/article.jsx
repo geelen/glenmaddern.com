@@ -12,13 +12,11 @@ export default class Article extends React.Component {
         { this.props.strap ? <h2 className={styles.heading2}>{this.props.strap}</h2> : {}}
         { this.props.date ? <time className={styles.date} dateTime={this.props.date}>{this.props.date}</time> : {}}
       </header>
-      {children.map(child => {
+      {children.map( child => {
         return typeof child === "string" ?
           <div className={styles.markdown} dangerouslySetInnerHTML={{__html: child}}></div>
-          : typeof child === "function" ?
-          <div className={styles.markdown} dangerouslySetInnerHTML={{__html: child(styles)}}></div>
-          : child
-      })}
+          : typeof child === "function" ? child( styles ) : child
+      } )}
     </article>
   }
 }

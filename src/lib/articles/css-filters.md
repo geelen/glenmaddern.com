@@ -2,9 +2,9 @@ A few months ago, I blatantly ripped off Charlie Gleason's idea. His [presentati
 
 I wanted to do the same thing, but without all that work.
 
-<figure>
-<img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*9q22pEjd4s_jm1vU.png">
-<figcaption>The opening slide of my presentation</figcaption>
+<figure className={styles.figure}>
+<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*9q22pEjd4s_jm1vU.png" />
+<figcaption className={styles.figcaption}>The opening slide of my presentation</figcaption>
 </figure>
 
 My [presentation](http://geelen.github.io/web-directions-talk) about strict mode in Javascript at Web Directions Code a few months ago was the result. You might want to open that in a tab now because I use 24MB of gifs and it can take quite some time to load. Oh, and because it was only built to run on my machine, it may not work at all on yours. Sorry about that. (If you're interested in the topic, here's [a video of the talk](http://www.webdirections.org/resources/javascripts-slightly-stricter-mode-video-presentation-from-glen-maddern/)).
@@ -16,7 +16,7 @@ This post is about some of the things I learned along the way.
 If you're trying to convey an emotion in a presentation, it's hard to beat a well-chosen GIF. Alternatively, if you're procrastinating instead of writing your presentation, searching for the perfect GIF will distract you for hours. It's a win-win.
 
 <figure>
-<img src="https://d262ilb51hltx0.cloudfront.net/max/600/0*e3xBfsYk9_YJGZBy.gif">
+<img src="https://d262ilb51hltx0.cloudfront.net/max/600/0*e3xBfsYk9_YJGZBy.gif" />
 <figcaption>Sneakers (1999)<br/>&lt;3: IWDRM.tumblr.com</figcaption>
 </figure>
 
@@ -29,7 +29,7 @@ I'm not sure if that headline will surprise anyone. But it turns out, trying to 
 How bad? [This bad](http://codepen.io/geelen/pen/EJGsd). Maximise this and feel the slowness. Jump into Timeline mode and watch that 60fps (and even the 30fps) target sail past:
 
 <figure>
-<img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*DWd75neDN6BXoCM1.png">
+<img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*DWd75neDN6BXoCM1.png" />
 <figcaption>Timeline profile for the 'Slow' version.</figcaption>
 </figure>
 
@@ -81,7 +81,7 @@ Then we apply the filter and scale the image up to fit:
 And then we're done:
 
 <figure>
-<img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*5s7eIjD8fsyl57QA.png">
+<img src="https://d262ilb51hltx0.cloudfront.net/max/800/0*5s7eIjD8fsyl57QA.png" />
 <figcaption>Timeline profile for the "fast" version</figcaption>
 </figure>
 
