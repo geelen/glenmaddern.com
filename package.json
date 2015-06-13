@@ -5,6 +5,7 @@
     },
     "dependencies": {
       "css": "npm:jspm-loader-css-modules@^0.1.1",
+      "css-global": "npm:jspm-loader-css@^0.1.1",
       "highlight.js": "npm:highlight.js@^8.6.0",
       "jspm-loader-css": "npm:jspm-loader-css@^0.1.1",
       "jsx": "github:geelen/plugin-live-jsx@master",

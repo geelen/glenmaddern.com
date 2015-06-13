@@ -26,6 +26,7 @@ System.config({
     "babel": "npm:babel-core@5.5.6",
     "babel-runtime": "npm:babel-runtime@5.5.6",
     "core-js": "npm:core-js@0.9.15",
+    "css-global": "npm:jspm-loader-css@0.1.1",
     "highlight.js": "npm:highlight.js@8.6.0",
     "jspm-loader-css": "npm:jspm-loader-css@0.1.1",
     "jsx": "github:geelen/plugin-live-jsx@master",
