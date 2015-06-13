@@ -19,6 +19,7 @@ If there was one overarching disagreement about the future of CSS, it would have
 Allow me to present the fairest comparison of the two approaches that I've been able to find. The question of responsive styles:
 
 ```css
+/* this CSS: */
 .GalleryImage {
   flex: 0 0 33.33%;
 }
@@ -30,6 +31,7 @@ Allow me to present the fairest comparison of the two approaches that I've been 
 ```
 
 ```js
+// vs this JS:
 export default class GalleryImage extends React.Component {
   render() {
     let style = window.innerWidth < 600
@@ -40,7 +42,7 @@ export default class GalleryImage extends React.Component {
 }
 ```
 
-Forget the particulars of the syntax, just think about the differences in *intent*. The CSS one declares "these rules apply under these conditions"; in JS it's "run this code to figure out what styles to render". CSS proponents may say that the simplicity and predictability of a media-query beats a custom-every-time JS solution, and that deficiencies in syntax can be covered by the Custom Media spec (polyfill), or something like Metaquery. JS proponents may point to the fact that *anything* can be used to branch styles here, not just window width (element queries, anyone?), and since it's just JS you can refactor & control how these checks are written and executed.
+Forget the particulars of the syntax, just think about the differences in *intent*. The CSS one declares "these rules apply under these conditions", in JS it's "run this code to figure out what styles to render". CSS proponents may say that the simplicity and predictability of a media-query beats a custom-every-time JS solution, and that deficiencies in syntax can be covered by the Custom Media spec (polyfill) or something like Metaquery. JS proponents may point to the fact that *anything* can be used to branch styles here, not just window width (element queries, anyone?), and since it's just JS you can refactor & control how these checks are written and executed.
 
 I can appreciate both arguments, and I don't think there's a clear winner, which is pretty much how I feel about the whole CSS-vs-JS-styling debate.
 
