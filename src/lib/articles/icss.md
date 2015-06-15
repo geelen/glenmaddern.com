@@ -55,17 +55,17 @@ I can appreciate both arguments, and I don't think there's a clear winner, which
 
 ## The Goal
 
-If I had to list what I thought was important to be effective when writing styles, it would come down to this:
+I think there are three important questions to ask of potential styling workflows to judge how *effective* they are:
 
-- How quickly can you build something new?
-- How much can you reuse something you've already built when doing so?
-- How hard is it to change something to be unique?
+- How **quickly** can you build something new?
+- How much can you **reuse** something you've already built when doing so?
+- How hard is it to change something to be **unique**?
 
 This is what I aim for when I build anything. I want speed, reuse, but not unnecessary coupling. I see all the JS-styling approaches as falling at the first hurdle, whereas a workflow using Sass & BEM ("old ideas", remember?) can nail all three. So while I can appreciate that JS rendering gives us some new *capabilities*, I don't think it's worth taking a backwards step in terms of *effectiveness*.
 
-But then Sass & BEM require a lot of convention & discipline to keep things getting out of hand. Maybe, then, the future of CSS is something that keeps the fluidity of CSS but automated the conventions. Something that took the *best* of CSS & JS and combined them.
+Mind you, Sass & BEM require a lot of convention & discipline to keep things getting out of hand. Maybe, then, the future of CSS is something that keeps the fluidity of CSS but automates the conventions. Something that takes the *best* of CSS & JS and combined them.
 
-It turns out I'm not the only person who thinks this way, and recently we had enough people thinking the same way at the same time to affect change. This is the progression of ideas:
+It turns out I'm not the only person who thinks this way, and recently we had enough people thinking the same way at the same time to affect change. This is how the idea developed.
 
 #### One CSS Per Component
 
@@ -87,7 +87,7 @@ Using Sass you'd need to go through and `@include` each `.scss` file somewhere, 
 
 #### Dependencies across languages
 
-RequireJS was the first to do it (from what I can tell), but lately Webpack & JSPM have popularised the notion of `require`-ing (or `include`-ing because [it's 2015 already](http://glenmaddern.com/articles/javascript-in-2015)) a non-JS file that your JS depended on. For example:
+From what I can tell, RequireJS was the first to do it but lately Webpack & JSPM have popularised the notion of `require`ing (or `include`ing because [it's 2015 already](http://glenmaddern.com/articles/javascript-in-2015)) a non-JS file that your JS depends on. For example:
 
 ```js
 import url from './logo.png';
@@ -102,9 +102,9 @@ export default class MainNav extends React.Component {
 }
 ```
 
-It's up to the particular loader to decide what each `import` actually *does*, but by capturing a dependency from the JS to the asset files, we've gained a new capability. For example, we don't have to hand-code exactly what the URL of the image file will be in production, we can just point to it locally. In fact, the loader responsible for the PNG file could pre-process the image by running it through an optimiser, then revision-stamp it, move it to an asset directory, and return the URL. And indeed, that's what Webpack's [image-loader](https://github.com/tcoopman/image-webpack-loader) and [file-loader](https://github.com/webpack/file-loader) combine to do, and it works really well.
+It's up to the particular loader to decide what each `import` actually *does*, but by capturing a dependency from the JS to the asset files, we've gained a new capability. For example, we don't have to hand-code exactly what the URL of the image file will be in production, we can just point to it locally. In fact, the loader responsible for the PNG file could pre-process the image by running it through an optimiser, then revision-stamp it, move it to an asset directory or a CDN, and return the URL. And indeed, that's what Webpack's [image-loader](https://github.com/tcoopman/image-webpack-loader) and [file-loader](https://github.com/webpack/file-loader) combine to do, and it works really well.
 
-But what about the CSS in that previous example? We're relying on *convention* that `main-nav.css` defines a class `MainNav` and `MainNav_Logo`, just the same as we used to rely on a convention for the URL to the PNG. We don't need to.
+But what about the CSS in that previous example? We're relying on *convention* that `main-nav.css` defines a class `MainNav` and `MainNav_Logo`, just the same as we used to rely on a convention for the URL to the PNG. We can do better.
 
 #### What if a CSS file could export variables?
 
@@ -123,7 +123,7 @@ export default class MainNav extends React.Component {
 }
 ```
 
-This approach has been popping up in a lot of places in the last few months. On the first of April, Julian Viereck published a post on Medium entitled [Modularise CSS the React Way](https://medium.com/@jviereck/modularise-css-the-react-way-1e817b317b04). Three weeks later, Tobias Koppers (author of Webpack) added a concept of [placeholders](https://github.com/webpack/css-loader/commit/d2c9c25721a711b0fe041c597b43646e82d9f145#diff-04c6e90faac2675aa89e2176d2eec7d8) to his CSS Loader, and Guy Bedford (author of JSPM) suggested I look at [something similar](https://github.com/systemjs/plugin-css/issues/30) for JSPM. A month after that, Mark Dalgleish published [The End of Global CSS](https://medium.com/seek-ui-engineering/the-end-of-global-css-90d2a4a06284), which showed just how significant this shift can be.
+This approach has been popping up in a lot of places in the last few months. About ten weeks ago, Julian Viereck published a post on Medium entitled [Modularise CSS the React Way](https://medium.com/@jviereck/modularise-css-the-react-way-1e817b317b04). Three weeks later, Tobias Koppers (author of Webpack) added a concept of [placeholders](https://github.com/webpack/css-loader/commit/d2c9c25721a711b0fe041c597b43646e82d9f145#diff-04c6e90faac2675aa89e2176d2eec7d8) to his CSS Loader, and Guy Bedford (author of JSPM) suggested I look at [something similar](https://github.com/systemjs/plugin-css/issues/30) for JSPM. A month after that, Mark Dalgleish published [The End of Global CSS](https://medium.com/seek-ui-engineering/the-end-of-global-css-90d2a4a06284), which showed a lot of people how much potential this approach had.
 
 #### A New Syntax
 
@@ -152,8 +152,8 @@ The first task is to allow symbols to be exported from a file to  JS or another 
   Nav: _nav_nav_afd97dfs867;
   Logo: _nav_logo_97fd867fsfg;
 }
-._nav_nav_afd97dfs867 { /* styles */ }
-._nav_logo_97fd867fsfg { /* styles */ }
+._nav_nav_afd97dfs867 { /* nav styles */ }
+._nav_logo_97fd867fsfg { /* logo styles */ }
 ```
 
 The tokens are simply exported as a simple JS object:
@@ -176,24 +176,26 @@ The other syntax addition is the `:import` pseudoselector. It allows a CSS file 
 }
 ```
 
-Here, the path to the CSS file is provided as an argument. It's up to the loader to actually go and fetch the file at link-time, so the particular paths used may be loader-specifc (`util.css` in Webpack vs `./util.css` in JSPM, for example).
+Here, the path to the CSS file is provided as an argument. It's up to the loader to actually go and fetch the file at link-time, so the particular paths will be loader-specifc (`util.css` in Webpack vs `./util.css` in JSPM, for example).
 
 Next is the declaration of *local temporary aliases* and the exported symbols from the dependency that they represent. This block would match up to the following `:export` block of `utils.css`:
 
 ```css
+/* utils.css */
 :export {
   HorizontalNav: _utils_horizontalnav_c7ab86431;
   SharedUtilVar: rgb(200, 100, 0);
 }
 ```
 
-Here, where exporting a class name as `HorizontalNav` and a variable as `SharedUtilVar` but in reality they're both just treated as simple strings.
+Here, we're exporting a class name as `HorizontalNav` and a variable as `SharedUtilVar` but in reality they're both just treated as simple strings.
 
 #### Using imports
 
 As a ICSS file is loaded and linked against its imports, the symbols get passed through and the `:import` block is deleted. Expanding on the above example:
 
 ```css
+/* nav.css */
 :import("./utils.css") {
   i__util_class_1: HorizontalNav;
   i__util_var_1: SharedUtilVar;
@@ -209,6 +211,7 @@ As a ICSS file is loaded and linked against its imports, the symbols get passed 
 After the `:import` is processed against the `:export` block in the previous section, the file becomes:
 
 ```css
+/* nav.css */
 :export {
   Nav: _nav_nav_afd97dfs867 _utils_horizontalnav_c7ab86431;
 }
@@ -234,6 +237,9 @@ ICSS is designed as a compilation target, not to be coded by hand, so I thought 
   border-radius: 4px;
 }
 ```
+
+This is saying that `.outer` includes all the styles from `.flex-centered` and `.inner` includes `.white-bg` and `.black-shadow`, where all the util classes are defined in `utils.css`:
+
 ```css
 /* utils.css */
 .flex-centered {
@@ -248,6 +254,9 @@ ICSS is designed as a compilation target, not to be coded by hand, so I thought 
   box-shadow: 0 0 0 1px black, 0 0 8px -2px rgba(0,0,0,0.8);
 }
 ```
+
+These styles are used in JS by `import`ing them:
+
 ```js
 /* my-component.js */
 import styles from "./my-component.css"
@@ -262,7 +271,7 @@ export default class MyComponent extends React.Component {
 }
 ```
 
-The design goal for CSS Modules is to write something that looks global but is compiled to be localised. As with all pre-processors targeting CSSI, that compilation happens per-file. So, by the time the two files hit the loader, they look like:
+The design goal for CSS Modules is to write something that looks global but is compiled to be localised. As with all pre-processors targeting ICSS, that compilation happens per-file. This is the compiled ICSS output:
 
 ```css
 /* my-component.css (interoperable) */
@@ -314,20 +323,24 @@ import styles from "./my-component.css"
 This demonstrates a couple of benefits that CSS Modules provides:
 
 - Each file can be processed independently (enables parallel & incremental builds)
-- Styles can be reused by components by exporting multiple classes for a single component instead of altering (potentially harmfully) the CSS
-- All styles are global-safe, combining a human-readable part and a guaranteed-unique part in development. For production, these classes can be safely minified if desired.
+- Styles can be reused by components by exporting multiple classes for a single component instead of trying to alter the CSS
+- All styles are global-safe, combining a human-readable part and a guaranteed-unique part in development. For production, these classes could be made far smaller while still ensuring uniqueness.
 
-ICSS makes all this possible, but while CSS Modules is opinionated, ICSS is not. Which brings me to the final design characteristic of CSSI:
+While CSS Modules is opinionated, ICSS is not. Which brings me to its final design characteristic:
 
 ##### ICSS is designed to enable the *capability* of CSS to be loaded and linked together, not to make a judgement on the *best* way of doing so.
 
 ## The Standard
 
-By publishing a [Interoperable CSS Standard](https://github.com/css-modules/icss), we're hoping to unify the way we can treat CSS as a multi-file language, to explore the impact that has on the authoring process. The three major loaders all support the format: Webpack's [css-loader](https://github.com/webpack/css-loader), JSPM's [jspm-loader-css](https://github.com/geelen/jspm-loader-css) and Browserify's  [css-modulesify](https://github.com/css-modules/css-modulesify).
+By publishing a [Interoperable CSS Standard](https://github.com/css-modules/icss), we're hoping to unify the way we can treat CSS as a multi-file language, to then explore the impact that has on the authoring process. The three major loaders all support the format: Webpack's [css-loader](https://github.com/webpack/css-loader), JSPM's [jspm-loader-css](https://github.com/geelen/jspm-loader-css) and Browserify's  [css-modulesify](https://github.com/css-modules/css-modulesify).
 
-If this capability proves to be as useful for the wider community as it has done for us on the CSS Modules team, who knows where this leads? Maybe it can become part of the [WhatWG Loader Standard](http://whatwg.github.io/loader/) and one day natively supported by browsers? At least in the mean time, we can explore ideas and share our work wherever possible.
+If this capability proves to be as useful for the wider community as it has for us on the CSS Modules team, who knows where this leads? Maybe it can become part of the [WhatWG Loader Standard](http://whatwg.github.io/loader/) and one day be natively supported by browsers? At least in the mean time, we can explore ideas and share our work wherever possible.
 
 <figure className={styles.figure}>
-![Simpsons scene showing Lionel Hutz imagining a world without lawyers](https://community.muselive.com/uploads/default/1195/e629da94097bc7b8.gif)
+![Simpsons scene showing Lionel Hutz imagining a world without lawyers](/assets/images/simpsons.gif)
 <figcaption className={styles.quote}>A world with *Interoperable CSS* in the browser.<br/>Lionel Hutz wanted to write everything in JS.</figcaption>
 </figure>
+
+If you have comments or suggestions, please send me an email or raise [an issue](https://github.com/css-modules/icss/issues) on the ICSS repository. If you're interested in CSS Modules, you can read more about it on [its project page](https://github.com/css-modules/css-modules).
+
+Happy interoperating, friends!
