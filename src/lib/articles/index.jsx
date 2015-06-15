@@ -7,7 +7,7 @@ import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
 
 export default {
-  //'rogue-specifications': cssi,
+  'rogue-specifications': cssi,
   'javascript-in-2015': js2015,
   'introducing-am-css': amcss,
   'metaquery-and-the-end-of-media-queries': metaquery,

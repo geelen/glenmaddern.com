@@ -28,6 +28,10 @@
   type: serif lh16 small1 small0--small;
 }
 
+.callout:traits {
+  type: sans;
+}
+
 .figure:traits {
   layout: max840 p1;
 }
@@ -38,8 +42,13 @@
 }
 
 .figcaption:traits {
-  type: serif lh14 small3 italic center;
+  type: serif lh14 small2 italic center;
   layout: pt1;
+}
+
+.quote:traits {
+  type: lh14 italic center semibold;
+  layout: pt1 pb1;
 }
 
 .pre:traits {
@@ -51,10 +60,12 @@
   colors: white-background;
   border: simple;
 }
+
 .code {
-  padding: 0.25em 0.5em;
-  margin: 0.1em 0.25em;
+  padding: 4px 6px 5px;
+  margin: 0 2px;
   display: inline-block;
+  position: relative;
 }
 
 .pre_code {
@@ -87,6 +98,11 @@
 .h4:traits {
   layout: max720 p_half-0;
   type: lh12 bold;
+}
+
+.h5:traits {
+  layout: max720 mb1;
+  type: lh12 semibold center;
 }
 
 .a:traits {

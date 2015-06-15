@@ -27,3 +27,8 @@
   border-left: 0.2rem solid;
   padding-left: 1rem;
 }
+
+.thick-right {
+  border-right: 0.2rem solid;
+  padding-right: 1rem;
+}

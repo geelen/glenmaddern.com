@@ -3,7 +3,7 @@
 }
 
 :root {
-  color: hsl(220, 50%, 25%);
+  color: hsl(239, 38%, 21%);
   font-weight: 400;
   font-size: 20px;
   min-height: 100%;
@@ -19,4 +19,10 @@ body {
   background: linear-gradient(-20deg, hsl(0, 50%, 98%) 0%, hsl(90, 50%, 97%) 40%, hsl(180, 50%, 96%) 80%);
   text-rendering: optimizeLegibility;
   min-height: 100%;
+}
+@media (-webkit-min-device-pixel-ratio: 1.1), (min-resolution: 2dppx) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
