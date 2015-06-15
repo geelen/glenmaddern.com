@@ -176,7 +176,7 @@ The other syntax addition is the `:import` pseudoselector. It allows a CSS file 
 }
 ```
 
-Here, the path to the CSS file is provided as an argument. It's up to the loader to actually go and fetch the file at link-time, so the particular paths will be loader-specifc (`util.css` in Webpack vs `./util.css` in JSPM, for example).
+Here, the path to the CSS file is provided as an argument. The loader will then go and fetch the file and link it with this one.
 
 Next is the declaration of *local temporary aliases* and the exported symbols from the dependency that they represent. This block would match up to the following `:export` block of `utils.css`:
 
