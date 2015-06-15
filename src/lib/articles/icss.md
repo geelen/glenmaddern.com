@@ -38,7 +38,7 @@ Allow me to present the fairest comparison of the two approaches that I've been 
 ```
 
 ```js
-// vs this JS:
+/* vs this JS: */
 export default class GalleryImage extends React.Component {
   render() {
     let style = window.innerWidth < 600
@@ -189,16 +189,145 @@ Next is the declaration of *local temporary aliases* and the exported symbols fr
 
 Here, where exporting a class name as `HorizontalNav` and a variable as `SharedUtilVar` but in reality they're both just treated as simple strings.
 
+#### Using imports
+
+As a ICSS file is loaded and linked against its imports, the symbols get passed through and the `:import` block is deleted. Expanding on the above example:
 
 ```css
-:export {
-  Nav: _nav_nav_afd97dfs867 i__imported_util_class;
-  Logo: _nav_logo_97fd867fsfg;
+:import("./utils.css") {
+  i__util_class_1: HorizontalNav;
+  i__util_var_1: SharedUtilVar;
 }
-._nav_nav_a4b2c4d1f9 {
-  /* local styles */
+:export {
+  Nav: _nav_nav_afd97dfs867 i__util_class_1;
+}
+._nav_nav_afd97dfs867 {
+  color: i__util_var_1;
 }
 ```
 
+After the `:import` is processed against the `:export` block in the previous section, the file becomes:
 
+```css
+:export {
+  Nav: _nav_nav_afd97dfs867 _utils_horizontalnav_c7ab86431;
+}
+._nav_nav_afd97dfs867 {
+  color: rgb(200, 100, 0);
+}
+```
 
+When this file is imported, the `:export` gets turned into a JS object and the remainder of the file is injected into the DOM by the loader.
+
+## High-level example
+
+ICSS is designed as a compilation target, not to be coded by hand, so I thought I'd demonstrate how one of the features of [CSS Modules](https://github.com/css-modules/css-modules) is executed. Let's look at `composes`, which is similar to Sass' concept of `@extend`:
+
+```css
+/* my-component.css */
+.outer {
+  composes: flex-centered from "../utils.css";
+  background: rgba(0,0,0,0.8);
+}
+.inner {
+  composes: white-bg black-shadow from "./utils.css";
+  border-radius: 4px;
+}
+```
+```css
+/* utils.css */
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.white-bg {
+  background-color: #eee;
+}
+.black-shadow {
+  box-shadow: 0 0 0 1px black, 0 0 8px -2px rgba(0,0,0,0.8);
+}
+```
+```js
+/* my-component.js */
+import styles from "./my-component.css"
+export default class MyComponent extends React.Component {
+  render() {
+    return <div className={styles.outer}>
+      <div className={styles.inner}>
+        /* content */
+      </div>
+    </div>
+  }
+}
+```
+
+The design goal for CSS Modules is to write something that looks global but is compiled to be localised. As with all pre-processors targeting CSSI, that compilation happens per-file. So, by the time the two files hit the loader, they look like:
+
+```css
+/* my-component.css (interoperable) */
+:import("./utils.css") {
+  i__util_class_1: flex-centered;
+  i__util_class_2: white-bg;
+  i__util_class_3: black-shadow;
+}
+:export {
+  outer: _mycomponent_outer_ab24c761 i__util_class_1;
+  inner: _mycomponent_inner_145bfed2 i__util_class_2 i__util_class_3;
+}
+._mycomponent_outer_ab24c761 {
+  background: rgba(0,0,0,0.8);
+}
+._mycomponent_inner_145bfed2 {
+  border-radius: 4px;
+}
+```
+```css
+/* utils.css (interoperable) */
+:export {
+  flex-centered: _util_flexcentered_be5fd72ac;
+  white-bg: _util_whitebg_6dc31abb;
+  black-shadow: _util_blackshadow_9cd82af23;
+}
+._util_flexcentered_be5fd72ac {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._util_whitebg_6dc31abb {
+  background-color: #eee;
+}
+._util_blackshadow_9cd82af23 {
+  box-shadow: 0 0 0 1px black, 0 0 8px -2px rgba(0,0,0,0.8);
+}
+```
+
+When these files are loaded, the following JS object is returned:
+```js
+import styles from "./my-component.css"
+// styles: {
+//   outer: "_mycomponent_outer_ab24c761 _util_flexcentered_be5fd72ac",
+//   inner: "_mycomponent_inner_145bfed2 _util_whitebg_6dc31abb _util_blackshadow_9cd82af23"
+// }
+```
+
+This demonstrates a couple of benefits that CSS Modules provides:
+
+- Each file can be processed independently (enables parallel & incremental builds)
+- Styles can be reused by components by exporting multiple classes for a single component instead of altering (potentially harmfully) the CSS
+- All styles are global-safe, combining a human-readable part and a guaranteed-unique part in development. For production, these classes can be safely minified if desired.
+
+ICSS makes all this possible, but while CSS Modules is opinionated, ICSS is not. Which brings me to the final design characteristic of CSSI:
+
+##### ICSS is designed to enable the *capability* of CSS to be loaded and linked together, not to make a judgement on the *best* way of doing so.
+
+## The Standard
+
+By publishing a [Interoperable CSS Standard](https://github.com/css-modules/icss), we're hoping to unify the way we can treat CSS as a multi-file language, to explore the impact that has on the authoring process. The three major loaders all support the format: Webpack's [css-loader](https://github.com/webpack/css-loader), JSPM's [jspm-loader-css](https://github.com/geelen/jspm-loader-css) and Browserify's  [css-modulesify](https://github.com/css-modules/css-modulesify).
+
+If this capability proves to be as useful for the wider community as it has done for us on the CSS Modules team, who knows where this leads? Maybe it can become part of the [WhatWG Loader Standard](http://whatwg.github.io/loader/) and one day natively supported by browsers? At least in the mean time, we can explore ideas and share our work wherever possible.
+
+<figure className={styles.figure}>
+![Simpsons scene showing Lionel Hutz imagining a world without lawyers](https://community.muselive.com/uploads/default/1195/e629da94097bc7b8.gif)
+<figcaption className={styles.quote}>A world with *Interoperable CSS* in the browser.<br/>Lionel Hutz wanted to write everything in JS.</figcaption>
+</figure>

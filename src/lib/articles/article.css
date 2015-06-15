@@ -50,6 +50,9 @@
   type: lh14 italic center semibold;
   layout: pt1 pb1;
 }
+.quote > em {
+  font-style: normal;
+}
 
 .pre:traits {
   layout: max840 m1-auto;
