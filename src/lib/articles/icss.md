@@ -1,7 +1,7 @@
 ---
 title: "Rogue specifications"
 strap: "A CSS format for the Loader Age"
-date: "2015-06-14"
+date: "2015-06-20"
 ---
 
 CSS is a lot of things. To people who don't understand it, it can be infuriating. To those of us who use it day-to-day, it's essential. It's so intertwined with the browser's rendering model that it can be hard for newcomers to tell what's CSS and what's the browser. And it's *extremely* easy to make an unmaintainable mess.
@@ -21,7 +21,8 @@ We done the opposite indeed, and we reinforce it every time we discuss new ideas
 
 If you're unsure of your CSS workflow, **I think the combination of Sass, BEM & Gulp are your best choice** for getting lots of stuff done quickly without leaving you with massive amounts of technical debt, with a huge body of examples and tutorials to learn from and plenty of knowledgeable people who've shipped real projects using them to ask.
 
-My rating: 💖💖💖 <small className={styles.small}>(It is well-known that pink sparkly hearts are the most powerful of all emoji)</small>
+My rating: 💖💖💖<br/>
+<small className={styles.small}>(It is well-known that pink sparkly hearts are the most powerful of all emoji)</small>
 
 ---
 
@@ -33,7 +34,7 @@ There's a lot of discussion at the moment about whether some or all of our styli
 
 > Stop pretending the DOM and the JavaScript are separate concerns. Instead, separate concerns that are actually different: the dropdown menu is separate from the list of objects; the modal dialog box is separate from the page footer. Why on earth would you put these all in the same HTML document?
 >
-> The relationship between CSS and JavaScript is different. With HTML, a true separation of concerns between the markup and the corresponding component JS is impossible. With CSS, this separation is possible. And, in fact, the concerns are unique, so separation is vital to clean code organization.<br /><small className={styles.small}>(edited for brevity)</small>
+> The relationship between CSS and JavaScript is different. With HTML, a true separation of concerns between the markup and the corresponding component JS is impossible. With CSS, this separation is possible and even vital to clean code organization.<br /><small className={styles.small}>(edited for brevity)</small>
 
 I think there are three important questions to ask of potential styling workflows to judge how *effective* they are:
 
