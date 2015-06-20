@@ -4,6 +4,12 @@ strap: "A CSS format for the Loader Age"
 date: "2015-06-14"
 ---
 
+CSS is a lot of things. It's surprisingly adept at describing visual information yet in can be a huge source of technical debt in many codebases. It's so intertwined with the browser's rendering model that learning it can be hugely frustrating, but at a certain level of competence that day-to-day professional use demands, it's hard to imagine *anything* doing a better job.
+
+It seems clear to me the the real "problem" with CSS, as it exists today, is that it's *underspecified*. Gaps in the language itself have given rise to a host of pre-processors, polyfills & workarounds, and a lack of any true runtime isolation has resulted in a seemingly equal number of convention
+
+
+
 It occurred to me recently that nobody is really happy with the current state of CSS, and that's pretty weird. I know and respect people who think CSS itself is *fine/fucked*, who think only *they/nobody* is doing it "right", who think *the DOM/the language/other developers* are the problem, who think *more-isolation/less-isolation/write-it-in-JS/definitely-not-JS-but-maybe-not-CSS-either* is the solution. You can pretty much take any combination of opinions I've just listed and you'll find someone arguing intelligently for it. Which is weird, right?
 
 This dramatic lack of consensus is a real hindrance. To borrow a phrase from the greatest Australian film ever made:
