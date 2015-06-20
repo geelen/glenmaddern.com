@@ -29,6 +29,5 @@ export default new CSSLoader( [
   Plugins.localByDefault,
   Plugins.extractImports,
   Plugins.scope,
-  Plugins.autoprefixer(),
-  css => console.log(css.toResult().css)
+  Plugins.autoprefixer()
 ], __moduleName )
