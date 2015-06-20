@@ -1,20 +1,21 @@
 @traits ("../../styles/traits/");
 
-.article.traits {
+.article:traits {
   layout: p1;
+  type: serif;
 }
 
 .header:traits {
   layout: p3-0;
-  type: lh12;
+  type: sans lh12;
 }
 
 .title:traits {
-  type: h3 h4--small black center;
+  type: sans h3 h4--small black center;
 }
 
 .heading2:traits {
-  type: h5 italic center;
+  type: sans h5 italic center;
   layout: pt1;
 }
 
@@ -25,7 +26,7 @@
 
 .p:traits {
   layout: max720 mb1;
-  type: serif lh16 small1 small0--small;
+  type: lh16 small1 small0--small;
 }
 
 .callout:traits {
@@ -42,12 +43,12 @@
 }
 
 .figcaption:traits {
-  type: serif lh14 small2 italic center;
+  type: lh14 small2 italic center;
   layout: pt1;
 }
 
 .quote:traits {
-  type: lh14 italic center semibold;
+  type: sans lh14 italic center semibold;
   layout: pt1 pb1;
 }
 .quote > em {
@@ -84,28 +85,28 @@
 
 .h1:traits {
   layout: max840 pt3 pb2;
-  type: lh12 h3 bold center;
+  type: sans lh12 h3 bold center;
   divider: line-after;
 }
 
 .h2:traits {
   layout: max840 pt3 pb1;
-  type: lh12 h4 bold center;
+  type: sans lh12 h4 bold center;
 }
 
 .h3:traits {
   layout: max720 p1-0;
-  type: lh12 h4 bold;
+  type: sans lh12 h4 bold;
 }
 
 .h4:traits {
   layout: max720 p_half-0;
-  type: lh12 bold;
+  type: sans lh12 bold;
 }
 
 .h5:traits {
   layout: max720 mb1;
-  type: lh12 semibold center;
+  type: sans lh12 semibold center;
 }
 
 .a:traits {
@@ -114,7 +115,7 @@
 
 .ul:traits {
   layout: max720 m1-auto;
-  type: serif small2;
+  type: small2;
 }
 
 .li:traits {
@@ -126,6 +127,7 @@
 .blockquote:traits {
   layout: max720 m2-auto p0-1;
   border: thick-left;
+  type: sans italic;
 }
 
 .strong:traits {

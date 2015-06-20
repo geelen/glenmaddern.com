@@ -4,13 +4,9 @@ strap: "A CSS format for the Loader Age"
 date: "2015-06-14"
 ---
 
-CSS is a lot of things. It's surprisingly adept at describing visual information yet in can be a huge source of technical debt in many codebases. It's so intertwined with the browser's rendering model that learning it can be hugely frustrating, but at a certain level of competence that day-to-day professional use demands, it's hard to imagine *anything* doing a better job.
+CSS is a lot of things. To people who don't understand it, it can be infuriating. To those of us who use it day-to-day, it's essential. It's so intertwined with the browser's rendering model that it can be hard for newcomers to tell what's CSS and what's the browser. And it's *extremely* easy to make an unmaintainable mess.
 
-It seems clear to me the the real "problem" with CSS, as it exists today, is that it's *underspecified*. Gaps in the language itself have given rise to a host of pre-processors, polyfills & workarounds, and a lack of any true runtime isolation has resulted in a seemingly equal number of convention
-
-
-
-It occurred to me recently that nobody is really happy with the current state of CSS, and that's pretty weird. I know and respect people who think CSS itself is *fine/fucked*, who think only *they/nobody* is doing it "right", who think *the DOM/the language/other developers* are the problem, who think *more-isolation/less-isolation/write-it-in-JS/definitely-not-JS-but-maybe-not-CSS-either* is the solution. You can pretty much take any combination of opinions I've just listed and you'll find someone arguing intelligently for it. Which is weird, right?
+Whatever you think of CSS, it's demonstrably *underspecified*. Gaps in the language itself gave rise to a host of pre-processors, polyfills & workarounds, and the lack of any true runtime isolation resulted in a long line of conventions & techniques to build maintainable code. Until the spec catches up (CSS Variables, Color functions, Custom Breakpoints, the Shadow DOM etc) the void gets filled by a cacophony of ideas & suggestions, with often very little overlap.
 
 This dramatic lack of consensus is a real hindrance. To borrow a phrase from the greatest Australian film ever made:
 
@@ -21,45 +17,23 @@ This dramatic lack of consensus is a real hindrance. To borrow a phrase from the
 
 We done the opposite indeed, and we reinforce it every time we discuss new ideas as if the old ideas were horribly broken, when we're really presenting incremental progress. So, while *this* article is most certainly about "new ideas", let me state that **however you're doing CSS currently is totally fine** 🙏 . In particular:
 
-> If you're new to CSS, **I think the combination of Sass, BEM & Gulp are your best choice** for getting lots of stuff done quickly without leaving you with massive amounts of technical debt, with a huge body of examples and tutorials to learn from and plenty of knowledgeable people to ask. My rating: 💖💖💖 <small className={styles.small}>(It is well-known that pink sparkly hearts are the most powerful of all emoji)</small>
+#### !PROTIP ALERT!
+
+If you're unsure of your CSS workflow, **I think the combination of Sass, BEM & Gulp are your best choice** for getting lots of stuff done quickly without leaving you with massive amounts of technical debt, with a huge body of examples and tutorials to learn from and plenty of knowledgeable people who've shipped real projects using them to ask.
+
+My rating: 💖💖💖 <small className={styles.small}>(It is well-known that pink sparkly hearts are the most powerful of all emoji)</small>
+
+---
 
 And now it's clear what we're considering, let's consider the future.
 
-## The Divide
-
-If there was one overarching disagreement about the future of CSS, it would have to be on the role of JavaScript. The rise of React & immediate-mode rendering has changed the people think about the DOM, from it being the source of truth for your application to it being a rendering artefact from your component hierarchy. Proponents of the latter can point to a whole class of bugs that disappear when you make the switch, so people (myself included) switch. But then the question of style arises, and it's unclear whether the same arguments make sense.
-
-Allow me to present the fairest comparison of the two approaches that I've been able to find. The question of responsive styles:
-
-```css
-/* this CSS: */
-.GalleryImage {
-  flex: 0 0 33.33%;
-}
-@media screen and (max-width: 600px) {
-	.GalleryImage {
-	  flex: 0 0 100%;
-	}
-}
-```
-
-```js
-/* vs this JS: */
-export default class GalleryImage extends React.Component {
-  render() {
-    let style = window.innerWidth < 600
-      ? { flex: "0 0 100%" }
-      : { flex: "0 0 33.33%" }
-    return <img style={style} src={props.url} />
-  }
-}
-```
-
-Forget the particulars of the syntax, just think about the differences in *intent*. The CSS one declares "these rules apply under these conditions", in JS it's "run this code to figure out what styles to render". CSS proponents may say that the simplicity and predictability of a media-query beats a custom-every-time JS solution, and that deficiencies in syntax can be covered by the Custom Media [spec](http://dev.w3.org/csswg/mediaqueries/#custom-mq) ([polyfill](https://github.com/postcss/postcss-custom-media)) or something like [Metaquery](http://glenmaddern.com/articles/metaquery-and-the-end-of-media-queries). JS proponents may point to the fact that *anything* can be used to branch styles here, not just window width ([element queries](https://github.com/marcj/css-element-queries), anyone?), and since it's just JS you can refactor & control how these checks are written and executed.
-
-I can appreciate both arguments, and I don't think there's a clear winner, which is pretty much how I feel about the whole CSS-vs-style-in-JS debate.
-
 ## The Goal
+
+There's a lot of discussion at the moment about whether some or all of our styling code should be moved into JS. Projects like [react-style](https://github.com/js-next/react-style), [jss](https://github.com/jsstyles/jss), [radium](https://github.com/formidablelabs/radium) & [jsxstyle](https://github.com/petehunt/jsxstyle) all offer competing ways to do that, but I think they're coming at the problem from the wrong direction. I particularly like Keith Grant's [take on the matter](http://keithjgrant.com/posts/against-css-in-js.html):
+
+> Stop pretending the DOM and the JavaScript are separate concerns. Instead, separate concerns that are actually different: the dropdown menu is separate from the list of objects; the modal dialog box is separate from the page footer. Why on earth would you put these all in the same HTML document?
+>
+> The relationship between CSS and JavaScript is different. With HTML, a true separation of concerns between the markup and the corresponding component JS is impossible. With CSS, this separation is possible. And, in fact, the concerns are unique, so separation is vital to clean code organization.<br /><small className={styles.small}>(edited for brevity)</small>
 
 I think there are three important questions to ask of potential styling workflows to judge how *effective* they are:
 
@@ -71,25 +45,7 @@ This is what I aim for when I build anything. I want speed, reuse, but not unnec
 
 Mind you, Sass & BEM require a lot of convention & discipline to keep things getting out of hand. Maybe, then, the future of CSS is something that keeps the fluidity of CSS but automates the conventions. Something that takes the *best* of CSS & JS and combined them.
 
-It turns out I'm not the only person who thinks this way, and recently we had enough people thinking the same way at the same time to affect change. This is how the idea developed.
-
-#### One CSS Per Component
-
-Let's start with the basic assumption of styling components — that you have a single CSS file for each component in your application, and they should be neighbours on the file system. If you're not doing that already, or just if you haven't seen it, watch [Nicolas Gallagher's brilliant talk](https://www.youtube.com/watch?v=m0oMHG6ZXvo) from CSSConfAU 2014.
-
-So, if you're using React & Sass, you might have this
-
-```
-components/
-  gallery/
-    gallery.scss
-    gallery.js
-  gallery-image/
-    gallery-image.scss
-    gallery-image.js
-```
-
-Using Sass you'd need to go through and `@include` each `.scss` file somewhere, or use something like Gulp to glob & concatenate them all before processing them. So while you've placed the Sass files next to their JS counterpart, they're not actually linked in any way.
+It turns out I'm not the only person who thinks this way, and recently we had enough people thinking the same way at the same time to affect change.
 
 #### Dependencies across languages
 
