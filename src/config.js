@@ -26,10 +26,11 @@ System.config({
     "babel": "npm:babel-core@5.5.6",
     "babel-runtime": "npm:babel-runtime@5.5.6",
     "core-js": "npm:core-js@0.9.15",
-    "css-global": "npm:jspm-loader-css@0.1.1",
+    "css": "npm:jspm-loader-css-modules@0.1.2",
+    "css-global": "npm:jspm-loader-css@0.1.4",
     "highlight.js": "npm:highlight.js@8.6.0",
     "js-yaml": "npm:js-yaml@3.3.1",
-    "jspm-loader-css": "npm:jspm-loader-css@0.1.1",
+    "jspm-loader-css": "npm:jspm-loader-css@0.1.4",
     "jsx": "npm:jspm-loader-jsx@0.0.1",
     "marked": "npm:marked@0.3.3",
     "md": "github:guybedford/system-md@0.0.1",
@@ -43,13 +44,6 @@ System.config({
     "react-tools": "npm:react-tools@0.14.0-alpha3",
     "showdown": "github:showdownjs/showdown@0.5.4",
     "text": "github:systemjs/plugin-text@0.0.2",
-    "github:geelen/plugin-live-jsx@master": {
-      "pascal-case": "npm:pascal-case@1.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
-      "react": "npm:react@0.13.3",
-      "react-hot-api": "github:gaearon/react-hot-api@0.4.3",
-      "react-tools": "npm:react-tools@0.13.3"
-    },
     "github:geelen/plugin-postcss@master": {
       "postcss": "npm:postcss@4.1.11"
     },
@@ -272,15 +266,18 @@ System.config({
       "public-encrypt": "npm:public-encrypt@2.0.1",
       "randombytes": "npm:randombytes@2.0.1"
     },
-    "npm:css-modules-loader-core@0.0.7": {
+    "npm:css-modules-loader-core@0.0.10": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "postcss": "npm:postcss@4.1.11",
-      "postcss-modules-extract-imports": "npm:postcss-modules-extract-imports@0.0.4",
-      "postcss-modules-local-by-default": "npm:postcss-modules-local-by-default@0.0.8",
-      "postcss-modules-scope": "npm:postcss-modules-scope@0.0.6"
+      "postcss-modules-extract-imports": "npm:postcss-modules-extract-imports@0.0.5",
+      "postcss-modules-local-by-default": "npm:postcss-modules-local-by-default@0.0.9",
+      "postcss-modules-scope": "npm:postcss-modules-scope@0.0.7"
     },
-    "npm:css-selector-tokenizer@0.4.0": {
+    "npm:css-selector-tokenizer@0.4.1": {
+      "fastparse": "npm:fastparse@1.1.1"
+    },
+    "npm:css-selector-tokenizer@0.5.2": {
       "fastparse": "npm:fastparse@1.1.1"
     },
     "npm:diffie-hellman@3.0.2": {
@@ -501,11 +498,11 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:jspm-loader-css-modules@0.1.1": {
-      "jspm-loader-css": "npm:jspm-loader-css@0.1.1"
+    "npm:jspm-loader-css-modules@0.1.2": {
+      "jspm-loader-css": "npm:jspm-loader-css@0.1.4"
     },
-    "npm:jspm-loader-css@0.1.1": {
-      "css-modules-loader-core": "npm:css-modules-loader-core@0.0.7",
+    "npm:jspm-loader-css@0.1.4": {
+      "css-modules-loader-core": "npm:css-modules-loader-core@0.0.10",
       "path": "npm:path@0.11.14"
     },
     "npm:jspm-loader-jsx@0.0.1": {
@@ -618,16 +615,16 @@ System.config({
     "npm:postcss-inline-comment@1.0.4": {
       "postcss": "npm:postcss@4.1.11"
     },
-    "npm:postcss-modules-extract-imports@0.0.4": {
+    "npm:postcss-modules-extract-imports@0.0.5": {
       "postcss": "npm:postcss@4.1.11",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:postcss-modules-local-by-default@0.0.8": {
-      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.4.0",
+    "npm:postcss-modules-local-by-default@0.0.9": {
+      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.4.1",
       "postcss": "npm:postcss@4.1.11"
     },
-    "npm:postcss-modules-scope@0.0.6": {
-      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.4.0",
+    "npm:postcss-modules-scope@0.0.7": {
+      "css-selector-tokenizer": "npm:css-selector-tokenizer@0.5.2",
       "postcss": "npm:postcss@4.1.11",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
@@ -682,11 +679,6 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:react@0.13.3": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "envify": "npm:envify@3.4.0",
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
-    "npm:react@0.14.0-alpha3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "envify": "npm:envify@3.4.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
@@ -788,3 +780,4 @@ System.config({
     }
   }
 });
+
