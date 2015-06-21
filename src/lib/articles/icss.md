@@ -1,5 +1,5 @@
 ---
-title: "Rogue specifications"
+title: "Rogue Specifications"
 strap: "A CSS format for the Loader Age"
 date: "2015-06-21"
 ---
@@ -15,13 +15,11 @@ This dramatic lack of consensus is a real hindrance. To borrow a phrase from the
 <figcaption className={styles.quote}>"I don't know what the opposite of [a consensus] is, but you done the opposite."</figcaption>
 </figure>
 
-We done the opposite indeed, and we reinforce it every time we discuss new ideas as if the old ideas were horribly broken, when we're really presenting incremental progress. So, while *this* article is most certainly about "new ideas", let me state that **however you're doing CSS currently is totally fine** 🙏 . In particular:
+We done the opposite indeed, and we reinforce it every time we discuss new ideas as if the old ideas were horribly broken, when we're really presenting incremental progress. So, while *this* article is most certainly about "new ideas", let me state that **however you're doing CSS currently is totally fine** 🙏 .
 
-#### 😎 PROTIP ALERT 😎
+In particular, **I think the combination of Sass, BEM & Gulp are the best choice** for the majority of real-world projects right now. They allow you to get lots of stuff done quickly without leaving you with massive amounts of technical debt, with a huge body of examples and tutorials to learn from and plenty of knowledgeable people to ask.
 
-If you're unsure of your CSS workflow, **I think the combination of Sass, BEM & Gulp are your best choice** for getting lots of stuff done quickly without leaving you with massive amounts of technical debt, with a huge body of examples and tutorials to learn from and plenty of knowledgeable people who've shipped real projects using them to ask.
-
-My rating: 💖💖💖<br/>
+My rating of Sass, BEM & Gulp: 💖💖💖<br/>
 <small className={styles.small}>(It is well-known that pink sparkly hearts are the most powerful of all emoji)</small>
 
 ---
@@ -40,11 +38,11 @@ There are three important questions to ask of potential styling workflows to jud
 
 - How **quickly** can you build & style a new component?
 - How much can you **reuse** styles when doing so?
-- How hard is it to change something to be **unique** later on?
+- How hard is it to change something to be visually **unique** later on?
 
-This is what I aim for when I build anything. I want speed, reuse, but not unnecessary coupling. I see all the JS-styling approaches as falling at the first hurdle, whereas a workflow using Sass & BEM ("old ideas", remember?) can nail all three. So while I can appreciate that JS rendering gives us some new *capabilities*, it's not worth taking a backwards step in terms of *effectiveness*.
+This is what I aim for when I build anything. I want speed, reuse, but not unnecessary coupling, and modern CSS workflows (e.g. Sass & BEM) can nail all three. I see all the JS-styling approaches as falling at the first & second hurdles, so while I can appreciate that JS rendering gives us some new *capabilities*, it's not worth taking a backwards step in terms of *effectiveness*. (For the record, my problem with all-encompassing CSS frameworks like Bootstrap are that they lead you to fall at the third hurdle.) 
 
-Mind you, Sass & BEM require a lot of convention & discipline to keep things getting out of hand. Maybe, then, the future of CSS is something that keeps the fluidity of CSS but automates the conventions. Something that takes the *best* of CSS & JS and combined them.
+Sass & BEM do require a lot of convention & discipline to keep things getting out of hand, though. Maybe, then, the future of CSS is something that keeps the fluidity of CSS but automates the conventions. Something that takes the *best* of CSS & JS and combines them.
 
 It turns out I'm not the only person who thinks this way, and recently we had enough people thinking the same way at the same time to affect change.
 
@@ -297,7 +295,7 @@ While CSS Modules is opinionated, ICSS is not. Which brings me to its final desi
 
 By publishing a [Interoperable CSS Standard](https://github.com/css-modules/icss), we're hoping to unify the way we can treat CSS as a multi-file language, to then explore the impact that has on the authoring process. The three major loaders all support the format: Webpack's [css-loader](https://github.com/webpack/css-loader), JSPM's [jspm-loader-css](https://github.com/geelen/jspm-loader-css) and Browserify's  [css-modulesify](https://github.com/css-modules/css-modulesify).
 
-If this capability proves to be as useful for the wider community as it has for us on the CSS Modules team, who knows where this leads? Maybe it can follow in the footsteps of CommonJS becoming the ES6 Module Spec & ASM.js becoming WebAssembly, and inform the direction of the [WhatWG Loader Standard](http://whatwg.github.io/loader/) and one day be natively supported in browsers? In the mean time, we can explore ideas and share our work wherever possible.
+If this capability proves to be as useful for the wider community as it has for us on the CSS Modules team, who knows where this leads? Maybe it can follow in the footsteps of CommonJS paving the way for the ES6 Module Spec & ASM.js becoming WebAssembly, and help shape the [WhatWG Loader Standard](http://whatwg.github.io/loader/)? Maybe even run natively in the browser, one day? In the mean time, we can explore ideas and share our work wherever possible.
 
 <figure className={styles.figure}>
 ![Simpsons scene showing Lionel Hutz imagining a world without lawyers](/assets/images/simpsons.gif)

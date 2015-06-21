@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './pages.css!'
-import portfolio from  './portfolio.jsx!'
+import portfolio from  './portfolio'
 import PreviewList from '../components/preview-list.jsx!'
 
 export default class ListPage extends React.Component {

@@ -5,13 +5,13 @@
 :root {
   color: hsl(239, 38%, 21%);
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   min-height: 100%;
 }
 
 @media (max-width: 520px) {
   :root {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 

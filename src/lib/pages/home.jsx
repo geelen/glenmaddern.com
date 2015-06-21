@@ -4,7 +4,7 @@ let Link = Router.Link
 
 import styles from './pages.css!'
 import articles from '../articles/index.jsx!'
-import portfolio from  './portfolio.jsx!'
+import portfolio from  './portfolio'
 import BlogHeadlines from '../components/blog-headlines.jsx!'
 import PreviewList from '../components/preview-list.jsx!'
 
