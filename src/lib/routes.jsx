@@ -1,6 +1,6 @@
 import React from 'react'
 import Router from 'react-router'
-let {Route, DefaultRoute} = Router
+let {Route, DefaultRoute, Redirect} = Router
 
 import App from './app.jsx!'
 import Home from './pages/home.jsx!'
@@ -10,6 +10,7 @@ import ListPage from './pages/list-page.jsx!'
 
 export default <Route handler={App}>
   <DefaultRoute handler={Home} name="Home"></DefaultRoute>
+  <Redirect from="/articles/rogue-specifications" to="/articles/interoperable-css"/>
   <Route handler={Articles} name="Articles" path="articles"></Route>
   <Route handler={ArticlePage} name="Article" path="articles/:slug"></Route>
   <Route handler={ListPage} name="ListPage" path="/:page"></Route>

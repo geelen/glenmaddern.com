@@ -3,7 +3,7 @@ import Router from 'react-router'
 let Link = Router.Link
 
 import styles from './pages.css!'
-import articles from '../articles/index.jsx!'
+import articles from '../articles/index'
 import portfolio from  './portfolio'
 import BlogHeadlines from '../components/blog-headlines.jsx!'
 import PreviewList from '../components/preview-list.jsx!'

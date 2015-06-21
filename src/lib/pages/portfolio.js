@@ -34,15 +34,15 @@ export default {
   talks: {
     "gifs-vs-web-components": {
       "title": "GIFs vs Web Components",
-      "strap": "Cascadia JS 2014",
-      "url": "https://www.youtube.com/watch?v=uNEkQabSt4Q",
-      "image": "cascadia.jpg"
+      "strap": "JSConf EU 2014",
+      "url": "https://www.youtube.com/watch?v=i7mrZ_JsA8A",
+      "image": "jsconfeu.jpg"
     },
     "a-gif-odyssey": {
       "title": "A GIF Odyssey",
-      "strap": "Mountain West JS 2014",
-      "url": "https://www.youtube.com/watch?v=evzlNvboGTs",
-      "image": "a_gif_odyssey.jpg"
+      "strap": "JSConf AU 2014",
+      "url": "https://www.youtube.com/watch?v=rxDM7OgPuKU",
+      "image": "jsconfau.jpg"
     },
     "the-z-dimension": {
       "title": "The Z Dimension",
@@ -61,7 +61,7 @@ export default {
     "coinjar": {
       "title": "CoinJar",
       "strap": "Bitcoin merchant & online wallet",
-      "url": "https://www.coinjar.com",
+      "url": "https://www.coinjar.com.au",
       "image": "coinjar.jpg"
     },
     "the-z-dimension": {
@@ -70,7 +70,7 @@ export default {
       "url": false,
       "image": "dengue.jpg"
     },
-    "javascripts-slightly-stricter-mode": {
+    "my-room": {
       "title": "My Room",
       "strap": "Interactive, animated SVG art project",
       "url": "http://myroom.org.au",
@@ -90,3 +90,5 @@ export default {
     }
   }
 }
+
+export let __hotReload = true

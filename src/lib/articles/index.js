@@ -7,9 +7,11 @@ import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
 
 export default {
-  'rogue-specifications': icss,
+  'interoperable-css': icss,
   'javascript-in-2015': js2015,
   'introducing-am-css': amcss,
   'metaquery-and-the-end-of-media-queries': metaquery,
   'css-filters-gifs-and-performance': cssfilters
 }
+
+export let __hotReload = true

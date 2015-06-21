@@ -3,7 +3,7 @@ import Router from 'react-router'
 let Link = Router.Link
 
 import styles from './pages.css!'
-import articles from '../articles/index.jsx!'
+import articles from '../articles/index'
 import Article from '../articles/article.jsx!'
 
 export default class ArticlePage extends React.Component {
