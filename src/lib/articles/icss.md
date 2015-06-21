@@ -4,7 +4,7 @@ strap: "A CSS format for the Loader Age"
 date: "2015-06-21"
 ---
 
-CSS is a lot of things. Frustrating to newcomers, essential (even admirable) to those of us who use it day-to-day. It's so intertwined with the browser's rendering model that it can be hard for newcomers to tell what's CSS and what's the browser. And it's *extremely* easy to make an unmaintainable mess.
+CSS is a lot of things. Frustrating to newcomers, essential (even admirable) to those of us who use it day-to-day. It's so intertwined with the browser's rendering model that it can be hard for people to tell what's CSS and what's the browser. And it's *extremely* easy to build an unmaintainable mess with it.
 
 Whatever you think of CSS, it's demonstrably ***underspecified***. Gaps in the language itself gave rise to a host of pre-processors, polyfills & workarounds, and the lack of any true runtime isolation resulted in a long line of conventions & techniques to keep code maintainable. Until the spec catches up (CSS Variables, Color functions, Custom Breakpoints, the Shadow DOM etc) the void gets filled by a cacophony of ideas & suggestions, with often very little overlap.
 

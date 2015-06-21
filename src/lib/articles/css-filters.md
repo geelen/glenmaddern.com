@@ -21,7 +21,7 @@ This post is about some of the things I learned along the way.
 If you're trying to convey an emotion in a presentation, it's hard to beat a well-chosen GIF. Alternatively, if you're procrastinating instead of writing your presentation, searching for the perfect GIF will distract you for hours. It's a win-win.
 
 <figure className={styles.figure}>
-<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/600/0*e3xBfsYk9_YJGZBy.gif" />
+<img className={styles.img} src="https://d262ilb51hltx0.cloudfront.net/max/600/0*e3xBfsYk9_YJGZBy.gif" />
 <figcaption className={styles.figcaption}>Sneakers (1999)<br/>&lt;3: IWDRM.tumblr.com</figcaption>
 </figure>
 
@@ -34,7 +34,7 @@ I'm not sure if that headline will surprise anyone. But it turns out, trying to 
 How bad? [This bad](http://codepen.io/geelen/pen/EJGsd). Maximise this and feel the slowness. Jump into Timeline mode and watch that 60fps (and even the 30fps) target sail past:
 
 <figure className={styles.figure}>
-<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*DWd75neDN6BXoCM1.png" />
+<img className={styles.img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*DWd75neDN6BXoCM1.png" />
 <figcaption className={styles.figcaption}>Timeline profile for the 'Slow' version.</figcaption>
 </figure>
 
@@ -86,7 +86,7 @@ Then we apply the filter and scale the image up to fit:
 And then we're done:
 
 <figure className={styles.figure}>
-<img className={styles.figure_img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*5s7eIjD8fsyl57QA.png" />
+<img className={styles.img} src="https://d262ilb51hltx0.cloudfront.net/max/800/0*5s7eIjD8fsyl57QA.png" />
 <figcaption className={styles.figcaption}>Timeline profile for the "fast" version</figcaption>
 </figure>
 

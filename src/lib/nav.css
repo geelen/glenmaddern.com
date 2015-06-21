@@ -2,7 +2,7 @@
 
 .nav:traits {
   flex: align-center;
-  type: small2 upcase;
+  type: small2 upcase lh16;
   layout: p1 max960;
 }
 
@@ -17,6 +17,12 @@
 
 .li:traits {
   layout: pl1;
+}
+@media (max-width: 520px) {
+  .li:nth-child(2n+1) {
+    flex: 1 0 35%;
+    text-align: right;
+  }
 }
 
 .home:traits {
