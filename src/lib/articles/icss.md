@@ -17,7 +17,7 @@ This dramatic lack of consensus is a real hindrance. To borrow a phrase from the
 
 We done the opposite indeed, and we reinforce it every time we discuss new ideas as if the old ideas were horribly broken, when we're really presenting incremental progress. So, while *this* article is most certainly about "new ideas", let me state that **however you're doing CSS currently is totally fine** 🙏 . In particular:
 
-#### !PROTIP ALERT!
+#### 😎 PROTIP ALERT 😎
 
 If you're unsure of your CSS workflow, **I think the combination of Sass, BEM & Gulp are your best choice** for getting lots of stuff done quickly without leaving you with massive amounts of technical debt, with a huge body of examples and tutorials to learn from and plenty of knowledgeable people who've shipped real projects using them to ask.
 
@@ -30,19 +30,19 @@ And now it's clear what we're considering, let's consider the future.
 
 ## The Goal
 
-There's a lot of discussion at the moment about whether some or all of our styling code should be moved into JS. Projects like [react-style](https://github.com/js-next/react-style), [jss](https://github.com/jsstyles/jss), [radium](https://github.com/formidablelabs/radium) & [jsxstyle](https://github.com/petehunt/jsxstyle) all offer competing ways to do that, but I think they're coming at the problem from the wrong direction. I particularly like Keith Grant's [take on the matter](http://keithjgrant.com/posts/against-css-in-js.html):
+There's a lot of discussion at the moment about whether some or all of our styling code should be moved into JS. Projects like [react-style](https://github.com/js-next/react-style), [jss](https://github.com/jsstyles/jss), [radium](https://github.com/formidablelabs/radium) & [jsxstyle](https://github.com/petehunt/jsxstyle) all offer competing ways to do that, but they're coming at the problem from the wrong direction. I particularly like Keith Grant's [take on the matter](http://keithjgrant.com/posts/against-css-in-js.html):
 
 > Stop pretending the DOM and the JavaScript are separate concerns. Instead, separate concerns that are actually different: the dropdown menu is separate from the list of objects; the modal dialog box is separate from the page footer. Why on earth would you put these all in the same HTML document?
 >
-> The relationship between CSS and JavaScript is different. With HTML, a true separation of concerns between the markup and the corresponding component JS is impossible. With CSS, this separation is possible and even vital to clean code organization.<br /><small className={styles.small}>(edited for brevity)</small>
+> **The relationship between CSS and JavaScript is different**. With HTML, a true separation of concerns between the markup and the corresponding component JS is impossible. With CSS, this separation is possible and even vital to clean code organization.<br /><small className={styles.small}>(edited for brevity)</small>
 
-I think there are three important questions to ask of potential styling workflows to judge how *effective* they are:
+There are three important questions to ask of potential styling workflows to judge how *effective* they are:
 
-- How **quickly** can you build something new?
-- How much can you **reuse** something you've already built when doing so?
-- How hard is it to change something to be **unique**?
+- How **quickly** can you build & style a new component?
+- How much can you **reuse** styles when doing so?
+- How hard is it to change something to be **unique** later on?
 
-This is what I aim for when I build anything. I want speed, reuse, but not unnecessary coupling. I see all the JS-styling approaches as falling at the first hurdle, whereas a workflow using Sass & BEM ("old ideas", remember?) can nail all three. So while I can appreciate that JS rendering gives us some new *capabilities*, I don't think it's worth taking a backwards step in terms of *effectiveness*.
+This is what I aim for when I build anything. I want speed, reuse, but not unnecessary coupling. I see all the JS-styling approaches as falling at the first hurdle, whereas a workflow using Sass & BEM ("old ideas", remember?) can nail all three. So while I can appreciate that JS rendering gives us some new *capabilities*, it's not worth taking a backwards step in terms of *effectiveness*.
 
 Mind you, Sass & BEM require a lot of convention & discipline to keep things getting out of hand. Maybe, then, the future of CSS is something that keeps the fluidity of CSS but automates the conventions. Something that takes the *best* of CSS & JS and combined them.
 
@@ -96,11 +96,11 @@ Mark, Tobias & I started pursuing this idea further and developed it into a proj
 
 ICSS is normal CSS with a couple of small additions. It's similar to an [Object File](https://en.wikipedia.org/wiki/Object_code) in compiled languages — the outputs of a compiler which can then be linked together to make a complete program. This is the first characteristic of ICSS:
 
-##### It is designed to be a *compile target*, not human-authored.
+##### ✅ It is designed to be a *compile target*, not human-authored.
 
 Compiled from what? Well, CSS Modules to start with, but it could be anything, the only requirement is:
 
-##### Each file is compiled separately then linked in the loader
+##### ✅ Each file is compiled separately then linked in the loader
 
 Things like `@import` in Sass or CSS effectively concatenate the source code of multiple files so you can pass variables or mixins around, and many of the PostCSS plugins assume you're doing something similar. In fact, most CSS processing is done globally because CSS has always *been* global.
 
@@ -291,13 +291,13 @@ This demonstrates a couple of benefits that CSS Modules provides:
 
 While CSS Modules is opinionated, ICSS is not. Which brings me to its final design characteristic:
 
-##### ICSS is designed to enable the *capability* of CSS to be loaded and linked together, not to make a judgement on the *best* way of doing so.
+##### ✅ ICSS is designed to enable the *capability* of CSS to be loaded and linked together, not to make a judgement on the *best* way of doing so.
 
 ## The Standard
 
 By publishing a [Interoperable CSS Standard](https://github.com/css-modules/icss), we're hoping to unify the way we can treat CSS as a multi-file language, to then explore the impact that has on the authoring process. The three major loaders all support the format: Webpack's [css-loader](https://github.com/webpack/css-loader), JSPM's [jspm-loader-css](https://github.com/geelen/jspm-loader-css) and Browserify's  [css-modulesify](https://github.com/css-modules/css-modulesify).
 
-If this capability proves to be as useful for the wider community as it has for us on the CSS Modules team, who knows where this leads? Maybe it can become part of the [WhatWG Loader Standard](http://whatwg.github.io/loader/) and one day be natively supported by browsers? At least in the mean time, we can explore ideas and share our work wherever possible.
+If this capability proves to be as useful for the wider community as it has for us on the CSS Modules team, who knows where this leads? Maybe it can follow in the footsteps of CommonJS becoming the ES6 Module Spec & ASM.js becoming WebAssembly, and inform the direction of the [WhatWG Loader Standard](http://whatwg.github.io/loader/) and one day be natively supported in browsers? In the mean time, we can explore ideas and share our work wherever possible.
 
 <figure className={styles.figure}>
 ![Simpsons scene showing Lionel Hutz imagining a world without lawyers](/assets/images/simpsons.gif)
