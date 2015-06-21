@@ -48,7 +48,7 @@ It turns out I'm not the only person who thinks this way, and recently we had en
 
 #### Dependencies across languages
 
-From what I can tell, RequireJS was the first to do it but lately Webpack & JSPM have popularised the notion of `require`ing (or `include`ing because [it's 2015 already](http://glenmaddern.com/articles/javascript-in-2015)) a non-JS file that your JS depends on. For example:
+From what I can tell, RequireJS was the first to do it but lately Webpack & JSPM have popularised the notion of `require`ing (or `import`ing because [it's 2015 already](http://glenmaddern.com/articles/javascript-in-2015)) a non-JS file that your JS depends on. For example:
 
 ```js
 import url from './logo.png';
