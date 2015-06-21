@@ -1,7 +1,7 @@
 ---
 title: "Rogue specifications"
 strap: "A CSS format for the Loader Age"
-date: "2015-06-20"
+date: "2015-06-21"
 ---
 
 CSS is a lot of things. To people who don't understand it, it can be infuriating. To those of us who use it day-to-day, it's essential. It's so intertwined with the browser's rendering model that it can be hard for newcomers to tell what's CSS and what's the browser. And it's *extremely* easy to make an unmaintainable mess.
