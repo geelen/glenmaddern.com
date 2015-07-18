@@ -2,6 +2,7 @@ System.config({
   "baseURL": "/",
   "transpiler": "babel",
   "babelOptions": {
+    "blacklist": [],
     "optional": [
       "runtime"
     ]
@@ -23,9 +24,9 @@ System.config({
 
 System.config({
   "map": {
-    "babel": "npm:babel-core@5.5.6",
-    "babel-runtime": "npm:babel-runtime@5.5.6",
-    "core-js": "npm:core-js@0.9.15",
+    "babel": "npm:babel-core@5.6.18",
+    "babel-runtime": "npm:babel-runtime@5.6.18",
+    "core-js": "npm:core-js@0.9.18",
     "css-global": "npm:jspm-loader-css@0.1.4",
     "highlight.js": "npm:highlight.js@8.6.0",
     "js-yaml": "npm:js-yaml@3.3.1",
@@ -142,6 +143,9 @@ System.config({
     "npm:babel-runtime@5.5.6": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
+    "npm:babel-runtime@5.6.18": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
     "npm:browserify-aes@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.1",
@@ -224,6 +228,11 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
     "npm:core-js@0.9.15": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "process": "github:jspm/nodelibs-process@0.1.1",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:core-js@0.9.18": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
