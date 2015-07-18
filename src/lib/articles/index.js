@@ -1,5 +1,6 @@
 import React from 'react'
 
+import cssmodules from './css-modules.md!markdown'
 import icss from './icss.md!markdown'
 import js2015 from './js2015.md!markdown'
 import amcss from './amcss.md!markdown'
@@ -7,6 +8,7 @@ import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
 
 export default {
+  'css-modules-welcome-to-the-future': cssmodules,
   'interoperable-css': icss,
   'javascript-in-2015': js2015,
   'introducing-am-css': amcss,
