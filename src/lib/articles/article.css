@@ -159,3 +159,45 @@
   layout: max720 p1 mb2 mt2;
   border: thick-left;
 }
+
+.nav {
+  position: relative;
+  padding: 0.5rem 1rem;
+  box-shadow: inset 0 0 0 1px black;
+  cursor: pointer;
+}
+.popup {
+  position: absolute;
+  display: none;
+  text-align: center;
+  flex-direction: column;
+  top: 100%;
+  right: 0;
+  color: black;
+  background: white;
+  border: 1px solid;
+}
+.nav:hover {
+  background: rgba(0,0,0,0.8);
+  color: #dedede;
+}
+.nav:hover .popup {
+  display: flex;
+}
+.link {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+.link + .link {
+  border-top: 1px solid;
+}
+.link:hover {
+  background: black;
+  color: white;
+}
+
+.tmp1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
