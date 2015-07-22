@@ -58,7 +58,7 @@ buttonElem.outerHTML = `<button class=${styles.normal}>`
 
 Fleshing this idea out a little more, here's what it would look like as a React component that can determine which of the states to display:
 
-```jsx
+```
 /* components/submit-button.jsx */
 import styles from './submit-button.css';
 
@@ -82,9 +82,9 @@ export default class SubmitButton extends Component {
 }
 ```
 
-The actual classnames are automatically generated and guaranteed to be unique. CSS Modules is taking care of all that for you, and compiling the files to a format called Interoperable CSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
+The actual classnames are automatically generated and guaranteed to be unique. CSS Modules is taking care of all that for you, and compiling the files to a format called ICSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
 
-```
+```html
 <button class="components_submit_button__normal__abc5436">Submit</button>
 ```
 
@@ -92,7 +92,17 @@ That means it's working!
 
 ## Step 2. Composition is everything
 
-Earlier I mentioned that each class should contain *all* the styles for the button in each different state, in contrast to BEM where it assumes you'd have more than one: `<button class="Button Button--valid">`. But wait, how do you represent *shared* styles between all the states? The answer is probably CSS Modules' most potent weapon, **composition**:
+Earlier I mentioned that each class should contain *all* the styles for the button in each different state, in contrast to BEM where it assumes you'd have more than one:
+
+```js
+/* BEM Style */
+innerHTML = `<button class="Button Button--valid">`
+
+/* CSS Modules */
+innerHTML = `<button class="${styles.valid}">`
+```
+
+But wait, how do you represent *shared* styles between all the states? The answer is probably CSS Modules' most potent weapon, **composition**:
 
 ```css
 .common {
@@ -115,6 +125,85 @@ Earlier I mentioned that each class should contain *all* the styles for the butt
   /* anything that only applies to In Progress */
 }
 ```
+
+The `composes` keyword says that `.normal` *includes* all the styles from `common`, much like the `@extends` keyword in Sass. But while Sass changes your CSS, CSS Modules changes the *exports*. For example, let's take our BEM example from above and use Sass and `@extends`:
+
+```scss
+.common { /* sizing, border-radius */ }
+.normal {
+  @extends .common;
+  /* grey color, hover states */
+}
+.invalid {
+  @extends .common;
+  /* red color, hover states */
+}
+```
+
+This compiles to CSS:
+
+```css
+.Button--Common, .Button--Normal, .Button--Invalid {
+  /* sizing, border-radius */
+}
+.Button--Normal {
+  /* grey color, hover states */
+}
+.Button--Invalid {
+  /* red color, hover states */
+}
+```
+
+You can then just use *one* class in your markup: `<button class="Button--invalid">`, and you get all the shared styles and all the invalid-specific styles. It's really neat, but there are some rough edges you need to be aware of. CSS Modules works differently:
+
+```css
+.common { /* styles */ }
+.normal { composes: common; /* other styles */ }
+```
+
+```js
+import styles from "./button.css";
+console.log(styles)
+/* #> {
+  common: "components_submit_button__common__abc5436",
+  normal: "components_submit_button__common__abc5436 components_submit_button__normal__abc5436"
+} */
+```
+
+So using it like `className={styles.normal}` actually outputs *two* classes into the markup, not one:
+
+```html
+<button class="components_submit_button__common__abc5436 components_submit_button__normal__abc5436">Submit</button>
+```
+
+Our React component from above looks no different, because we're still only ever referring to a single key in our `styles` object. What we've done, is define `.x { composes y; }` to mean "An `x` is also a `y`". You only ever have to write `x`, but you're always getting `y` along with it.
+
+## Step 3. Sharing between files
+
+Working with Sass or LESS, your whole project usually gets processed as one big lump and converted to a single CSS file. In CSS Modules, because we're using a loader like Webpack, we just `import` or `require` the CSS file we need for the component we're working on. It means we never have to worry about global names, since we know we're never running in a global context.
+
+But what about sharing information across your whole project? What about things like colours or a grid system or breakpoints? CSS Modules has two mechanisms for handling this. The first is that `composes` can reference a class in another file, like so:
+
+```css
+/* colors.css */
+.primary {
+  color: #720;
+}
+.secondary {
+  color: #777;
+}
+```
+
+```css
+/* submit-button.css */
+.normal {
+  composes: common;
+  composes: primary from "../shared/colors.css";
+}
+```
+
+
+## Step 4. Compose *everything*
 
 No seriously. At some point you have a list of all the styles you like for your current build. At another point you map that to the elements you're working with. That's a pretty fundamental task for styling up a website. Look at it with raw CSS:
 
