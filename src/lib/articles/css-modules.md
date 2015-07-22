@@ -21,65 +21,100 @@ http://iwdrm.tumblr.com/post/2831236814
 
 ## Step 1. Local by default.
 
-In CSS Modules, each file is compiled separately so you can use simple class selectors with generic names. Let's say we were building a simple menu item:
+In CSS Modules, each file is compiled separately so you can use simple class selectors with generic names—you don't need to worry about polluting the global scope. Let's say we were building a simple submit button with the following 4 states.
+
+[normal button] [error button] [ready button] [in-progress button]
+
+In BEM, we might use classnames like this:
 
 ```css
-/* components/tooltip.css */
-.anchor {
-  position: relative;
-	border: 1px dotted rgba(0,0,0,0.2);
-}
-.tooltip {
-  position: absolute;
-  background: rgba(0,0,0,0.8);
-  color: #bbb;
-  border: 1px solid;
-}
-.above {
-  bottom: 1ex;
-  left: 50%;
-  margin-left: -50%;
-}
+/* components/submit-button.css */
+.Button { /* all styles for Normal */ }
+.Button--invalid { /* overrides for Error */ }
+.Button--ready { /* overrides for Ready */ }
+.Button--in-progress { /* overrides for In Progress */
 ```
 
-<div className={[styles.tmp1, styles.p].join(" ")}>
-  Here's the example: 
-  <nav className={styles.nav}>
-    Menu
-    <div className={styles.popup}>
-      <div className={styles.link}>Item One</div>
-      <div className={styles.link}>Item Two</div>
-      <div className={styles.link}>Item Three</div>
-    </div>
-  </nav>
-</div>
+This is pretty good, but `Button` is still maybe too generic. Maybe it should be `SubmitButton` just to be safe...
+
+In CSS Modules, don't break step, use whatever names make the most sense:
 
 ```css
-:export {
-  link: __some_super_unique_token;
-}
-.__some_super_unique_token {
-  /* holy isolated styles batman! */
-}
+/* components/submit-button.css */
+.normal { /* all styles for Normal */ }
+.invalid { /* all styles for Error */ }
+.ready { /* all styles for Ready */ }
+.inProgress { /* all styles for In Progress */
 ```
 
-That `:export` block is Interoperable CSS (which you can read about [here](interoperable-css)), and it's the way CSS Modules is able to talk to your JavaScript code:
+A couple of things are different. First, we don't use the word *Button* anywhere. Why would we? This is *submit-button.css*. Second, we're not "overriding" styles, each class has the full set for that variant (more on that in section 2). Third, we used camelCase for `.inProgress`. That's because these classes become keys of a 
 
 ```js
-import styles from "./styles.css";
-element.innerHTML = `<a class=${styles.link}>Click me!</a>`
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+buttonElem.outerHTML = `<button class=${styles.normal}>`
 ```
 
-When run, that'll result in:
+Fleshing this idea out a little more, here's what it would look like as a React component that can determine which of the states to display:
 
-```css
+```jsx
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+export default class SubmitButton extends Component {
+  render() {
+    let className, text
+    if (this.state.submitted) {
+      className = styles.inProgress
+      text = "Working..."
+    } else if (this.props.form.valid) {
+      className = styles.ready
+      text = "Submit"
+    } else if (this.props.form.invalid) {
+      className = styles.invalid
+      text = "Error"
+    } else {
+      className = styles.normal
+      text = "Submit"
+    }
+	  return <button className={className}>{text}</button>
+}
+```
+
+The actual classnames are automatically generated and guaranteed to be unique. CSS Modules is taking care of all that for you, and compiling the files to a format called Interoperable CSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
 
 ```
-```html
-<a class="__some_super_unique_token">Click me!</a>
+<button class="components_submit_button__normal__abc5436">Submit</button>
 ```
+
+That means it's working!
 
 ## Step 2. Composition is everything
+
+Earlier I mentioned that each class should contain *all* the styles for the button in each different state, in contrast to BEM where it assumes you'd have more than one: `<button class="Button Button--valid">`. But wait, how do you represent *shared* styles between all the states? The answer is probably CSS Modules' most potent weapon, **composition**:
+
+```css
+.common {
+  /* all the common styles you want */
+}
+.normal {
+  composes: common;
+  /* anything that only applies to Normal */
+}
+.invalid {
+  composes: common;
+  /* anything that only applies to Invalid */
+}
+.ready {
+  composes: common;
+  /* anything that only applies to Ready */
+}
+.inProgress {
+  composes: common;
+  /* anything that only applies to In Progress */
+}
+```
 
 No seriously. At some point you have a list of all the styles you like for your current build. At another point you map that to the elements you're working with. That's a pretty fundamental task for styling up a website. Look at it with raw CSS:
 
