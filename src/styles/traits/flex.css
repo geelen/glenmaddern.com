@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.align-start {
+  align-items: flex-start;
+}
+
 .align-center {
   align-items: center;
 }
@@ -28,6 +32,10 @@
 
 .justify-end {
   justify-content: flex-end;
+}
+
+.space-around {
+  justify-content: space-around;
 }
 
 @media (max-width: 520px) {

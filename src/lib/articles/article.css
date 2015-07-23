@@ -51,6 +51,7 @@
   type: sans lh14 italic center semibold;
   layout: pt1 pb1;
 }
+
 .quote > em {
   font-style: normal;
 }
@@ -160,44 +161,61 @@
   border: thick-left;
 }
 
-.nav {
-  position: relative;
-  padding: 0.5rem 1rem;
-  box-shadow: inset 0 0 0 1px black;
-  cursor: pointer;
-}
-.popup {
-  position: absolute;
-  display: none;
-  text-align: center;
-  flex-direction: column;
-  top: 100%;
-  right: 0;
-  color: black;
-  background: white;
-  border: 1px solid;
-}
-.nav:hover {
-  background: rgba(0,0,0,0.8);
-  color: #dedede;
-}
-.nav:hover .popup {
-  display: flex;
-}
-.link {
-  padding: 0.5rem 1rem;
-  white-space: nowrap;
-}
-.link + .link {
-  border-top: 1px solid;
-}
-.link:hover {
-  background: black;
-  color: white;
+.tmp:traits {
+  flex: wrap space-around align-start;
 }
 
-.tmp1 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.tmp {
+  composes: p;
+}
+.tmp2:traits {
+  flex: vertical align-center;
+  type: sans italic small2;
+  layout: m_quarter;
+}
+
+.buttons:traits {
+  type: sans;
+}
+
+.buttons {
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem 0.45rem;
+  background: none;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  min-width: 9em;
+  margin: 0.25rem;
+}
+
+.ready,.normal {
+  composes: buttons;
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
+}
+.normal {
+  opacity: 0.5;
+}
+.ready:hover {
+  cursor: pointer;
+}
+
+.invalid {
+  composes: buttons;
+  color: hsla(0, 61%, 51%, 0.5);
+}
+
+.inProgress {
+  composes: buttons;
+  color: hsl(210, 61%, 31%);
+  background: linear-gradient(-45deg, hsl(0, 100%, 100%), hsl(0, 100%, 100%) 25%, hsl(221, 100%, 97%) 25%, hsl(221, 100%, 97%) 50%, hsl(0, 100%, 100%) 50%, hsl(0, 100%, 100%) 75%, hsl(221, 100%, 97%) 75%, hsl(221, 100%, 97%));
+  animation: shiftBackgroundLeft4rem 2s linear infinite;
+  background-size: 8rem 8rem;
+  background-position: 0 0;
+}
+
+@keyframes shiftBackgroundLeft4rem {
+  to {
+    background-position: 8rem 0;
+  }
 }

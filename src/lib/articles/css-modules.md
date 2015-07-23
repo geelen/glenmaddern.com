@@ -23,7 +23,26 @@ http://iwdrm.tumblr.com/post/2831236814
 
 In CSS Modules, each file is compiled separately so you can use simple class selectors with generic names—you don't need to worry about polluting the global scope. Let's say we were building a simple submit button with the following 4 states.
 
-[normal button] [error button] [ready button] [in-progress button]
+<div className={styles.tmp}>
+  <div className={styles.tmp2}>
+    <button className={styles.normal}>Next</button>
+    Normal
+  </div>
+  <div className={styles.tmp2}>
+    <button className={styles.ready}>Submit</button>
+    Valid
+  </div>
+  <div className={styles.tmp2}>
+    <button className={styles.invalid}>Submit</button>
+    Invalid
+  </div>
+  <div className={styles.tmp2}>
+    <button className={styles.inProgress}>Processing...</button>
+    In Progress
+  </div>
+</div>
+
+`[normal button] [error button] [ready button] [in-progress button]`
 
 In BEM, we might use classnames like this:
 
@@ -176,7 +195,7 @@ So using it like `className={styles.normal}` actually outputs *two* classes into
 <button class="components_submit_button__common__abc5436 components_submit_button__normal__abc5436">Submit</button>
 ```
 
-Our React component from above looks no different, because we're still only ever referring to a single key in our `styles` object. What we've done, is define `.x { composes y; }` to mean "An `x` is also a `y`". You only ever have to write `x`, but you're always getting `y` along with it.
+Our React component from above looks no different, because we're still only ever referring to a single key in our `styles` object. Neat!
 
 ## Step 3. Sharing between files
 
