@@ -1,0 +1,15 @@
+@traits ("../../styles/traits/");
+
+.figure:traits {
+  layout: max840 p1;
+}
+
+.img:traits {
+  layout: mw100 block m0-auto;
+  border: polaroid;
+}
+
+.figcaption:traits {
+  type: lh14 small2 italic center;
+  layout: pt1;
+}
