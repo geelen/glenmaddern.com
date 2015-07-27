@@ -23,91 +23,104 @@ http://iwdrm.tumblr.com/post/2831236814
 
 In CSS Modules, each file is compiled separately so you can use simple class selectors with generic names—you don't need to worry about polluting the global scope. Let's say we were building a simple submit button with the following 4 states.
 
-<div className={styles.tmp}>
-  <div className={styles.tmp2}>
-    <button className={styles.normal}>Next</button>
+<div className={styles.examples.block}>
+  <div className={styles.examples.element}>
+    <button className={styles.examples.normal}>Submit</button>
     Normal
   </div>
-  <div className={styles.tmp2}>
-    <button className={styles.ready}>Submit</button>
-    Valid
+  <div className={styles.examples.element}>
+    <button className={styles.examples.disabled}>Submit</button>
+    Disabled
   </div>
-  <div className={styles.tmp2}>
-    <button className={styles.invalid}>Submit</button>
-    Invalid
+  <div className={styles.examples.element}>
+    <button className={styles.examples.invalid}>Submit</button>
+    Error
   </div>
-  <div className={styles.tmp2}>
-    <button className={styles.inProgress}>Processing...</button>
+  <div className={styles.examples.element}>
+    <button className={styles.examples.inProgress}>Processing...</button>
     In Progress
   </div>
 </div>
 
-`[normal button] [error button] [ready button] [in-progress button]`
+#### Before CSS Modules
 
-In BEM, we might use classnames like this:
+We might code this up using Suit/BEM-style classnames like so:
 
 ```css
 /* components/submit-button.css */
 .Button { /* all styles for Normal */ }
-.Button--invalid { /* overrides for Error */ }
-.Button--ready { /* overrides for Ready */ }
+.Button--disabled { /* overrides for Disabled */ }
+.Button--error { /* overrides for Error */ }
 .Button--in-progress { /* overrides for In Progress */
 ```
 
 This is pretty good, but `Button` is still maybe too generic. Maybe it should be `SubmitButton` just to be safe...
 
-In CSS Modules, don't break step, use whatever names make the most sense:
+#### With CSS Modules
+
+CSS Modules means you never need to worry about your names being too generic, just use whatever makes the most sense:
 
 ```css
 /* components/submit-button.css */
 .normal { /* all styles for Normal */ }
-.invalid { /* all styles for Error */ }
-.ready { /* all styles for Ready */ }
+.disabled { /* all styles for Disabled */ }
+.error { /* all styles for Error */ }
 .inProgress { /* all styles for In Progress */
 ```
 
-A couple of things are different. First, we don't use the word *Button* anywhere. Why would we? This is *submit-button.css*. Second, we're not "overriding" styles, each class has the full set for that variant (more on that in section 2). Third, we used camelCase for `.inProgress`. That's because these classes become keys of a 
+Notice that we don't use the word *Button* anywhere. Why would we? The file is already called *"submit-button.css"*. In any other language, you don't have to prefix all your local variables with the name of the object they apply to, CSS should be no different.
+
+It's also worth mentioning that we're not "overriding" styles — each class has all the styles needed for that variant (more on that in a minute). And that we used camelCase for `.inProgress` for the sole reason that the syntax in JavaScript becomes a bit nicer. 
 
 ```js
 /* components/submit-button.js */
 import styles from './submit-button.css';
 
-buttonElem.outerHTML = `<button class=${styles.normal}>`
+buttonElem.outerHTML = `<button class=${styles.inProgress}>Processing...</button>`
 ```
 
-Fleshing this idea out a little more, here's what it would look like as a React component that can determine which of the states to display:
-
-```
-/* components/submit-button.jsx */
-import styles from './submit-button.css';
-
-export default class SubmitButton extends Component {
-  render() {
-    let className, text
-    if (this.state.submitted) {
-      className = styles.inProgress
-      text = "Working..."
-    } else if (this.props.form.valid) {
-      className = styles.ready
-      text = "Submit"
-    } else if (this.props.form.invalid) {
-      className = styles.invalid
-      text = "Error"
-    } else {
-      className = styles.normal
-      text = "Submit"
-    }
-	  return <button className={className}>{text}</button>
-}
-```
+Using camelCase simply means not having to type `styles['in-progress']`. But if you get paid by the keystroke, go right ahead!
 
 The actual classnames are automatically generated and guaranteed to be unique. CSS Modules is taking care of all that for you, and compiling the files to a format called ICSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
 
 ```html
-<button class="components_submit_button__normal__abc5436">Submit</button>
+<button class="components_submit_button__inProgress__abc5436">Processing...</button>
 ```
 
-That means it's working!
+If you see that in your DOM, that means it's working!
+
+#### A React Example
+
+There's nothing about CSS Modules that's React-specific as the above example shows. But working with React gives you an excellent experience using CSS Modules, so it's worth showing a slightly more complex example:
+
+```
+/* components/submit-button.jsx */
+import { Component } from 'react';
+import styles from './submit-button.css';
+
+export default class SubmitButton extends Component {
+  render() {
+    let className, text = "Submit"
+    if (this.props.store.submissionInProgress) {
+      className = styles.inProgress
+      text = "Processing..."
+    } else if (this.props.store.errorOccurred) {
+      className = styles.error
+    } else if (!this.props.form.valid) {
+      className = styles.disabled
+    } else {
+      className = styles.normal
+    }
+    return <button className={className}>{text}</button>
+  }
+}
+```
+
+This lets you use your styles without ever worrying about what global-safe CSS classname they're using, which changes everything. But CSS Modules also enables you to *think* about your styles differently, which changes everything again.
+
+<imports.Figure src="https://tyronetribulations.files.wordpress.com/2014/09/jony-ive-10-20-09.jpg" alt="Jony Ive contemplates CSS Modules">
+  This is how intensely we've been thinking about CSS.
+</imports.Figure>
 
 ## Step 2. Composition is everything
 
@@ -131,13 +144,13 @@ But wait, how do you represent *shared* styles between all the states? The answe
   composes: common;
   /* anything that only applies to Normal */
 }
-.invalid {
+.disabled {
   composes: common;
-  /* anything that only applies to Invalid */
+  /* anything that only applies to Disabled */
 }
-.ready {
+.error {
   composes: common;
-  /* anything that only applies to Ready */
+  /* anything that only applies to Error */
 }
 .inProgress {
   composes: common;
@@ -145,57 +158,76 @@ But wait, how do you represent *shared* styles between all the states? The answe
 }
 ```
 
-The `composes` keyword says that `.normal` *includes* all the styles from `common`, much like the `@extends` keyword in Sass. But while Sass changes your CSS, CSS Modules changes the *exports*. For example, let's take our BEM example from above and use Sass and `@extends`:
+The `composes` keyword says that `.normal` ***includes*** all the styles from `.common` much like the `@extends` keyword in Sass does. But while Sass rewrites your CSS selectors to make that happen, CSS Modules **changes which classes are exported to JavaScript**.
+
+#### In Sass
+
+Let's take our BEM example from above and apply some of Sass' `@extends`:
 
 ```scss
-.common { /* sizing, border-radius */ }
-.normal {
+.Button--common { /* font-sizes, padding, border-radius */ }
+.Button--normal {
   @extends .common;
-  /* grey color, hover states */
+  /* blue color, light blue background */
 }
-.invalid {
+.Button--error {
   @extends .common;
-  /* red color, hover states */
+  /* red color, light red background */
 }
 ```
 
-This compiles to CSS:
+This compiles to this CSS:
 
 ```css
-.Button--Common, .Button--Normal, .Button--Invalid {
-  /* sizing, border-radius */
+.Button--common, .Button--normal, .Button--error {
+  /* font-sizes, padding, border-radius */
 }
-.Button--Normal {
-  /* grey color, hover states */
+.Button--normal {
+  /* blue color, light blue background */
 }
-.Button--Invalid {
-  /* red color, hover states */
+.Button--error {
+  /* red color, light red background */
 }
 ```
 
-You can then just use *one* class in your markup: `<button class="Button--invalid">`, and you get all the shared styles and all the invalid-specific styles. It's really neat, but there are some rough edges you need to be aware of. CSS Modules works differently:
+You can then just use *one* class in your markup `<button class="Button--error">` and get the common & specific styles you want. It's a really powerful concept, but there are some nasty traps with using it (Hugo Giraudel has a nice summary of the issues and links to further reading [here](http://www.sitepoint.com/avoid-sass-extend/)).
+
+#### With CSS Modules
+
+Using the `composes` keyword is similar but is executed differently. To demonstrate, the following CSS:
 
 ```css
-.common { /* styles */ }
-.normal { composes: common; /* other styles */ }
+.common { /* font-sizes, padding, border-radius */ }
+.normal { composes: common; /* blue color, light blue background */ }
+.error { composes: common; /* red color, light red background */ }
 ```
+
+gets sent to the browser as this:
+
+```css
+.components_submit_button__common__abc5436 { /* font-sizes, padding, border-radius */ }
+.components_submit_button__normal__def6547 { /* blue color, light blue background */ }
+.components_submit_button__error__1638bcd { /* red color, light red background */ }
+```
+
+and become the following JavaScript object:
 
 ```js
-import styles from "./button.css";
-console.log(styles)
-/* #> {
+styles: {
   common: "components_submit_button__common__abc5436",
-  normal: "components_submit_button__common__abc5436 components_submit_button__normal__abc5436"
-} */
+  normal: "components_submit_button__common__abc5436 components_submit_button__normal__def6547",
+  error: "components_submit_button__common__abc5436 components_submit_button__error__1638bcd"
+}
 ```
 
-So using it like `className={styles.normal}` actually outputs *two* classes into the markup, not one:
+So we still just use `styles.normal` or `styles.error` in our code but we get multiple class rendered into the DOM: 
 
 ```html
-<button class="components_submit_button__common__abc5436 components_submit_button__normal__abc5436">Submit</button>
+<button class="components_submit_button__common__abc5436 
+               components_submit_button__normal__def6547">
+  Submit
+</button>
 ```
-
-Our React component from above looks no different, because we're still only ever referring to a single key in our `styles` object. Neat!
 
 ## Step 3. Sharing between files
 
