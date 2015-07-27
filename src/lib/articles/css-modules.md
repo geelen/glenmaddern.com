@@ -14,10 +14,11 @@ These are all legitimate problems that affect most large CSS codebases in one wa
 
 Me, and the [other authors](https://github.com/orgs/css-modules/people) of CSS Modules felt that we could attack the problems head-on, and keep everything we liked about CSS and learning from (read: stealing) the benefits that the styles-in-JS community were bragging about. So, while we are bullish about our approach and firmly defend the virtues of CSS, we do owe a debt of gratitude to those folks pushing the boundaries in the other direction. Thanks, friends!
 
-Here's what we propose:
+We think CSS Modules is the future of CSS. Let me tell you about it.
 
-![](http://31.media.tumblr.com/tumblr_lf80nsGxUk1qe0eclo1_r3_500.gif)
-http://iwdrm.tumblr.com/post/2831236814
+<imports.Figure src="http://31.media.tumblr.com/tumblr_lf80nsGxUk1qe0eclo1_r3_500.gif" alt="Future men discovering CSS Modules on the moon">
+Rumors persist that CSS Modules is **from the future** ([iwdrm.tumblr.com](http://iwdrm.tumblr.com/post/2831236814))
+</imports.Figure>
 
 ## Step 1. Local by default.
 
