@@ -8,7 +8,7 @@
       "highlight.js": "npm:highlight.js@^8.6.0",
       "js-yaml": "npm:js-yaml@^3.3.1",
       "jspm-loader-css": "npm:jspm-loader-css@^0.1.4",
-      "jsx": "npm:jspm-loader-jsx@^0.0.1",
+      "jsx": "npm:jspm-loader-jsx@^0.0.7",
       "marked": "npm:marked@^0.3.3",
       "md": "github:guybedford/system-md@^0.0.1",
       "metaquery": "npm:metaquery@^1.2.5",
