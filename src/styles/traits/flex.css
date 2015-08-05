@@ -38,6 +38,10 @@
   justify-content: space-around;
 }
 
+.centered {
+  composes: align-center justify-center;
+}
+
 @media (max-width: 520px) {
   .small.small {
     display: flex
