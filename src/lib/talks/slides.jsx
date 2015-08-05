@@ -50,9 +50,12 @@ export default class Slides extends React.Component {
     nodes.forEach(node => node.type === "hr" ? slides.push([]) : slides[slides.length - 1].push(node))
 
     return <div className={styles.stage}>
-      <div className={styles.slide}>
-        { slides[this.state.slide - 1] }
-      </div>
+      { slides.map((slide,i) => {
+        let style = i == this.state.slide - 1 ? {} : {display: 'none'}
+        return <div id={i} className={styles.slide} style={style}>
+          { slide }
+        </div>
+      })}
     </div>
   }
 }
