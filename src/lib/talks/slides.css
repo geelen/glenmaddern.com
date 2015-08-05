@@ -2,6 +2,7 @@
 
 .stage:traits {
   flex: centered;
+  type: serif centered;
 }
 .stage {
   height: 100vh;
@@ -10,25 +11,72 @@
 }
 
 .slide:traits {
-  flex: centered vertical;
+  flex: align-stretch justify-center vertical;
+  flex-child: no-shrink;
 }
 
 .slide {
   width: 1280px;
   height: 720px;
   background: rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: Tiempos Text, Melbourne, SN NeoNoire, Avenir Next, sans-serif;
+}
+.slide > * + * {
+  margin-top: 1rem;
+}
+
+@media (min-height: 900px) and (min-width: 1600px) {
+  .slide {
+    transform: scale(1.25);
+  }
+}
+
+@media (min-height: 1080px) and (min-width: 1920px) {
+  .slide {
+    transform: scale(1.5);
+  }
 }
 
 @media (max-height: 719px), (max-width: 1279px) {
   .slide {
-    color: red;
     transform: scale(0.75);
   }
 }
 
 @media (max-height: 539px), (max-width: 959px) {
   .slide {
-    color: red;
     transform: scale(0.5);
   }
+}
+
+.title {
+  font-family: Tiempos Headline, Melbourne, SN NeoNoire, Avenir Next, sans-serif;
+}
+
+.h1 {
+  font-size: 8rem;
+  word-wrap: break-word;
+  /*letter-spacing: -0.1em;*/
+  font-weight: 700;
+  composes: title;
+}
+
+.h2 {
+  composes: h1;
+  font-size: 5rem;
+}
+
+.h3 {
+  font-size: 3rem;
+}
+
+.p {
+  font-size: 2rem;
+}
+
+.blockquote {
+  font-size: 36px;
+  font-style: italic;
+  font-weight: bold;
 }
