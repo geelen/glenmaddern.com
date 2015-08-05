@@ -116,18 +116,17 @@
   font-weight: 700;
 }
 
-.code {
-  composes: code from "../articles/article.css";
-}
-
 .pre {
   text-align: left;
   align-self: center;
 }
 
+.pre_code:traits {
+  type: mono lh16 h4 unbroken;
+  colors: white-background;
+  border: simple;
+  layout: p1 m0 block;
+}
 .pre_code {
-  composes: pre_code from "../articles/article.css";
-  font-size: 1.5rem;
-  padding: 1rem;
   max-height: 720px;
 }
