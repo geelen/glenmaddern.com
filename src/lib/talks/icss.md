@@ -71,11 +71,38 @@ http://www.blueskyonmars.com/2009/01/29/what-server-side-javascript-needs/
 
 ---
 
+
 > Server side JavaScript is very fragmented. A script that accesses files can't be used without modification on both rhino and v8. Spidermonkey and JavaScriptCore can't both load in additional modules in the same way. A JavaScript web framework is very much tied to its interpreter and is often **forced to create a bunch of APIs that Python, Ruby and Java programmers take for granted**.
+
+https://wiki.mozilla.org/ServerJS/Introduction 
+
+#### Feb 4, 2009
 
 ---
 
+# Interoperable JavaScript Modules
+#### March 21, 2009
 
+### Kris Kowal
+
+---
+
+> This year has begun with a combination of wondrous events in the JavaScript theatre. I've been struggling to promote the idea of module system in JavaScript for several years now. **There has been a sudden explosion of progress.**
+
+http://askawizard.blogspot.com.au/2009/03/interoperable-javascript-modules.html
+
+---
+
+# NodeJS
+#### Feb 16, 2009
+
+### Ryan Dahl
+
+https://github.com/joyent/node/commits/master?page=308
+
+---
+
+# CommonJS
 
 ---
 
@@ -91,18 +118,100 @@ window.NAMESPACE.Widgets.FooBar = function() {
 
 ```javascript
 /* namespace/widgets/foobar.js */
-module.exports = function() {
+
+var dependency = require('./dependency.js');
+
+exports.FooBar = function() {
   ...
 };
 ```
 
 ---
 
-# CommonJS
+### CommonJS kept changing to try to be all-inclusive
+#### (async, browser environments, etc)
+
+&nbsp;
+
+## "Whatever Node Does"
+
+### became the standard
 
 ---
 
-# NodeJS
-#### Started Feb 09
-#### Introduced at JSConf EU, Nov 09
+## "CommonJ-esque"
+
+```javascript
+var x = require('x');
+module.exports = y;
+```
+
+&nbsp;
+
+https://github.com/joyent/node/issues/5132#issuecomment-15436824
+
+#### James Halliday, 2013
+
+---
+
+![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/l6-aq4eu.png)
+
+---
+
+## "Sweet JavaScript History Lesson Bro!" 
+
+---
+
+# CSS
+
+---
+
+# ICSS
+
+---
+
+## Interoperable CSS
+
+#### June 21st, 2015
+
+http://glenmaddern.com/articles/interoperable-css
+
+---
+
+# CSS Modules
+
+&nbsp;
+
+#### compiles to
+
+&nbsp;
+
+# ICSS
+
+---
+
+> ***The language*** needs a standard way to include other modules and for those modules to live in discreet namespaces. There are easy ways to do namespaces...
+
+```css
+/* No imports needed, since it's global... */
+.Namespace__Widgets__FooBar {
+  /* ... */
+}
+```
+
+---
+
+```css
+@import "variables.scss";
+@import "mixins.scss";
+
+.Namespace__Widgets__FooBar {
+  @include some-widget();
+  color: $primary;
+}
+```
+
+---
+
+> ***The language*** is very fragmented. A script that ***does something beyond the original design of the language*** can't be used without modification... A framework is very much tied to its interpreter and is often forced to create a bunch of APIs that ***other language*** programmers take for granted.
 
