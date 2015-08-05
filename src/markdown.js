@@ -23,7 +23,7 @@ export let fetch = ( load, fetch ) => {
   return fetch( load ).then( text => {
     let frontMatter = text.match(/^---$([\s\S]*?)^---$([\s\S]*)$/m),
       meta = {}
-    if (frontMatter) {
+    if (frontMatter && frontMatter.index === 0) {
       meta = yaml.safeLoad(frontMatter[1])
       text = frontMatter[2]
     }
