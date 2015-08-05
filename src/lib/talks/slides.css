@@ -1,0 +1,34 @@
+@traits ("../../styles/traits/");
+
+.stage:traits {
+  flex: centered;
+}
+.stage {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.slide:traits {
+  flex: centered vertical;
+}
+
+.slide {
+  width: 1280px;
+  height: 720px;
+  background: rgba(0,0,0,0.1);
+}
+
+@media (max-height: 719px), (max-width: 1279px) {
+  .slide {
+    color: red;
+    transform: scale(0.75);
+  }
+}
+
+@media (max-height: 539px), (max-width: 959px) {
+  .slide {
+    color: red;
+    transform: scale(0.5);
+  }
+}
