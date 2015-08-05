@@ -1,7 +1,9 @@
 # Interoperable CSS
-> This shit is bananas
+> Welcome to the future
 
-### @glenmaddern
+&nbsp;
+
+by @glenmaddern
 
 ---
 
