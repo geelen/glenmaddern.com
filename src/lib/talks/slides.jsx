@@ -43,8 +43,10 @@ export default class Slides extends React.Component {
   }
 
   render() {
-    let talk = talks[this.props.params.slug],
-      rendered = talk.render(styles, {}),
+    let talk = talks[this.props.params.slug]
+    if (!talk) return <h1 className={styles.h2}>Not found</h1>
+
+    let rendered = talk.render(styles, {}),
       nodes = rendered._store.props.children,
       slides = [[]]
     nodes.forEach(node => node.type === "hr" ? slides.push([]) : slides[slides.length - 1].push(node))
