@@ -18,12 +18,32 @@
 .slide {
   width: 1280px;
   height: 720px;
-  /*background: rgba(0,0,0,0.1);*/
   text-align: center;
   font-family: Tiempos Text, Melbourne, SN NeoNoire, Avenir Next, sans-serif;
+  position: relative;
 }
 .slide > * + * {
   margin-top: 1rem;
+}
+.slide::before, .slide::after {
+  position: absolute;
+  display: block;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  content: '';
+}
+.slide::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+.slide::after {
+  bottom: 0;
+  right: 0;
+  border-top: none;
+  border-left: none;
 }
 
 @media (min-height: 900px) and (min-width: 1600px) {
@@ -90,7 +110,7 @@
 .a {
   color: inherit;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .blockquote .p {
@@ -129,4 +149,8 @@
 }
 .pre_code {
   max-height: 720px;
+}
+
+.em {
+  font-style: italic;
 }
