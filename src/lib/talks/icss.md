@@ -213,5 +213,93 @@ http://glenmaddern.com/articles/interoperable-css
 
 ---
 
-> ***The language*** is very fragmented. A script that ***does something beyond the original design of the language*** can't be used without modification... A framework is very much tied to its interpreter and is often forced to create a bunch of APIs that ***other language*** programmers take for granted.
+> ***The language*** is very fragmented. A script that ***does something beyond the original design of the language*** can't be used without modification... A framework is very much tied to its interpreter and is often forced to create a bunch of APIs that ***other languages*** take for granted.
 
+---
+
+## :export
+
+```css
+:export {
+  Nav: _nav_nav_afd97dfs867;
+  Logo: _nav_logo_97fd867fsfg;
+}
+._nav_nav_afd97dfs867 { /* nav styles */ }
+._nav_logo_97fd867fsfg { /* logo styles */ }
+```
+
+```js
+import styles from './nav.css';
+// styles: { Nav: "_nav_nav_afd97dfs867", Logo: "_nav_logo_97fd867fsfg" }
+```
+
+---
+
+## :import
+
+```css
+/* utils.css */
+:export {
+  HorizontalNav: _utils_horizontalnav_c7ab86431;
+  SharedUtilVar: rgb(200, 100, 0);
+}
+```
+```css
+:import("./utils.css") {
+  i__util_class_1: HorizontalNav;
+  i__util_var_1: SharedUtilVar;
+}
+```
+
+---
+
+##### ✅
+
+
+---
+
+## Everything CSS Modules does is powered by ICSS
+
+### &
+
+## ICSS is an (evolving) specification
+
+---
+
+### Implementations exist for
+## Webpack
+
+## Browserify
+
+## JSPM
+
+---
+
+### Server-side rendering?
+
+## NodeJS (coming)
+
+## Rails
+
+## PHP
+
+
+---
+
+# Thanks!
+
+### github.com/css-modules/icss
+
+@glenmaddern
+
+---
+
+#### Links:
+
+http://www.blueskyonmars.com/2010/01/29/commonjs-the-first-year/
+
+https://github.com/joyent/node/issues/5132#issuecomment-15432598
+
+http://nodegeek.net/2013/12/18/nodejs-v8-history/
+
+http://www.niallkennedy.com/blog/2008/09/google-chrome.html
