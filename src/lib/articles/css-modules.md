@@ -4,11 +4,11 @@ strap: "Welcome to the Future"
 date: "2015-07-18"
 ---
 
-If you wanted to identify an inflection point in the recent development of CSS thinking, a watershed moment that set a bunch of different minds spiralling off in their own directions like a high-energy particle collision, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the adjacent possible, then Christopher is responsible for making a lot of the possible more adjacent.
+If you wanted to identify an inflection point in the recent development of CSS thinking, a watershed moment that set a bunch of different minds spiralling off in their own directions like a high-energy particle collision, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
 
-There's one slide in particular from that talk that project authors have taken as a yardstick from then on:
-
-![Problems with CSS at Scale slide](https://speakerd.s3.amazonaws.com/presentations/5ee70e00669c0132f0e02aa977d5e724/slide_1.jpg?1418657132)
+<imports.Figure variant="smaller" src="https://speakerd.s3.amazonaws.com/presentations/5ee70e00669c0132f0e02aa977d5e724/slide_1.jpg?1418657132" alt="Christopher Chedeau's 7 problems with CSS at scale">
+  This slide really hit home for a lot of folks
+</imports.Figure>
 
 These are all legitimate problems that affect most large CSS codebases in one way or another. Christopher points out that these all have good solutions if you move your styling to JavaScript, which is true but introduces its own complexities and idiosyncrasies. Just look at the range of approaches to handling `:hover` states among the projects I referenced earlier, something that has been solved in CSS for a *long* time.
 
@@ -45,7 +45,7 @@ In CSS Modules, each file is compiled separately so you can use simple class sel
 
 #### Before CSS Modules
 
-We might code this up using Suit/BEM-style classnames like so:
+We might code this up using Suit/BEM-style classnames & plain-old-HTML like so:
 
 ```css
 /* components/submit-button.css */
@@ -55,7 +55,11 @@ We might code this up using Suit/BEM-style classnames like so:
 .Button--in-progress { /* overrides for In Progress */
 ```
 
-This is pretty good, but `Button` is still maybe too generic. Maybe it should be `SubmitButton` just to be safe...
+```html
+<button class="Button Button--disabled">Submit</button>
+```
+
+It's good, but we need to make sure we haven't used `Button` for anything else in our application, or in any of our dependencies. If we want to change it to `SubmitButton` to be safer, we have to update every selector in this file. We can do better.
 
 #### With CSS Modules
 
@@ -69,7 +73,7 @@ CSS Modules means you never need to worry about your names being too generic, ju
 .inProgress { /* all styles for In Progress */
 ```
 
-Notice that we don't use the word *Button* anywhere. Why would we? The file is already called *"submit-button.css"*. In any other language, you don't have to prefix all your local variables with the name of the object they apply to, CSS should be no different.
+Notice that we don't use the word *Button* anywhere. Why would we? The file is already called *"submit-button.css"*, after all. In any other language, you don't have to prefix all your local variables with the name of the object they apply to, CSS should be no different.
 
 It's also worth mentioning that we're not "overriding" styles — each class has all the styles needed for that variant (more on that in a minute). And that we used camelCase for `.inProgress` for the sole reason that the syntax in JavaScript becomes a bit nicer. 
 
@@ -82,7 +86,7 @@ buttonElem.outerHTML = `<button class=${styles.inProgress}>Processing...</button
 
 Using camelCase simply means not having to type `styles['in-progress']`. But if you get paid by the keystroke, go right ahead!
 
-The actual classnames are automatically generated and guaranteed to be unique. CSS Modules is taking care of all that for you, and compiling the files to a format called ICSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
+The actual classnames are automatically generated and guaranteed to be unique. CSS Modules takes care of all that for you, and compiles the files to a format called ICSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
 
 ```html
 <button class="components_submit_button__inProgress__abc5436">Processing...</button>
@@ -92,7 +96,7 @@ If you see that in your DOM, that means it's working!
 
 #### A React Example
 
-There's nothing about CSS Modules that's React-specific as the above example shows. But working with React gives you an excellent experience using CSS Modules, so it's worth showing a slightly more complex example:
+As the above example shows, there's nothing about CSS Modules that's React-specific. But React gives you a particularly excellent experience using CSS Modules, so it's worth showing a slightly more complex example:
 
 ```
 /* components/submit-button.jsx */
@@ -159,7 +163,7 @@ But wait, how do you represent *shared* styles between all the states? The answe
 }
 ```
 
-The `composes` keyword says that `.normal` ***includes*** all the styles from `.common` much like the `@extends` keyword in Sass does. But while Sass rewrites your CSS selectors to make that happen, CSS Modules **changes which classes are exported to JavaScript**.
+The `composes` keyword says that `.normal` *includes* all the styles from `.common`, much like the `@extends` keyword in Sass. But while Sass rewrites your CSS selectors to make that happen, CSS Modules **changes which classes are exported to JavaScript**.
 
 #### In Sass
 
@@ -230,11 +234,15 @@ So we still just use `styles.normal` or `styles.error` in our code but we get mu
 </button>
 ```
 
+Style reuse without coupling, rewriting selectors or duplicating markup. 👌
+
 ## Step 3. Sharing between files
 
-Working with Sass or LESS, your whole project usually gets processed as one big lump and converted to a single CSS file. In CSS Modules, because we're using a loader like Webpack, we just `import` or `require` the CSS file we need for the component we're working on. It means we never have to worry about global names, since we know we're never running in a global context.
+Working with Sass or LESS, each file that you `@import` gets processed in the same global workspace. It's how you can define variables or mixins in one file and use them in all your component files. It's useful, but as soon as your variable names threaten to clash with each other (since it's another global namespace), you inevitably refactor our a `variables.scss` or `settings.scss`, and you lose visibility into which components depend on which variables. And your settings file becomes [unweildy](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss).
 
-But what about sharing information across your whole project? What about things like colours or a grid system or breakpoints? CSS Modules has two mechanisms for handling this. The first is that `composes` can reference a class in another file, like so:
+There are better methodologies, in fact Ben Smithett's [post about using Sass & Webpack together](http://bensmithett.com/smarter-css-builds-with-webpack/) was a direct influence on the CSS Modules project, but you're still constrained by the global nature of Sass.
+
+CSS Modules runs on a single file at a time, so there's no global context to pollute. And like in JavaScript where we can `import` or `require` our dependencies, CSS Modules lets us `compose` from another file: 
 
 ```css
 /* colors.css */
@@ -244,16 +252,50 @@ But what about sharing information across your whole project? What about things 
 .secondary {
   color: #777;
 }
+/* other helper classes... */
 ```
 
 ```css
 /* submit-button.css */
+.common { /* font-sizes, padding, border-radius */ }
 .normal {
   composes: common;
   composes: primary from "../shared/colors.css";
 }
 ```
 
+Using composition, we are able to reach into a totally general file like `colors.css` and reference the one we want using its local name. This simple idea hugely reduces the need for features like variables, mixins or loops. 
+
+Since composition changes which classes get *exported*, not the CSS itself, the `composes` statements themselves get deleted from the CSS before it reaches the browser:
+
+```css
+/* colors.css */
+.shared_colors__primary__fca929 {
+  color: #720;
+}
+.shared_colors__secondary__acf292 {
+  color: #777;
+}
+/* other helper classes... */
+```
+
+```css
+/* submit-button.css */
+.components_submit_button__common__abc5436 { /* font-sizes, padding, border-radius */ }
+.components_submit_button__normal__def6547 {}
+```
+
+```html
+<button class="shared_colors__primary__fca929
+               components_submit_button__common__abc5436 
+               components_submit_button__normal__def6547">
+  Submit
+</button>
+```
+
+Notice that by the time it reaches the browser, `normal` has no styles of its own. This is an encouraging sign! It means we were able to add a new locally-meaningful object (a thing called "normal") without adding a single new line of CSS. The more we can do this, the fewer visual inconsistencies that will creep into our site and the less bloat we'll be shipping to our customers' browsers.
+
+<small className={styles.small}>Aside: we don't do it yet, but we have all the information we need to completely eliminate any of these unused classes from the final result.</small>
 
 ## Step 4. Compose *everything*
 

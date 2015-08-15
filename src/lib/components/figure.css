@@ -4,6 +4,10 @@
   layout: max840 p1;
 }
 
+.smaller:traits {
+  layout: max600 p1;
+}
+
 .img:traits {
   layout: mw100 block m0-auto;
   border: polaroid;
