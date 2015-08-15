@@ -264,9 +264,7 @@ CSS Modules runs on a single file at a time, so there's no global context to pol
 }
 ```
 
-Using composition, we are able to reach into a totally general file like `colors.css` and reference the one we want using its local name. This simple idea hugely reduces the need for features like variables, mixins or loops. 
-
-Since composition changes which classes get *exported*, not the CSS itself, the `composes` statements themselves get deleted from the CSS before it reaches the browser:
+Using composition, we are able to reach into a totally general file like `colors.css` and reference the one we want using its local name. And since composition changes which classes get *exported*, not the CSS itself, the `composes` statements themselves get deleted from the CSS before it reaches the browser:
 
 ```css
 /* colors.css */
@@ -299,7 +297,7 @@ Notice that by the time it reaches the browser, `normal` has no styles of its ow
 
 ## Step 4. Compose *everything*
 
-No seriously. At some point you have a list of all the styles you like for your current build. At another point you map that to the elements you're working with. That's a pretty fundamental task for styling up a website. Look at it with raw CSS:
+Composition is powerful because it lets you describe what an element *is*, not what styles make it up. It's a different way of mapping conceptual entities (elements) to styling entities (rules). Let's take a look at a simple example in plain-old-CSS:
 
 ```css
 .some_element {
@@ -310,7 +308,7 @@ No seriously. At some point you have a list of all the styles you like for your 
 }
 ```
 
-Pure styling. This element—these styles. It's simple, and its remarkable in its way. But forgetting that the name `.some_element` needs to stay afloat in a global ocean, the colour, the font-size, the shadow, everything is specified here, in its infinite detail, yet it is probably something you want to use somewhere else. Enter BEM & Sass:
+This element—these styles. Simple. But looking past the fact that the name `.some_element` needs to stay afloat in a global ocean, the colour, font-size, box-shadow, everything is specified here in full detail, yet we probably want to reuse these styles elsewhere. Let's refactor it using BEM & Sass:
 
 ```scss
 $large-font-size: 1.5rem;
@@ -328,7 +326,9 @@ $padding-normal: 0.5rem;
 }
 ```
 
-That's an improvement, sure, but you've extracted *half* of every variable, and used naming to constrain the other. Think about `@mixin subtle-shadow` in the example above: can you think of a *variable* that would replace it? Plenty of CSS developers have learned to lean on `@extend` in these circumstances, but the problems of that are manifold. IIn CSS Modules:
+This is an improvement, but we've only extracted *half* of every line. The fact that `$large-font-size` is for typography and `$padding-normal` is for layout is merely expressed by the name, not enforced anywhere. When the value of a declaration like `box-shadow` doesn't lend itself to being a variable, we have to use a `@mixin` or `@extends`.
+
+By using CSS Modules and composition, we end up *describing* our component in terms our reusable parts:
 
 ```css
 .head {
@@ -339,8 +339,5 @@ That's an improvement, sure, but you've extracted *half* of every variable, and 
 }
 ```
 
-...
+The format naturally lends itself to having lots of single-purpose files, using the file system to delineate styles of different purposes rather than namespacing.
 
-## Runtime is nothing
-
-## Play around, and never leave
