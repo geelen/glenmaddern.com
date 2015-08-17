@@ -7,7 +7,7 @@ by @glenmaddern
 
 ---
 
-First up, some history
+## All this has happened before. All this will happen again.
 
 ---
 
