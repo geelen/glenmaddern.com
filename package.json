@@ -44,5 +44,8 @@
     "portfinder": "^0.4.0",
     "promise": "^7.0.1",
     "pushserve": "^0.1.6"
+  },
+  "dependencies": {
+    "jspm": "^0.15.7"
   }
 }

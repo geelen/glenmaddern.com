@@ -24,8 +24,8 @@ System.config({
 
 System.config({
   "map": {
-    "babel": "npm:babel-core@5.6.18",
-    "babel-runtime": "npm:babel-runtime@5.6.18",
+    "babel": "npm:babel-core@5.8.19",
+    "babel-runtime": "npm:babel-runtime@5.8.19",
     "core-js": "npm:core-js@0.9.18",
     "css-global": "npm:jspm-loader-css@0.1.4",
     "highlight.js": "npm:highlight.js@8.6.0",
@@ -142,6 +142,12 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:babel-runtime@5.6.18": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:babel-runtime@5.8.19": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
+    },
+    "npm:babel-runtime@5.8.20": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:browserify-aes@1.0.1": {
