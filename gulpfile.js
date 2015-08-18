@@ -9,6 +9,7 @@ var gulp = require( 'gulp' ),
     '/articles/introducing-am-css',
     '/articles/metaquery-and-the-end-of-media-queries',
     '/articles/css-filters-gifs-and-performance',
+    '/articles/css-modules',
     '/projects',
     '/talks',
     '/work'

@@ -8,7 +8,7 @@ import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
 
 export default {
-  'css-modules-welcome-to-the-future': cssmodules,
+  'css-modules': cssmodules,
   'interoperable-css': icss,
   'javascript-in-2015': js2015,
   'introducing-am-css': amcss,
