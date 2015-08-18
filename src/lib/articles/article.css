@@ -26,7 +26,7 @@
 
 .p:traits {
   layout: max720 mb1;
-  type: lh16 small1;
+  type: lh14 sans light;
 }
 
 .callout:traits {
@@ -92,7 +92,7 @@
 }
 
 .h4:traits {
-  layout: max720 p_half-0;
+  layout: max720 p1-0 pt2;
   type: sans lh12 bold;
 }
 

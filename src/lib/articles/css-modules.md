@@ -4,9 +4,9 @@ strap: "Welcome to the Future"
 date: "2015-07-18"
 ---
 
-If you wanted to identify an inflection point in the recent development of CSS thinking, a watershed moment that set a bunch of different minds spiralling off in their own directions like a high-energy particle collision, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
+If you wanted to identify an inflection point in the recent development of CSS thinking, a watershed moment that set a bunch of different minds spiralling off in their own directions like particles in a collision, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
 
-<imports.Figure variant="smaller" src="https://speakerd.s3.amazonaws.com/presentations/5ee70e00669c0132f0e02aa977d5e724/slide_1.jpg?1418657132" alt="Christopher Chedeau's 7 problems with CSS at scale">
+<imports.Figure variant="smaller" src="/assets/images/7_problems_css.jpg" alt="Christopher Chedeau's 7 problems with CSS at scale">
   This slide really hit home for a lot of folks
 </imports.Figure>
 
@@ -16,8 +16,8 @@ Me, and the [other authors](https://github.com/orgs/css-modules/people) of CSS M
 
 We think CSS Modules is the future of CSS. Let me tell you about it.
 
-<imports.Figure src="http://31.media.tumblr.com/tumblr_lf80nsGxUk1qe0eclo1_r3_500.gif" alt="Future men discovering CSS Modules on the moon">
-Rumors persist that CSS Modules is **from the future** ([iwdrm.tumblr.com](http://iwdrm.tumblr.com/post/2831236814))
+<imports.Figure src="/assets/images/jony.jpg" alt="Jony Ive contemplates CSS Modules">
+  This is how intensely we've been thinking about CSS.
 </imports.Figure>
 
 ## Step 1. Local by default.
@@ -45,7 +45,7 @@ In CSS Modules, each file is compiled separately so you can use simple class sel
 
 #### Before CSS Modules
 
-We might code this up using Suit/BEM-style classnames & plain-old-HTML like so:
+We might code this up using Suit/BEM-style classnames & plain old CSS & HTML like so:
 
 ```css
 /* components/submit-button.css */
@@ -56,10 +56,12 @@ We might code this up using Suit/BEM-style classnames & plain-old-HTML like so:
 ```
 
 ```html
-<button class="Button Button--disabled">Submit</button>
+<button class="Button Button--in-progress">Processing...</button>
 ```
 
-It's good, but we need to make sure we haven't used `Button` for anything else in our application, or in any of our dependencies. If we want to change it to `SubmitButton` to be safer, we have to update every selector in this file. We can do better.
+It's quite good, really. We have these four variants but BEM-style naming means we don't have nested selectors. We're starting `Button` with a capital letter so as to (hopefully) avoid clashes with any of our previous styles or any dependencies we're pulling in. And we're adopting the `--modifier` syntax to be clear that the variants require the base class to be applied.
+
+All in all, this is reasonably explicit & maintainable code, but it requires an awful lot of cognitive effort around naming discipline. But it's the best we can do with standard CSS.
 
 #### With CSS Modules
 
@@ -73,9 +75,9 @@ CSS Modules means you never need to worry about your names being too generic, ju
 .inProgress { /* all styles for In Progress */
 ```
 
-Notice that we don't use the word *Button* anywhere. Why would we? The file is already called *"submit-button.css"*, after all. In any other language, you don't have to prefix all your local variables with the name of the object they apply to, CSS should be no different.
+Notice that we don't use the word *"button"* anywhere. Why would we? The file is already called *"submit-button.css"*, after all. In any other language, you don't have to prefix all your local variables with the name of the file you're in, CSS should be no different.
 
-It's also worth mentioning that we're not "overriding" styles — each class has all the styles needed for that variant (more on that in a minute). And that we used camelCase for `.inProgress` for the sole reason that the syntax in JavaScript becomes a bit nicer. 
+It's also worth mentioning that we're not overriding styles — **each class has all the styles needed for that variant** (more on that in a minute). And that we used camelCase for `.inProgress` for the sole reason that the syntax in JavaScript becomes a bit nicer. 
 
 ```js
 /* components/submit-button.js */
@@ -93,6 +95,10 @@ The actual classnames are automatically generated and guaranteed to be unique. C
 ```
 
 If you see that in your DOM, that means it's working!
+
+<imports.Figure src="/assets/images/gorilla_shark.jpg" alt="A gorilla high-fives a shark in front of an explosion">
+	You're the gorilla. CSS Modules is the shark.<br/>(credit: [Christopher Hastings](http://www.topatoco.com/merchant.mvc?Screen=PROD&Store_Code=TO&Product_Code=RB-HIGHFIVE&Category_Code=RB))
+</imports.Figure>
 
 #### A React Example
 
@@ -121,11 +127,9 @@ export default class SubmitButton extends Component {
 }
 ```
 
-This lets you use your styles without ever worrying about what global-safe CSS classname they're using, which changes everything. But CSS Modules also enables you to *think* about your styles differently, which changes everything again.
+You can use your styles without ever worrying about what global-safe CSS classnames are being generated, which lets you focus on the *component*, not the styling. And once you're rid of that constant context-switching, you'll be amazed you ever put up with it.
 
-<imports.Figure src="https://tyronetribulations.files.wordpress.com/2014/09/jony-ive-10-20-09.jpg" alt="Jony Ive contemplates CSS Modules">
-  This is how intensely we've been thinking about CSS.
-</imports.Figure>
+But that's just the start. When it *is* time to think about how your styles are put together, CSS Modules has your back.
 
 ## Step 2. Composition is everything
 
@@ -133,10 +137,10 @@ Earlier I mentioned that each class should contain *all* the styles for the butt
 
 ```js
 /* BEM Style */
-innerHTML = `<button class="Button Button--valid">`
+innerHTML = `<button class="Button Button--in-progress">`
 
 /* CSS Modules */
-innerHTML = `<button class="${styles.valid}">`
+innerHTML = `<button class="${styles.inProgress}">`
 ```
 
 But wait, how do you represent *shared* styles between all the states? The answer is probably CSS Modules' most potent weapon, **composition**:
