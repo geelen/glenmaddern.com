@@ -2,7 +2,10 @@ import React from 'react'
 import md from '../../markdown'
 
 import styles from './article.css!'
+import examples from './examples.css!'
 import YoutubePlayer from '../components/youtube-player.jsx!'
+import Figure from '../components/figure.jsx!'
+styles.examples = examples
 
 export default class Article extends React.Component {
   render() {
@@ -13,7 +16,7 @@ export default class Article extends React.Component {
         { article.strap ? <h2 className={styles.heading2}>{article.strap}</h2> : {}}
         { article.date ? <time className={styles.date} dateTime={article.date}>{article.date}</time> : {}}
       </header>
-      {article.render( styles, {YoutubePlayer} )}
+      {article.render( styles, {YoutubePlayer,Figure} )}
     </article>
   }
 }

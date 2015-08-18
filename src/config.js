@@ -2,6 +2,7 @@ System.config({
   "baseURL": "/",
   "transpiler": "babel",
   "babelOptions": {
+    "blacklist": [],
     "optional": [
       "runtime"
     ]
@@ -23,14 +24,14 @@ System.config({
 
 System.config({
   "map": {
-    "babel": "npm:babel-core@5.5.6",
-    "babel-runtime": "npm:babel-runtime@5.5.6",
-    "core-js": "npm:core-js@0.9.15",
+    "babel": "npm:babel-core@5.6.18",
+    "babel-runtime": "npm:babel-runtime@5.6.18",
+    "core-js": "npm:core-js@0.9.18",
     "css-global": "npm:jspm-loader-css@0.1.4",
     "highlight.js": "npm:highlight.js@8.6.0",
     "js-yaml": "npm:js-yaml@3.3.1",
     "jspm-loader-css": "npm:jspm-loader-css@0.1.4",
-    "jsx": "npm:jspm-loader-jsx@0.0.1",
+    "jsx": "npm:jspm-loader-jsx@0.0.7",
     "marked": "npm:marked@0.3.3",
     "md": "github:guybedford/system-md@0.0.1",
     "metaquery": "npm:metaquery@1.2.5",
@@ -41,6 +42,7 @@ System.config({
     "react": "npm:react@0.13.3",
     "react-router": "npm:react-router@0.13.3",
     "react-tools": "npm:react-tools@0.14.0-alpha3",
+    "sha1": "npm:sha1@1.1.1",
     "showdown": "github:showdownjs/showdown@0.5.4",
     "text": "github:systemjs/plugin-text@0.0.2",
     "github:geelen/plugin-postcss@master": {
@@ -53,7 +55,7 @@ System.config({
       "assert": "npm:assert@1.3.0"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
-      "buffer": "npm:buffer@3.2.2"
+      "buffer": "npm:buffer@3.4.2"
     },
     "github:jspm/nodelibs-constants@0.1.0": {
       "constants-browserify": "npm:constants-browserify@0.0.1"
@@ -97,7 +99,7 @@ System.config({
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:amdefine@0.1.1": {
+    "npm:amdefine@1.0.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "module": "github:jspm/nodelibs-module@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -139,7 +141,7 @@ System.config({
     "npm:async@0.1.22": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
-    "npm:babel-runtime@5.5.6": {
+    "npm:babel-runtime@5.6.18": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:browserify-aes@1.0.1": {
@@ -171,7 +173,12 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
-    "npm:buffer@3.2.2": {
+    "npm:buffer@3.3.1": {
+      "base64-js": "npm:base64-js@0.0.8",
+      "ieee754": "npm:ieee754@1.1.6",
+      "is-array": "npm:is-array@1.0.1"
+    },
+    "npm:buffer@3.4.2": {
       "base64-js": "npm:base64-js@0.0.8",
       "ieee754": "npm:ieee754@1.1.6",
       "is-array": "npm:is-array@1.0.1"
@@ -223,7 +230,7 @@ System.config({
     "npm:constants-browserify@0.0.1": {
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
-    "npm:core-js@0.9.15": {
+    "npm:core-js@0.9.18": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
@@ -297,7 +304,7 @@ System.config({
     "npm:envify@3.4.0": {
       "jstransform": "npm:jstransform@10.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1",
-      "through": "npm:through@2.3.7"
+      "through": "npm:through@2.3.8"
     },
     "npm:es6-promise@2.1.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -501,12 +508,17 @@ System.config({
       "css-modules-loader-core": "npm:css-modules-loader-core@0.0.10",
       "path": "npm:path@0.11.14"
     },
-    "npm:jspm-loader-jsx@0.0.1": {
+    "npm:jspm-loader-jsx@0.0.6": {
       "pascal-case": "npm:pascal-case@1.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "react": "npm:react@0.13.3",
-      "react-hot-api": "github:gaearon/react-hot-api@0.4.3",
-      "react-tools": "npm:react-tools@0.13.3"
+      "react-hot-api": "github:gaearon/react-hot-api@0.4.5"
+    },
+    "npm:jspm-loader-jsx@0.0.7": {
+      "pascal-case": "npm:pascal-case@1.1.1",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "react": "npm:react@0.13.3",
+      "react-hot-api": "github:gaearon/react-hot-api@0.4.5"
     },
     "npm:jstransform@10.1.0": {
       "base62": "npm:base62@0.1.1",
@@ -663,12 +675,6 @@ System.config({
       "qs": "npm:qs@2.4.1",
       "react": "npm:react@0.13.3"
     },
-    "npm:react-tools@0.13.3": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "commoner": "npm:commoner@0.10.1",
-      "jstransform": "npm:jstransform@10.1.0",
-      "process": "github:jspm/nodelibs-process@0.1.1"
-    },
     "npm:react-tools@0.14.0-alpha3": {
       "commoner": "npm:commoner@0.10.1",
       "jstransform": "npm:jstransform@11.0.1",
@@ -719,24 +725,30 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
+    "npm:sha1@1.1.1": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "charenc": "npm:charenc@0.0.1",
+      "crypt": "npm:crypt@0.0.1"
+    },
     "npm:sigmund@1.0.1": {
       "http": "github:jspm/nodelibs-http@1.7.1",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:source-map@0.1.31": {
-      "amdefine": "npm:amdefine@0.1.1",
+      "amdefine": "npm:amdefine@1.0.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:source-map@0.1.43": {
-      "amdefine": "npm:amdefine@0.1.1",
+      "amdefine": "npm:amdefine@1.0.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:source-map@0.4.2": {
-      "amdefine": "npm:amdefine@0.1.1",
+      "amdefine": "npm:amdefine@1.0.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
@@ -749,7 +761,7 @@ System.config({
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:through@2.3.7": {
+    "npm:through@2.3.8": {
       "process": "github:jspm/nodelibs-process@0.1.1",
       "stream": "github:jspm/nodelibs-stream@0.1.0"
     },

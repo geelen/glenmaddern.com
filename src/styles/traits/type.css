@@ -3,11 +3,11 @@
 }
 
 .sans {
-  font-family: Avenir Next, Helvetica Neue, Open Sans, Fira Sans, sans-serif;
+  font-family: canada-type-gibson, Avenir, Helvetica, Open Sans, Fira Sans, sans-serif;
 }
 
 .serif {
-  font-family: Lora, Palatino, Georgia, Times New Roman, Times, serif;
+  font-family: minion-pro-subhead, Times New Roman, serif;
 }
 
 .mono {
@@ -51,15 +51,15 @@
 }
 
 .h4 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .h5 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .h6 {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .small0 {
@@ -92,6 +92,10 @@
 
 .lh14 {
   line-height: 1.4;
+}
+
+.lh15 {
+  line-height: 1.5;
 }
 
 .lh16 {
@@ -180,11 +184,11 @@
   }
 
   .h4--small.h4--small {
-    font-size: 1.5rem
+    font-size: 2rem
   }
 
   .h5--small.h5--small {
-    font-size: 1.2rem
+    font-size: 1.5rem
   }
 
   .small0--small.small0--small {
@@ -306,11 +310,11 @@
   }
 
   .h4--medium.h4--medium {
-    font-size: 1.5rem
+    font-size: 2rem
   }
 
   .h5--medium.h5--medium {
-    font-size: 1.2rem
+    font-size: 1.5rem
   }
 
   .small0--medium.small0--medium {
@@ -432,11 +436,11 @@
   }
 
   .h4--large.h4--large {
-    font-size: 1.5rem
+    font-size: 2rem
   }
 
   .h5--large.h5--large {
-    font-size: 1.2rem
+    font-size: 1.5rem
   }
 
   .small0--large.small0--large {

@@ -8,7 +8,7 @@
       "highlight.js": "npm:highlight.js@^8.6.0",
       "js-yaml": "npm:js-yaml@^3.3.1",
       "jspm-loader-css": "npm:jspm-loader-css@^0.1.4",
-      "jsx": "npm:jspm-loader-jsx@^0.0.1",
+      "jsx": "npm:jspm-loader-jsx@^0.0.7",
       "marked": "npm:marked@^0.3.3",
       "md": "github:guybedford/system-md@^0.0.1",
       "metaquery": "npm:metaquery@^1.2.5",
@@ -19,6 +19,7 @@
       "react": "npm:react@^0.13.0",
       "react-router": "npm:react-router@^0.13.3",
       "react-tools": "npm:react-tools@^0.14.0-alpha3",
+      "sha1": "npm:sha1@^1.1.1",
       "showdown": "github:showdownjs/showdown@^0.5.1",
       "text": "github:systemjs/plugin-text@^0.0.2"
     },
