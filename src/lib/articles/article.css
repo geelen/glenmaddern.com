@@ -2,31 +2,29 @@
 
 .article:traits {
   layout: p1;
-  type: serif;
 }
 
 .header:traits {
   layout: p3-0;
-  type: sans lh12;
+  type: lh12;
 }
 
 .title:traits {
-  type: sans h3 h4--small black center;
+  type: h2 h3--small bold center;
 }
 
 .heading2:traits {
-  type: sans h5 italic center;
-  layout: pt1;
+  type: h5 italic center;
 }
 
 .date:traits {
   layout: block pt_half;
-  type: small3 center;
+  type: sans light small2 center;
 }
 
 .p:traits {
-  layout: max720 mb1;
-  type: lh14 sans light;
+  layout: max600 mb1;
+  type: small1 lh15 sans light;
 }
 
 .callout:traits {
@@ -48,7 +46,7 @@
 }
 
 .pre:traits {
-  layout: max840 m1-auto;
+  layout: max720 m1-auto;
 }
 
 .code:traits {
@@ -58,7 +56,7 @@
 }
 
 .code {
-  padding: 4px 6px 5px;
+  padding: 3px 6px 3px;
   margin: 0 2px;
   display: inline-block;
   position: relative;
@@ -76,37 +74,38 @@
 }
 
 .h1:traits {
-  layout: max840 pt3 pb2;
-  type: sans lh12 h3 bold center;
+  layout: max720 pt3 pb2;
+  type: lh12 h3 bold center;
   divider: line-after;
 }
 
 .h2:traits {
-  layout: max840 pt3 pb1;
-  type: sans lh12 h4 bold center;
+  layout: max720 pt3 pb1;
+  type: lh12 h4 bold center;
 }
 
 .h3:traits {
-  layout: max720 p1-0;
-  type: sans lh12 h4 bold;
+  layout: max600 p1-0;
+  type: lh12 h4 bold;
 }
 
 .h4:traits {
-  layout: max720 p1-0 pt2;
-  type: sans lh12 bold;
+  layout: max600 p1-0 pt2;
+  type: h5 lh12 bold;
 }
 
 .h5:traits {
-  layout: max720 mb1;
-  type: sans lh12 semibold center;
+  layout: max600 mb1;
+  type: lh12 semibold center;
 }
 
 .a:traits {
   link: inline;
+  type: normal;
 }
 
 .ul:traits {
-  layout: max720 m1-auto;
+  layout: max600 m1-auto;
   type: small2;
 }
 
@@ -117,7 +116,7 @@
 }
 
 .blockquote:traits {
-  layout: max720 m2-auto p0-1;
+  layout: max600 m2-auto p0-1;
   border: thick-left;
   type: sans italic;
 }
@@ -127,7 +126,7 @@
 }
 
 .em:traits {
-  type: italic;
+  type: italic normal;
 }
 
 .small:traits {
@@ -136,7 +135,7 @@
 }
 
 .form:traits {
-  layout: max720 m1-auto;
+  layout: max600 m1-auto;
   type: center;
 }
 
@@ -148,7 +147,7 @@
 
 .pull:traits {
   type: h4;
-  layout: max720 p1 mb2 mt2;
+  layout: max600 p1 mb2 mt2;
   border: thick-left;
 }
 

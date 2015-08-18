@@ -8,7 +8,7 @@
 
 .element:traits {
   flex: vertical align-center;
-  type: sans italic small2;
+  type: italic small2;
   layout: m_quarter;
 }
 

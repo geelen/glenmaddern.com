@@ -4,7 +4,7 @@ strap: "Welcome to the Future"
 date: "2015-07-18"
 ---
 
-If you wanted to identify an inflection point in the recent development of CSS thinking, a watershed moment that set a bunch of different minds spiralling off in their own directions like particles in a collision, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
+If you wanted to identify an inflection point in the recent development of CSS thinking, a watershed moment that set a bunch of different minds spiralling off in their own directions like particles in a collision, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. For example, [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
 
 <imports.Figure variant="smaller" src="/assets/images/7_problems_css.jpg" alt="Christopher Chedeau's 7 problems with CSS at scale">
   This slide really hit home for a lot of folks
@@ -91,7 +91,9 @@ Using camelCase simply means not having to type `styles['in-progress']`. But if 
 The actual classnames are automatically generated and guaranteed to be unique. CSS Modules takes care of all that for you, and compiles the files to a format called ICSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
 
 ```html
-<button class="components_submit_button__inProgress__abc5436">Processing...</button>
+<button class="components_submit_button__inProgress__abc5436">
+  Processing...
+</button>
 ```
 
 If you see that in your DOM, that means it's working!
@@ -176,11 +178,11 @@ Let's take our BEM example from above and apply some of Sass' `@extends`:
 ```scss
 .Button--common { /* font-sizes, padding, border-radius */ }
 .Button--normal {
-  @extends .common;
+  @extends .Button--common;
   /* blue color, light blue background */
 }
 .Button--error {
-  @extends .common;
+  @extends .Button--common;
   /* red color, light red background */
 }
 ```
@@ -199,11 +201,11 @@ This compiles to this CSS:
 }
 ```
 
-You can then just use *one* class in your markup `<button class="Button--error">` and get the common & specific styles you want. It's a really powerful concept, but there are some nasty traps with using it (Hugo Giraudel has a nice summary of the issues and links to further reading [here](http://www.sitepoint.com/avoid-sass-extend/)).
+You can then just use *one* class in your markup `<button class="Button--error">` and get the common & specific styles you want. It's a really powerful concept, but there are some nasty edge cases that a lot of us have run in to. A great summary of those issues and links to further reading is [available here](http://www.sitepoint.com/avoid-sass-extend/), thanks to Hugo Giraudel.
 
 #### With CSS Modules
 
-Using the `composes` keyword is similar but is executed differently. To demonstrate, the following CSS:
+The `composes` keyword is conceptually similar but is executed differently. To demonstrate, let's look at an example:
 
 ```css
 .common { /* font-sizes, padding, border-radius */ }
@@ -211,7 +213,7 @@ Using the `composes` keyword is similar but is executed differently. To demonstr
 .error { composes: common; /* red color, light red background */ }
 ```
 
-gets sent to the browser as this:
+That gets compiled and ends up looking like this by the time it reaches the browser:
 
 ```css
 .components_submit_button__common__abc5436 { /* font-sizes, padding, border-radius */ }
@@ -219,7 +221,7 @@ gets sent to the browser as this:
 .components_submit_button__error__1638bcd { /* red color, light red background */ }
 ```
 
-and become the following JavaScript object:
+In your JS code, `import styles from "./submit-button.css"` returns:
 
 ```js
 styles: {
@@ -229,7 +231,7 @@ styles: {
 }
 ```
 
-So we still just use `styles.normal` or `styles.error` in our code but we get multiple class rendered into the DOM: 
+So we can still just use `styles.normal` or `styles.error` in our code but we get multiple class rendered into the DOM.
 
 ```html
 <button class="components_submit_button__common__abc5436 
@@ -238,13 +240,13 @@ So we still just use `styles.normal` or `styles.error` in our code but we get mu
 </button>
 ```
 
-Style reuse without coupling, rewriting selectors or duplicating markup. 👌
+This is the power of `composes`, you can combine multiple separate groups of styles without changing your markup or rewriting your CSS selectors 👌
 
 ## Step 3. Sharing between files
 
-Working with Sass or LESS, each file that you `@import` gets processed in the same global workspace. It's how you can define variables or mixins in one file and use them in all your component files. It's useful, but as soon as your variable names threaten to clash with each other (since it's another global namespace), you inevitably refactor our a `variables.scss` or `settings.scss`, and you lose visibility into which components depend on which variables. And your settings file becomes [unweildy](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss).
+Working with Sass or LESS, each file that you `@import` gets processed in the same global workspace. It's how you can define variables or mixins in one file and use them in all your component files. It's useful, but as soon as your variable names threaten to clash with each other (since it's another global namespace), you inevitably refactor out a `variables.scss` or `settings.scss`, and you lose visibility into which components depend on which variables. And your settings file becomes [unwieldy](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss).
 
-There are better methodologies, in fact Ben Smithett's [post about using Sass & Webpack together](http://bensmithett.com/smarter-css-builds-with-webpack/) was a direct influence on the CSS Modules project, but you're still constrained by the global nature of Sass.
+There are better methodologies, in fact Ben Smithett's [post about using Sass & Webpack together](http://bensmithett.com/smarter-css-builds-with-webpack/) was a direct influence on the CSS Modules project and I encourage you to read it, but you're still constrained by the global nature of Sass.
 
 CSS Modules runs on a single file at a time, so there's no global context to pollute. And like in JavaScript where we can `import` or `require` our dependencies, CSS Modules lets us `compose` from another file: 
 
@@ -268,7 +270,7 @@ CSS Modules runs on a single file at a time, so there's no global context to pol
 }
 ```
 
-Using composition, we are able to reach into a totally general file like `colors.css` and reference the one we want using its local name. And since composition changes which classes get *exported*, not the CSS itself, the `composes` statements themselves get deleted from the CSS before it reaches the browser:
+Using composition, we are able to reach into a totally general file like `colors.css` and reference the one class we want using its local name. And since composition changes which classes get *exported*, not the CSS itself, the `composes` statements themselves get deleted from the CSS before it reaches the browser:
 
 ```css
 /* colors.css */
@@ -278,7 +280,6 @@ Using composition, we are able to reach into a totally general file like `colors
 .shared_colors__secondary__acf292 {
   color: #777;
 }
-/* other helper classes... */
 ```
 
 ```css
@@ -295,13 +296,14 @@ Using composition, we are able to reach into a totally general file like `colors
 </button>
 ```
 
-Notice that by the time it reaches the browser, `normal` has no styles of its own. This is an encouraging sign! It means we were able to add a new locally-meaningful object (a thing called "normal") without adding a single new line of CSS. The more we can do this, the fewer visual inconsistencies that will creep into our site and the less bloat we'll be shipping to our customers' browsers.
+In fact, by the time it reaches the browser, our local name *
+"normal"* has no styles of its own. This is a good thing! It means we were able to add a new locally-meaningful object (a thing called "normal") **without adding a single new line of CSS**. The more we can do this, the fewer visual inconsistencies that will creep into our site and the less bloat we'll be shipping to our customers' browsers.
 
-<small className={styles.small}>Aside: we don't do it yet, but we have all the information we need to completely eliminate any of these unused classes from the final result.</small>
+<small className={styles.small}>Aside: These empty classes can easily be detected and removed by something like [csso](https://github.com/css/csso)</small>
 
-## Step 4. Compose *everything*
+## Step 4. Single responsibility modules
 
-Composition is powerful because it lets you describe what an element *is*, not what styles make it up. It's a different way of mapping conceptual entities (elements) to styling entities (rules). Let's take a look at a simple example in plain-old-CSS:
+Composition is powerful because it lets you describe what an element *is*, not what styles make it up. It's a different way of mapping conceptual entities (*elements*) to styling entities (*rules*). Let's take a look at a simple example in plain-old-CSS:
 
 ```css
 .some_element {
@@ -312,7 +314,7 @@ Composition is powerful because it lets you describe what an element *is*, not w
 }
 ```
 
-This element—these styles. Simple. But looking past the fact that the name `.some_element` needs to stay afloat in a global ocean, the colour, font-size, box-shadow, everything is specified here in full detail, yet we probably want to reuse these styles elsewhere. Let's refactor it using BEM & Sass:
+This element, these styles. Simple. However, there's a problem: the colour, font-size, box-shadow, the padding — everything is specified here in full detail despite the fact that *we probably want to reuse these styles elsewhere*. Let's refactor it using Sass:
 
 ```scss
 $large-font-size: 1.5rem;
@@ -322,7 +324,7 @@ $padding-normal: 0.5rem;
   box-shadow: 0 0 4px -2px;
 }
 
-.some_element__header {
+.some_element {
   @include subtle-shadow;
   font-size: $large-font-size;
   color: $dark-text;
@@ -330,12 +332,12 @@ $padding-normal: 0.5rem;
 }
 ```
 
-This is an improvement, but we've only extracted *half* of every line. The fact that `$large-font-size` is for typography and `$padding-normal` is for layout is merely expressed by the name, not enforced anywhere. When the value of a declaration like `box-shadow` doesn't lend itself to being a variable, we have to use a `@mixin` or `@extends`.
+This is an improvement, but we've only extracted *half* of most of the lines. The fact that `$large-font-size` is for typography and `$padding-normal` is for layout is merely expressed by the name, not enforced anywhere. When the value of a declaration like `box-shadow` doesn't lend itself to being a variable, we have to use a `@mixin` or `@extends`.
 
-By using CSS Modules and composition, we end up *describing* our component in terms our reusable parts:
+By using CSS Modules and composition, we end up declaring our component in terms our reusable parts:
 
 ```css
-.head {
+.element {
   composes: large from "./typography.css";
   composes: dark-text from "./colors.css";
   composes: padding-all-medium from "./layout.css";
@@ -343,5 +345,32 @@ By using CSS Modules and composition, we end up *describing* our component in te
 }
 ```
 
-The format naturally lends itself to having lots of single-purpose files, using the file system to delineate styles of different purposes rather than namespacing.
+The format naturally lends itself to having lots of single-purpose files, using the file system to delineate styles of different purposes rather than namespacing. And since you can compose multiple classes in a single line, you can start to go further:
 
+```css
+.masthead {
+  composes: serif bold 48pt centered from "./typography.css";
+  composes: paragraph-margin-below from "./layout.css";
+}
+
+.body {
+  composes: max720 margin-0-auto paragraph-margin-below from "layout.css";
+  composes: sans light paragraph-line-height from "./typography.css";
+}
+```
+
+This is a technique I'm really interested in exploring further. In my mind, it combines some of the best aspects of atomic CSS techniques like [Tachyons](http://tachyons.io/), the readability of something like [Semantic UI](http://semantic-ui.com/) with true, convention-free isolation.
+
+But we're only at the beginning of the CSS Modules story. We'd love for you to try it on your current next project and help us shape its future.
+
+## Get started!
+
+With CSS Modules, we hope that we're able to help you and your team maintain as much of your current knowledge of CSS and your product, but become vastly more comfortable and more productive. We've kept the syntax additions to a minimum and tried to ensure there are examples that are close to the way you're already working. We have demo projects for [Webpack](https://github.com/css-modules/webpack-demo), [JSPM](https://github.com/css-modules/jspm-demo) and [Browserify](https://github.com/css-modules/browserify-demo) if you're using one of those, and we're always on the look-out for new environments where CSS Modules would work: support for server-side NodeJS is [happening](https://github.com/css-modules/css-modules-require-hook) and Rails is on the roadmap.
+
+But to make things even easier, I've made a little Plunkr for you to [play around with an example](http://plnkr.co/edit/FbcJpb?p=preview) without installing a thing! Give it a go:
+
+[![Try CSS Modules live](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/czi-k4ub.png)](http://plnkr.co/edit/FbcJpb?p=preview)
+
+When you're ready, take a look at the main [CSS Modules](http://github.com/css-modules/css-modules) repo and if you have a question, please raise an issue to kick off a discussion. The [CSS Modules team](https://github.com/orgs/css-modules/people) is small and we haven't seen every use-case yet, so we'd love to hear from you.
+
+##### Style happy, friends!
