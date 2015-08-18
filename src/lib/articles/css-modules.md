@@ -374,5 +374,5 @@ But to make things even easier, I've made a little Plunkr for you to [play aroun
 When you're ready, take a look at the main [CSS Modules](http://github.com/css-modules/css-modules) repo and if you have a question, please raise an issue to kick off a discussion. The [CSS Modules team](https://github.com/orgs/css-modules/people) is small and we haven't seen every use-case yet, so we'd love to hear from you.
 
 &nbsp;
-1. 
+
 ##### Style happy, friends!
