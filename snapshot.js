@@ -34,6 +34,9 @@ jspm.import( 'css' ).then( function ( css ) {
     } )).then( function() {
       console.log("Done all")
       fs.writeFileSync('dist/bundle.css', css.default._cache._source.join( "\n" ))
+    }, function () {
+      console.log("I GUESS WE GOT FUCKED")
+      console.log(arguments)
     })
   } )
 } )

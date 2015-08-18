@@ -3,7 +3,6 @@ var gulp = require( 'gulp' ),
   paths = [
     '/',
     '/articles',
-    '/articles/rogue-specifications',
     '/articles/interoperable-css',
     '/articles/javascript-in-2015',
     '/articles/introducing-am-css',
