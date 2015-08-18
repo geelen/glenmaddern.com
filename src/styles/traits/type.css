@@ -17,6 +17,13 @@
 .light {
   font-weight: 300;
 }
+@media (-webkit-max-device-pixel-ratio: 1.1) and (max-resolution: 2dppx) {
+  .light {
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
 
 .normal {
   font-weight: 400;
