@@ -4,7 +4,7 @@ strap: "Welcome to the Future"
 date: "2015-07-18"
 ---
 
-If you wanted to identify an inflection point in the recent development of CSS thinking, a watershed moment that set a bunch of different minds spiralling off in their own directions like particles after a high-energy collision, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. For instance, [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
+If you wanted to identify an inflection point in the recent development of CSS thinking, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. It was a watershed moment that set a bunch of different minds spiralling off in their own directions like particles after a high-energy collision. For instance, [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
 
 <imports.Figure variant="smaller" src="/assets/images/7_problems_css.jpg" alt="Christopher Chedeau's 7 problems with CSS at scale">
   This slide really hit home for a lot of folks
@@ -369,7 +369,7 @@ With CSS Modules, we hope that we're able to help you and your team maintain as 
 
 But to make things even easier, I've made a little Plunkr for you to [play around with an example](http://plnkr.co/edit/FbcJpb?p=preview) without installing a thing! Give it a go:
 
-[![Try CSS Modules live](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/czi-k4ub.png)](http://plnkr.co/edit/FbcJpb?p=preview)
+[![Try CSS Modules live](/assets/images/css_modules_plunkr.png)](http://plnkr.co/edit/FbcJpb?p=preview)
 
 When you're ready, take a look at the main [CSS Modules](http://github.com/css-modules/css-modules) repo and if you have a question, please raise an issue to kick off a discussion. The [CSS Modules team](https://github.com/orgs/css-modules/people) is small and we haven't seen every use-case yet, so we'd love to hear from you.
 
