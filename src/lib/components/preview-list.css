@@ -31,15 +31,17 @@
 }
 
 .h3:traits {
-  type: h5 semibold;
+  type: h5 bold lh10;
+  layout: mb_half;
 }
 
 .h4:traits {
   layout: mb_quarter;
+  type: sans small2 light;
 }
 
 .link:traits {
-  type: small3 italic truncate;
+  type: small2 italic truncate;
   link: inline;
 }
 
@@ -49,5 +51,5 @@
 
 .more:traits {
   link: inline obvious;
-  type: small3;
+  type: small2 italic;
 }

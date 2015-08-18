@@ -6,7 +6,7 @@
 
 .h2:traits {
   divider: line-after;
-  type: upcase;
+  type: upcase sans light;
 }
 
 .a:traits {
@@ -16,11 +16,11 @@
 }
 
 .h5:traits {
-  type: h6 bold;
+  type: h5 bold;
 }
 
 .span:traits {
-  type: small3 italic;
+  type: small2 italic light sans;
   link: invisible;
 }
 
@@ -30,5 +30,5 @@
 
 .more:traits {
   link: inline;
-  type: small1;
+  type: small1 italic;
 }

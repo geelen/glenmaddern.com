@@ -17,3 +17,7 @@
   type: lh14 small2 italic center;
   layout: pt1;
 }
+
+.figcaption br ~ * {
+  font-size: 0.8em;
+}
