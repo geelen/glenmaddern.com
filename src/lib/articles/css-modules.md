@@ -75,7 +75,7 @@ CSS Modules means you never need to worry about your names being too generic, ju
 .inProgress { /* all styles for In Progress */
 ```
 
-Notice that we don't use the word *"button"* anywhere. Why would we? The file is already called *"submit-button.css"*, after all. In any other language, you don't have to prefix all your local variables with the name of the file you're in, CSS should be no different.
+Notice that we don't use the word *"button"* anywhere. Why would we? The file is already called *"submit-button.css"*. In any other language, you don't have to prefix all your local variables with the name of the file you're working on — CSS should be no different.
 
 That's made possible by the way CSS Modules is compiled — by using `require` or `import` to load the file from JavaScript:
 
