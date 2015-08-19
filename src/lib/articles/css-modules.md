@@ -1,6 +1,6 @@
 ---
 title: "CSS Modules"
-strap: "Welcome to the future"
+strap: "Welcome to the Future"
 date: "2015-08-19"
 ---
 
@@ -12,9 +12,9 @@ If you wanted to identify an inflection point in the recent development of CSS t
 
 These are all legitimate problems that affect most large CSS codebases in one way or another. Christopher points out that these all have good solutions if you move your styling to JavaScript, which is true but introduces its own complexities and idiosyncrasies. Just look at the range of approaches to handling `:hover` states among the projects I referenced earlier, something that has been solved in CSS for a *long* time.
 
-Me, and the [other authors](https://github.com/orgs/css-modules/people) of CSS Modules felt that we could attack the problems head-on, and keep everything we liked about CSS and learning from (read: stealing) the benefits that the styles-in-JS community were bragging about. So, while we are bullish about our approach and firmly defend the virtues of CSS, we do owe a debt of gratitude to those folks pushing the boundaries in the other direction. Thanks, friends! 👬👫👭
+The [CSS Modules team](https://github.com/orgs/css-modules/people) felt we could attack the problem head-on — keep everything we liked about CSS, and build upon the good work that the styles-in-JS community was producing. So, while we're bullish about our approach and firmly defend the virtues of CSS, we owe a debt of gratitude to those folks pushing the boundaries in the other direction. Thanks, friends! 👬👫👭
 
-We think CSS Modules is the future of CSS. Let me tell you about it.
+Let me tell you about what CSS Modules is, and why it's the future.
 
 <imports.Figure src="/assets/images/jony.jpg" alt="Jony Ive contemplates CSS Modules">
   This is how intensely we've been thinking about CSS.
@@ -22,7 +22,7 @@ We think CSS Modules is the future of CSS. Let me tell you about it.
 
 ## Step 1. Local by default.
 
-In CSS Modules, each file is compiled separately so you can use simple class selectors with generic names—you don't need to worry about polluting the global scope. Let's say we were building a simple submit button with the following 4 states.
+In CSS Modules, each file is compiled separately so you can use simple class selectors with generic names — you don't need to worry about polluting the global scope. Let's say we were building a simple submit button with the following 4 states.
 
 <div className={styles.examples.block}>
   <div className={styles.examples.element}>
@@ -373,21 +373,40 @@ By using composition, we can declare our component *in terms of reusable parts*:
 }
 ```
 
-The format naturally lends itself to having lots of single-purpose files, using the file system to delineate styles of different purposes rather than namespacing. And since you can compose multiple classes in a single line, you can start to go further:
+The format naturally lends itself to having lots of single-purpose files, using the file system to delineate styles of different purposes rather than namespacing. And if you want to compose multiple classes from a single file, there's a short hand for that:
 
 ```css
+/* this short hand: */
+.element {
+  composes: padding-large margin-small from "./layout.css";
+}
+
+/* is equivalent to: */
+.element {
+  composes: padding-large from "./layout.css";
+  composes: margin-small from "./layout.css";
+}
+```
+
+This opens up the possibility of using *extremely* granular classes to give aliases for every visual trait your site uses:
+
+```css
+.article {
+  composes: flex vertical centered from "./layout.css";
+}
+
 .masthead {
   composes: serif bold 48pt centered from "./typography.css";
   composes: paragraph-margin-below from "./layout.css";
 }
 
 .body {
-  composes: max720 margin-0-auto paragraph-margin-below from "layout.css";
+  composes: max720 paragraph-margin-below from "layout.css";
   composes: sans light paragraph-line-height from "./typography.css";
 }
 ```
 
-This is a technique I'm really interested in exploring further. In my mind, it combines some of the best aspects of atomic CSS techniques like [Tachyons](http://tachyons.io/), the readability of something like [Semantic UI](http://semantic-ui.com/) with true, convention-free isolation.
+This is a technique I'm really interested in exploring further. In my mind, it combines some of the best aspects of atomic CSS techniques like [Tachyons](http://tachyons.io/), the readability of something like [Semantic UI](http://semantic-ui.com/) with true, dependable isolation.
 
 But we're only at the beginning of the CSS Modules story. We'd love for you to try it on your current next project and help us shape its future.
 
@@ -400,7 +419,5 @@ But to make things even easier, I've made a little Plunkr for you to [play aroun
 [![Try CSS Modules live](/assets/images/css_modules_plunkr.png)](http://plnkr.co/edit/FbcJpb?p=preview)
 
 When you're ready, take a look at the main [CSS Modules](http://github.com/css-modules/css-modules) repo and if you have a question, please raise an issue to kick off a discussion. The [CSS Modules team](https://github.com/orgs/css-modules/people) is small and we haven't seen every use-case yet, so we'd love to hear from you.
-
-&nbsp;
 
 ##### Style happy, friends!

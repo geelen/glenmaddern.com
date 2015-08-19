@@ -11,9 +11,7 @@ export default class Footer extends React.Component {
         <img className={styles.img} src="/assets/images/me_160.jpg"/>
         <figcaption className={styles.figcaption}>
           <span className={styles.me}>Glen Maddern</span> is an independent Web Developer from Melbourne, Australia.
-          <div className="t-layout--pt_half">
-            You should <span className="t-type--semibold">get in touch</span> using one of the following useful internet services:
-          </div>
+          You should <span className="t-type--semibold">get in touch</span> using one of the following useful internet services:
           <div className={styles.links}>
             <a className={styles.link} href="https://twitter.com/glenmaddern">
               <svg className={styles.svg} version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

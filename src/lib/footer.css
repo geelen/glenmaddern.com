@@ -7,7 +7,7 @@
 }
 
 .figure:traits {
-  layout: max600;
+  layout: max480;
   flex: justify-center align-center;
 }
 
