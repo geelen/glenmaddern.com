@@ -24,7 +24,7 @@
 
 .p:traits {
   layout: max600 mb1;
-  type: small1 lh15 sans light;
+  type: small1 small0--small lh15 sans light;
 }
 
 .callout:traits {

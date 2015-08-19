@@ -360,7 +360,9 @@ $padding-normal: 0.5rem;
 
 This is an improvement, but we've only extracted *half* of most of the lines. The fact that `$large-font-size` is for typography and `$padding-normal` is for layout is merely expressed by the name, not enforced anywhere. When the value of a declaration like `box-shadow` doesn't lend itself to being a variable, we have to use a `@mixin` or `@extends`.
 
-By using CSS Modules and composition, we end up declaring our component in terms our reusable parts:
+#### With CSS Modules
+
+By using composition, we can declare our component *in terms of reusable parts*:
 
 ```css
 .element {
