@@ -1,7 +1,7 @@
 ---
 title: "CSS Modules"
 strap: "Welcome to the Future"
-date: "2015-07-18"
+date: "2015-08-19"
 ---
 
 If you wanted to identify an inflection point in the recent development of CSS thinking, you'd probably pick Christopher Chedeau's "CSS in JS" talk from NationJS in November, 2014. It was a watershed moment that set a bunch of different minds spiralling off in their own directions like particles after a high-energy collision. For instance, [React Style](https://github.com/js-next/react-style), [jsxstyle](https://github.com/petehunt/jsxstyle) and [Radium](https://github.com/FormidableLabs/radium) are three of the newest, cleverest, and most viable approaches to styling in React and all reference it *in their project Readme*. If invention is a case of exploring the [adjacent possible](http://www.practicallyefficient.com/home/2010/09/28/the-adjacent-possible), then Christopher is responsible for making a lot of what's possible more adjacent.
@@ -12,7 +12,7 @@ If you wanted to identify an inflection point in the recent development of CSS t
 
 These are all legitimate problems that affect most large CSS codebases in one way or another. Christopher points out that these all have good solutions if you move your styling to JavaScript, which is true but introduces its own complexities and idiosyncrasies. Just look at the range of approaches to handling `:hover` states among the projects I referenced earlier, something that has been solved in CSS for a *long* time.
 
-Me, and the [other authors](https://github.com/orgs/css-modules/people) of CSS Modules felt that we could attack the problems head-on, and keep everything we liked about CSS and learning from (read: stealing) the benefits that the styles-in-JS community were bragging about. So, while we are bullish about our approach and firmly defend the virtues of CSS, we do owe a debt of gratitude to those folks pushing the boundaries in the other direction. Thanks, friends!
+Me, and the [other authors](https://github.com/orgs/css-modules/people) of CSS Modules felt that we could attack the problems head-on, and keep everything we liked about CSS and learning from (read: stealing) the benefits that the styles-in-JS community were bragging about. So, while we are bullish about our approach and firmly defend the virtues of CSS, we do owe a debt of gratitude to those folks pushing the boundaries in the other direction. Thanks, friends! 👬👫👭
 
 We think CSS Modules is the future of CSS. Let me tell you about it.
 
@@ -77,21 +77,19 @@ CSS Modules means you never need to worry about your names being too generic, ju
 
 Notice that we don't use the word *"button"* anywhere. Why would we? The file is already called *"submit-button.css"*, after all. In any other language, you don't have to prefix all your local variables with the name of the file you're in, CSS should be no different.
 
-It's also worth mentioning that we're not overriding styles — **each class has all the styles needed for that variant** (more on that in a minute). And that we used camelCase for `.inProgress` for the sole reason that the syntax in JavaScript becomes a bit nicer. 
+That's made possible by the way CSS Modules is compiled — by using `require` or `import` to load the file from JavaScript:
 
 ```js
 /* components/submit-button.js */
 import styles from './submit-button.css';
 
-buttonElem.outerHTML = `<button class=${styles.inProgress}>Processing...</button>`
+buttonElem.outerHTML = `<button class=${normal}>Submit</button>`
 ```
-
-Using camelCase simply means not having to type `styles['in-progress']`. But if you get paid by the keystroke, go right ahead!
 
 The actual classnames are automatically generated and guaranteed to be unique. CSS Modules takes care of all that for you, and compiles the files to a format called ICSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
 
 ```html
-<button class="components_submit_button__inProgress__abc5436">
+<button class="components_submit_button__normal__abc5436">
   Processing...
 </button>
 ```
@@ -102,9 +100,37 @@ If you see that in your DOM, that means it's working!
 	You're the gorilla. CSS Modules is the shark.<br/>(credit: [Christopher Hastings](http://www.topatoco.com/merchant.mvc?Screen=PROD&Store_Code=TO&Product_Code=RB-HIGHFIVE&Category_Code=RB))
 </imports.Figure>
 
+#### Naming conventions
+
+Considering our button example again:
+
+```css
+/* components/submit-button.css */
+.normal { /* all styles for Normal */ }
+.disabled { /* all styles for Disabled */ }
+.error { /* all styles for Error */ }
+.inProgress { /* all styles for In Progress */
+```
+
+Notice that all the classes are stand-alone, rather than one being the *"base"* and the rest being *"overrides"*. In CSS Modules **each class should have all the styles needed for that variant** (more on how that works in a minute). It makes a big difference to how you use these styles in JavaScript:
+
+```js
+/* Don't do this */
+`class=${[styles.normal, styles['in-progress']].join(" ")}`
+
+/* Using a single name makes a big difference */
+`class=${styles['in-progress']}`
+
+/* camelCase makes it even better */
+`class=${styles.inProgress}`
+```
+
+Of course, if you get paid by the keystroke, do what you want!
+
+
 #### A React Example
 
-As the above example shows, there's nothing about CSS Modules that's React-specific. But React gives you a particularly excellent experience using CSS Modules, so it's worth showing a slightly more complex example:
+There's nothing about CSS Modules that's React-specific. But React gives you a particularly excellent experience using CSS Modules, so it's worth showing a slightly more complex example:
 
 ```
 /* components/submit-button.jsx */
@@ -169,7 +195,7 @@ But wait, how do you represent *shared* styles between all the states? The answe
 }
 ```
 
-The `composes` keyword says that `.normal` *includes* all the styles from `.common`, much like the `@extends` keyword in Sass. But while Sass rewrites your CSS selectors to make that happen, CSS Modules **changes which classes are exported to JavaScript**.
+The `composes` keyword says that `.normal` *includes* all the styles from `.common`, much like the `@extends` keyword in Sass. But while Sass rewrites your CSS selectors to make that happen, **CSS Modules changes which classes are exported to JavaScript**.
 
 #### In Sass
 
@@ -201,11 +227,11 @@ This compiles to this CSS:
 }
 ```
 
-You can then just use *one* class in your markup `<button class="Button--error">` and get the common & specific styles you want. It's a really powerful concept, but there are some nasty edge cases that a lot of us have run in to. A great summary of those issues and links to further reading is [available here](http://www.sitepoint.com/avoid-sass-extend/), thanks to Hugo Giraudel.
+You can then just use *one* class in your markup `<button class="Button--error">` and get the common & specific styles you want. It's a really powerful concept, but the implementation has some edge cases & pitfalls that you should be aware of. A great summary of those issues and links to further reading is [available here](http://www.sitepoint.com/avoid-sass-extend/), thanks to Hugo Giraudel.
 
 #### With CSS Modules
 
-The `composes` keyword is conceptually similar but is executed differently. To demonstrate, let's look at an example:
+The `composes` keyword is conceptually similar to `@extends` but works differently. To demonstrate, let's look at an example:
 
 ```css
 .common { /* font-sizes, padding, border-radius */ }
@@ -231,7 +257,7 @@ styles: {
 }
 ```
 
-So we can still just use `styles.normal` or `styles.error` in our code but we get multiple class rendered into the DOM.
+So we can still just use `styles.normal` or `styles.error` in our code but **we get multiple class rendered into the DOM**.
 
 ```html
 <button class="components_submit_button__common__abc5436 
@@ -246,7 +272,7 @@ This is the power of `composes`, you can combine multiple separate groups of sty
 
 Working with Sass or LESS, each file that you `@import` gets processed in the same global workspace. It's how you can define variables or mixins in one file and use them in all your component files. It's useful, but as soon as your variable names threaten to clash with each other (since it's another global namespace), you inevitably refactor out a `variables.scss` or `settings.scss`, and you lose visibility into which components depend on which variables. And your settings file becomes [unwieldy](https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss).
 
-There are better methodologies, in fact Ben Smithett's [post about using Sass & Webpack together](http://bensmithett.com/smarter-css-builds-with-webpack/) was a direct influence on the CSS Modules project and I encourage you to read it, but you're still constrained by the global nature of Sass.
+There are better methodologies (in fact Ben Smithett's [post about using Sass & Webpack together](http://bensmithett.com/smarter-css-builds-with-webpack/) was a direct influence on the CSS Modules project and I encourage you to read it) but you're still constrained by the global nature of Sass.
 
 CSS Modules runs on a single file at a time, so there's no global context to pollute. And like in JavaScript where we can `import` or `require` our dependencies, CSS Modules lets us `compose` from another file: 
 
@@ -297,7 +323,7 @@ Using composition, we are able to reach into a totally general file like `colors
 ```
 
 In fact, by the time it reaches the browser, our local name *
-"normal"* has no styles of its own. This is a good thing! It means we were able to add a new locally-meaningful object (a thing called "normal") **without adding a single new line of CSS**. The more we can do this, the fewer visual inconsistencies that will creep into our site and the less bloat we'll be shipping to our customers' browsers.
+"normal"* has no styles of its own. This is a good thing! It means we were able to add a new locally-meaningful object (an entity called *"normal"*) **without adding a single new line of CSS**. The more we can do this, the fewer visual inconsistencies that will creep into our site and the less bloat we'll be shipping to our customers' browsers.
 
 <small className={styles.small}>Aside: These empty classes can easily be detected and removed by something like [csso](https://github.com/css/csso)</small>
 
@@ -365,7 +391,7 @@ But we're only at the beginning of the CSS Modules story. We'd love for you to t
 
 # Get started!
 
-With CSS Modules, we hope that we're able to help you and your team maintain as much of your current knowledge of CSS and your product, but become vastly more comfortable and more productive. We've kept the syntax additions to a minimum and tried to ensure there are examples that are close to the way you're already working. We have demo projects for [Webpack](https://github.com/css-modules/webpack-demo), [JSPM](https://github.com/css-modules/jspm-demo) and [Browserify](https://github.com/css-modules/browserify-demo) if you're using one of those, and we're always on the look-out for new environments where CSS Modules would work: support for server-side NodeJS is [happening](https://github.com/css-modules/css-modules-require-hook) and Rails is on the roadmap.
+With CSS Modules, we hope that we're able to help you and your team maintain as much of your current knowledge of CSS and your product, but become vastly more comfortable and more productive. We've kept the syntax additions to a minimum and tried to ensure there are examples that are close to the way you're already working. We have demo projects for [Webpack](https://github.com/css-modules/webpack-demo), [JSPM](https://github.com/css-modules/jspm-demo) and [Browserify](https://github.com/css-modules/browserify-demo) if you're using one of those, and we're always on the look-out for new environments where CSS Modules would work: support for server-side NodeJS is [happening](https://github.com/css-modules/css-modules-require-hook) and Rails is on the horizon.
 
 But to make things even easier, I've made a little Plunkr for you to [play around with an example](http://plnkr.co/edit/FbcJpb?p=preview) without installing a thing! Give it a go:
 

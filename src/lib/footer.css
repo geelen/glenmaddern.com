@@ -3,6 +3,7 @@
 .footer:traits {
   layout: p2 p1--small mb2 max840;
   divider: line-before;
+  type: sans light;
 }
 
 .figure:traits {
@@ -22,7 +23,7 @@
 }
 
 .me:traits {
-  type: bold;
+  type: medium;
 }
 
 .links:traits {

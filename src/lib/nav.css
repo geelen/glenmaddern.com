@@ -2,13 +2,13 @@
 
 .nav:traits {
   flex: align-center;
-  type: small1 lh16;
+  type: sans light upcase small1 lh16;
   layout: p1 max960;
 }
 
 .name:traits {
   flex-child: grow;
-  type: bold;
+  type: medium;
 }
 
 .list:traits {
