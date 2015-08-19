@@ -1,6 +1,6 @@
 ---
 title: "CSS Modules"
-strap: "Welcome to the Future"
+strap: "Welcome to the future"
 date: "2015-08-19"
 ---
 
@@ -83,7 +83,7 @@ That's made possible by the way CSS Modules is compiled — by using `require` o
 /* components/submit-button.js */
 import styles from './submit-button.css';
 
-buttonElem.outerHTML = `<button class=${normal}>Submit</button>`
+buttonElem.outerHTML = `<button class=${styles.normal}>Submit</button>`
 ```
 
 The actual classnames are automatically generated and guaranteed to be unique. CSS Modules takes care of all that for you, and compiles the files to a format called ICSS ([read my blog post about that](interoperable-css)), which is how CSS and JS can communicate. So, when you run your app, you'll see something like:
