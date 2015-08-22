@@ -575,6 +575,8 @@ import styles from './submit-button.css';
 
 <meta slide="white"></meta>
 
+!TODO drop this down to just 2 buttons
+
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
   <button className={styles.examples.invalid}>Submit</button>

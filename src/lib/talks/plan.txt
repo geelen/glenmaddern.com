@@ -41,4 +41,10 @@ ICSS as a compile target.
   CSS Modules is just PostCSS transforms
   "If you have strong ideas about how CSS could be done better, you can write your own plugin chain, get real-world feedback, get ideas added to CSS Modules"
 
+End with:
+	Styling is a pretty different task to building the rest of your app
+	CSS is powerful, it was just incomplete
+	Good design should make it easier to produce high quality code than bad. React did this. How many different types of rendering bugs did we simply leave behind when we moved to React.
+	
+
 Conclusion
