@@ -234,15 +234,50 @@ http://glenmaddern.com/articles/css-modules
 .MyHeader__MyComponent__MySomethingElse--small {}
 ```
 
-!TODO lol
-
-<div bullet="1"></div>
+<div data-bullet></div>
 
 ```js
 window.NAMESPACE = window.NAMESPACE || {};
 window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
 window.NAMESPACE.Widgets.FooBar = function() {}
 ```
+
+---
+
+```css
+.MyHeader {}
+.MyHeader__MyComponent {}
+.MyHeader__MyComponent__MySomethingElse--large {}
+.MyHeader__MyComponent__MySomethingElse--small {}
+```
+
+<div></div>
+
+```js
+window.NAMESPACE = window.NAMESPACE || {};
+window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
+window.NAMESPACE.Widgets.FooBar = function() {}
+```
+
+---
+
+### Class names are the
+# Local Variables
+### of your CSS
+
+---
+
+```js
+function() {
+  var myproject_mywidget_myclass_var1 = "omg stop"
+}
+```
+
+---
+
+<meta bg="https://imgflip.com/s/meme/Bill-Murray-Golf.jpg" bg-pos="0 20%" align="top"></meta>
+
+# Nope
 
 ---
 

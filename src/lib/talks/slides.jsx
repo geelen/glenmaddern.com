@@ -53,23 +53,38 @@ export default class Slides extends React.Component {
 
     let rendered = talk.render(styles, {}),
       nodes = rendered._store.props.children,
-      slides = [{elems: [], bullets: 0}]
+      slides = [{elems: [], bullets: 0, style: {}}]
     nodes.forEach(node => {
       let slide = slides[slides.length - 1]
+      var props = node._store.props
       if (node.type === "hr") {
-        slides.push({elems: [], bullets: 0})
-      } else if (node.type === "p" && node._store.props.children.toString().startsWith('!TODO')) {
-        console.debug(node._store.props.children)
-      } else if (node.type === "div" && node._store.props.bullet) {
-        slide.bullets = slide.bullets + 1
+        slides.push({elems: [], bullets: 0, style: {}})
+      } else if (node.type === "p" && props.children.toString().startsWith('!TODO')) {
+        console.debug(props.children)
+      } else if (node.type === "meta") {
+        if (props['bg']) {
+          slide.parent = {
+            backgroundImage: `url("${props['bg']}")`,
+            backgroundPosition: props['bg-pos'],
+            color: props['color'] || 'white'
+          }
+        }
+        if (props['align'] === 'top') {
+          slide.style.justifyContent = 'flex-start';
+          slide.style.paddingTop = '4rem';
+        }
       } else {
+        if (node.type === "div" && props['data-bullet']) {
+          slide.bullets = slide.bullets + 1
+        }
         slide.elems.push(node)
       }
     })
 
-    return <div className={styles.stage}>
-      { slides.map((slide,i) => {
-        let style = i == this.state.slide - 1 ? {} : {display: 'none'}
+    console.log(slides[this.state.slide - 1])
+    return <div className={styles.stage} style={slides[this.state.slide - 1].parent}>
+      { slides.map((slide, i) => {
+        let style = i == this.state.slide - 1 ? slide.style : {display: 'none'}
         return <div id={i} className={styles.slide} style={style}>
           { slide.elems }
         </div>
