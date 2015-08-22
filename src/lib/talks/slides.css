@@ -9,11 +9,22 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-size: cover;
+}
+
+.stage-white {
+  composes: stage;
+  background: white;
+  code { box-shadow : none; }
+}
+
+.stage-examples {
+  composes: stage-white;
+  .slide { width: intrinsic; }
+  .pre { align-self: flex-start; }
 }
 
 .slide:traits {
-  flex: align-stretch justify-center vertical;
+  flex: align-center justify-center vertical;
   flex-child: no-shrink;
 }
 
@@ -42,7 +53,7 @@
   height: 2rem;
   width: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  content: '';
+  /*content: '';*/
 }
 
 .slide::before {
@@ -155,7 +166,6 @@
 
 .pre {
   text-align: left;
-  align-self: center;
 }
 
 .pre_code:traits {
@@ -196,4 +206,13 @@
 
 .small {
   font-size: 0.5em;
+}
+
+.demo > * {
+  transform: scale(3);
+  transform-origin: 50% 0;
+}
+
+.demo {
+  height: 7rem;
 }

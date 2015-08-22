@@ -1,7 +1,9 @@
 import React from 'react'
 
 import styles from './slides.css!'
-import icss from '../talks/icss.md!markdown'
+import examples from '../articles/examples.css!'
+import icss from './icss.md!markdown'
+styles.examples = examples
 
 const talks = {
   'interoperable-css': icss
@@ -66,6 +68,7 @@ export default class Slides extends React.Component {
           slide.parent = {
             backgroundImage: `url("${props['bg']}")`,
             backgroundPosition: props['bg-pos'],
+            backgroundSize: 'cover',
             color: props['color'] || 'white'
           }
         }
@@ -73,6 +76,7 @@ export default class Slides extends React.Component {
           slide.style.justifyContent = 'flex-start';
           slide.style.paddingTop = '4rem';
         }
+        if (props.slide) slide.parentClass = 'stage-' + props.slide
       } else {
         if (node.type === "div" && props['data-bullet']) {
           slide.bullets = slide.bullets + 1
@@ -81,10 +85,10 @@ export default class Slides extends React.Component {
       }
     })
 
-    console.log(slides[this.state.slide - 1])
-    return <div className={styles.stage} style={slides[this.state.slide - 1].parent}>
+    let currentSlide = slides[this.state.slide - 1]
+    return <div className={styles[currentSlide.parentClass || 'stage']} style={currentSlide.parent}>
       { slides.map((slide, i) => {
-        let style = i == this.state.slide - 1 ? slide.style : {display: 'none'}
+        let style = slide === currentSlide ? slide.style : {display: 'none'}
         return <div id={i} className={styles.slide} style={style}>
           { slide.elems }
         </div>

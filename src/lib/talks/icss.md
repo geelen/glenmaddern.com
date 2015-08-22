@@ -281,6 +281,76 @@ function() {
 
 ---
 
+## Local-by-default
+
+---
+
+<meta slide="white"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+</div>
+
+---
+
+<meta slide="white"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+</div>
+
+```css
+/* components/submit-button.css */
+.SubmitButton--normal {
+  min-width: 9em;
+  padding: 0.4rem 1rem 0.45rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
+}
+```
+---
+
+<meta slide="white"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+</div>
+
+```css
+/* components/submit-button.css */
+.normal {
+  min-width: 9em;
+  padding: 0.4rem 1rem 0.45rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
+}
+```
+
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.normal {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={className}>{text}</button>
+```
+
+---
+
 > ***The language*** needs a standard way to include other modules and for those modules to live in discreet namespaces. There are easy ways to do namespaces...
 
 ```css

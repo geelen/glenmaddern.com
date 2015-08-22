@@ -11,7 +11,7 @@ renderer.codespan = SimpleTag( 'code' )
 renderer.heading = ( text, level ) => `<h${level} className={styles['h' + ${level}]}>${text}</h${level}>`
 renderer.image = ( href, title, text ) => `<img className={styles.img} src="${href}" title="${text}"/>`
 renderer.blockquote = SimpleTag( 'blockquote' )
-renderer.hr = () => console.log(arguments) || `<hr className={styles.hr} />`
+renderer.hr = () => `<hr className={styles.hr} />`
 renderer.list = ( body, ordered ) => ordered ? SimpleTag( 'ol' )( body ) : SimpleTag( 'ul' )( body )
 renderer.listitem = SimpleTag( 'li' )
 renderer.strong = SimpleTag( 'strong' )
