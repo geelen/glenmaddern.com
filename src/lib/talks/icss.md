@@ -172,7 +172,6 @@ https://github.com/joyent/node/issues/5132#issuecomment-15436824
 
 ---
 
-!TODO (maybe just use the image)
 ### **@**Vjeux's 7 Problems <small className={styles.small}>(of CSS)</small>
 * Global Namespaces
 * Dependencies
@@ -466,13 +465,6 @@ return <button className={styles.normal}>Submit</button>
 <!-- Renders this HTML -->
 <button class="normal(components/submit/button.css:43)">Submit</button>
 ```
----
-
-## Loaders + ICSS
-
-* Webpack
-* JSPM
-* Browserify (CSSModulesify)
 
 ---
 
@@ -492,16 +484,94 @@ return <button className={styles.normal}>Submit</button>
   /* styles unchanged... */
 }
 ```
-
 ```js
 import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+---
+# :export
 
-return <button className={styles.normal}>Submit</button>
+```css
+:export {
+  localName: obfuscated_string;
+}
 ```
 
-```html
-<button class="normal_f34f7fa0">Submit</button>
+---
+
+## Loaders + ICSS
+
+### Loads an ICSS file and produces *both* CSS and JS
+---
+* Webpack (css-loader)
+* JSPM (jspm-loader-css-modules)
+* Browserify (cssmodulesify)
+* NodeJS (css-modules-require-hook)
+
+---
+
+### **7 Problems**
+* Global Namespaces ✅
+* Dependencies
+* Dead Code Elimination
+* Minification
+* Sharing Constants
+* Non-deterministic Resolution
+* Isolation
+
+---
+
+## Isolation
+### is largely *solved* by fixing naming
+
+---
+
+<meta slide="sideways"></meta>
+
+```css
+.My_um_thing {
+  color: red;
+  
+  h1 {
+    font-size: 40px;
+  }
+  :nth-child(2) {
+    margin-bottom: 2px;
+  }
+}
+.Ugh_um_what_is_this {
+  font-size: 2em;
+}
 ```
+
+```css
+.thing {
+  color: red;
+}
+.h1 {
+  font-size: 40px;
+}
+.second-thing {
+  margin-bottom: 2px;
+}
+
+.other-thing {
+  font-size: 2em;
+}
+```
+---
+### **7 Problems**
+* Global Namespaces ✅
+* Dependencies
+* Dead Code Elimination
+* Minification
+* Sharing Constants
+* Non-deterministic Resolution
+* Isolation ✅
+---
+### "Sharing Constants"
+# Reuse
+---
 
 ---
 

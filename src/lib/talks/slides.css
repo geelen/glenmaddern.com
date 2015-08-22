@@ -23,6 +23,13 @@
   .pre { align-self: stretch; }
 }
 
+.stage-sideways {
+  composes: stage;
+  .slide { flex-direction: row; }
+  .slide > * { margin-top: 0; width: calc(50% - 1rem); }
+  .slide > *+* { margin-left: 2rem }
+}
+
 .slide:traits {
   flex: align-center justify-center vertical;
   flex-child: no-shrink;
@@ -98,7 +105,7 @@ div[data-bullet] {
 }
 
 .title {
-  font-family: Tiempos Headline, Melbourne, SN NeoNoire, Avenir Next, sans-serif;
+  font-family: Tiempos Headline, minion-pro-subhead, Times New Roman, serif;
 }
 
 .h1 {
@@ -193,7 +200,7 @@ div[data-bullet] {
 }
 
 .ul:traits {
-  type: bold lh14 left;
+  type:  lh14 left;
 }
 
 .ul {
@@ -219,3 +226,4 @@ div[data-bullet] {
 .demo {
   height: 7rem;
 }
+
