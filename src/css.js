@@ -23,9 +23,10 @@ function traits( css ) {
   } )
 }
 
-Plugins.scope.generateScopedName = function(exportedName, path) {
-  return `${exportedName}(${path.replace(/^\//,'')}:${Math.random().toString().slice(-2)})`
-}
+// Breaks animations
+//Plugins.scope.generateScopedName = function(exportedName, path) {
+//  return `${exportedName}(${path.replace(/^\//,'')}:${Math.random().toString().slice(-2)})`
+//}
 
 export default new CSSLoader( [
   nested,

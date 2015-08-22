@@ -13,8 +13,8 @@
 
 .stage-white {
   composes: stage;
-  /*background: white;*/
-  /*code { box-shadow : none; }*/
+  background: white;
+  code { box-shadow : none; }
 }
 
 .stage-examples {
@@ -28,6 +28,10 @@
   .slide { flex-direction: row; }
   .slide > * { margin-top: 0; width: calc(50% - 1rem); }
   .slide > *+* { margin-left: 2rem }
+}
+
+.stage-white-sideways {
+  composes: stage-white stage-sideways;
 }
 
 .slide:traits {
@@ -220,10 +224,14 @@ div[data-bullet] {
 
 .demo > * {
   transform: scale(3);
-  transform-origin: 50% 0;
+  transform-origin: 50% 50%;
 }
 
 .demo {
   height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
 }
 

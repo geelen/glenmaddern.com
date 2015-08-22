@@ -43,15 +43,14 @@
 .invalid {
   composes: buttons;
   color: hsla(0, 61%, 51%, 0.5);
+  background: white;
 }
 
 .inProgress {
   composes: buttons;
   color: hsl(210, 61%, 31%);
-  background: linear-gradient(-45deg, hsl(0, 100%, 100%), hsl(0, 100%, 100%) 25%, hsl(221, 100%, 97%) 25%, hsl(221, 100%, 97%) 50%, hsl(0, 100%, 100%) 50%, hsl(0, 100%, 100%) 75%, hsl(221, 100%, 97%) 75%, hsl(221, 100%, 97%));
+  background: linear-gradient(-45deg, hsl(0, 100%, 100%), hsl(0, 100%, 100%) 25%, hsl(221, 100%, 97%) 25%, hsl(221, 100%, 97%) 50%, hsl(0, 100%, 100%) 50%, hsl(0, 100%, 100%) 75%, hsl(221, 100%, 97%) 75%, hsl(221, 100%, 97%)) 0 0 / 8rem 8rem;
   animation: shiftBackgroundLeft4rem 2s linear infinite;
-  background-size: 8rem 8rem;
-  background-position: 0 0;
 }
 
 @keyframes shiftBackgroundLeft4rem {

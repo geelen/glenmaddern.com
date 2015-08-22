@@ -573,6 +573,92 @@ import styles from './submit-button.css';
 # Reuse
 ---
 
+<meta slide="white"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Submit</button>
+</div>
+<div className={styles.demo}>
+  <button className={styles.examples.disabled}>Submit</button>
+  <button className={styles.examples.inProgress}>Submit</button>
+</div>
+
+---
+
+<meta slide="white-sideways"></meta>
+
+```css
+.SubmitButton {
+  min-width: 9em;
+  padding: 0.4rem 1rem 0.45rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+}
+.SubmitButton--error {
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+​
+​
+```
+```css
+.SubmitButton--normal,
+.SubmitButton--disabled {
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
+}
+.SubmitButton--disabled {
+  opacity: 0.5;
+}
+.SubmitButton--in-progress {
+  color: hsl(210, 61%, 31%);
+  background: linear-gradient(-45deg, hsl(0, 100%, 100%), hsl(0, 100%, 100%) 25%, hsl(221, 100%, 97%) 25%, hsl(221, 100%, 97%) 50%, hsl(0, 100%, 100%) 50%, hsl(0, 100%, 100%) 75%, hsl(221, 100%, 97%) 75%, hsl(221, 100%, 97%)) 0 0 / 8rem 8rem;
+  animation: shiftBackgroundLeft4rem 2s linear infinite;
+}
+```
+
+---
+
+<meta slide="white-sideways"></meta>
+
+```css
+.base {
+  min-width: 9em;
+  padding: 0.4rem 1rem 0.45rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+}
+.error {
+  composes: base;
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+​
+​
+​
+
+```
+```css
+.normal {
+  composes: base;
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
+}
+.disabled {
+  composes: normal
+  opacity: 0.5;
+}
+.inProgress {
+  composes: base;
+  color: hsl(210, 61%, 31%);
+  background: linear-gradient(-45deg, hsl(0, 100%, 100%), hsl(0, 100%, 100%) 25%, hsl(221, 100%, 97%) 25%, hsl(221, 100%, 97%) 50%, hsl(0, 100%, 100%) 50%, hsl(0, 100%, 100%) 75%, hsl(221, 100%, 97%) 75%, hsl(221, 100%, 97%)) 0 0 / 8rem 8rem;
+  animation: shiftBackgroundLeft4rem 2s linear infinite;
+}
+```
+
 ---
 
 > ***The language*** needs a standard way to include other modules and for those modules to live in discreet namespaces. There are easy ways to do namespaces...
