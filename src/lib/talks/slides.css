@@ -13,14 +13,14 @@
 
 .stage-white {
   composes: stage;
-  background: white;
-  code { box-shadow : none; }
+  /*background: white;*/
+  /*code { box-shadow : none; }*/
 }
 
 .stage-examples {
   composes: stage-white;
   .slide { width: intrinsic; }
-  .pre { align-self: flex-start; }
+  .pre { align-self: stretch; }
 }
 
 .slide:traits {
@@ -37,8 +37,11 @@
   padding: 1rem;
   overflow: auto;
 
-[data-bullet] ~ * {
+div[data-bullet] {
+  display: none;
+  ~ * {
   opacity: 0;
+  }
 }
 
 }

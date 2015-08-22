@@ -346,7 +346,97 @@ function() {
 /* components/submit-button.jsx */
 import styles from './submit-button.css';
 
-return <button className={className}>{text}</button>
+return <button className={styles.normal}>Submit</button>
+```
+
+<div data-bullet></div>
+
+```html
+<!-- Renders this HTML -->
+<button class="normal_f34f7fa0">Submit</button>
+```
+
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+<div data-bullet></div>
+
+```html
+<!-- Renders this HTML -->
+<button class="normal_f34f7fa0">Submit</button>
+```
+
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="normal_f34f7fa0">Submit</button>
+```
+
+---
+
+## Loaders + ICSS
+
+* Webpack
+* JSPM
+* Browserify (CSSModulesify)
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
+```js
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<button class="normal_f34f7fa0">Submit</button>
 ```
 
 ---
