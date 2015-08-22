@@ -4,6 +4,7 @@
   flex: centered;
   type: serif centered;
 }
+
 .stage {
   height: 100vh;
   width: 100vw;
@@ -19,26 +20,36 @@
   width: 1280px;
   height: 720px;
   text-align: center;
-  font-family: Tiempos Text, Melbourne, SN NeoNoire, Avenir Next, sans-serif;
+  /*font-family: Tiempos Text, Melbourne, SN NeoNoire, Avenir Next, sans-serif;*/
   position: relative;
+  padding: 1rem;
+  overflow: auto;
+
+  [data-bullet] ~ * {
+    opacity: 0;
+  }
 }
+
 .slide > * + * {
   margin-top: 1rem;
 }
+
 .slide::before, .slide::after {
   position: absolute;
   display: block;
   height: 2rem;
   width: 2rem;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   content: '';
 }
+
 .slide::before {
   top: 0;
   left: 0;
   border-right: none;
   border-bottom: none;
 }
+
 .slide::after {
   bottom: 0;
   right: 0;
@@ -76,6 +87,7 @@
 
 .h1 {
   font-size: 8rem;
+  line-height: 1.1;
   word-wrap: break-word;
   /*letter-spacing: -0.1em;*/
   font-weight: 700;
@@ -122,9 +134,11 @@
 .blockquote::before {
   content: '“';
 }
+
 .blockquote::after {
   content: '”';
 }
+
 .blockquote::before,
 .blockquote::after {
   font-size: 6rem;
@@ -143,13 +157,16 @@
 }
 
 .pre_code:traits {
-  type: mono lh16 h4 unbroken;
+  type: mono lh16 h5 unbroken;
   colors: white-background;
   border: simple;
   layout: p1 m0 block;
 }
+
 .pre_code {
-  max-height: 720px;
+  max-height: calc(720px - 4rem);
+  max-width: calc(1280px - 4rem);
+  overflow: auto;
 }
 
 .em {
@@ -158,4 +175,23 @@
 
 .h5 {
   font-size: 14rem;
+}
+
+.ul:traits {
+  type: bold lh14 left;
+}
+
+.ul {
+  font-size: 3rem;
+  align-self: center;
+  min-width: 50%;
+}
+
+.li::before {
+  content: '•';
+  margin: 0 2rem;
+}
+
+.small {
+  font-size: 0.5em;
 }

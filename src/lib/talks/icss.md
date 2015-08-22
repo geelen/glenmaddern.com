@@ -1,5 +1,4 @@
 # Interoperable CSS
-#### Welcome to the future
 
 &nbsp;
 
@@ -7,7 +6,10 @@ by @glenmaddern
 
 ---
 
-## All this has happened before. All this will happen again.
+!TODO battlestar background
+
+### All this has happened before.
+### All this will happen again.
 
 ---
 
@@ -128,14 +130,16 @@ exports.FooBar = function() {
 
 ---
 
-### CommonJS kept changing to try to be all-inclusive
-#### (async, browser environments, etc)
+## CommonJS moved on
+### (async, browser environments, etc)
 
-&nbsp;
+---
 
 ## "Whatever Node Does"
 
 ### became the standard
+
+!TODO expand here with more quotes?
 
 ---
 
@@ -158,7 +162,9 @@ https://github.com/joyent/node/issues/5132#issuecomment-15436824
 
 ---
 
-## "Sweet JavaScript History Lesson Bro!" 
+!TODO *nice* image/gif here
+
+## "Sweet JavaScript History Lesson!" 
 
 ---
 
@@ -166,27 +172,74 @@ https://github.com/joyent/node/issues/5132#issuecomment-15436824
 
 ---
 
-# ICSS
+!TODO (maybe just use the image)
+### **@**Vjeux's 7 Problems <small className={styles.small}>(of CSS)</small>
+* Global Namespaces
+* Dependencies
+* Dead Code Elimination
+* Minification
+* Sharing Constants
+* Non-deterministic Resolution
+* Isolation
 
 ---
 
-## Interoperable CSS
+## CSS in JS?
 
-#### June 21st, 2015
+* Inline styles
+* React Style
+* jsxstyle
+* Radium
+* jss
 
-http://glenmaddern.com/articles/interoperable-css
+---
+
+> [*We wanted to*] help you and your team **maintain as much of your current knowledge** of CSS and your product, but become vastly more comfortable and more productive.
+
+http://glenmaddern.com/articles/css-modules
+
+!TODO That's the biggest point of difference I want to make between us and the other teams.
 
 ---
 
 # CSS Modules
 
-&nbsp;
+---
 
-#### compiles to
+# Interoperable CSS?
 
-&nbsp;
+---
+
+# CSS Modules
+
+### 🔽
 
 # ICSS
+
+---
+
+### **CSS Modules** is what we wanted.<br/>**ICSS** is how we did it.
+
+---
+
+#### Problem #1
+## Global namespace
+
+---
+
+```css
+.MyHeader {}
+.MyHeader__MyComponent {}
+.MyHeader__MyComponent__MySomethingElse--large {}
+.MyHeader__MyComponent__MySomethingElse--small {}
+```
+
+<div data-bullet="1"></div>
+```js
+window.NAMESPACE = window.NAMESPACE || {};
+window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
+window.NAMESPACE.Widgets.FooBar = function() {}
+```
 
 ---
 

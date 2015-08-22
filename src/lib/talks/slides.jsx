@@ -49,7 +49,7 @@ export default class Slides extends React.Component {
     let rendered = talk.render(styles, {}),
       nodes = rendered._store.props.children,
       slides = [[]]
-    nodes.forEach(node => node.type === "hr" ? slides.push([]) : slides[slides.length - 1].push(node))
+    nodes.forEach(node => node.type === "hr" ? slides.push([]) : node.type === "p" && node._store.props.children.toString().startsWith('!TODO') ? console.debug(node._store.props.children) : slides[slides.length - 1].push(node))
 
     return <div className={styles.stage}>
       { slides.map((slide,i) => {
