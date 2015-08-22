@@ -25,9 +25,9 @@
   padding: 1rem;
   overflow: auto;
 
-  [data-bullet] ~ * {
-    opacity: 0;
-  }
+  /*[bullet] ~ * {*/
+    /*opacity: 0;*/
+  /*}*/
 }
 
 .slide > * + * {

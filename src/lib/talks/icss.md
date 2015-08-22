@@ -234,7 +234,10 @@ http://glenmaddern.com/articles/css-modules
 .MyHeader__MyComponent__MySomethingElse--small {}
 ```
 
-<div data-bullet="1"></div>
+!TODO lol
+
+<div bullet="1"></div>
+
 ```js
 window.NAMESPACE = window.NAMESPACE || {};
 window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};

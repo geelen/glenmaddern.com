@@ -11,7 +11,8 @@ export default class Slides extends React.Component {
   constructor() {
     super()
     this.state = {
-      slide: parseInt(location.hash.replace(/^#/, '')) || 1
+      slide: parseInt(location.hash.replace(/^#/, '')) || 1,
+      bullet: 0
     }
   }
 
@@ -30,7 +31,11 @@ export default class Slides extends React.Component {
   }
 
   incrementSlide() {
-    this.setSlide(this.state.slide + 1)
+    if (this.numBullets > this.state.bullet) {
+      this.setSlide(this.state.slide, this.state.bullet + 1)
+    } else {
+      this.setSlide(this.state.slide + 1, 0)
+    }
   }
 
   decrementSlide() {
@@ -48,14 +53,25 @@ export default class Slides extends React.Component {
 
     let rendered = talk.render(styles, {}),
       nodes = rendered._store.props.children,
-      slides = [[]]
-    nodes.forEach(node => node.type === "hr" ? slides.push([]) : node.type === "p" && node._store.props.children.toString().startsWith('!TODO') ? console.debug(node._store.props.children) : slides[slides.length - 1].push(node))
+      slides = [{elems: [], bullets: 0}]
+    nodes.forEach(node => {
+      let slide = slides[slides.length - 1]
+      if (node.type === "hr") {
+        slides.push({elems: [], bullets: 0})
+      } else if (node.type === "p" && node._store.props.children.toString().startsWith('!TODO')) {
+        console.debug(node._store.props.children)
+      } else if (node.type === "div" && node._store.props.bullet) {
+        slide.bullets = slide.bullets + 1
+      } else {
+        slide.elems.push(node)
+      }
+    })
 
     return <div className={styles.stage}>
       { slides.map((slide,i) => {
         let style = i == this.state.slide - 1 ? {} : {display: 'none'}
         return <div id={i} className={styles.slide} style={style}>
-          { slide }
+          { slide.elems }
         </div>
       })}
     </div>
