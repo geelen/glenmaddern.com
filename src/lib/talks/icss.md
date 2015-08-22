@@ -403,6 +403,70 @@ return <button className={styles.normal}>Submit</button>
 ```
 
 ---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.f34f7fa0 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="f34f7fa0">Submit</button>
+```
+
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+._components_submit_button__normal {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="_components_submit_button__normal">Submit</button>
+```
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.normal\(components\/submit\/button.css\:43\) {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="normal(components/submit/button.css:43)">Submit</button>
+```
+---
 
 ## Loaders + ICSS
 
