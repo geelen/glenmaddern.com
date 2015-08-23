@@ -21,7 +21,28 @@ by @glenmaddern
 
 ---
 
-![](https://upload.wikimedia.org/wikipedia/en/d/d6/Tropic_thunder_ver3.jpg)
+<meta slide="3-up"></meta>
+
+![](https://upload.wikimedia.org/wikipedia/commons/5/5c/N95_Front-slide-open.jpg)
+![](http://www.blogcdn.com/www.engadget.com/media/2008/05/htc-touch-diamond-official.jpg)
+![](http://www.onecellular.com/167-736-thickbox/blackberry-curve-8330-red-telus.jpg)
+
+---
+
+<meta slide="movies"></meta>
+
+![](https://upload.wikimedia.org/wikipedia/en/7/70/Ironmanposter.JPG)
+![](https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg)
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/d/d5/Iron_Man_3_theatrical_poster.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/7/7e/Thor_-_The_Dark_World_poster.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/e/e8/Captain_America_The_Winter_Soldier.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/8/8f/GOTG-poster.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/1/1b/Avengers_Age_of_Ultron.jpg)</span>
+<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg)</span>
 
 ---
 
@@ -30,6 +51,11 @@ by @glenmaddern
 ---
 
 ![](https://dl.dropboxusercontent.com/u/1349167/bieber.png)
+
+---
+
+# JavaScript
+#### in 2008
 
 ---
 
@@ -82,7 +108,7 @@ https://wiki.mozilla.org/ServerJS/Introduction
 
 ---
 
-# Interoperable JavaScript Modules
+## Interoperable JavaScript Modules
 #### March 21, 2009
 
 ### Kris Kowal
@@ -96,7 +122,7 @@ http://askawizard.blogspot.com.au/2009/03/interoperable-javascript-modules.html
 ---
 
 # NodeJS
-#### Feb 16, 2009
+#### Feb 2009
 
 ### Ryan Dahl
 
@@ -105,33 +131,13 @@ https://github.com/joyent/node/commits/master?page=308
 ---
 
 # CommonJS
-
----
-
-```javascript
-window.NAMESPACE = window.NAMESPACE || {};
-window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
-window.NAMESPACE.Widgets.FooBar = function() {
-  ...
-};
-```
-
-*vs*
-
-```javascript
-/* namespace/widgets/foobar.js */
-
-var dependency = require('./dependency.js');
-
-exports.FooBar = function() {
-  ...
-};
-```
+#### July 2009
 
 ---
 
 ## CommonJS moved on
 ### (async, browser environments, etc)
+## NodeJS didn't
 
 ---
 
@@ -158,6 +164,28 @@ https://github.com/joyent/node/issues/5132#issuecomment-15436824
 
 ---
 
+```javascript
+window.NAMESPACE = window.NAMESPACE || {};
+window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
+window.NAMESPACE.Widgets.FooBar = function() {
+  ...
+};
+```
+
+*vs*
+
+```javascript
+/* namespace/widgets/foobar.js */
+
+var dependency = require('./dependency.js');
+
+module.exports = function() {
+  ...
+};
+```
+
+---
+
 ![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/l6-aq4eu.png)
 
 ---
@@ -168,7 +196,49 @@ https://github.com/joyent/node/issues/5132#issuecomment-15436824
 
 ---
 
-# CSS
+```js
+var x = require('x');
+module.exports = y;
+```
+
+---
+
+### We took a language that had **a single global context** and made it multi-file
+
+### We took a language that had **no mechanism for sharing code** beyond globals & made 175,000 packages on NPM
+
+---
+
+# Browserify
+
+#### September 5, 2011
+
+http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
+
+---
+
+### You can ***change the human interface*** of a language without needing to change the machine interface. 
+
+---
+
+# Interoperable CSS
+
+#### June 21, 2015
+
+---
+
+## ICSS
+* Files processed individually
+* Syntax additions:
+
+```css
+:import("./dependency.css") {
+  import-alias: export-from-dependency;
+}
+:export {
+  exported-token: local-alias;
+}
+```
 
 ---
 
