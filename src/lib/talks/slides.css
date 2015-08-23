@@ -41,7 +41,14 @@ code {
 }
 
 .pre {
+  border-top: 1px solid #999;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   align-self: stretch;
+  &:first-child { margin-top : 0;
+  padding-top: 0;
+  border: none;
+}
 }
 
 }
@@ -78,8 +85,11 @@ code {
 }
 
 .stage-movies { composes: stage; }
-.stage-movies img { width: 180px; height: 270px; margin: 0 0.5rem; }
+.stage-movies img { width: 220px; height: 330px; margin: 0 0.5rem; }
 .stage-movies p { display: flex; flex-wrap: wrap; }
+.stage-movies-small { composes: stage-movies; }
+.stage-movies-small img { width: 180px; height: 270px; margin: 0 0.5rem; }
+
 .nope { display: block; position: relative; }
 .nope img { opacity: 0.6; }
 .nope::before {
