@@ -228,9 +228,6 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 ---
 
 ## ICSS
-* Files processed individually
-* Syntax additions:
-
 ```css
 :import("./dependency.css") {
   import-alias: export-from-dependency;
@@ -239,6 +236,25 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
   exported-token: local-alias;
 }
 ```
+
+---
+
+## ICSS
+
+* Files processed individually
+* Builds upon a loader (Webpack/JSPM/Browserify)
+* Compile target, not for humans
+* Built to support **CSS Modules**
+
+---
+
+<meta bg x-gif src="http://media.giphy.com/media/3oEduXD0Ksf0zGJRMQ/giphy.gif" n-times="1"></meta>
+
+# Ok
+
+---
+
+# Styling in React
 
 ---
 

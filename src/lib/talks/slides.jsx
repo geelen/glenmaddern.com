@@ -77,6 +77,9 @@ export default class Slides extends React.Component {
           slide.style.paddingTop = '4rem';
         }
         if (props.slide) slide.parentClass = 'stage-' + props.slide
+        if (props['x-gif']) {
+          slide.xGif = `<x-gif fill stopped src="${props.src}" n-times="${props['n-times']}"/>`
+        }
       } else {
         if (node.type === "div" && props['data-bullet']) {
           slide.bullets = slide.bullets + 1
@@ -88,9 +91,11 @@ export default class Slides extends React.Component {
     let currentSlide = slides[this.state.slide - 1]
     return <div className={styles[currentSlide.parentClass || 'stage']} style={currentSlide.parent}>
       { slides.map((slide, i) => {
-        let style = slide === currentSlide ? slide.style : {display: 'none'}
-        return <div id={i} className={styles.slide} style={style}>
+        return <div id={i} style={slide === currentSlide ? {} : {display: 'none'}}>
+          { slide.xGif ? <div className={styles.xGif} dangerouslySetInnerHTML={{__html: slide === currentSlide ? slide.xGif.replace(/stopped/,'') : slide.xGif}}></div> : null }
+          <div className={styles.slide} style={slide.style}>
           { slide.elems }
+          </div>
         </div>
       })}
     </div>

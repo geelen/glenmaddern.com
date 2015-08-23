@@ -1,14 +1,26 @@
 @traits ("../../styles/traits/");
 
 .stage:traits {
-  flex: centered;
   type: serif centered;
 }
 
-.stage {
+.stage > * {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.xGif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
 }
 
 .stage-white {
