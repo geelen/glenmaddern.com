@@ -498,3 +498,23 @@ import styles from './nav.css';
   i__util_var_1: SharedUtilVar;
 }
 ```
+---
+<meta slide="examples"></meta>
+
+```css
+:export {
+  blue: blue_c22950a8;
+  light-blue-bg: light-blue-bg_ea7f0091;
+}
+```
+
+```css
+:import("./colors.css") {
+  tmp_var_1: blue;
+  tmp_var_2: light-blue-bg;
+}
+:export {
+  base: base_81f12d56;
+  normal: base_81f12d56 tmp_var_1 tmp_var_2 normal_f34f7fa0;
+}
+```

@@ -1044,38 +1044,42 @@ export default class SubmitButton extends React.Component {
 
 ---
 
+<meta slide="examples"></meta>
+
 ```css
+/* colors.css */
+.blue {
+  color: hsl(210, 61%, 31%);
+}
+.light-blue-bg {
+  background: hsla(210,61%,51%,0.1);
+}
+```
+
+```css
+/* submit-button.css */
 .base {
-  min-width: 9em;
-  padding: 0.4rem 1rem 0.45rem;
-  font-size: 0.8rem;
-  border: 1px solid;
-  border-radius: 0.25rem;
+  /* COMMON STYLES */
 }
 .normal {
   composes: base;
   composes: blue light-blue-bg from "./colors.css";
 }
 ```
+
 ---
-```css
-:export {
-  blue: blue_c22950a8;
-  light-blue-bg: light-blue-bg_ea7f0091;
-}
-```
+<meta slide="examples"></meta>
 
 ```css
-:import("./colors.css") {
-  blue: tmp_var_1;
-  light-blue-bg: tmp_var_2;
+.blue_c22950a8 {
+  color: hsl(210, 61%, 31%);
 }
-:export {
-  base: base_81f12d56;
-  normal: base_81f12d56 tmp_var_1 tmp_var_2 normal_f34f7fa0;
+.light-blue-bg_ea7f0091 {
+  background: hsla(210,61%,51%,0.1);
 }
+.base_81f12d56 { /* COMMON STYLES */ }
+.normal_f34f7fa0 {}
 ```
----
 
 ```html
 <!-- Renders this HTML -->
@@ -1088,18 +1092,39 @@ export default class SubmitButton extends React.Component {
 ```
 ---
 
+<meta slide="dramatic"></meta>
+
+#### Part 3
+## Conclusion
+
+---
+
+<meta x-gif src="/assets/images/apollorockygif1.gif" n-times="1"></meta>
+
+---
+
 ## Good design
 
 ### should lead you to good practice
 
-## Good 
 ---
 
-## Why is ICSS distinct from CSS Modues?
-
-!TODO This is CSS. Nobody knows what they're doing. Least of all us. If we can make all the loaders work of a low-level format *you* can build your own tools. If it's
+## Good abstractions
+### should save you cognitive load
 
 ---
+
+## Thanks!
+
+#### <br/>CSS Modules
+**github.com/css-modules/css-modules<br/>glenmaddern.com/articles/css-modules**
+#### <br/>ICSS
+**github.com/css-modules/icss<br/>glenmaddern.com/articles/icss**
+
+### **@glenmaddern**
+
+---
+
 ## CSS Modules
 * Webpack (css-loader w/ modules flag)
 * JSPM (jspm-loader-css-modules)
@@ -1109,11 +1134,3 @@ export default class SubmitButton extends React.Component {
 ## ICSS
 * Webpack (css-loader)
 * JSPM (jspm-loader-css)
-
----
-
-# Thanks!
-
-### github.com/css-modules/icss
-
-@glenmaddern
