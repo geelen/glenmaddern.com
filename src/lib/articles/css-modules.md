@@ -195,20 +195,20 @@ But wait, how do you represent *shared* styles between all the states? The answe
 }
 ```
 
-The `composes` keyword says that `.normal` *includes* all the styles from `.common`, much like the `@extends` keyword in Sass. But while Sass rewrites your CSS selectors to make that happen, **CSS Modules changes which classes are exported to JavaScript**.
+The `composes` keyword says that `.normal` *includes* all the styles from `.common`, much like the `@extend` keyword in Sass. But while Sass rewrites your CSS selectors to make that happen, **CSS Modules changes which classes are exported to JavaScript**.
 
 #### In Sass
 
-Let's take our BEM example from above and apply some of Sass' `@extends`:
+Let's take our BEM example from above and apply some of Sass' `@extend`:
 
 ```scss
 .Button--common { /* font-sizes, padding, border-radius */ }
 .Button--normal {
-  @extends .Button--common;
+  @extend .Button--common;
   /* blue color, light blue background */
 }
 .Button--error {
-  @extends .Button--common;
+  @extend .Button--common;
   /* red color, light red background */
 }
 ```
@@ -231,7 +231,7 @@ You can then just use *one* class in your markup `<button class="Button--error">
 
 #### With CSS Modules
 
-The `composes` keyword is conceptually similar to `@extends` but works differently. To demonstrate, let's look at an example:
+The `composes` keyword is conceptually similar to `@extend` but works differently. To demonstrate, let's look at an example:
 
 ```css
 .common { /* font-sizes, padding, border-radius */ }
@@ -358,7 +358,7 @@ $padding-normal: 0.5rem;
 }
 ```
 
-This is an improvement, but we've only extracted *half* of most of the lines. The fact that `$large-font-size` is for typography and `$padding-normal` is for layout is merely expressed by the name, not enforced anywhere. When the value of a declaration like `box-shadow` doesn't lend itself to being a variable, we have to use a `@mixin` or `@extends`.
+This is an improvement, but we've only extracted *half* of most of the lines. The fact that `$large-font-size` is for typography and `$padding-normal` is for layout is merely expressed by the name, not enforced anywhere. When the value of a declaration like `box-shadow` doesn't lend itself to being a variable, we have to use a `@mixin` or `@extend`.
 
 #### With CSS Modules
 
