@@ -14,13 +14,6 @@ by @glenmaddern
 
 ---
 
-!TODO battlestar background
-
-### All this has happened before.
-### All this will happen again.
-
----
-
 ## September 1st 2008
 
 ---
@@ -99,6 +92,7 @@ window.NAMESPACE.Widgets.FooBar = function() {
 ---
 
 ![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/jb8vivcf.png)
+!TODO note: Launched this to tell everyone what a browser was, because you either did and were using Firefox, or you didn't and you were using IE
 
 ---
 
@@ -115,14 +109,14 @@ window.NAMESPACE.Widgets.FooBar = function() {
 
 ---
 
-> JavaScript needs a **standard way to include other modules** and for those modules to live in discreet namespaces. There are easy ways to do namespaces, but there’s no standard programmatic way to load a module (once!). This is really important, because server side apps can include a lot of code and will likely mix and match parts that meet those standard interfaces.
+> JavaScript needs a **standard way to include other modules** and for those modules to live in discreet namespaces. There are easy ways to do namespaces, but there’s no standard programmatic way to load a module (once!).
 
 http://www.blueskyonmars.com/2009/01/29/what-server-side-javascript-needs/
 
 ---
 
 
-> Server side JavaScript is very fragmented. A script that accesses files can't be used without modification on both rhino and v8. Spidermonkey and JavaScriptCore can't both load in additional modules in the same way. A JavaScript web framework is very much tied to its interpreter and is often **forced to create a bunch of APIs that Python, Ruby and Java programmers take for granted**.
+> Server side JavaScript is very fragmented. [Rhino, v8, Spidermonkey and JavaScriptCore don't work] in the same way. A JavaScript web framework is very much tied to its interpreter and is often **forced to create a bunch of APIs that Python, Ruby and Java programmers take for granted**.
 
 https://wiki.mozilla.org/ServerJS/Introduction 
 
@@ -599,6 +593,10 @@ return <button className={styles.normal}>Submit</button>
 }
 ```
 
+!TODO maybe go ICSS -> React -> DOM?
+
+<div data-bullet></div>
+
 ```css
 /* ICSS */
 :export {
@@ -608,6 +606,60 @@ return <button className={styles.normal}>Submit</button>
   /* styles unchanged... */
 }
 ```
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+<div data-bullet></div>
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
 ```js
 import styles from './submit-button.css';
 // { normal: "normal_f34f7fa0" }
@@ -830,42 +882,128 @@ return <button className={styles.error}>Error!</button>
 #### Michael Chan, July 6, 2015
 
 ---
+
+
+```js
+export default class SubmitButton extends React.Component {
+  render() {
+    let state = this.props.error
+      ? { text: 'Error!', style:{color:'red', backgroundColor:'white'}}
+      : { text: 'Submit' }
+    
+    return <button className="SubmitButton" style={state.style || {}}>
+      { state.text }
+    </button>
+  }
+}
+```
+---
+
+```js
+import styles from "./submit-button.css";
+
+export default class SubmitButton extends React.Component {
+  render() {
+    let state = this.props.error
+      ? { text: 'Error!', classes: styles.error }
+      : { text: 'Submit', classes: styles.normal }
+    
+    return <button className={ state.classes }>
+      { state.text }
+    </button>
+  }
+}
+```
+---
+## "Name your states!"
+---
+
+```js
+import styles from "./submit-button.css";
+const labels = { error: 'Error!', normal: 'Submit' }
+
+export default class SubmitButton extends React.Component {
+  render() {
+    let state = this.props.error ? 'error' : 'normal'
+    
+    return <button className={ styles[state] }>
+      { labels[state] }
+    </button>
+  }
+}
+```
+
+---
+
+## Multi-file composition
+
+---
+
+```css
+.base {
+  min-width: 9em;
+  padding: 0.4rem 1rem 0.45rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+}
+.normal {
+  composes: base;
+  composes: blue light-blue-bg from "./colors.css";
+}
+```
+---
+```css
+:export {
+  blue: blue_c22950a8;
+  light-blue-bg: light-blue-bg_ea7f0091;
+}
+```
+
+```css
+:import("./colors.css") {
+  blue: tmp_var_1;
+  light-blue-bg: tmp_var_2;
+}
+:export {
+  base: base_81f12d56;
+  normal: base_81f12d56 tmp_var_1 tmp_var_2 normal_f34f7fa0;
+}
+```
+---
+
+```html
+<!-- Renders this HTML -->
+<button class="base_81f12d56
+               blue_c22950a8 
+               light-blue-bg_ea7f0091
+               normal_f34f7fa0">
+  Submit
+</button>
+```
+---
+
+## Good design
+
+### should lead you to good practice
+
+## Good 
+---
+
+## Why is ICSS distinct from CSS Modues
+
+### This is CSS. Nobody knows what they're doing. Least of all us. If we can make all the loaders work of a low-level format *you* can build your own tools. If it's
+
+---
+## CSS Modules
 * Webpack (css-loader w/ modules flag)
 * JSPM (jspm-loader-css-modules)
 * Browserify (cssmodulesify)
 * NodeJS (css-modules-require-hook)
 ---
-
-##### ✅
-
-
----
-
-## Everything CSS Modules does is powered by ICSS
-
-### &
-
-## ICSS is an (evolving) specification
-
----
-
-### Implementations exist for
-## Webpack
-
-## Browserify
-
-## JSPM
-
----
-
-### Server-side rendering?
-
-## NodeJS (coming)
-
-## Rails
-
-## PHP
-
+## ICSS
+* Webpack (css-loader)
+* JSPM (jspm-loader-css)
 
 ---
 
