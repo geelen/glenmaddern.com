@@ -59,6 +59,11 @@ code {
 
 }
 
+.stage-examples-one {
+  composes: stage-examples;
+  .pre { border-top: none; }
+}
+
 .stage-sideways {
   composes: stage;
 
@@ -262,8 +267,6 @@ code {
 .pre_code {
   max-height: calc(720px - 4rem);
   max-width: calc(1280px - 4rem);
-  overflow-y: hidden;
-  overflow-x: auto;
 }
 
 .em {

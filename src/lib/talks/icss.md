@@ -10,7 +10,7 @@ by @glenmaddern
 
 #### Part 1
 
-## Machine interfaces
+### All this has happened before.<br/>All this will happen again.
 
 ---
 
@@ -92,6 +92,7 @@ window.NAMESPACE.Widgets.FooBar = function() {
 ---
 
 ![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/jb8vivcf.png)
+
 !TODO note: Launched this to tell everyone what a browser was, because you either did and were using Firefox, or you didn't and you were using IE
 
 ---
@@ -116,7 +117,7 @@ http://www.blueskyonmars.com/2009/01/29/what-server-side-javascript-needs/
 ---
 
 
-> Server side JavaScript is very fragmented. [Rhino, v8, Spidermonkey and JavaScriptCore don't work] in the same way. A JavaScript web framework is very much tied to its interpreter and is often **forced to create a bunch of APIs that Python, Ruby and Java programmers take for granted**.
+> Server side JavaScript is very fragmented. A script that accesses files can't be used without modification on both rhino and v8. Spidermonkey and JavaScriptCore can't both load in additional modules in the same way. A JavaScript web framework is very much tied to its interpreter and is often **forced to create a bunch of APIs that Python, Ruby and Java programmers take for granted**.
 
 https://wiki.mozilla.org/ServerJS/Introduction 
 
@@ -206,7 +207,7 @@ module.exports = function() {
 
 ---
 
-!TODO *nice* image/gif here
+<meta bg x-gif src="/assets/images/bt7.gif" n-times="0.8" speed="0.6"></meta>
 
 ## "Sweet JavaScript History Lesson!" 
 
@@ -289,6 +290,24 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 * Sharing Constants
 * Non-deterministic Resolution
 * Isolation
+
+---
+
+<meta x-gif src="http://media.giphy.com/media/xKy2w6LehxxHa/giphy.gif" n-times="1" speed="0.8"></meta>
+
+---
+
+### **@**Vjeux's 7 Problems <small className={styles.small}>(of CSS)</small>
+* Global Namespaces
+* Dependencies
+* Dead Code Elimination
+* Minification
+* Sharing Constants
+* Non-deterministic Resolution
+* Isolation
+---
+
+<meta x-gif src="http://stream1.gifsoup.com/webroot/animatedgifs/483186_o.gif" n-times="0.79"></meta>
 
 ---
 
@@ -423,7 +442,7 @@ function() {
   border: 1px solid;
   border-radius: 0.25rem;
   color: hsl(210, 61%, 31%);
-  background-color: hsla(210, 61%, 51%, 0.1);
+  background: hsla(210, 61%, 51%, 0.1);
 }
 ```
 ---
@@ -443,7 +462,7 @@ function() {
   border: 1px solid;
   border-radius: 0.25rem;
   color: hsl(210, 61%, 31%);
-  background-color: hsla(210, 61%, 51%, 0.1);
+  background: hsla(210, 61%, 51%, 0.1);
 }
 ```
 
@@ -748,9 +767,9 @@ import styles from './submit-button.css';
 .SubmitButton {
   /* COMMON STYLES */
 }
-.SubmitButton--normal,
+.SubmitButton--normal {
   color: hsl(210, 61%, 31%);
-  background-color: hsla(210, 61%, 51%, 0.1);
+  background: hsla(210,61%,51%,0.1);
 }
 .SubmitButton--error {
   color: hsla(0, 61%, 51%, 0.5);
@@ -773,9 +792,9 @@ import styles from './submit-button.css';
 .SubmitButton {
   /* COMMON STYLES */
 }
-.SubmitButton--normal,
+.SubmitButton--normal {
   color: hsl(210, 61%, 31%);
-  background-color: hsla(210, 61%, 51%, 0.1);
+  background: hsla(210,61%,51%,0.1);
 }
 .SubmitButton--error {
   color: hsla(0, 61%, 51%, 0.5);
@@ -792,10 +811,31 @@ import styles from './submit-button.css';
 .normal {
   composes: base;
   color: hsl(210, 61%, 31%);
-  background-color: hsla(210, 61%, 51%, 0.1);
+  background: hsla(210,61%,51%,0.1);
 }
 .error {
   composes: base;
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+```
+---
+
+<meta slide="examples"></meta>
+
+```css
+:export {
+  base: base_81f12d56;
+  normal: base_81f12d56 normal_f34f7fa0;
+  error: base_81f12d56 error_b7d2ad6f;
+}
+
+.base_81f12d56 { /* COMMON STYLES */ }
+.normal_f34f7fa0 {
+  color: hsl(210, 61%, 31%);
+  background: hsla(210,61%,51%,0.1);
+}
+.error_b7d2ad6f {
   color: hsla(0, 61%, 51%, 0.5);
   background: white;
 }
@@ -883,6 +923,7 @@ return <button className={styles.error}>Error!</button>
 
 ---
 
+<meta slide="examples"></meta>
 
 ```js
 export default class SubmitButton extends React.Component {
@@ -898,6 +939,7 @@ export default class SubmitButton extends React.Component {
 }
 ```
 ---
+<meta slide="examples"></meta>
 
 ```js
 import styles from "./submit-button.css";
@@ -917,11 +959,74 @@ export default class SubmitButton extends React.Component {
 ---
 ## "Name your states!"
 ---
+<meta slide="examples-one"></meta>
 
 ```js
 import styles from "./submit-button.css";
-const labels = { error: 'Error!', normal: 'Submit' }
+// { 
+//   normal: "base_81f12d56 normal_f34f7fa0", 
+//   error: "base_81f12d56 error_b7d2ad6f"
+// }
+```
 
+<div data-bullet></div>
+
+```js
+const labels = { error: 'Error!', normal: 'Submit' }
+```
+```js
+export default class SubmitButton extends React.Component {
+  render() {
+    let state = this.props.error ? 'error' : 'normal'
+    
+    return <button className={ styles[state] }>
+      { labels[state] }
+    </button>
+  }
+}
+```
+---
+<meta slide="examples-one"></meta>
+
+```js
+import styles from "./submit-button.css";
+// { 
+//   normal: "base_81f12d56 normal_f34f7fa0", 
+//   error: "base_81f12d56 error_b7d2ad6f"
+// }
+```
+```js
+const labels = { error: 'Error!', normal: 'Submit' }
+```
+
+<div data-bullet></div>
+
+```js
+export default class SubmitButton extends React.Component {
+  render() {
+    let state = this.props.error ? 'error' : 'normal'
+    
+    return <button className={ styles[state] }>
+      { labels[state] }
+    </button>
+  }
+}
+```
+
+---
+<meta slide="examples-one"></meta>
+
+```js
+import styles from "./submit-button.css";
+// { 
+//   normal: "base_81f12d56 normal_f34f7fa0", 
+//   error: "base_81f12d56 error_b7d2ad6f"
+// }
+```
+```js
+const labels = { error: 'Error!', normal: 'Submit' }
+```
+```js
 export default class SubmitButton extends React.Component {
   render() {
     let state = this.props.error ? 'error' : 'normal'
@@ -990,9 +1095,9 @@ export default class SubmitButton extends React.Component {
 ## Good 
 ---
 
-## Why is ICSS distinct from CSS Modues
+## Why is ICSS distinct from CSS Modues?
 
-### This is CSS. Nobody knows what they're doing. Least of all us. If we can make all the loaders work of a low-level format *you* can build your own tools. If it's
+!TODO This is CSS. Nobody knows what they're doing. Least of all us. If we can make all the loaders work of a low-level format *you* can build your own tools. If it's
 
 ---
 ## CSS Modules
