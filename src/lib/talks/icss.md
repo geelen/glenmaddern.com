@@ -6,9 +6,11 @@ by @glenmaddern
 
 ---
 
-<meta bg x-gif align="top" src="http://media.giphy.com/media/3oEduXD0Ksf0zGJRMQ/giphy.gif" n-times="1"></meta>
+<meta slide="dramatic"></meta>
 
-## Us by the end of this talk
+#### Part 1
+
+## Machine interfaces
 
 ---
 
@@ -257,8 +259,8 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ## ICSS
 
-* Requires a loader (Webpack/JSPM/Browserify)
 * Compile target, not a human interface
+* Consumed by a loader (Webpack/JSPM/Browserify) to emit *both* CSS and JS
 * Built to support **CSS Modules**
 
 ---
@@ -277,7 +279,11 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
-## Styling in React
+<meta slide="dramatic"></meta>
+
+#### Part 2
+
+## Human interfaces
 
 ---
 
@@ -587,12 +593,14 @@ return <button className={styles.normal}>Submit</button>
 <meta slide="examples"></meta>
 
 ```css
+/* CSS */
 .normal {
   /* styles here... */
 }
 ```
 
 ```css
+/* ICSS */
 :export {
   normal: normal_f34f7fa0;
 }
@@ -604,25 +612,6 @@ return <button className={styles.normal}>Submit</button>
 import styles from './submit-button.css';
 // { normal: "normal_f34f7fa0" }
 ```
----
-# :export
-
-```css
-:export {
-  localName: obfuscated_string;
-}
-```
-
----
-
-## Loaders + ICSS
-
-### Loads an ICSS file and produces *both* CSS and JS
----
-* Webpack (css-loader)
-* JSPM (jspm-loader-css-modules)
-* Browserify (cssmodulesify)
-* NodeJS (css-modules-require-hook)
 
 ---
 
@@ -675,6 +664,7 @@ import styles from './submit-button.css';
   font-size: 2em;
 }
 ```
+
 ---
 ### **7 Problems**
 * Global Namespaces ✅
@@ -695,11 +685,7 @@ import styles from './submit-button.css';
 
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
-  <button className={styles.examples.invalid}>Submit</button>
-</div>
-<div className={styles.demo}>
-  <button className={styles.examples.disabled}>Submit</button>
-  <button className={styles.examples.inProgress}>Submit</button>
+  <button className={styles.examples.invalid}>Error!</button>
 </div>
 
 ---
@@ -708,11 +694,11 @@ import styles from './submit-button.css';
 
 ```css
 .SubmitButton {
-  min-width: 9em;
-  padding: 0.4rem 1rem 0.45rem;
-  font-size: 0.8rem;
-  border: 1px solid;
-  border-radius: 0.25rem;
+  /* COMMON STYLES */
+}
+.SubmitButton--normal,
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
 }
 .SubmitButton--error {
   color: hsla(0, 61%, 51%, 0.5);
@@ -721,125 +707,133 @@ import styles from './submit-button.css';
 ​
 ​
 ```
-```css
-.SubmitButton--normal,
-.SubmitButton--disabled {
-  color: hsl(210, 61%, 31%);
-  background-color: hsla(210, 61%, 51%, 0.1);
-}
-.SubmitButton--disabled {
-  opacity: 0.5;
-}
-.SubmitButton--in-progress {
-  color: hsl(210, 61%, 31%);
-  background: linear-gradient(-45deg, hsl(0, 100%, 100%), hsl(0, 100%, 100%) 25%, hsl(221, 100%, 97%) 25%, hsl(221, 100%, 97%) 50%, hsl(0, 100%, 100%) 50%, hsl(0, 100%, 100%) 75%, hsl(221, 100%, 97%) 75%, hsl(221, 100%, 97%)) 0 0 / 8rem 8rem;
-  animation: shiftBackgroundLeft4rem 2s linear infinite;
-}
-```
 
----
+<div data-bullet></div>
+
+```css
+
+```
+------
 
 <meta slide="white-sideways"></meta>
 
 ```css
+.SubmitButton {
+  /* COMMON STYLES */
+}
+.SubmitButton--normal,
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
+}
+.SubmitButton--error {
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+​
+​
+```
+
+```css
 .base {
-  min-width: 9em;
-  padding: 0.4rem 1rem 0.45rem;
-  font-size: 0.8rem;
-  border: 1px solid;
-  border-radius: 0.25rem;
+  /* COMMON STYLES */
+}
+.normal {
+  composes: base;
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
 }
 .error {
   composes: base;
   color: hsla(0, 61%, 51%, 0.5);
   background: white;
 }
-​
-​
-​
-
 ```
-```css
-.normal {
-  composes: base;
-  color: hsl(210, 61%, 31%);
-  background-color: hsla(210, 61%, 51%, 0.1);
-}
-.disabled {
-  composes: normal
-  opacity: 0.5;
-}
-.inProgress {
-  composes: base;
-  color: hsl(210, 61%, 31%);
-  background: linear-gradient(-45deg, hsl(0, 100%, 100%), hsl(0, 100%, 100%) 25%, hsl(221, 100%, 97%) 25%, hsl(221, 100%, 97%) 50%, hsl(0, 100%, 100%) 50%, hsl(0, 100%, 100%) 75%, hsl(221, 100%, 97%) 75%, hsl(221, 100%, 97%)) 0 0 / 8rem 8rem;
-  animation: shiftBackgroundLeft4rem 2s linear infinite;
-}
-```
-
 ---
 
-> ***The language*** needs a standard way to include other modules and for those modules to live in discreet namespaces. There are easy ways to do namespaces...
-
-```css
-/* No imports needed, since it's global... */
-.Namespace__Widgets__FooBar {
-  /* ... */
-}
-```
-
----
-
-```css
-@import "variables.scss";
-@import "mixins.scss";
-
-.Namespace__Widgets__FooBar {
-  @include some-widget();
-  color: $primary;
-}
-```
-
----
-
-> ***The language*** is very fragmented. A script that ***does something beyond the original design of the language*** can't be used without modification... A framework is very much tied to its interpreter and is often forced to create a bunch of APIs that ***other languages*** take for granted.
-
----
-
-## :export
+<meta slide="examples"></meta>
 
 ```css
 :export {
-  Nav: _nav_nav_afd97dfs867;
-  Logo: _nav_logo_97fd867fsfg;
+  base: base_81f12d56;
+  normal: base_81f12d56 normal_f34f7fa0;
+  error: base_81f12d56 error_b7d2ad6f;
 }
-._nav_nav_afd97dfs867 { /* nav styles */ }
-._nav_logo_97fd867fsfg { /* logo styles */ }
+```
+
+<div data-bullet></div>
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.error}>Error!</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="base_81f12d56 error_b7d2ad6f">Error!</button>
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+:export {
+  base: base_81f12d56;
+  normal: base_81f12d56 normal_f34f7fa0;
+  error: base_81f12d56 error_b7d2ad6f;
+}
 ```
 
 ```js
-import styles from './nav.css';
-// styles: { Nav: "_nav_nav_afd97dfs867", Logo: "_nav_logo_97fd867fsfg" }
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.error}>Error!</button>
+```
+
+<div data-bullet></div>
+
+```html
+<!-- Renders this HTML -->
+<button class="base_81f12d56 error_b7d2ad6f">Error!</button>
 ```
 
 ---
 
-## :import
+<meta slide="examples"></meta>
 
 ```css
-/* utils.css */
 :export {
-  HorizontalNav: _utils_horizontalnav_c7ab86431;
-  SharedUtilVar: rgb(200, 100, 0);
-}
-```
-```css
-:import("./utils.css") {
-  i__util_class_1: HorizontalNav;
-  i__util_var_1: SharedUtilVar;
+  base: base_81f12d56;
+  normal: base_81f12d56 normal_f34f7fa0;
+  error: base_81f12d56 error_b7d2ad6f;
 }
 ```
 
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.error}>Error!</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="base_81f12d56 error_b7d2ad6f">Error!</button>
+```
+---
+
+## "State changes are UI changes"
+
+#### Michael Chan, July 6, 2015
+
+---
+* Webpack (css-loader w/ modules flag)
+* JSPM (jspm-loader-css-modules)
+* Browserify (cssmodulesify)
+* NodeJS (css-modules-require-hook)
 ---
 
 ##### ✅
@@ -880,15 +874,3 @@ import styles from './nav.css';
 ### github.com/css-modules/icss
 
 @glenmaddern
-
----
-
-#### Links:
-
-http://www.blueskyonmars.com/2010/01/29/commonjs-the-first-year/
-
-https://github.com/joyent/node/issues/5132#issuecomment-15432598
-
-http://nodegeek.net/2013/12/18/nodejs-v8-history/
-
-http://www.niallkennedy.com/blog/2008/09/google-chrome.html

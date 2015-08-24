@@ -23,6 +23,12 @@
   z-index: -1;
 }
 
+.stage-dramatic {
+  composes: stage;
+  color: white;
+  background-color: #22224d;
+}
+
 .stage-white {
   composes: stage;
   background: white;
@@ -256,7 +262,8 @@ code {
 .pre_code {
   max-height: calc(720px - 4rem);
   max-width: calc(1280px - 4rem);
-  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .em {
@@ -280,6 +287,11 @@ code {
 .li::before {
   content: '•';
   margin: 0 2rem;
+}
+
+.li {
+  text-indent: -5.3rem;
+  padding-left: 5.3rem;
 }
 
 .small {
