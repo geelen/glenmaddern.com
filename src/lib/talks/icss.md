@@ -972,7 +972,7 @@ import styles from "./submit-button.css";
 <div data-bullet></div>
 
 ```js
-const labels = { error: 'Error!', normal: 'Submit' }
+const labels = { normal: 'Submit', error: 'Error!' }
 ```
 ```js
 export default class SubmitButton extends React.Component {
@@ -996,7 +996,7 @@ import styles from "./submit-button.css";
 // }
 ```
 ```js
-const labels = { error: 'Error!', normal: 'Submit' }
+const labels = { normal: 'Submit', error: 'Error!' }
 ```
 
 <div data-bullet></div>
@@ -1024,7 +1024,7 @@ import styles from "./submit-button.css";
 // }
 ```
 ```js
-const labels = { error: 'Error!', normal: 'Submit' }
+const labels = { normal: 'Submit', error: 'Error!' }
 ```
 ```js
 export default class SubmitButton extends React.Component {
@@ -1090,6 +1090,17 @@ export default class SubmitButton extends React.Component {
   Submit
 </button>
 ```
+
+---
+### **7 Problems**
+* Global Namespaces ✅
+* Dependencies ✅
+* Dead Code Elimination
+* Minification
+* Sharing Constants ✅
+* Non-deterministic Resolution ✅
+* Isolation ✅
+
 ---
 
 <meta slide="dramatic"></meta>
@@ -1123,6 +1134,7 @@ export default class SubmitButton extends React.Component {
 
 ### **@glenmaddern**
 
+
 ---
 
 ## CSS Modules
@@ -1134,3 +1146,6 @@ export default class SubmitButton extends React.Component {
 ## ICSS
 * Webpack (css-loader)
 * JSPM (jspm-loader-css)
+* Browserify (cssmodulesify w/ flags)
+* NodeJS (css-modules-require-hook w/ flags)
+---
