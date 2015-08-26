@@ -30,13 +30,17 @@ jspm.import( 'css' ).then( function ( css ) {
           mkdirp.sync(dirname)
           fs.writeFileSync(filename, replaced[0])
           console.log( filename )
-        } )
+        }, function (err) {
+          console.log("UMMM")
+          console.log(err)
+        })
     } )).then( function() {
       console.log("Done all")
       fs.writeFileSync('dist/bundle.css', css.default._cache._source.join( "\n" ))
-    }, function () {
+    }, function (err) {
       console.log("I GUESS WE GOT FUCKED")
-      console.log(arguments)
+      console.log(Object.keys(err))
+      throw err
     })
   } )
 } )

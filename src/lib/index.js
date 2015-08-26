@@ -18,7 +18,11 @@ if ( typeof document !== 'undefined' ) {
   __generate = ( path ) => {
     return new Promise( ( resolve, reject )=> {
       Router.run( routes, path, ( Root ) => {
-        resolve( React.renderToString( React.createElement( Root ) ) )
+        if (/^\/slides/.exec(path)) {
+          resolve(`<span class='LoadingScreen'>Loading...</span>`)
+        } else {
+          resolve( React.renderToString( React.createElement( Root ) ) )
+        }
       } )
     } )
   }
