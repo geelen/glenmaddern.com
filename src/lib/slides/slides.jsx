@@ -5,6 +5,8 @@ import examples from '../articles/examples.css!'
 import icss from './icss.md!markdown'
 styles.examples = examples
 
+const xGifHtmlImport = `<link rel="import" href="/assets/x-gif.html"/>`;
+
 const talks = {
   'interoperable-css': icss
 }
@@ -89,15 +91,19 @@ export default class Slides extends React.Component {
     })
 
     let currentSlide = slides[this.state.slide - 1]
-    return <div className={styles[currentSlide.parentClass || 'stage']} style={currentSlide.parent}>
-      { slides.map((slide, i) => {
-        return <div id={i} style={slide === currentSlide ? {} : {display: 'none'}}>
-          { slide.xGif ? <div className={styles.xGif} dangerouslySetInnerHTML={{__html: slide === currentSlide ? slide.xGif.replace(/stopped/,'') : slide.xGif}}></div> : null }
-          <div className={styles.slide} style={slide.style}>
-          { slide.elems }
+    return <div>
+      <div dangerouslySetInnerHTML={{__html: xGifHtmlImport}}></div>
+      <div className={styles[currentSlide.parentClass || 'stage']} style={currentSlide.parent}>
+        { slides.map((slide, i) => {
+          return <div id={i} style={slide === currentSlide ? {} : {display: 'none'}}>
+            { slide.xGif ? <div className={styles.xGif}
+                                dangerouslySetInnerHTML={{__html: slide === currentSlide ? slide.xGif.replace(/stopped/,'') : slide.xGif}}></div> : null }
+            <div className={styles.slide} style={slide.style}>
+              { slide.elems }
+            </div>
           </div>
-        </div>
-      })}
+        })}
+      </div>
     </div>
   }
 }
