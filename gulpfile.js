@@ -11,7 +11,8 @@ var gulp = require( 'gulp' ),
     '/articles/css-modules',
     '/projects',
     '/talks',
-    '/work'
+    '/work',
+    '/slides/interoperable-css'
   ]
 
 gulp.task( 'jspm-bundle', function () {
