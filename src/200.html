@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="mi0d15IfruJiUDIY96yrOHRa1ThGd7zO0QrkPYwmNNM" />
     <title>Glen Maddern: Internet Pro</title>
+    <script>
+      /* If we have a cached copy of our fonts, inject them */
+      if (window.localStorage && window.localStorage._tk_cache) {
+        document.head.insertAdjacentHTML('beforeend', '<style>' + window.localStorage._tk_cache + '</style>');
+      } else {
+        document.documentElement.classList.add('wf-inactive');
+      }
+    </script>
+    <script>
+      /* This fires once Typekit has refreshed the fonts */
+      window._tk_updateCache = function () {
+        var fontData = new XMLHttpRequest();
+        fontData.open('GET', document.querySelector('link[href*="use.typekit.net"]').href);
+        fontData.onreadystatechange = function () {
+          if (fontData.readyState === 4) localStorage._tk_cache = fontData.responseText;
+        };
+        fontData.send();
+      };
+    </script>
+    <script async src="https://use.typekit.net/sgx8ycd.js" onload="Typekit.load({active: _tk_updateCache})"></script>
     <!-- build:style -->
     <!-- endbuild -->
   </head>
@@ -21,16 +41,6 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
           ga('create', 'UA-32408977-4', 'auto');
       ga('send', 'pageview');
-    </script>
-    <script>
-      (function(d) {
-        var config = {
-          kitId: 'sgx8ycd',
-          scriptTimeout: 3000,
-          async: true
-        },
-        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-      })(document);
     </script>
 
     <!-- build:jspm -->
