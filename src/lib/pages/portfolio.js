@@ -61,7 +61,7 @@ export default {
     "coinjar": {
       "title": "CoinJar",
       "strap": "Bitcoin merchant & online wallet",
-      "url": "https://www.coinjar.com.au",
+      "url": "https://www.coinjar.com",
       "image": "coinjar.jpg"
     },
     "the-z-dimension": {
