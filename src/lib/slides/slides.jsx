@@ -3,12 +3,14 @@ import React from 'react'
 import styles from './slides.css!'
 import examples from '../articles/examples.css!'
 import icss from './icss.md!markdown'
+import icss2 from './icss-eu.md!markdown'
 styles.examples = examples
 
 const xGifHtmlImport = `<link rel="import" href="/assets/x-gif.html"/>`;
 
 const talks = {
-  'interoperable-css': icss
+  'interoperable-css': icss,
+  'interoperable-css-eu': icss2
 }
 
 export default class Slides extends React.Component {
