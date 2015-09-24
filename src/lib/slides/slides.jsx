@@ -20,6 +20,7 @@ export default class Slides extends React.Component {
       slide: parseInt(location.hash.replace(/^#/, '')) || 1,
       bullet: 0
     }
+    console.log("what is happening?")
   }
 
   keyDown(e) {

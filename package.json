@@ -46,6 +46,7 @@
     "pushserve": "^0.1.6"
   },
   "dependencies": {
-    "jspm": "^0.15.7"
+    "jspm": "^0.15.7",
+    "process-nextick-args": "^1.0.3"
   }
 }
