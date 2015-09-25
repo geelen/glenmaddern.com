@@ -315,7 +315,7 @@ http://glenmaddern.com/articles/css-modules
 
 ---
 
-## What would make CSS easier to *write*, not just scale?
+## What would make CSS *easier for humans*?
 
 ---
 
@@ -348,12 +348,19 @@ http://glenmaddern.com/articles/css-modules
 
 ---
 
+<meta slide="excellent"></meta>
+
 # CSS Modules
+
+### **True isolation** 👍<br/>**Responsible reuse** 👍
+
+#### github.com/css-modules/css-modules
 
 ---
 
-#### Problem #1
-## Global namespace
+<meta slide="excellent"></meta>
+
+# Isolation
 
 ---
 
@@ -437,6 +444,8 @@ function() {
 
 ---
 
+### **CSS Modules** — Part One
+
 ## Local-by-default
 
 ---
@@ -446,6 +455,21 @@ function() {
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
 </div>
+
+<div data-bullet></div>
+
+```css
+/* components/submit-button.css */
+.SubmitButton--normal {
+  min-width: 9em;
+  padding: 0.4rem 1rem 0.45rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  color: hsl(210, 61%, 31%);
+  background: hsla(210, 61%, 51%, 0.1);
+}
+```
 
 ---
 
@@ -634,8 +658,6 @@ return <button className={styles.normal}>Submit</button>
 }
 ```
 
-!TODO maybe go ICSS -> React -> DOM?
-
 <div data-bullet></div>
 
 ```css
@@ -708,26 +730,75 @@ import styles from './submit-button.css';
 
 ---
 
-### **7 Problems**
-* Global Namespaces ✅
-* Dependencies
-* Dead Code Elimination
-* Minification
-* Sharing Constants
-* Non-deterministic Resolution
-* Isolation
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+```
+
+<div data-bullet></div>
+
+```js
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={::styles.normal}>Submit</button>
+
+if (yolo)
+  document.write(`<button className='${styles.normal}'>Submit</button>`)
+```
 
 ---
 
-## Isolation
-### is largely *solved* by fixing naming
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+  
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={::styles.normal}>Submit</button>
+```
+
+<div data-bullet></div>
+
+```js
+if (yolo)
+  document.write(`<button className='${styles.normal}'>Submit</button>`)
+  
+```
+
+---
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+  
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={::styles.normal}>Submit</button>
+
+if (yolo)
+  document.write(`<button className='${styles.normal}'>Submit</button>`)
+```
 
 ---
 
 <meta slide="sideways"></meta>
 
 ```css
-.My_um_thing {
+.header_v2_final {
   color: red;
   
   h1 {
@@ -741,6 +812,8 @@ import styles from './submit-button.css';
   font-size: 2em;
 }
 ```
+
+<div data-bullet></div>
 
 ```css
 .thing {
@@ -757,19 +830,68 @@ import styles from './submit-button.css';
   font-size: 2em;
 }
 ```
+---
+
+<meta slide="sideways"></meta>
+
+```css
+.header_v2_final {
+  color: red;
+  
+  h1 {
+    font-size: 40px;
+  }
+  :nth-child(2) {
+    margin-bottom: 2px;
+  }
+}
+.Ugh_um_what_is_this {
+  font-size: 2em;
+}
+```
+
+```css
+.header {
+  color: red;
+}
+.h1 {
+  font-size: 40px;
+}
+.second-thing {
+  margin-bottom: 2px;
+}
+
+.that-weird-bit-at-the-end {
+  font-size: 2em;
+}
+```
+---
+
+### **Isolation is hard because naming is hard**
+
+* Tag selectors
+* Descendant selectors
+* Sibling selectors
+* Pseudo selectors
+
+### 😭
+---
+
+### **Target everything directly &**<br/>**stop leaking styles**
+### 👍
 
 ---
-### **7 Problems**
-* Global Namespaces ✅
-* Dependencies
-* Dead Code Elimination
-* Minification
-* Sharing Constants
-* Non-deterministic Resolution
-* Isolation ✅
----
-### "Sharing Constants"
+
+<meta slide="excellent"></meta>
+
 # Reuse
+
+---
+
+### **CSS Modules** — Part Two
+
+## Composition
+
 ---
 
 <meta slide="white"></meta>
@@ -937,128 +1059,6 @@ return <button className={styles.error}>Error!</button>
 <!-- Renders this HTML -->
 <button class="base_81f12d56 error_b7d2ad6f">Error!</button>
 ```
----
-
-## "State changes are UI changes"
-
-#### Michael Chan, July 6, 2015
-
----
-
-<meta slide="examples"></meta>
-
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error
-      ? { text: 'Error!', style:{color:'red', backgroundColor:'white'}}
-      : { text: 'Submit' }
-    
-    return <button className="SubmitButton" style={state.style || {}}>
-      { state.text }
-    </button>
-  }
-}
-```
----
-<meta slide="examples"></meta>
-
-```js
-import styles from "./submit-button.css";
-
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error
-      ? { text: 'Error!', classes: styles.error }
-      : { text: 'Submit', classes: styles.normal }
-    
-    return <button className={ state.classes }>
-      { state.text }
-    </button>
-  }
-}
-```
----
-## "Name your states!"
----
-<meta slide="examples-one"></meta>
-
-```js
-import styles from "./submit-button.css";
-// { 
-//   normal: "base_81f12d56 normal_f34f7fa0", 
-//   error: "base_81f12d56 error_b7d2ad6f"
-// }
-```
-
-<div data-bullet></div>
-
-```js
-const labels = { normal: 'Submit', error: 'Error!' }
-```
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error ? 'error' : 'normal'
-    
-    return <button className={ styles[state] }>
-      { labels[state] }
-    </button>
-  }
-}
-```
----
-<meta slide="examples-one"></meta>
-
-```js
-import styles from "./submit-button.css";
-// { 
-//   normal: "base_81f12d56 normal_f34f7fa0", 
-//   error: "base_81f12d56 error_b7d2ad6f"
-// }
-```
-```js
-const labels = { normal: 'Submit', error: 'Error!' }
-```
-
-<div data-bullet></div>
-
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error ? 'error' : 'normal'
-    
-    return <button className={ styles[state] }>
-      { labels[state] }
-    </button>
-  }
-}
-```
-
----
-<meta slide="examples-one"></meta>
-
-```js
-import styles from "./submit-button.css";
-// { 
-//   normal: "base_81f12d56 normal_f34f7fa0", 
-//   error: "base_81f12d56 error_b7d2ad6f"
-// }
-```
-```js
-const labels = { normal: 'Submit', error: 'Error!' }
-```
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error ? 'error' : 'normal'
-    
-    return <button className={ styles[state] }>
-      { labels[state] }
-    </button>
-  }
-}
-```
 
 ---
 
@@ -1112,16 +1112,11 @@ export default class SubmitButton extends React.Component {
   Submit
 </button>
 ```
-
 ---
-### **7 Problems**
-* Global Namespaces ✅
-* Dependencies ✅
-* Dead Code Elimination
-* Minification
-* Sharing Constants ✅
-* Non-deterministic Resolution ✅
-* Isolation ✅
+
+### **Isolation & reuse**
+### 👍
+
 
 ---
 

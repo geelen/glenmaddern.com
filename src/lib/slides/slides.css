@@ -29,6 +29,12 @@
   background-color: #22224d;
 }
 
+.stage-excellent {
+  composes: stage;
+  color: rgb(222, 237, 255);
+  background-color: #005cb7;
+}
+
 .stage-white {
   composes: stage;
   background: white;
