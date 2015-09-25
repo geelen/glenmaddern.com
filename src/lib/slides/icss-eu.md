@@ -1114,7 +1114,65 @@ return <button className={styles.error}>Error!</button>
 ```
 ---
 
-### **Isolation & reuse**
+<meta slide="examples"></meta>
+
+```css
+.article {
+  composes: flex vertical centered from "./layout.css";
+}
+
+.masthead {
+  composes: serif bold 48pt centered from "./typography.css";
+  composes: m1-bottom p1-left p1-right from "./layout.css";
+}
+```
+
+```html
+<article class="flex_e17427aa vertical_a17d1205 centered_86687352">
+  <div class="serif_85db3038 bold_f845c6a12 48pt_bb1f8d2d
+              centered_d0c84 m1-bottom_8fe3
+              p1-left_0c7b6e p1-right_6cd78">
+    Content...
+  </div>
+</article>
+```
+---
+
+<meta slide="examples"></meta>
+
+```css
+.article {
+  composes: flex vertical centered from "./layout.css";
+}
+
+.masthead {
+  composes: serif bold 48pt centered from "./typography.css";
+  composes: m1-bottom p1-left p1-right from "./layout.css";
+}
+```
+
+```html
+<article class="${styles.article}">
+  <div class="${styles.masthead}">
+    Content...
+  </div>
+</article>
+```
+
+<div data-bullet></div>
+
+```
+<article class="flex_e17427aa vertical_a17d1205 centered_86687352">
+```
+
+---
+
+## CSS Modules lets you define an API into your styles
+### *(for your markup to use)*
+
+---
+
+## **Isolation & reuse**
 ### 👍
 
 
@@ -1127,12 +1185,43 @@ return <button className={styles.error}>Error!</button>
 
 ---
 
-<meta x-gif src="/assets/images/apollorockygif1.gif" n-times="1"></meta>
+## CSS Modules
+
+### *vs ?*
+
+## Sass
+
+### *vs ?*
+
+## Inline-styles
+
+---
+
+## **CSS Modules**
+
+### 💖
+
+## Sass
+
+### 💖
+
+## Inline-styles
+
+---
+
+## <span className={styles.emoji}>😎</span> CSS Modules <span className={styles.emoji}>😎</span>
+
+### 💔
+
+## <span className={styles.emoji}>🔥</span> Sass <span className={styles.emoji}>🔥</span> 
+
+### 💔
+
+## <span className={styles.emoji}>🔥</span> Inline Styles <span className={styles.emoji}>🔥</span> 
 
 ---
 
 ## Good design
-
 ### should lead you to good practice
 
 ---
@@ -1142,27 +1231,21 @@ return <button className={styles.error}>Error!</button>
 
 ---
 
+# CSS Modules<br/><span className={styles.emoji}>🎉</span> 1.0 <span className={styles.emoji}>🎉</span>
+
+### September 26, 2015
+
+*** github.com/css-modules/css-modules ***
+
+---
+
 ## Thanks!
 
-#### <br/>CSS Modules
-**github.com/css-modules/css-modules<br/>glenmaddern.com/articles/css-modules**
-#### <br/>ICSS
-**github.com/css-modules/icss<br/>glenmaddern.com/articles/icss**
+* github.com/css-modules/css-modules
+* glenmaddern.com/articles/css-modules
+* github.com/css-modules/icss
+* glenmaddern.com/articles/icss
 
 ### **@glenmaddern**
 
-
----
-
-## CSS Modules
-* Webpack (css-loader w/ modules flag)
-* JSPM (jspm-loader-css-modules)
-* Browserify (cssmodulesify)
-* NodeJS (css-modules-require-hook)
----
-## ICSS
-* Webpack (css-loader)
-* JSPM (jspm-loader-css)
-* Browserify (cssmodulesify w/ flags)
-* NodeJS (css-modules-require-hook w/ flags)
 ---
