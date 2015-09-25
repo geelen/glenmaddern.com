@@ -81,6 +81,10 @@ export default class Slides extends React.Component {
           slide.style.justifyContent = 'flex-start';
           slide.style.paddingTop = '4rem';
         }
+        if (props['align'] === 'bottom') {
+          slide.style.justifyContent = 'flex-end';
+          slide.style.paddingBottom = '2rem';
+        }
         if (props.slide) slide.parentClass = 'stage-' + props.slide
         if (props['x-gif']) {
           slide.xGif = `<x-gif fill stopped src="${props.src}" n-times="${props['n-times']}" ${props['ping-pong'] ? 'ping-pong' : ''} speed=${props.speed || 1}/>`

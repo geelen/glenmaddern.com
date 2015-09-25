@@ -14,19 +14,15 @@ by @glenmaddern
 
 ---
 
-## September 1st 2008
+## September 2008
 
 ---
 
-![](https://upload.wikimedia.org/wikipedia/commons/c/c6/IPhone_PSD_White_3G.png)
+<meta bg="http://vignette1.wikia.nocookie.net/fallout/images/a/a1/Concept02B-1-.jpg/revision/latest" bg-pos="75% 50%"></meta>
 
 ---
 
-<meta slide="3-up"></meta>
-
-![](https://upload.wikimedia.org/wikipedia/commons/5/5c/N95_Front-slide-open.jpg)
-![](http://www.blogcdn.com/www.engadget.com/media/2008/05/htc-touch-diamond-official.jpg)
-![](http://www.onecellular.com/167-736-thickbox/blackberry-curve-8330-red-telus.jpg)
+<meta bg x-gif src="http://i.imgur.com/7MZsYaH.gif" n-times="1" bg-pos="75% 50%"></meta>
 
 ---
 
@@ -80,14 +76,6 @@ window.NAMESPACE.Widgets.FooBar = function() {
   ...
 };
 ```
-
----
-
-<meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"></meta>
-
----
-
-## September 2nd 2008
 
 ---
 
@@ -293,25 +281,21 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
-<meta x-gif src="http://media.giphy.com/media/xKy2w6LehxxHa/giphy.gif" n-times="1" speed="0.8"></meta>
+> It turns out that if you **write your styles in JS**, a large class of really hard problems with CSS just disappear instantly.
+
+https://speakerdeck.com/vjeux/react-css-in-js
+
+#### February 4, 2009
 
 ---
 
-### **@**Vjeux's 7 Problems <small className={styles.small}>(of CSS)</small>
-* Global Namespaces
-* Dependencies
-* Dead Code Elimination
-* Minification
-* Sharing Constants
-* Non-deterministic Resolution
-* Isolation
----
+<meta bg x-gif src="http://stream1.gifsoup.com/webroot/animatedgifs/483186_o.gif" n-times="0.79" align="bottom"></meta>
 
-<meta x-gif src="http://stream1.gifsoup.com/webroot/animatedgifs/483186_o.gif" n-times="0.79"></meta>
+## The CSS Community
 
 ---
 
-## CSS in JS?
+## CSS in JS
 
 * Inline styles
 * React Style
@@ -325,10 +309,48 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 http://glenmaddern.com/articles/css-modules
 
+#### August 19, 2015
+
 !TODO That's the biggest point of difference I want to make between us and the other teams.
 
 ---
 
+## What would make CSS easier to *write*, not just scale?
+
+---
+
+# Isolation
+
+### ***vs***
+
+# Reuse
+
+---
+
+## Isolation
+
+* BEM, Suit
+* All styles scoped to a component
+* Easy to add components
+* Easy to delete components
+* Hard for components to share styles
+* Big filesizes ahead
+
+---
+
+## Reuse
+
+* OOCSS, Tachyons
+* Extracts common styles beautifully
+* Small filesizes
+* Difficult for teams
+* Can lead to change paralysis
+
+---
+
+# CSS Modules
+
+---
 
 #### Problem #1
 ## Global namespace
