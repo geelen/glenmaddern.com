@@ -14,46 +14,18 @@ by @glenmaddern
 
 ---
 
+
+<meta bg x-gif src="http://i.imgur.com/7MZsYaH.gif" n-times="1" bg-pos="75% 50%" align="bottom"></meta>
+
 ## September 2008
 
 ---
 
-<meta bg="http://vignette1.wikia.nocookie.net/fallout/images/a/a1/Concept02B-1-.jpg/revision/latest" bg-pos="75% 50%"></meta>
-
----
-
-<meta bg x-gif src="http://i.imgur.com/7MZsYaH.gif" n-times="1" bg-pos="75% 50%"></meta>
-
----
-
-<meta slide="movies"></meta>
-
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/b/b6/Twilight_%282008_film%29_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/9/93/The_Twilight_Saga-_New_Moon_poster.JPG)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/d/d7/Eclipse_Theatrical_One-Sheet.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/c/c2/Breaking_Dawn_Part_1_Poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/4/49/The_Twilight_Saga_Breaking_Dawn_Part_2_poster.jpg)</span>
-
----
-
-<meta slide="movies-small"></meta>
-
-![](https://upload.wikimedia.org/wikipedia/en/7/70/Ironmanposter.JPG)
-![](https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg)
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/d/d5/Iron_Man_3_theatrical_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/7/7e/Thor_-_The_Dark_World_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/e/e8/Captain_America_The_Winter_Soldier.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/8/8f/GOTG-poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/1/1b/Avengers_Age_of_Ultron.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg)</span>
-
----
-
 ![](https://dl.dropboxusercontent.com/u/1349167/GFC.png)
+
+---
+
+<meta bg="http://vignette1.wikia.nocookie.net/fallout/images/a/a1/Concept02B-1-.jpg/revision/latest" bg-pos="75% 50%"></meta>
 
 ---
 
@@ -327,21 +299,20 @@ http://glenmaddern.com/articles/css-modules
 
 ---
 
-## Isolation
+## Isolation-first
 
-* BEM, Suit
-* All styles scoped to a component
-* Easy to add components
-* Easy to delete components
+* Component -> Styles
+* e.g. BEM
+* Easy to add/delete components
 * Hard for components to share styles
-* Big filesizes ahead
+* Duplication leads to large payloads
 
 ---
 
-## Reuse
+## Reuse-first
 
-* OOCSS, Tachyons
-* Extracts common styles beautifully
+* Styles -> Components
+* e.g. OOCSS, Tachyons
 * Small filesizes
 * Difficult for teams
 * Can lead to change paralysis
@@ -513,51 +484,149 @@ function() {
 ```
 
 ---
+
 <meta slide="examples"></meta>
 
 ```css
-/* components/submit-button.css */
+/* CSS */
 .normal {
   /* styles here... */
 }
 ```
 
+<div data-bullet></div>
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
 ```js
-/* components/submit-button.jsx */
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+<div data-bullet></div>
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
 import styles from './submit-button.css';
 
-return <button className={styles.normal}>Submit</button>
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
 ```
 
 <div data-bullet></div>
 
-```html
-<!-- Renders this HTML -->
-<button class="normal_f34f7fa0">Submit</button>
+```js
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={::styles.normal}>Submit</button>
+
+if (yolo)
+  document.write(`<button class='${styles.normal}'>Submit</button>`)
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+  
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={::styles.normal}>Submit</button>
+```
+
+<div data-bullet></div>
+
+```js
+if (yolo)
+  document.write(`<button class='${styles.normal}'>Submit</button>`)
+  
 ```
 
 ---
 <meta slide="examples"></meta>
 
-```css
-/* components/submit-button.css */
-.normal_f34f7fa0 {
-  /* styles here... */
-}
-```
-
 ```js
-/* components/submit-button.jsx */
+/* components/submit-button.js */
 import styles from './submit-button.css';
 
-return <button className={styles.normal}>Submit</button>
-```
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+  
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={::styles.normal}>Submit</button>
 
-<div data-bullet></div>
-
-```html
-<!-- Renders this HTML -->
-<button class="normal_f34f7fa0">Submit</button>
+if (yolo)
+  document.write(`<button class='${styles.normal}'>Submit</button>`)
 ```
 
 ---
@@ -649,150 +718,14 @@ return <button className={styles.normal}>Submit</button>
 
 ---
 
-<meta slide="examples"></meta>
+### Isolation is hard because **naming is hard**
 
-```css
-/* CSS */
-.normal {
-  /* styles here... */
-}
-```
+* Tag selectors
+* Descendant selectors
+* Sibling selectors
+* Pseudo selectors
 
-<div data-bullet></div>
-
-```css
-/* ICSS */
-:export {
-  normal: normal_f34f7fa0;
-}
-.normal_f34f7fa0 {
-  /* styles unchanged... */
-}
-```
-
-```js
-import styles from './submit-button.css';
-// { normal: "normal_f34f7fa0" }
-```
-
----
-
-<meta slide="examples"></meta>
-
-```css
-/* CSS */
-.normal {
-  /* styles here... */
-}
-```
-
-```css
-/* ICSS */
-:export {
-  normal: normal_f34f7fa0;
-}
-.normal_f34f7fa0 {
-  /* styles unchanged... */
-}
-```
-<div data-bullet></div>
-
-```js
-import styles from './submit-button.css';
-// { normal: "normal_f34f7fa0" }
-```
-
----
-
-<meta slide="examples"></meta>
-
-```css
-/* CSS */
-.normal {
-  /* styles here... */
-}
-```
-
-```css
-/* ICSS */
-:export {
-  normal: normal_f34f7fa0;
-}
-.normal_f34f7fa0 {
-  /* styles unchanged... */
-}
-```
-
-```js
-import styles from './submit-button.css';
-// { normal: "normal_f34f7fa0" }
-```
-
----
-
-<meta slide="examples"></meta>
-
-```js
-/* components/submit-button.js */
-import styles from './submit-button.css';
-
-if (vanilla)
-  document.querySelector('...').classList.add(styles.normal)
-```
-
-<div data-bullet></div>
-
-```js
-if (angular)
-  $scope.styles = styles
-  // <button ng-class={::styles.normal}>Submit</button>
-
-if (yolo)
-  document.write(`<button className='${styles.normal}'>Submit</button>`)
-```
-
----
-
-<meta slide="examples"></meta>
-
-```js
-/* components/submit-button.js */
-import styles from './submit-button.css';
-
-if (vanilla)
-  document.querySelector('...').classList.add(styles.normal)
-  
-if (angular)
-  $scope.styles = styles
-  // <button ng-class={::styles.normal}>Submit</button>
-```
-
-<div data-bullet></div>
-
-```js
-if (yolo)
-  document.write(`<button className='${styles.normal}'>Submit</button>`)
-  
-```
-
----
-<meta slide="examples"></meta>
-
-```js
-/* components/submit-button.js */
-import styles from './submit-button.css';
-
-if (vanilla)
-  document.querySelector('...').classList.add(styles.normal)
-  
-if (angular)
-  $scope.styles = styles
-  // <button ng-class={::styles.normal}>Submit</button>
-
-if (yolo)
-  document.write(`<button className='${styles.normal}'>Submit</button>`)
-```
-
+### 😭
 ---
 
 <meta slide="sideways"></meta>
@@ -865,16 +798,6 @@ if (yolo)
   font-size: 2em;
 }
 ```
----
-
-### **Isolation is hard because naming is hard**
-
-* Tag selectors
-* Descendant selectors
-* Sibling selectors
-* Pseudo selectors
-
-### 😭
 ---
 
 ### **Target everything directly &**<br/>**stop leaking styles**
