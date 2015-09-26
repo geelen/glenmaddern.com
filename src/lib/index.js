@@ -19,7 +19,7 @@ if ( typeof document !== 'undefined' ) {
     return new Promise( ( resolve, reject )=> {
       Router.run( routes, path, ( Root ) => {
         if (/^\/slides/.exec(path)) {
-          resolve(`<span class='LoadingScreen'>Loading...</span>`)
+          resolve(`<span class='⌚️⌚️⌚️'>Loading...</span>`)
         } else {
           resolve( React.renderToString( React.createElement( Root ) ) )
         }
