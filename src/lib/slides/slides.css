@@ -23,10 +23,24 @@
   z-index: -1;
 }
 
+.stage-left {
+  composes: stage;
+}
+.stage-left p {
+  align-self: flex-start;
+  margin-left: 6rem;
+}
+
 .stage-dramatic {
   composes: stage;
   color: white;
   background-color: #22224d;
+}
+
+.stage-excellent {
+  composes: stage;
+  color: rgb(222, 237, 255);
+  background-color: #005cb7;
 }
 
 .stage-white {
@@ -314,3 +328,6 @@ code {
   width: 70%;
 }
 
+.emoji {
+  font-weight: normal;
+}

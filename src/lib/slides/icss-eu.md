@@ -14,50 +14,18 @@ by @glenmaddern
 
 ---
 
-## September 1st 2008
 
----
+<meta bg x-gif src="http://i.imgur.com/7MZsYaH.gif" n-times="1" bg-pos="75% 50%" align="bottom"></meta>
 
-![](https://upload.wikimedia.org/wikipedia/commons/c/c6/IPhone_PSD_White_3G.png)
-
----
-
-<meta slide="3-up"></meta>
-
-![](https://upload.wikimedia.org/wikipedia/commons/5/5c/N95_Front-slide-open.jpg)
-![](http://www.blogcdn.com/www.engadget.com/media/2008/05/htc-touch-diamond-official.jpg)
-![](http://www.onecellular.com/167-736-thickbox/blackberry-curve-8330-red-telus.jpg)
-
----
-
-<meta slide="movies"></meta>
-
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/b/b6/Twilight_%282008_film%29_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/9/93/The_Twilight_Saga-_New_Moon_poster.JPG)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/d/d7/Eclipse_Theatrical_One-Sheet.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/c/c2/Breaking_Dawn_Part_1_Poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/4/49/The_Twilight_Saga_Breaking_Dawn_Part_2_poster.jpg)</span>
-
----
-
-<meta slide="movies-small"></meta>
-
-![](https://upload.wikimedia.org/wikipedia/en/7/70/Ironmanposter.JPG)
-![](https://upload.wikimedia.org/wikipedia/en/8/88/The_Incredible_Hulk_poster.jpg)
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/f/fc/Thor_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/d/d5/Iron_Man_3_theatrical_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/7/7e/Thor_-_The_Dark_World_poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/e/e8/Captain_America_The_Winter_Soldier.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/8/8f/GOTG-poster.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/1/1b/Avengers_Age_of_Ultron.jpg)</span>
-<span className={styles.nope}>![](https://upload.wikimedia.org/wikipedia/en/7/75/Ant-Man_poster.jpg)</span>
+## September 2008
 
 ---
 
 ![](https://dl.dropboxusercontent.com/u/1349167/GFC.png)
+
+---
+
+<meta bg="http://vignette1.wikia.nocookie.net/fallout/images/a/a1/Concept02B-1-.jpg/revision/latest" bg-pos="75% 50%"></meta>
 
 ---
 
@@ -80,14 +48,6 @@ window.NAMESPACE.Widgets.FooBar = function() {
   ...
 };
 ```
-
----
-
-<meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"></meta>
-
----
-
-## September 2nd 2008
 
 ---
 
@@ -252,14 +212,6 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
-## ICSS
-
-* Compile target, not a human interface
-* Consumed by a loader (Webpack/JSPM/Browserify) to emit *both* CSS and JS
-* Built to support **CSS Modules**
-
----
-
 ## ICSS syntax
 ```css
 :import("./dependency.css") {
@@ -271,6 +223,15 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 /* normal, global CSS from here on */
 ```
+
+---
+
+## ICSS
+
+* Compile target, not a human interface
+* Consumed by a loader (Webpack/JSPM/Browserify) to emit *both* CSS and JS
+* Each file compile separately
+* Built to support **CSS Modules**
 
 ---
 
@@ -293,25 +254,21 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
-<meta x-gif src="http://media.giphy.com/media/xKy2w6LehxxHa/giphy.gif" n-times="1" speed="0.8"></meta>
+> It turns out that if you **write your styles in JS**, a large class of really hard problems with CSS just disappear instantly.
+
+https://speakerdeck.com/vjeux/react-css-in-js
+
+#### February 4, 2009
 
 ---
 
-### **@**Vjeux's 7 Problems <small className={styles.small}>(of CSS)</small>
-* Global Namespaces
-* Dependencies
-* Dead Code Elimination
-* Minification
-* Sharing Constants
-* Non-deterministic Resolution
-* Isolation
----
+<meta bg x-gif src="http://stream1.gifsoup.com/webroot/animatedgifs/483186_o.gif" n-times="0.79" align="bottom"></meta>
 
-<meta x-gif src="http://stream1.gifsoup.com/webroot/animatedgifs/483186_o.gif" n-times="0.79"></meta>
+## The CSS Community
 
 ---
 
-## CSS in JS?
+## CSS in JS
 
 * Inline styles
 * React Style
@@ -325,13 +282,64 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 http://glenmaddern.com/articles/css-modules
 
+#### August 19, 2015
+
 !TODO That's the biggest point of difference I want to make between us and the other teams.
 
 ---
 
+<meta slide="excellent"></meta>
 
-#### Problem #1
-## Global namespace
+## Good design
+### should lead you to good practice
+
+---
+
+## What would make CSS *easier for humans*?
+
+---
+
+# Isolation
+
+### ***vs***
+
+# Reuse
+
+---
+
+## Isolation-first
+
+* Component -> Styles
+* e.g. BEM
+* Easy to add/delete components
+* Hard for components to share styles
+* Duplication leads to large payloads
+
+---
+
+## Reuse-first
+
+* Styles -> Components
+* e.g. OOCSS, Tachyons
+* Small filesizes
+* Difficult for teams
+* Can lead to change paralysis
+
+---
+
+<meta slide="excellent"></meta>
+
+# CSS Modules
+
+### **True isolation** 👍<br/>**Responsible reuse** 👍
+
+#### github.com/css-modules/css-modules
+
+---
+
+<meta slide="excellent"></meta>
+
+# Isolation
 
 ---
 
@@ -415,6 +423,8 @@ function() {
 
 ---
 
+### **CSS Modules** — Part One
+
 ## Local-by-default
 
 ---
@@ -424,6 +434,21 @@ function() {
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
 </div>
+
+<div data-bullet></div>
+
+```css
+/* components/submit-button.css */
+.SubmitButton--normal {
+  min-width: 9em;
+  padding: 0.4rem 1rem 0.45rem;
+  font-size: 0.8rem;
+  border: 1px solid;
+  border-radius: 0.25rem;
+  color: hsl(210, 61%, 31%);
+  background: hsla(210, 61%, 51%, 0.1);
+}
+```
 
 ---
 
@@ -467,27 +492,159 @@ function() {
 ```
 
 ---
+
 <meta slide="examples"></meta>
 
 ```css
-/* components/submit-button.css */
+/* CSS */
 .normal {
   /* styles here... */
 }
 ```
 
+<div data-bullet></div>
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+<div data-bullet></div>
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+```
+
+<div data-bullet></div>
+
+```js
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={{::styles.normal}}>Submit</button>
+
+if (yolo)
+  document.write(`<button class='${styles.normal}'>Submit</button>`)
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+  
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={{::styles.normal}}>Submit</button>
+```
+
+<div data-bullet></div>
+
+```js
+if (yolo)
+  document.write(`<button class='${styles.normal}'>Submit</button>`)
+  
+```
+
+---
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.js */
+import styles from './submit-button.css';
+
+if (vanilla)
+  document.querySelector('...').classList.add(styles.normal)
+  
+if (angular)
+  $scope.styles = styles
+  // <button ng-class={{::styles.normal}}>Submit</button>
+
+if (yolo)
+  document.write(`<button class='${styles.normal}'>Submit</button>`)
+```
+
+---
+<meta slide="examples"></meta>
+
 ```js
 /* components/submit-button.jsx */
 import styles from './submit-button.css';
 
 return <button className={styles.normal}>Submit</button>
-```
-
-<div data-bullet></div>
-
-```html
-<!-- Renders this HTML -->
-<button class="normal_f34f7fa0">Submit</button>
 ```
 
 ---
@@ -507,56 +664,11 @@ import styles from './submit-button.css';
 return <button className={styles.normal}>Submit</button>
 ```
 
-<div data-bullet></div>
-
 ```html
 <!-- Renders this HTML -->
 <button class="normal_f34f7fa0">Submit</button>
 ```
 
----
-<meta slide="examples"></meta>
-
-```css
-/* components/submit-button.css */
-.normal_f34f7fa0 {
-  /* styles here... */
-}
-```
-
-```js
-/* components/submit-button.jsx */
-import styles from './submit-button.css';
-
-return <button className={styles.normal}>Submit</button>
-```
-
-```html
-<!-- Renders this HTML -->
-<button class="normal_f34f7fa0">Submit</button>
-```
-
----
-<meta slide="examples"></meta>
-
-```css
-/* components/submit-button.css */
-.f34f7fa0 {
-  /* styles here... */
-}
-```
-
-```js
-/* components/submit-button.jsx */
-import styles from './submit-button.css';
-
-return <button className={styles.normal}>Submit</button>
-```
-
-```html
-<!-- Renders this HTML -->
-<button class="f34f7fa0">Submit</button>
-```
 
 ---
 <meta slide="examples"></meta>
@@ -602,110 +714,60 @@ return <button className={styles.normal}>Submit</button>
 ```
 
 ---
-
 <meta slide="examples"></meta>
 
 ```css
-/* CSS */
-.normal {
+/* components/submit-button.css */
+.f34f7fa0 {
   /* styles here... */
 }
 ```
 
-!TODO maybe go ICSS -> React -> DOM?
-
-<div data-bullet></div>
-
-```css
-/* ICSS */
-:export {
-  normal: normal_f34f7fa0;
-}
-.normal_f34f7fa0 {
-  /* styles unchanged... */
-}
-```
-
 ```js
+/* components/submit-button.jsx */
 import styles from './submit-button.css';
-// { normal: "normal_f34f7fa0" }
+
+return <button className={styles.normal}>Submit</button>
 ```
 
+```html
+<!-- Renders this HTML -->
+<button class="f34f7fa0">Submit</button>
+```
 ---
-
 <meta slide="examples"></meta>
 
 ```css
-/* CSS */
-.normal {
+/* components/submit-button.css */
+.💖 {
   /* styles here... */
 }
 ```
 
-```css
-/* ICSS */
-:export {
-  normal: normal_f34f7fa0;
-}
-.normal_f34f7fa0 {
-  /* styles unchanged... */
-}
-```
-<div data-bullet></div>
-
 ```js
+/* components/submit-button.jsx */
 import styles from './submit-button.css';
-// { normal: "normal_f34f7fa0" }
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="💖">Submit</button>
 ```
 
 ---
 
-<meta slide="examples"></meta>
+<meta slide="dramatic"></meta>
 
-```css
-/* CSS */
-.normal {
-  /* styles here... */
-}
-```
-
-```css
-/* ICSS */
-:export {
-  normal: normal_f34f7fa0;
-}
-.normal_f34f7fa0 {
-  /* styles unchanged... */
-}
-```
-
-```js
-import styles from './submit-button.css';
-// { normal: "normal_f34f7fa0" }
-```
-
----
-
-### **7 Problems**
-* Global Namespaces ✅
-* Dependencies
-* Dead Code Elimination
-* Minification
-* Sharing Constants
-* Non-deterministic Resolution
-* Isolation
-
----
-
-## Isolation
-### is largely *solved* by fixing naming
+![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/in3l8l9l.png)
 
 ---
 
 <meta slide="sideways"></meta>
 
 ```css
-.My_um_thing {
+.header_v2_final {
   color: red;
   
   h1 {
@@ -719,6 +781,8 @@ import styles from './submit-button.css';
   font-size: 2em;
 }
 ```
+
+<div data-bullet></div>
 
 ```css
 .thing {
@@ -735,29 +799,128 @@ import styles from './submit-button.css';
   font-size: 2em;
 }
 ```
+---
+
+<meta slide="sideways"></meta>
+
+```css
+.header_v2_final {
+  color: red;
+  
+  h1 {
+    font-size: 40px;
+  }
+  :nth-child(2) {
+    margin-bottom: 2px;
+  }
+}
+.Ugh_um_what_is_this {
+  font-size: 2em;
+}
+```
+
+```css
+.header {
+  color: red;
+}
+.h1 {
+  font-size: 40px;
+}
+.second-thing {
+  margin-bottom: 2px;
+}
+
+.that-weird-bit-at-the-end {
+  font-size: 2em;
+}
+```
+---
+
+### **Target everything directly &**<br/>**stop leaking styles**
+### 👍
 
 ---
-### **7 Problems**
-* Global Namespaces ✅
-* Dependencies
-* Dead Code Elimination
-* Minification
-* Sharing Constants
-* Non-deterministic Resolution
-* Isolation ✅
----
-### "Sharing Constants"
+
+<meta slide="excellent"></meta>
+
 # Reuse
+
 ---
 
 <meta slide="white"></meta>
-
-!TODO drop this down to just 2 buttons
 
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
   <button className={styles.examples.invalid}>Error!</button>
 </div>
+
+
+
+<div data-bullet></div>
+
+```css
+.SubmitButton {
+  /* COMMON STYLES */
+}
+.SubmitButton--normal {
+  color: hsl(210, 61%, 31%);
+  background: hsla(210,61%,51%,0.1);
+}
+.SubmitButton--error {
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+```
+
+---
+
+<meta slide="white"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Error!</button>
+</div>
+
+```css
+.SubmitButton {
+  /* COMMON STYLES */
+}
+.SubmitButton--normal {
+  color: hsl(210, 61%, 31%);
+  background: hsla(210,61%,51%,0.1);
+}
+.SubmitButton--error {
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+```
+
+---
+
+<meta slide="white"></meta>
+
+```html
+<button class='SubmitButton SubmitButton--normal'>
+  Submit
+</button>
+
+<button class='SubmitButton SubmitButton--error'>
+  Submit
+</button>
+```
+
+---
+
+<meta slide="excellent"></meta>
+
+## Good abstractions
+### should save you cognitive load
+
+---
+
+### **CSS Modules** — Part Two
+
+## Composition
 
 ---
 
@@ -915,128 +1078,6 @@ return <button className={styles.error}>Error!</button>
 <!-- Renders this HTML -->
 <button class="base_81f12d56 error_b7d2ad6f">Error!</button>
 ```
----
-
-## "State changes are UI changes"
-
-#### Michael Chan, July 6, 2015
-
----
-
-<meta slide="examples"></meta>
-
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error
-      ? { text: 'Error!', style:{color:'red', backgroundColor:'white'}}
-      : { text: 'Submit' }
-    
-    return <button className="SubmitButton" style={state.style || {}}>
-      { state.text }
-    </button>
-  }
-}
-```
----
-<meta slide="examples"></meta>
-
-```js
-import styles from "./submit-button.css";
-
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error
-      ? { text: 'Error!', classes: styles.error }
-      : { text: 'Submit', classes: styles.normal }
-    
-    return <button className={ state.classes }>
-      { state.text }
-    </button>
-  }
-}
-```
----
-## "Name your states!"
----
-<meta slide="examples-one"></meta>
-
-```js
-import styles from "./submit-button.css";
-// { 
-//   normal: "base_81f12d56 normal_f34f7fa0", 
-//   error: "base_81f12d56 error_b7d2ad6f"
-// }
-```
-
-<div data-bullet></div>
-
-```js
-const labels = { normal: 'Submit', error: 'Error!' }
-```
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error ? 'error' : 'normal'
-    
-    return <button className={ styles[state] }>
-      { labels[state] }
-    </button>
-  }
-}
-```
----
-<meta slide="examples-one"></meta>
-
-```js
-import styles from "./submit-button.css";
-// { 
-//   normal: "base_81f12d56 normal_f34f7fa0", 
-//   error: "base_81f12d56 error_b7d2ad6f"
-// }
-```
-```js
-const labels = { normal: 'Submit', error: 'Error!' }
-```
-
-<div data-bullet></div>
-
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error ? 'error' : 'normal'
-    
-    return <button className={ styles[state] }>
-      { labels[state] }
-    </button>
-  }
-}
-```
-
----
-<meta slide="examples-one"></meta>
-
-```js
-import styles from "./submit-button.css";
-// { 
-//   normal: "base_81f12d56 normal_f34f7fa0", 
-//   error: "base_81f12d56 error_b7d2ad6f"
-// }
-```
-```js
-const labels = { normal: 'Submit', error: 'Error!' }
-```
-```js
-export default class SubmitButton extends React.Component {
-  render() {
-    let state = this.props.error ? 'error' : 'normal'
-    
-    return <button className={ styles[state] }>
-      { labels[state] }
-    </button>
-  }
-}
-```
 
 ---
 
@@ -1090,16 +1131,71 @@ export default class SubmitButton extends React.Component {
   Submit
 </button>
 ```
+---
+
+<meta slide="examples"></meta>
+
+```css
+.article {
+  composes: flex vertical centered from "./layout.css";
+}
+
+.masthead {
+  composes: serif bold 48pt centered from "./typography.css";
+  composes: m1-bottom p1-left p1-right from "./layout.css";
+}
+```
+
+```html
+<article class="flex_e17427aa vertical_a17d1205 centered_86687352">
+  <div class="serif_85db3038 bold_f845c6a12 48pt_bb1f8d2d
+              centered_d0c84 m1-bottom_8fe3
+              p1-left_0c7b6e p1-right_6cd78">
+    Content...
+  </div>
+</article>
+```
+---
+
+<meta slide="examples"></meta>
+
+```css
+.article {
+  composes: flex vertical centered from "./layout.css";
+}
+
+.masthead {
+  composes: serif bold 48pt centered from "./typography.css";
+  composes: m1-bottom p1-left p1-right from "./layout.css";
+}
+```
+
+```html
+<article class="${styles.article}">
+  <div class="${styles.masthead}">
+    Content...
+  </div>
+</article>
+```
+
+<div data-bullet></div>
+
+```
+<article class="flex_e17427aa vertical_a17d1205 centered_86687352">
+```
 
 ---
-### **7 Problems**
-* Global Namespaces ✅
-* Dependencies ✅
-* Dead Code Elimination
-* Minification
-* Sharing Constants ✅
-* Non-deterministic Resolution ✅
-* Isolation ✅
+
+## Define an API<br/>into your styles
+### for your markup to use
+
+---
+
+<meta slide="excellent"></meta>
+
+## **Isolation & reuse**
+### 👍
+
 
 ---
 
@@ -1110,12 +1206,31 @@ export default class SubmitButton extends React.Component {
 
 ---
 
-<meta x-gif src="/assets/images/apollorockygif1.gif" n-times="1"></meta>
+## CSS Modules
+
+### *vs ?*
+
+## Sass
+
+---
+
+## **CSS Modules**
+
+### 💖
+
+## Sass
+
+---
+
+## <span className={styles.emoji}>😎</span> CSS Modules <span className={styles.emoji}>😎</span>
+
+### 💔
+
+## <span className={styles.emoji}>🔥</span> Sass <span className={styles.emoji}>🔥</span> 
 
 ---
 
 ## Good design
-
 ### should lead you to good practice
 
 ---
@@ -1125,27 +1240,30 @@ export default class SubmitButton extends React.Component {
 
 ---
 
+## <span className={styles.emoji}>😎</span> CSS Modules <span className={styles.emoji}>😎</span>
+
+#### github.com/orgs/css-modules/people
+
+* Mark Dalgleish **@markdalgleish**
+* Tobias Koppers **@sokra**
+* Josh Joshnston **@joshwnj**
+* Josh Gillies **@joshgillies**
+* Alexey Litvinov **@sullenor**
+
+---
+
+<meta slide="left"></meta>
+
 ## Thanks!
 
-#### <br/>CSS Modules
-**github.com/css-modules/css-modules<br/>glenmaddern.com/articles/css-modules**
-#### <br/>ICSS
-**github.com/css-modules/icss<br/>glenmaddern.com/articles/icss**
+**glenmaddern.com/slides/interoperable-css-eu**
+
+github.com/css-modules/css-modules
+
+glenmaddern.com/articles/css-modules
+
+github.com/css-modules/icss
 
 ### **@glenmaddern**
 
-
----
-
-## CSS Modules
-* Webpack (css-loader w/ modules flag)
-* JSPM (jspm-loader-css-modules)
-* Browserify (cssmodulesify)
-* NodeJS (css-modules-require-hook)
----
-## ICSS
-* Webpack (css-loader)
-* JSPM (jspm-loader-css)
-* Browserify (cssmodulesify w/ flags)
-* NodeJS (css-modules-require-hook w/ flags)
 ---

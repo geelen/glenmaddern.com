@@ -20,12 +20,13 @@ export default class Slides extends React.Component {
       slide: parseInt(location.hash.replace(/^#/, '')) || 1,
       bullet: 0
     }
+    console.log("what is happening?")
   }
 
   keyDown(e) {
-    if (e.keyCode == 39 || e.keyCode == 40) {
+    if (e.keyCode == 39 || e.keyCode == 40 || e.keyCode == 34) {
       this.incrementSlide()
-    } else if (e.keyCode == 37 || e.keyCode == 38) {
+    } else if (e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 33) {
       this.decrementSlide()
     } else {
       console.log(e.keyCode)
@@ -79,6 +80,10 @@ export default class Slides extends React.Component {
         if (props['align'] === 'top') {
           slide.style.justifyContent = 'flex-start';
           slide.style.paddingTop = '4rem';
+        }
+        if (props['align'] === 'bottom') {
+          slide.style.justifyContent = 'flex-end';
+          slide.style.paddingBottom = '2rem';
         }
         if (props.slide) slide.parentClass = 'stage-' + props.slide
         if (props['x-gif']) {
