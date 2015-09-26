@@ -24,9 +24,9 @@ export default class Slides extends React.Component {
   }
 
   keyDown(e) {
-    if (e.keyCode == 39 || e.keyCode == 40) {
+    if (e.keyCode == 39 || e.keyCode == 40 || e.keyCode == 34) {
       this.incrementSlide()
-    } else if (e.keyCode == 37 || e.keyCode == 38) {
+    } else if (e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 33) {
       this.decrementSlide()
     } else {
       console.log(e.keyCode)
