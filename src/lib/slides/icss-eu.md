@@ -287,6 +287,13 @@ http://glenmaddern.com/articles/css-modules
 
 ---
 
+<meta slide="excellent"></meta>
+
+## Good design
+### should lead you to good practice
+
+---
+
 ## What would make CSS *easier for humans*?
 
 ---
@@ -581,7 +588,7 @@ if (vanilla)
 ```js
 if (angular)
   $scope.styles = styles
-  // <button ng-class={::styles.normal}>Submit</button>
+  // <button ng-class={{::styles.normal}}>Submit</button>
 
 if (yolo)
   document.write(`<button class='${styles.normal}'>Submit</button>`)
@@ -600,7 +607,7 @@ if (vanilla)
   
 if (angular)
   $scope.styles = styles
-  // <button ng-class={::styles.normal}>Submit</button>
+  // <button ng-class={{::styles.normal}}>Submit</button>
 ```
 
 <div data-bullet></div>
@@ -623,10 +630,20 @@ if (vanilla)
   
 if (angular)
   $scope.styles = styles
-  // <button ng-class={::styles.normal}>Submit</button>
+  // <button ng-class={{::styles.normal}}>Submit</button>
 
 if (yolo)
   document.write(`<button class='${styles.normal}'>Submit</button>`)
+```
+
+---
+<meta slide="examples"></meta>
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
 ```
 
 ---
