@@ -212,14 +212,6 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
-## ICSS
-
-* Compile target, not a human interface
-* Consumed by a loader (Webpack/JSPM/Browserify) to emit *both* CSS and JS
-* Built to support **CSS Modules**
-
----
-
 ## ICSS syntax
 ```css
 :import("./dependency.css") {
@@ -231,6 +223,15 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 /* normal, global CSS from here on */
 ```
+
+---
+
+## ICSS
+
+* Compile target, not a human interface
+* Consumed by a loader (Webpack/JSPM/Browserify) to emit *both* CSS and JS
+* Each file compile separately
+* Built to support **CSS Modules**
 
 ---
 
@@ -1195,8 +1196,8 @@ return <button className={styles.error}>Error!</button>
 
 ---
 
-## CSS Modules lets you define an API into your styles
-### *(for your markup to use)*
+## Define an API<br/>into your styles
+### for your markup to use
 
 ---
 
