@@ -23,6 +23,14 @@
   z-index: -1;
 }
 
+.stage-left {
+  composes: stage;
+}
+.stage-left p {
+  align-self: flex-start;
+  margin-left: 6rem;
+}
+
 .stage-dramatic {
   composes: stage;
   color: white;

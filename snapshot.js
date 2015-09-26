@@ -15,7 +15,7 @@ jspm.import( 'css' ).then( function ( css ) {
         .then( function ( markup ) {
           var replaced = useref( template, {
             style: function () {
-              return '<link rel="stylesheet" href="/bundle.css"/>';
+              return '<link rel="stylesheet" id="preloaded-styles" href="/bundle.css"/>';
             },
             markup: function () {
               return markup

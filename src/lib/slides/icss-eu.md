@@ -734,6 +734,34 @@ return <button className={styles.normal}>Submit</button>
 ```
 
 ---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.💖 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="💖">Submit</button>
+```
+
+---
+
+<meta slide="dramatic"></meta>
+
+![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/in3l8l9l.png)
+
+---
 
 ### Isolation is hard because **naming is hard**
 
@@ -828,20 +856,80 @@ return <button className={styles.normal}>Submit</button>
 
 ---
 
-### **CSS Modules** — Part Two
-
-## Composition
-
----
-
 <meta slide="white"></meta>
-
-!TODO drop this down to just 2 buttons
 
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
   <button className={styles.examples.invalid}>Error!</button>
 </div>
+
+
+
+<div data-bullet></div>
+
+```css
+.SubmitButton {
+  /* COMMON STYLES */
+}
+.SubmitButton--normal {
+  color: hsl(210, 61%, 31%);
+  background: hsla(210,61%,51%,0.1);
+}
+.SubmitButton--error {
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+```
+
+---
+
+<meta slide="white"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Error!</button>
+</div>
+
+```css
+.SubmitButton {
+  /* COMMON STYLES */
+}
+.SubmitButton--normal {
+  color: hsl(210, 61%, 31%);
+  background: hsla(210,61%,51%,0.1);
+}
+.SubmitButton--error {
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+```
+
+---
+
+<meta slide="white"></meta>
+
+```html
+<button class='SubmitButton SubmitButton--normal'>
+  Submit
+</button>
+
+<button class='SubmitButton SubmitButton--error'>
+  Submit
+</button>
+```
+
+---
+
+<meta slide="excellent"></meta>
+
+## Good abstractions
+### should save you cognitive load
+
+---
+
+### **CSS Modules** — Part Two
+
+## Composition
 
 ---
 
@@ -1112,6 +1200,8 @@ return <button className={styles.error}>Error!</button>
 
 ---
 
+<meta slide="excellent"></meta>
+
 ## **Isolation & reuse**
 ### 👍
 
@@ -1131,10 +1221,6 @@ return <button className={styles.error}>Error!</button>
 
 ## Sass
 
-### *vs ?*
-
-## Inline-styles
-
 ---
 
 ## **CSS Modules**
@@ -1143,10 +1229,6 @@ return <button className={styles.error}>Error!</button>
 
 ## Sass
 
-### 💖
-
-## Inline-styles
-
 ---
 
 ## <span className={styles.emoji}>😎</span> CSS Modules <span className={styles.emoji}>😎</span>
@@ -1154,10 +1236,6 @@ return <button className={styles.error}>Error!</button>
 ### 💔
 
 ## <span className={styles.emoji}>🔥</span> Sass <span className={styles.emoji}>🔥</span> 
-
-### 💔
-
-## <span className={styles.emoji}>🔥</span> Inline Styles <span className={styles.emoji}>🔥</span> 
 
 ---
 
@@ -1171,20 +1249,29 @@ return <button className={styles.error}>Error!</button>
 
 ---
 
-# CSS Modules<br/><span className={styles.emoji}>🎉</span> 1.0 <span className={styles.emoji}>🎉</span>
+## <span className={styles.emoji}>😎</span> CSS Modules <span className={styles.emoji}>😎</span>
 
-### September 26, 2015
+#### github.com/orgs/css-modules/people
 
-*** github.com/css-modules/css-modules ***
+* Mark Dalgleish **@markdalgleish**
+* Tobias Koppers **@sokra**
+* Josh Joshnston **@joshwnj**
+* Josh Gillies **@joshgillies**
+* Alexey Litvinov **@sullenor**
 
 ---
 
+<meta slide="left"></meta>
+
 ## Thanks!
 
-* github.com/css-modules/css-modules
-* glenmaddern.com/articles/css-modules
-* github.com/css-modules/icss
-* glenmaddern.com/articles/icss
+**glenmaddern.com/slides/interoperable-css-eu**
+
+github.com/css-modules/css-modules
+
+glenmaddern.com/articles/css-modules
+
+github.com/css-modules/icss
 
 ### **@glenmaddern**
 
