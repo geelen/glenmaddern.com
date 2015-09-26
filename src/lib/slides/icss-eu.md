@@ -669,27 +669,6 @@ return <button className={styles.normal}>Submit</button>
 <button class="normal_f34f7fa0">Submit</button>
 ```
 
----
-<meta slide="examples"></meta>
-
-```css
-/* components/submit-button.css */
-.f34f7fa0 {
-  /* styles here... */
-}
-```
-
-```js
-/* components/submit-button.jsx */
-import styles from './submit-button.css';
-
-return <button className={styles.normal}>Submit</button>
-```
-
-```html
-<!-- Renders this HTML -->
-<button class="f34f7fa0">Submit</button>
-```
 
 ---
 <meta slide="examples"></meta>
@@ -739,6 +718,27 @@ return <button className={styles.normal}>Submit</button>
 
 ```css
 /* components/submit-button.css */
+.f34f7fa0 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="f34f7fa0">Submit</button>
+```
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
 .💖 {
   /* styles here... */
 }
@@ -762,16 +762,6 @@ return <button className={styles.normal}>Submit</button>
 
 ![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/in3l8l9l.png)
 
----
-
-### Isolation is hard because **naming is hard**
-
-* Tag selectors
-* Descendant selectors
-* Sibling selectors
-* Pseudo selectors
-
-### 😭
 ---
 
 <meta slide="sideways"></meta>
