@@ -6,7 +6,7 @@ import styles from './blog-headlines.css!'
 
 export default class BlogHeadlines extends React.Component {
   render() {
-    let slugs = Object.keys(this.props.items)
+    let slugs = Object.keys(this.props.items).filter(k => !this.props.items[k].hidden)
     let firstN = this.props.num ? slugs.slice(0, this.props.num) : slugs
     return <section className={styles.section}>
       <h2 className={styles.h2}>{this.props.name}</h2>

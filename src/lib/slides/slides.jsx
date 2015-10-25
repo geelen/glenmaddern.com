@@ -4,13 +4,15 @@ import styles from './slides.css!'
 import examples from '../articles/examples.css!'
 import icss from './icss.md!markdown'
 import icss2 from './icss-eu.md!markdown'
+import modularStyle from './modular-style.md!markdown'
 styles.examples = examples
 
 const xGifHtmlImport = `<link rel="import" href="/assets/x-gif.html"/>`;
 
 const talks = {
   'interoperable-css': icss,
-  'interoperable-css-eu': icss2
+  'interoperable-css-eu': icss2,
+  'modular-style': modularStyle
 }
 
 export default class Slides extends React.Component {
@@ -20,7 +22,6 @@ export default class Slides extends React.Component {
       slide: parseInt(location.hash.replace(/^#/, '')) || 1,
       bullet: 0
     }
-    console.log("what is happening?")
   }
 
   keyDown(e) {

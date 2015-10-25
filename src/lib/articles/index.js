@@ -1,5 +1,6 @@
 import React from 'react'
 
+import onePointOh from './one-point-oh.md!markdown'
 import cssmodules from './css-modules.md!markdown'
 import icss from './icss.md!markdown'
 import js2015 from './js2015.md!markdown'
@@ -8,6 +9,7 @@ import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
 
 export default {
+  'css-modules-one-point-zero': onePointOh,
   'css-modules': cssmodules,
   'interoperable-css': icss,
   'javascript-in-2015': js2015,
