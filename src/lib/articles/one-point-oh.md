@@ -64,6 +64,6 @@ CSS Modules had no way of avoiding this duplication, so people reached for famil
 This was not a bad thing by any means. We've had a strict goal to be syntax-compatible with teams writing LESS and Sass & all the CSS Modules loaders allow [customisation of the PostCSS plugin chain], so that choosing CSS Modules never lead to a dead end. Sass, LESS, PostCSS are all fantastic tools, and you shouldn't have to give them up to add a new tool to your arsenal.
 
 
-
 Because CSS Module compiles to [ICSS], everything it does, from 
 
+<imports.YoutubePlayer videoId="aIyhhHTmsXE"></imports.YoutubePlayer>

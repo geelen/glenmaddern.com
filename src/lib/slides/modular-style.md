@@ -23,18 +23,6 @@ by @glenmaddern
 
 ---
 
-![](https://dl.dropboxusercontent.com/u/1349167/GFC.png)
-
----
-
-<meta bg="http://vignette1.wikia.nocookie.net/fallout/images/a/a1/Concept02B-1-.jpg/revision/latest" bg-pos="75% 50%"></meta>
-
----
-
-![](https://dl.dropboxusercontent.com/u/1349167/bieber.png)
-
----
-
 # JavaScript
 #### in 2008
 
@@ -54,8 +42,6 @@ window.NAMESPACE.Widgets.FooBar = function() {
 ---
 
 ![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/jb8vivcf.png)
-
-!TODO note: Launched this to tell everyone what a browser was, because you either did and were using Firefox, or you didn't and you were using IE
 
 ---
 
@@ -196,6 +182,33 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
+```js
+/* namespace/widgets/foobar.js */
+
+var dependency = require('./dependency.js');
+
+module.exports = function() {
+  ...
+};
+```
+
+---
+
+```js
+{
+  1: /* dependency.js */,
+  2: [function (require, module, exports) {
+    var dependency = require('./dependency.js');
+    module.exports = function () {
+      ...
+    };
+  
+  }, {"./dependency.js": 1}]
+}
+```
+
+---
+
 ### You can ***change the human interface*** of a language without needing to change the machine interface. 
 
 ---
@@ -204,13 +217,32 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
-<meta x-gif src="/assets/images/is-it-possible.gif" n-times="1"></meta>
+# CSS
+
+- Sass
+- LESS
+- PostCSS
+
+---
+
+### None of these change the
+## global nature
+### of CSS
 
 ---
 
 # Interoperable CSS
 
 #### June 21, 2015
+
+---
+
+## ICSS
+
+* Compile target, not a human interface
+* Each file stands alone, can import others
+* Unlocks the power of a loader like Webpack/JSPM/Browserify
+* Produces *both* CSS and JS
 
 ---
 
@@ -228,12 +260,261 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 ---
 
-## ICSS
+<meta slide="examples"></meta>
 
-* Compile target, not a human interface
-* Consumed by a loader (Webpack/JSPM/Browserify) to emit *both* CSS and JS
-* Each file compile separately
-* Built to support **CSS Modules**
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+<div data-bullet></div>
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+<div data-bullet></div>
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* CSS */
+.normal {
+  /* styles here... */
+}
+```
+
+```css
+/* ICSS */
+:export {
+  normal: normal_f34f7fa0;
+}
+.normal_f34f7fa0 {
+  /* styles unchanged... */
+}
+```
+
+```js
+import styles from './submit-button.css';
+// { normal: "normal_f34f7fa0" }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+.MyHeader {}
+.MyHeader__MyComponent {}
+.MyHeader__MyComponent__MySomethingElse--large {}
+.MyHeader__MyComponent__MySomethingElse--small {}
+```
+
+<div data-bullet></div>
+
+```js
+window.NAMESPACE = window.NAMESPACE || {};
+window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
+window.NAMESPACE.Widgets.FooBar = function() {}
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+.MyHeader {}
+.MyHeader__MyComponent {}
+.MyHeader__MyComponent__MySomethingElse--large {}
+.MyHeader__MyComponent__MySomethingElse--small {}
+```
+
+```js
+window.NAMESPACE = window.NAMESPACE || {};
+window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
+window.NAMESPACE.Widgets.FooBar = function() {}
+```
+---
+
+<meta slide="examples"></meta>
+
+```css
+.header {}
+.component {}
+.large {}
+.small {}
+```
+
+```js
+import styles from './style.css'
+```
+
+---
+
+## Humans <span className={styles.emoji}>😎</span>
+## Machines <span className={styles.emoji}>🤖</span>
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="normal_f34f7fa0">Submit</button>
+```
+
+
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.components_submit_button__normal {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="components_submit_button__normal">Submit</button>
+```
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.normal\(components\/submit\/button.css\:43\) {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="normal(components/submit/button.css:43)">Submit</button>
+```
+
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.f34f7fa0 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="f34f7fa0">Submit</button>
+```
+---
+<meta slide="examples"></meta>
+
+```css
+/* components/submit-button.css */
+.💖 {
+  /* styles here... */
+}
+```
+
+```js
+/* components/submit-button.jsx */
+import styles from './submit-button.css';
+
+return <button className={styles.normal}>Submit</button>
+```
+
+```html
+<!-- Renders this HTML -->
+<button class="💖">Submit</button>
+```
+
+---
+
+<meta slide="dramatic"></meta>
+
+![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/in3l8l9l.png)
+
+---
+
+<meta slide="dramatic"></meta>
+
+# <span className={styles.emoji}>😎</span>
 
 ---
 
@@ -241,63 +522,7 @@ http://www.catonmat.net/blog/browserling-open-sources-90-node-modules/
 
 #### Part 2
 
-## Human interfaces
-
----
-
-### **@**Vjeux's 7 Problems <small className={styles.small}>(of CSS)</small>
-* Global Namespaces
-* Dependencies
-* Dead Code Elimination
-* Minification
-* Sharing Constants
-* Non-deterministic Resolution
-* Isolation
-
----
-
-> It turns out that if you **write your styles in JS**, a large class of really hard problems with CSS just disappear instantly.
-
-https://speakerdeck.com/vjeux/react-css-in-js
-
-#### February 4, 2009
-
----
-
-<meta bg x-gif src="http://stream1.gifsoup.com/webroot/animatedgifs/483186_o.gif" n-times="0.79" align="bottom"></meta>
-
-## The CSS Community
-
----
-
-## CSS in JS
-
-* Inline styles
-* React Style
-* jsxstyle
-* Radium
-* jss
-
----
-
-> [*We wanted to*] help you and your team **maintain as much of your current knowledge** of CSS and your product, but become vastly more comfortable and more productive.
-
-http://glenmaddern.com/articles/css-modules
-
-#### August 19, 2015
-
-!TODO That's the biggest point of difference I want to make between us and the other teams.
-
----
-
-<meta slide="excellent"></meta>
-
-## Good design
-### should lead you to good practice
-
----
-
-## What would make CSS *easier for humans*?
+## Modular Style
 
 ---
 
@@ -309,99 +534,9 @@ http://glenmaddern.com/articles/css-modules
 
 ---
 
-## Isolation-first
-
-* Component -> Styles
-* e.g. BEM
-* Easy to add/delete components
-* Hard for components to share styles
-* Duplication leads to large payloads
-
----
-
-## Reuse-first
-
-* Styles -> Components
-* e.g. OOCSS, Tachyons
-* Small filesizes
-* Difficult for teams
-* Can lead to change paralysis
-
----
-
-<meta slide="excellent"></meta>
-
-# CSS Modules
-
-### **True isolation** 👍<br/>**Responsible reuse** 👍
-
-#### github.com/css-modules/css-modules
-
----
-
 <meta slide="excellent"></meta>
 
 # Isolation
-
----
-
-```css
-#document .content p:first-child a strong {
-  color: red;
-}
-```
-<div data-bullet></div>
-
-```css
-.strong-in-an-a-in-the-first-paragraph-in-content-in-document {
-  color: red;
-}
-```
-
----
-
-```css
-#document .content p:first-child a strong {
-  color: red;
-}
-```
-
-```css
-.strong-in-an-a-in-the-first-paragraph-in-content-in-document {
-  color: red;
-}
-```
-
----
-```css
-.MyHeader {}
-.MyHeader__MyComponent {}
-.MyHeader__MyComponent__MySomethingElse--large {}
-.MyHeader__MyComponent__MySomethingElse--small {}
-```
-
-<div data-bullet></div>
-
-```js
-window.NAMESPACE = window.NAMESPACE || {};
-window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
-window.NAMESPACE.Widgets.FooBar = function() {}
-```
-
----
-
-```css
-.MyHeader {}
-.MyHeader__MyComponent {}
-.MyHeader__MyComponent__MySomethingElse--large {}
-.MyHeader__MyComponent__MySomethingElse--small {}
-```
-
-```js
-window.NAMESPACE = window.NAMESPACE || {};
-window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
-window.NAMESPACE.Widgets.FooBar = function() {}
-```
 
 ---
 
@@ -572,71 +707,6 @@ import styles from './submit-button.css';
 ```js
 import styles from './submit-button.css';
 // { normal: "normal_f34f7fa0" }
-```
-
----
-
-<meta slide="examples"></meta>
-
-```js
-/* components/submit-button.js */
-import styles from './submit-button.css';
-
-if (vanilla)
-  document.querySelector('...').classList.add(styles.normal)
-```
-
-<div data-bullet></div>
-
-```js
-if (angular)
-  $scope.styles = styles
-  // <button ng-class={{::styles.normal}}>Submit</button>
-
-if (yolo)
-  document.write(`<button class='${styles.normal}'>Submit</button>`)
-```
-
----
-
-<meta slide="examples"></meta>
-
-```js
-/* components/submit-button.js */
-import styles from './submit-button.css';
-
-if (vanilla)
-  document.querySelector('...').classList.add(styles.normal)
-  
-if (angular)
-  $scope.styles = styles
-  // <button ng-class={{::styles.normal}}>Submit</button>
-```
-
-<div data-bullet></div>
-
-```js
-if (yolo)
-  document.write(`<button class='${styles.normal}'>Submit</button>`)
-  
-```
-
----
-<meta slide="examples"></meta>
-
-```js
-/* components/submit-button.js */
-import styles from './submit-button.css';
-
-if (vanilla)
-  document.querySelector('...').classList.add(styles.normal)
-  
-if (angular)
-  $scope.styles = styles
-  // <button ng-class={{::styles.normal}}>Submit</button>
-
-if (yolo)
-  document.write(`<button class='${styles.normal}'>Submit</button>`)
 ```
 
 ---
