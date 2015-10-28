@@ -922,13 +922,17 @@ styles/
 
 <meta slide="dramatic"></meta>
 
-## Flexibility
+## Future work
+
+* Site-wide theming
+* Publishing reusable components w/ CSS
+* Non-JS ecosystems
 
 ---
 
 <meta slide="dramatic"></meta>
 
-## Single Responsibility
+## Flexibility
 
 ---
 
@@ -954,9 +958,12 @@ styles/
 
 <meta slide="dramatic"></meta>
 
-# Modular Style
-## Shape your styles to fit your methodology
-### (not the other way around)
+## Modular Style
+
+#### =
+
+## Composable Classes
+
 ---
 
 ## <span className={styles.emoji}>😎</span> CSS Modules <span className={styles.emoji}>😎</span>
@@ -975,13 +982,13 @@ styles/
 
 ## Thanks!
 
-**glenmaddern.com/slides/modular-style**
+#### —
 
-github.com/css-modules/css-modules
+### glenmaddern.com/slides/modular-style
 
-glenmaddern.com/articles/css-modules
+### github.com/css-modules/css-modules
 
-github.com/css-modules/icss
+#### —
 
 ### **@glenmaddern**
 
