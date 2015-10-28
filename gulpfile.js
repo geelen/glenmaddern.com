@@ -13,7 +13,8 @@ var gulp = require( 'gulp' ),
     '/talks',
     '/work',
     '/slides/interoperable-css',
-    '/slides/interoperable-css-eu'
+    '/slides/interoperable-css-eu',
+    '/slides/modular-style'
   ]
 
 gulp.task( 'jspm-bundle', function () {
