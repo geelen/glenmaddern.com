@@ -88,7 +88,8 @@ export default class Slides extends React.Component {
         }
         if (props.slide) slide.parentClass = 'stage-' + props.slide
         if (props['x-gif']) {
-          slide.xGif = `<x-gif fill stopped src="${props.src}" n-times="${props['n-times']}" ${props['ping-pong'] ? 'ping-pong' : ''} speed=${props.speed || 1}/>`
+          slide.parent.backgroundColor = 'black';
+          slide.xGif = `<x-gif ${props.nofill ? '' : 'fill'} stopped src="${props.src}" n-times="${props['n-times']}" ${props['ping-pong'] ? 'ping-pong' : ''} speed=${props.speed || 1}/>`
         }
       } else {
         if (node.type === "div" && props['data-bullet']) {
