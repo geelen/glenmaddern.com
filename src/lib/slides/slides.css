@@ -37,6 +37,14 @@
   background-color: #22224d;
 }
 
+.stage-dramatic-image {
+  composes: stage-dramatic;
+
+  img {
+    height: auto;
+  }
+}
+
 .stage-excellent {
   composes: stage;
   color: rgb(222, 237, 255);

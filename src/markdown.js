@@ -27,7 +27,7 @@ export let fetch = ( load, fetch ) => {
       meta = yaml.safeLoad(frontMatter[1])
       text = frontMatter[2]
     }
-    let mdToJsx = marked( text, { renderer, tables: false, smartypants: true } ).replace( /`/g, "\\`" ),
+    let mdToJsx = marked( text, { renderer, tables: false, smartypants: true } ).replace( /`/g, "\\`" ).replace(/⏐/g,'&nbsp;'),
       JsxToJs = reactTools.transformWithDetails( `<div className={styles.markdown}>${mdToJsx}</div>`, { es6module: true } )
     return `
       import React from 'react'
