@@ -1,6 +1,7 @@
+#### CSS in the Component Age — Part 2
 # The Rise of Modular Style
 
-&nbsp;
+#### —
 
 by @glenmaddern
 
