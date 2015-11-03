@@ -985,9 +985,9 @@ styles/
 
 #### —
 
-### glenmaddern.com/slides/modular-style
-
-### github.com/css-modules/css-modules
+* glenmaddern.com/slides/modular-style
+* github.com/css-modules/css-modules
+* markdalgleish.github.io/<br/>presentation-the-end-of-global-css
 
 #### —
 
