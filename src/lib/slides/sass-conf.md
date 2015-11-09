@@ -291,36 +291,52 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 
 ---
 
+<meta slide="excellent"></meta>
+
+## @extends — what are you?
+
+---
+
+## Attempt 1 — "is a"
+
+<div data-bullet></div>
+
 ```scss
-.bacon-pancake { @extend .normal-pancake; }
+.bacon-pancake { 
+  @extend .normal-pancake;
+  /* ... */
+}
+```
+
+A bacon pancake is a normal pancake. <br/> As well as other things (i.e. bacon)
+
+---
+
+## Attempt 1 — "is a"
+
+```scss
+.bacon-pancake { 
+  @extend .normal-pancake;
+  /* ... */
+}
 ```
 
 <div data-bullet></div>
 
-### **a bacon pancake <br/> = a normal pancake <br/> + more (e.g bacon)**
-
-## (in the simple case only) <br/> <span className={styles.emoji}>😕</span>
-
----
-```scss
-.bacon-pancake { @extend .normal-pancake; }
-```
-
-### **a bacon pancake <br/> = a normal pancake <br/> + more (e.g bacon)**
-
-<div data-bullet></div>
-
-## (in the simple case only) <br/> <span className={styles.emoji}>😕</span>
+A bacon pancake is a normal pancake. <br/> As well as other things (i.e. bacon)
 
 ---
 
+## Attempt 1 — "is a"
+
 ```scss
-.bacon-pancake { @extend .normal-pancake; }
+.bacon-pancake { 
+  @extend .normal-pancake;
+  /* ... */
+}
 ```
 
-### **a bacon pancake <br/> = a normal pancake <br/> + more (e.g bacon)**
-
-## (in the simple case only) <br/> <span className={styles.emoji}>😕</span>
+A bacon pancake ***is a*** normal pancake. <br/> As well as other things (i.e. bacon)
 
 ---
 
@@ -330,7 +346,7 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 
 ```scss
 .Button--CallToAction {
-  @extend .SubmitButton;
+  @extend .Button;
   color: fuchsia;
   &:hover {
     box-shadow: 0 0px 40px 10px currentColor;
@@ -345,14 +361,14 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 </div>
 
 ```scss
-.BoxShadow--Obnoxious { 
+.Shadow--Obnoxious { 
   box-shadow: 0 0px 40px 10px currentColor;
 }
 .Button--CallToAction {
-  @extend .SubmitButton;
+  @extend .Button;
   color: fuchsia;
   &:hover {
-    @extend .BoxShadow--Obnoxious;
+    @extend .Shadow--Obnoxious;
   }
 }
 ```
@@ -361,8 +377,8 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 
 ```scss
 .Button--CallToAction { 
-  @extend .SubmitButton;
-  &:hover { @extend .BoxShadow--Obnoxious; }
+  @extend .Button;
+  &:hover { @extend .Shadow--Obnoxious; }
 }
 ```
 
@@ -374,8 +390,8 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 
 ```scss
 .Button--CallToAction { 
-  @extend .SubmitButton;
-  &:hover { @extend .BoxShadow--Obnoxious; }
+  @extend .Button;
+  &:hover { @extend .Shadow--Obnoxious; }
 }
 ```
 
@@ -392,26 +408,61 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 
 ---
 
-<meta slide="excellent"></meta>
+<meta slide="examples"></meta>
 
-## We need a better definition
+```scss
+.Button--CallToAction { 
+  @extend .Button;
+  &:hover { @extend .BoxShadow--Obnoxious; }
+}
+```
 
+#### is equivalent to:
+
+```scss
+.Button--CallToAction { @extend .Button; }
+.Button--CallToAction:hover { @extend .Shadow--Obnoxious; }
+```
 ---
 
 <meta slide="examples"></meta>
 
 ```scss
-.Button--CallToAction { 
-  @extend .SubmitButton;
-  &:hover { @extend .BoxShadow--Obnoxious; }
-}
+.Button { /* button stuff I guess */ }
+.Shadow--Obnoxious { /* dat blur radius */ }
+.Button--CallToAction { @extend .Button; /* mmm fuchsia */ }
+.Button--CallToAction:hover { @extend .Shadow--Obnoxious; /* ... */ }
 ```
 
-#### equivalent to:
+#### &nbsp; 
+
+<div data-bullet></div>
+
 
 ```scss
-.Button--CallToAction { @extend .SubmitButton; }
-.Button--CallToAction:hover { @extend .BoxShadow--Obnoxious; }
+.Button, .Button--CallToAction { /* button stuff I guess */ }
+.Shadow--Obnoxious, .Button--CallToAction:hover { /* dat blur radius */ }
+.Button--CallToAction { /* mmm fuchsia */ }
+.Button--CallToAction:hover { /* ... */ }
+```
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.Button { /* button stuff I guess */ }
+.Shadow--Obnoxious { /* dat blur radius */ }
+.Button--CallToAction { @extend .Button; /* mmm fuchsia */ }
+.Button--CallToAction:hover { @extend .Shadow--Obnoxious; /* ... */ }
+```
+
+#### compiles to:
+
+```css
+.Button, .Button--CallToAction { /* button stuff I guess */ }
+.Shadow--Obnoxious, .Button--CallToAction:hover { /* dat blur radius */ }
+.Button--CallToAction { /* mmm fuchsia */ }
+.Button--CallToAction:hover { /* ... */ }
 ```
 
 ---
@@ -421,13 +472,14 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 .Button--CallToAction:hover { @extend .BoxShadow--Obnoxious; }
 ```
 
-Wherever you see `.SubmitButton` duplicate the rule with `.Button--CallToAction` replacing it
-
-Wherever you see `.BoxShadow--Obnoxious` duplicate the rule with `.BoxShadow--Obnoxious` replacing it
+* Duplicate all rules containing `.SubmitButton` <br/>
+* Replace `.SubmitButton` with `.Button--CallToAction` in the duplicates
+* Duplicate all rules containing `.BoxShadow--Obnoxious` <br/>
+* Replace `.BoxShadow--Obnoxious` with `.Button--CallToAction:hover` in the duplicates
 
 ---
 
-!TODO: hungry hungry hippos background
+<meta bg="https://upload.wikimedia.org/wikipedia/commons/e/e8/Hippo_Indigestion.jpg" align="top"></meta>
 
 ### Problem #2
 
@@ -435,7 +487,7 @@ Wherever you see `.BoxShadow--Obnoxious` duplicate the rule with `.BoxShadow--Ob
 
 ---
 
-TODO: show 5 rules for SubmitButton
+
 
 ---
 

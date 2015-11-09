@@ -84,7 +84,7 @@
     width: 85%;
   }
   .pre + .h4 {
-    margin-top: 0;
+    margin-bottom: 0;
   }
   .demo + .pre, .h4 + .pre {
     border-top: none;
@@ -103,6 +103,7 @@
 
   .slide {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .slide > * {
@@ -112,6 +113,10 @@
 
   .slide > * + * {
     margin-left: 2rem
+  }
+
+  .demo {
+    width: 100%;
   }
 
 }
@@ -328,6 +333,19 @@
   text-align: left;
 }
 
+.code:traits {
+  type: mono lh12 unbroken;
+}
+.code {
+  font-size: 0.6em;
+  position: relative;
+  bottom: 0.1em;
+  border-radius: 0.2em;
+  background: black;
+  color: #ffc873;
+  padding: 0.25em 0.3em 0.2em;
+}
+
 .pre_code:traits {
   type: mono lh16 h5 unbroken;
   colors: white-background;
@@ -353,7 +371,7 @@
 }
 
 .ul {
-  font-size: 3rem;
+  font-size: 2.5rem;
   align-self: center;
   min-width: 50%;
 }
