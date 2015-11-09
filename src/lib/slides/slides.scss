@@ -26,6 +26,7 @@
 .stage-left {
   composes: stage;
 }
+
 .stage-left p {
   align-self: flex-start;
   margin-left: 6rem;
@@ -55,54 +56,63 @@
   composes: stage;
   background: white;
 
-code {
-  box-shadow: none;
-}
-
+  code {
+    box-shadow: none;
+  }
 }
 
 .stage-examples {
   composes: stage-white;
 
-.slide {
-  width: intrinsic;
-}
+  .slide {
+    width: intrinsic;
+  }
 
-.pre {
-  border-top: 1px solid #999;
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
-  align-self: stretch;
-  &:first-child { margin-top : 0;
-  padding-top: 0;
-  border: none;
-}
-}
+  .pre {
+    border-top: 1px solid #999;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    align-self: stretch;
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border: none;
+    }
+  }
 
-.demo { width: 85%; }
-.demo + .pre { border-top: none; }
+  .demo {
+    width: 85%;
+  }
+  .pre + .h4 {
+    margin-top: 0;
+  }
+  .demo + .pre, .h4 + .pre {
+    border-top: none;
+  }
 }
 
 .stage-examples-one {
   composes: stage-examples;
-  .pre { border-top: none; }
+  .pre {
+    border-top: none;
+  }
 }
 
 .stage-sideways {
   composes: stage;
 
-.slide {
-  flex-direction: row;
-}
+  .slide {
+    flex-direction: row;
+  }
 
-.slide > * {
-  margin-top: 0;
-  width: calc(50% - 1rem);
-}
+  .slide > * {
+    margin-top: 0;
+    width: calc(50% - 1rem);
+  }
 
-.slide > * + * {
-  margin-left: 2rem
-}
+  .slide > * + * {
+    margin-left: 2rem
+  }
 
 }
 
@@ -113,23 +123,59 @@ code {
 .stage-3-up {
   composes: stage;
 }
+
 .stage-3-up img {
   max-width: calc(33% - 1rem);
   max-height: auto;
   margin: 0 0.5rem;
 }
 
-.stage-movies { composes: stage; }
-.stage-movies img { width: 220px; height: 330px; margin: 0 0.5rem; }
-.stage-movies p { display: flex; flex-wrap: wrap; }
-.stage-movies-small { composes: stage-movies; }
-.stage-movies-small img { width: 180px; height: 270px; margin: 0 0.5rem; }
+.stage-movies {
+  composes: stage;
+}
 
-.nope { display: block; position: relative; }
-.nope img { opacity: 0.6; }
+.stage-movies img {
+  width: 220px;
+  height: 330px;
+  margin: 0 0.5rem;
+}
+
+.stage-movies p {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stage-movies-small {
+  composes: stage-movies;
+}
+
+.stage-movies-small img {
+  width: 180px;
+  height: 270px;
+  margin: 0 0.5rem;
+}
+
+.nope {
+  display: block;
+  position: relative;
+}
+
+.nope img {
+  opacity: 0.6;
+}
+
 .nope::before {
-  position: absolute; z-index: 1; font-size: 6rem; content: '✘'; top: 50%; line-height: 0; color: #c32515; width: 100%; text-align: center;
-  text-shadow: 0 0 4px black;}
+  position: absolute;
+  z-index: 1;
+  font-size: 6rem;
+  content: '✘';
+  top: 50%;
+  line-height: 0;
+  color: #c32515;
+  width: 100%;
+  text-align: center;
+  text-shadow: 0 0 4px black;
+}
 
 .slide:traits {
   flex: align-center justify-center vertical;

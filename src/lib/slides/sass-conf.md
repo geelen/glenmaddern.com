@@ -244,7 +244,7 @@ button { /* COMMON STYLES */ }
   <button className={styles.examples.invalid}>Delete!</button>
 </div>
 
-```css
+```scss
 .SubmitButton { /* COMMON STYLES */ }                     ⏐
 .SubmitButton--normal { 
   @extends .SubmitButton;
@@ -286,7 +286,7 @@ button { /* COMMON STYLES */ }
 
 ---
 
-```css
+```scss
 .bacon-pancake { @extends .normal-pancake; }
 ```
 
@@ -297,7 +297,7 @@ button { /* COMMON STYLES */ }
 ## (in the simple case only) <br/> <span className={styles.emoji}>😕</span>
 
 ---
-```css
+```scss
 .bacon-pancake { @extends .normal-pancake; }
 ```
 
@@ -309,12 +309,102 @@ button { /* COMMON STYLES */ }
 
 ---
 
-```css
+```scss
 .bacon-pancake { @extends .normal-pancake; }
 ```
 
 ### **a bacon pancake <br/> = a normal pancake <br/> + more (e.g bacon)**
 
 ## (in the simple case only) <br/> <span className={styles.emoji}>😕</span>
+
+---
+
+<div className={styles.demo}>
+  <button className={styles.examples.cta}>Sign up!</button>
+</div>
+
+```scss
+.Button--CallToAction {
+  @extends .SubmitButton;
+  color: fuchsia;
+  &:hover {
+    box-shadow: 0 0px 40px 10px currentColor;
+  }
+}
+```
+
+---
+
+<div className={styles.demo}>
+  <button className={styles.examples.cta}>Sign up!</button>
+</div>
+
+```scss
+.BoxShadow--Obnoxious { 
+  box-shadow: 0 0px 40px 10px currentColor;
+}
+.Button--CallToAction {
+  @extends .SubmitButton;
+  color: fuchsia;
+  &:hover {
+    @extends .BoxShadow--Obnoxious;
+  }
+}
+```
+
+---
+
+```scss
+.Button--CallToAction { 
+  @extends .SubmitButton;
+  &:hover { @extends .BoxShadow--Obnoxious; }
+}
+```
+
+<div data-bullet></div>
+
+### a CTA button<br/> ***is a*** normal submit button <br/> ***and a*** obnoxiously-shadowed-thing <br/> ***(when hovered)***
+
+---
+
+```scss
+.Button--CallToAction { 
+  @extends .SubmitButton;
+  &:hover { @extends .BoxShadow--Obnoxious; }
+}
+```
+
+### a CallToAction button<br/> ***is a*** normal submit button <br/> ***and a*** obnoxiously-shadowed-thing <br/> ***(when hovered)***
+---
+
+<meta slide="excellent"></meta>
+
+### Problem #1
+
+## @extends != "is a"
+
+---
+
+<meta slide="excellent"></meta>
+
+## We need a better definition
+
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.Button--CallToAction { 
+  @extends .SubmitButton;
+  &:hover { @extends .BoxShadow--Obnoxious; }
+}
+```
+
+#### equivalent to:
+
+```scss
+.Button--CallToAction { @extends .SubmitButton; }
+.Button--CallToAction:hover { @extends .BoxShadow--Obnoxious; }
+```
 
 ---

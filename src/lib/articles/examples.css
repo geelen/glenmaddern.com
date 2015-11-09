@@ -68,3 +68,12 @@
     background-position: 8rem 0;
   }
 }
+
+.cta {
+  composes: buttons;
+  background-color: white;
+  color: fuchsia;
+  &:hover {
+    box-shadow: 0 0px 40px 10px currentColor;
+  }
+}

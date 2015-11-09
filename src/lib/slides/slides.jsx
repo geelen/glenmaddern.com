@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './slides.css!'
+import styles from './slides.scss!css'
 import examples from '../articles/examples.css!'
 import icss from './icss.md!markdown'
 import icss2 from './icss-eu.md!markdown'
