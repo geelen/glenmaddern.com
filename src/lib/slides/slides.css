@@ -79,6 +79,8 @@ code {
 }
 }
 
+.demo { width: 100%; }
+.demo + .pre { border-top: none; }
 }
 
 .stage-examples-one {

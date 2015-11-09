@@ -32,6 +32,11 @@
   background-color: hsla(210, 61%, 51%, 0.1);
 }
 
+.normalBroken {
+  color: hsl(210, 61%, 31%);
+  background-color: hsla(210, 61%, 51%, 0.1);
+}
+
 .disabled {
   opacity: 0.5;
 }
@@ -42,6 +47,11 @@
 
 .invalid {
   composes: buttons;
+  color: hsla(0, 61%, 51%, 0.5);
+  background: white;
+}
+
+.invalidBroken {
   color: hsla(0, 61%, 51%, 0.5);
   background: white;
 }
