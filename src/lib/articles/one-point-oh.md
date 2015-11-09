@@ -2,7 +2,6 @@
 title: "CSS Modules hits 1.0"
 strap: "Now with added legitimacy!"
 date: "2015-10-23"
-hidden: true
 ---
 
 Since the [last blog post](/articles/css-modules), a lot has happened. In two or so months I've travelled to Salt Lake City and Berlin to speak about the project and chatted afterwards to dozens of developers about it, and the response has been overwhelming. We've received a huge amount of questions, feature requests & bug reports on the issue tracker, which I want to thank everyone for taking the time to contribute. My hope for CSS Modules is that it can really improve the majority of developers' experience with CSS, but in order to achieve that we need your help to understand *what you find painful about CSS right now*. So thanks to those of you who have already [raised an issue](https://github.com/css-modules/css-modules/issues), and I invite everyone else to do so.
