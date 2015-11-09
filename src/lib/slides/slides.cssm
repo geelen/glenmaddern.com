@@ -84,7 +84,7 @@
     width: 85%;
   }
   .pre + .h4 {
-    margin-bottom: 0;
+    margin-top: 0.5rem;
   }
   .demo + .pre, .h4 + .pre {
     border-top: none;
@@ -261,7 +261,7 @@
 }
 
 .h1 {
-  font-size: 8rem;
+  font-size: 7rem;
   line-height: 1.1;
   word-wrap: break-word;
   /*letter-spacing: -0.1em;*/

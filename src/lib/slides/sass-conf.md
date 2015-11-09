@@ -293,11 +293,11 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
 
 <meta slide="excellent"></meta>
 
-## @extends — what are you?
+## @extend — what are you?
 
 ---
 
-## Attempt 1 — "is a"
+### Attempt 1 <br/>**"is a"**
 
 <div data-bullet></div>
 
@@ -312,7 +312,7 @@ A bacon pancake is a normal pancake. <br/> As well as other things (i.e. bacon)
 
 ---
 
-## Attempt 1 — "is a"
+### Attempt 1 <br/>**"is a"**
 
 ```scss
 .bacon-pancake { 
@@ -327,7 +327,7 @@ A bacon pancake is a normal pancake. <br/> As well as other things (i.e. bacon)
 
 ---
 
-## Attempt 1 — "is a"
+### Attempt 1 <br/>**"is a"**
 
 ```scss
 .bacon-pancake { 
@@ -395,16 +395,38 @@ A bacon pancake ***is a*** normal pancake. <br/> As well as other things (i.e. b
 }
 ```
 
-### a CallToAction button<br/> ***is a*** normal submit button <br/> ***and a*** obnoxiously-shadowed-thing <br/> ***(when hovered)***
+a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-thing when hovered
+
 ---
 
-<meta slide="excellent"></meta>
+```scss
+.Button--CallToAction { 
+  @extend .Button;
+  &:hover { @extend .Shadow--Obnoxious; }
+  .Modal & { @extend .Layout--FullWidth; }
+}
+```
 
-### Problem #1
+a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-thing when hovered <br/> & ***is a*** full-width thing when inside a Modal
 
-## @extend != "is a"
+---
 
-!TODO note: I'd consider this a leaky abstraction — what works for the simple cases breaks down with slightly more complex stuff
+```scss
+.Button--CallToAction { 
+  @extend .Button;
+  &:hover { @extend .Shadow--Obnoxious; }
+  .Modal & { @extend .Layout--FullWidth; }
+  > * { @extend .Type--Uppercase; }
+}
+```
+
+a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-thing when hovered <br/> & ***is a*** full-width thing when inside a Modal <br/> & direct descendants ***are an*** uppercase thing ... 😤 
+
+---
+
+!TODO: curb gif
+
+.
 
 ---
 
@@ -413,7 +435,32 @@ A bacon pancake ***is a*** normal pancake. <br/> As well as other things (i.e. b
 ```scss
 .Button--CallToAction { 
   @extend .Button;
-  &:hover { @extend .BoxShadow--Obnoxious; }
+  &:hover { @extend .Shadow--Obnoxious; }
+  .Modal & { @extend .Layout--FullWidth; }
+  > * { @extend .Type--Uppercase; }
+}
+```
+
+#### &nbsp;
+
+<div data-bullet></div>
+
+```scss
+.Button--CallToAction { @extend .Button; }
+.Button--CallToAction:hover { @extend .Shadow--Obnoxious; }
+.Modal .Button--CallToAction { @extend .Layout--FullWidth; }
+.Button--CallToAction > * { @extend .Type--Uppercase; }
+```
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.Button--CallToAction { 
+  @extend .Button;
+  &:hover { @extend .Shadow--Obnoxious; }
+  .Modal & { @extend .Layout--FullWidth; }
+  > * { @extend .Type--Uppercase; }
 }
 ```
 
@@ -422,61 +469,97 @@ A bacon pancake ***is a*** normal pancake. <br/> As well as other things (i.e. b
 ```scss
 .Button--CallToAction { @extend .Button; }
 .Button--CallToAction:hover { @extend .Shadow--Obnoxious; }
+.Modal .Button--CallToAction { @extend .Layout--FullWidth; }
+.Button--CallToAction > * { @extend .Type--Uppercase; }
 ```
 ---
 
-<meta slide="examples"></meta>
-
-```scss
-.Button { /* button stuff I guess */ }
-.Shadow--Obnoxious { /* dat blur radius */ }
-.Button--CallToAction { @extend .Button; /* mmm fuchsia */ }
-.Button--CallToAction:hover { @extend .Shadow--Obnoxious; /* ... */ }
-```
-
-#### &nbsp; 
+### Attempt 2 <br/>**"duplicate & replace"**
 
 <div data-bullet></div>
 
+```scss
+.some .complex .selector { 
+  @extend .target;
+  /* ... */
+}
+```
+
+* Duplicate all rules containing `.target`
+* Replace `.target` with `.some .complex .selector` in the new rules
+
+---
+
+### Attempt 2 <br/>**"duplicate & replace"**
 
 ```scss
-.Button, .Button--CallToAction { /* button stuff I guess */ }
-.Shadow--Obnoxious, .Button--CallToAction:hover { /* dat blur radius */ }
-.Button--CallToAction { /* mmm fuchsia */ }
-.Button--CallToAction:hover { /* ... */ }
+.some .complex .selector { 
+  @extend .target;
+  /* ... */
+}
+```
+
+<div data-bullet></div>
+
+* Duplicate all rules containing `.target`
+* Replace `.target` with `.some .complex .selector` in the new rules
+
+---
+
+### Attempt 2 <br/>**"duplicate & replace"**
+
+```scss
+.some .complex .selector { 
+  @extend .target;
+  /* ... */
+}
+```
+
+* Duplicate all rules containing `.target`
+* Replace `.target` with `.some .complex .selector` in the new rules
+
+---
+
+## Almost!
+
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.ancestor-1 .foo { color: green; }
+.ancestor-2 .bar { @extend .foo; }
+```
+
+#### &nbsp;
+
+<div data-bullet></div>
+
+```scss
+.ancestor-1 .foo,
+.ancestor-1 .ancestor-2 .bar,
+.ancestor-2 .ancestor-1 .bar {
+  color: green;
+}
 ```
 ---
 
 <meta slide="examples"></meta>
 
 ```scss
-.Button { /* button stuff I guess */ }
-.Shadow--Obnoxious { /* dat blur radius */ }
-.Button--CallToAction { @extend .Button; /* mmm fuchsia */ }
-.Button--CallToAction:hover { @extend .Shadow--Obnoxious; /* ... */ }
+.ancestor-1 .foo { color: green; }
+.ancestor-2 .bar { @extend .foo; }
 ```
 
-#### compiles to:
-
-```css
-.Button, .Button--CallToAction { /* button stuff I guess */ }
-.Shadow--Obnoxious, .Button--CallToAction:hover { /* dat blur radius */ }
-.Button--CallToAction { /* mmm fuchsia */ }
-.Button--CallToAction:hover { /* ... */ }
-```
-
----
+#### compiles to
 
 ```scss
-.Button--CallToAction { @extend .SubmitButton; }
-.Button--CallToAction:hover { @extend .BoxShadow--Obnoxious; }
+.ancestor-1 .foo,
+.ancestor-1 .ancestor-2 .bar,
+.ancestor-2 .ancestor-1 .bar {
+  color: green;
+}
 ```
-
-* Duplicate all rules containing `.SubmitButton` <br/>
-* Replace `.SubmitButton` with `.Button--CallToAction` in the duplicates
-* Duplicate all rules containing `.BoxShadow--Obnoxious` <br/>
-* Replace `.BoxShadow--Obnoxious` with `.Button--CallToAction:hover` in the duplicates
-
 ---
 
 <meta bg="https://upload.wikimedia.org/wikipedia/commons/e/e8/Hippo_Indigestion.jpg" align="top"></meta>
@@ -488,14 +571,37 @@ A bacon pancake ***is a*** normal pancake. <br/> As well as other things (i.e. b
 ---
 
 
-
----
-
 TODO: show bloat for 5 rules for SubmitButton with 3 variants
 
 ---
 
 TODO: name & shame someone (RyanAir?)
+
+---
+
+<meta bg x-gif src="http://i.imgur.com/KKrYqya.gif" n-times="1" align="bottom"></meta>
+
+# Runaway complexity!
+
+---
+
+<meta slide="white"></meta>
+
+## &lt;rant>
+
+---
+
+<meta bg x-gif src="http://i.imgur.com/0IrfsfV.gif" n-times="1"></meta>
+
+---
+
+<meta bg x-gif src="http://i.imgur.com/U5hPfa2.gif" speed="1.5"></meta>
+
+---
+
+<meta slide="white"></meta>
+
+## &lt;/rant>
 
 ---
 
