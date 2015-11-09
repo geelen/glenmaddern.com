@@ -252,7 +252,7 @@
 }
 
 .title {
-  font-family: Tiempos Headline, minion-pro-subhead, Times New Roman, serif;
+  font-family: minion-pro-subhead, Times New Roman, serif;
 }
 
 .h1 {
