@@ -40,6 +40,14 @@ by @glenmaddern
 
 ---
 
+> This is one of the most useful features of Sass. Using @extend lets you share a set of CSS properties from one selector to another. It helps keep your Sass very DRY. <br/>
+  ... <br/>
+  The magic happens with the generated CSS, and this helps you avoid having to write multiple class names on HTML elements.
+  
+#### sass-lang.com/guide
+
+---
+
 #### "What Nobody Told You About Sass’s @extend"
 #### "Why You Should Avoid Sass @extend"
 #### "Extending In Sass Without Creating A Mess"
@@ -235,10 +243,7 @@ button { /* COMMON STYLES */ }
 ```
 
 ---
-
-!TODO make sure this gif works
-
-meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
+<meta bg x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"></meta>
 
 ---
 
@@ -276,12 +281,16 @@ meta x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"
   <button className={styles.examples.invalid}>Delete!</button>
 </div>
 
-```css
+```scss
 .SubmitButton, .SubmitButton--normal, .SubmitButton--danger {
   /* COMMON STYLES */
+}                                                         ⏐
+.SubmitButton--normal {
+  /* BLUE COLOURS */
 }
-.SubmitButton--normal { /* BLUE COLOURS */ }              ⏐
-.SubmitButton--danger { /* RED COLOURS */ }
+.SubmitButton--danger {
+  /* RED COLOURS */
+}
 ```
 
 ```html
@@ -339,6 +348,9 @@ A bacon pancake is a normal pancake. <br/> As well as other things (i.e. bacon)
 A bacon pancake ***is a*** normal pancake. <br/> As well as other things (i.e. bacon)
 
 ---
+<meta bg x-gif src="https://media.giphy.com/media/10rMO9xsxzy5H2/giphy.gif"></meta>
+
+---
 
 <div className={styles.demo}>
   <button className={styles.examples.cta}>Sign up!</button>
@@ -384,7 +396,7 @@ A bacon pancake ***is a*** normal pancake. <br/> As well as other things (i.e. b
 
 <div data-bullet></div>
 
-### a CTA button<br/> ***is a*** normal submit button <br/> ***and a*** obnoxiously-shadowed-thing <br/> ***(when hovered)***
+a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-thing when hovered
 
 ---
 
@@ -424,9 +436,7 @@ a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-
 
 ---
 
-!TODO: curb gif
-
-.
+<meta bg x-gif src="/assets/images/yeahnah.gif" ping-pong></meta>
 
 ---
 
@@ -570,12 +580,72 @@ a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-
 
 ---
 
+<meta slide="examples"></meta>
 
-TODO: show bloat for 5 rules for SubmitButton with 3 variants
+```scss
+.one { }
+.one:hover { }
+.context .one { }
+.one > * { }
+                                                ⏐
+                                                ⏐
+```
 
 ---
 
-TODO: name & shame someone (RyanAir?)
+<meta slide="examples"></meta>
+
+```scss
+.one { }
+.one:hover { }
+.context .one { }
+.one > * { }
+.two { @extend .one }
+                                                ⏐
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one, .two { }
+.one:hover, .two:hover { }
+.context .one, .context .two { }
+.one > *, .two > * { }
+.two { }
+                                                ⏐
+```
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one, .two { }
+.one:hover, .two:hover { }
+.context .one, .context .two { }
+.one > *, .two > * { }
+.two { }
+.three { @extend .one }                         ⏐
+```
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one, .two, .three { }
+.one:hover, .two:hover, .three:hover { }
+.context .one, .context .two, .context .three { }
+.one > *, .two > *, .three > * { }
+.two { }
+.three { }
+```
+
+---
+
+<meta slide="white"></meta>
+
+![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/-hkopc7g.png)
 
 ---
 
@@ -611,11 +681,99 @@ TODO: name & shame someone (RyanAir?)
 
 ---
 
-TODO: media queries (unless there's a solution out there?)
+## Media queries?
+
+```css
+@media (min-width: 1px) {
+  .one { @extend .two; }
+}
+```
 
 ---
 
-TODO: problem with @extend is that the benefits are useful (not having to duplicate classes in your markup) but the abstraction is wrong
+# <span className={styles.emoji}>🚫</span>
+
+---
+
+#### Despite all the edge-cases
+## @extend is a good idea!
+
+---
+
+## Happy @extend
+
+* Only use the "extendee" in one place
+* Use `%placeholder`, or not
+* That's it!
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+/* typography.scss */
+%ui-type-light { font-weight: 300; }
+%ui-type-normal { font-weight: 400; }
+
+%ui-type-16pt { font-size: 1rem; }
+%ui-type-18pt { font-size: 1.125rem; }
+
+%ui-type-lh16 { line-height: 1.6; }
+```
+
+```css
+/* flex.scss */
+%ui-flex { display: flex; }
+%ui-flex-end { justify-content: flex-end; }
+%ui-flex-align-center { align-items: center; }
+```
+
+---
+
+<meta slide="megacode"></meta>
+
+```scss
+@mixin ui($attr, $value: "") {
+  @extend %ui-#{$attr};
+  $string: $value;
+  $continue: true;
+  @while $continue {
+    $next-space: str-index($string, ' ');
+    @if type-of($next-space) == number {
+      $next-word: str-slice($string, 1, $next-space - 1);
+      $string: str-slice($string, $next-space + 1);
+    }
+    @else {
+      $next-word: $string;
+      $continue: false;
+    }
+    @extend %ui-#{$attr}-#{$next-word};
+  }
+}
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.Hero_Wrapper {
+  @include ui(type, "20pt bold lh14");
+  @include ui(flex, "vertical end align-center");
+  @include ui(layout, "90vh 100vw");
+}
+```
+
+#### compiles to
+
+```scss
+.Hero_Wrapper {
+  @extend %ui-type-20pt, %ui-type-bold, %ui-type-lh14;
+  @extend %ui-flex, %ui-flex-vertical, 
+          %ui-flex-end, %ui-flex-align-center;
+  @extend %ui-layout, %ui-layout-90vh, %ui-layout-100vw;
+}
+```
 
 ---
 <meta slide="dramatic"></meta>
@@ -627,16 +785,30 @@ TODO: problem with @extend is that the benefits are useful (not having to duplic
 
 ---
 
-TODO: This is HTML.
----
-
-TODO: How many people actually write it?
----
-
-TODO: List all the preprocessors (Jade, Dust, ERB, HAML, Slim, Mustache, Angular, Handlebars (JQuery), HTMLBars (Ember), React   
+# HTML?
 
 ---
-TODO: Let's focus on React. React has been the area of most rapid progress
+
+<meta slide="twolist"></meta>
+
+## Dynamic Markup
+
+* Jade
+* Dust
+* ERB
+* HAML
+* Slim
+* Mustache
+* Angular
+* Handlebars (JQuery)
+* HTMLBars (Ember)
+* React   
+
+---
+
+<meta slide="white"></meta>
+
+![](http://red-badger.com/blog/wp-content/uploads/2015/04/react-logo-1000-transparent.png)
 
 ---
 
@@ -681,7 +853,70 @@ http://glenmaddern.com/articles/css-modules
 
 #### August 19, 2015
 ---
-TODO: A slide or two about "Componentisation"
+
+## Components
+
+---
+
+<meta slide="white-sideways"></meta>
+
+```
+styles/
+    index.scss
+    _variables.scss
+    _colors.scss
+    ...
+    components/
+        submit-button.scss
+        nav-bar.scss
+        signup-form.scss
+        ...
+```
+
+```
+scripts/
+    app.js
+    utils.js
+    data-access.js
+    ...
+    components/
+        submit-button.js
+        nav-bar.js
+        signup-form.js
+        ...
+```
+
+---
+
+<meta slide="white-sideways"></meta>
+
+```
+styles/
+    index.scss
+    _variables.scss
+    _colors.scss
+    ...
+scripts/
+    app.js
+    utils.js
+    data-access.js
+    ...
+⏐
+```
+
+```
+components/
+    submit-button/
+        submit-button.js
+        submit-button.css
+    nav-bar/
+        nav-bar.js
+        nav-bar.css
+    signup-form/
+        signup-form.js
+        signup-form.css
+    ...
+```
 
 ---
 TODO: The key for CSS Modules is the require/import statement
@@ -903,9 +1138,6 @@ return <button className={styles.normal}>Submit</button>
 
 ---
 
-TODO "Once we'd built this mechanism, we realised we didn't just have to export one class!"
-
----
 <meta slide="dramatic"></meta>
 
 #### Part 3:
@@ -917,17 +1149,50 @@ TODO "Once we'd built this mechanism, we realised we didn't just have to export 
 ---
 <meta slide="dramatic"></meta>
 
-## Rewrite your markup not your CSS
-
+## Why only export one class?
 
 ---
+
+# Composition
+
+—
+
+```css
+.a { composes: b; }
+```
+```css
+.a { compose-with: b; }
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+
+```
+
+---
+
+<meta slide="white"></meta>
 
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
   <button className={styles.examples.invalid}>Delete!</button>
 </div>
 
+```html
+<button className={styles.normal}>Submit</button>
+
+<button className={styles.danger}>Delete!</button>
+```
+
+---
+
+<meta slide="white-sideways"></meta>
+
 ```css
+                          ⏐
 .SubmitButton {
   /* COMMON STYLES */
 }
@@ -939,7 +1204,7 @@ TODO "Once we'd built this mechanism, we realised we didn't just have to export 
   @extend .SubmitButton;
   /* RED */
 }
-​
+​```
 ​
 <div data-bullet></div>
 
@@ -976,21 +1241,7 @@ TODO "Once we'd built this mechanism, we realised we didn't just have to export 
   composes: base;
   /* RED */
 }
-```
-
----
-
-<meta slide="white"></meta>
-
-<div className={styles.demo}>
-  <button className={styles.examples.normal}>Submit</button>
-  <button className={styles.examples.invalid}>Delete!</button>
-</div>
-
-```html
-<button className={styles.normal}>Submit</button>
-
-<button className={styles.danger}>Delete!</button>
+                          ⏐
 ```
 
 ---

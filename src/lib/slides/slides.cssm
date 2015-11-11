@@ -160,6 +160,25 @@
   margin: 0 0.5rem;
 }
 
+.stage-twolist {
+  composes: stage;
+  .ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+  }
+  .li {
+    width: 40%
+  }
+}
+
+.stage-megacode {
+  composes: stage-white;
+  .pre_code {
+    font-size: 1.2rem;
+  }
+}
+
 .nope {
   display: block;
   position: relative;
@@ -193,7 +212,7 @@
   text-align: center;
   /*font-family: Tiempos Text, Melbourne, SN NeoNoire, Avenir Next, sans-serif;*/
   position: relative;
-  padding: 1rem;
+  padding: 2rem;
   overflow: auto;
 }
 
