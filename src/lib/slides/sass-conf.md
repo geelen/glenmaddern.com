@@ -7,15 +7,9 @@ by @glenmaddern
 
 ---
 
-<meta bg x-gif src="https://media0.giphy.com/media/m7O3wefEGWnp6/200.gif" n-times="1" align="bottom"></meta>
+<meta bg x-gif src="https://media.giphy.com/media/m7O3wefEGWnp6/giphy.gif" n-times="1" align="bottom"></meta>
 
 # Australia!
-
----
-
-<meta slide="white"></meta>
-
-![](https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png)
 
 ---
 
@@ -23,6 +17,12 @@ by @glenmaddern
 
 #### First up
 # Some context
+
+---
+
+<meta slide="white"></meta>
+
+![](https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png)
 
 ---
 
@@ -313,6 +313,8 @@ button { /* COMMON STYLES */ }
 ---
 
 <meta slide="excellent"></meta>
+
+### Problem #1
 
 ## @extend — what are you?
 
@@ -686,6 +688,8 @@ a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-
 ## &lt;/rant>
 
 ---
+
+<meta slide="excellent"></meta>
 
 ### Problem #3
 
@@ -1608,7 +1612,7 @@ styles/
 
 ## Future work
 
-* Reusable components inc/ CSS on NPM
+* Reusable components w/ CSS on NPM
 * Non-JS ecosystems!!!
 
 ---
