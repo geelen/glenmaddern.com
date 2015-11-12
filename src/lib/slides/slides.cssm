@@ -291,6 +291,7 @@
 .h2 {
   composes: h1;
   font-size: 5rem;
+  margin-top: 0;
 }
 
 .h3 {

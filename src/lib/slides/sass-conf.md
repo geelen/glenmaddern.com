@@ -1198,26 +1198,9 @@ return <button className={styles.normal}>Submit</button>
 
 # Composition
 
-—
-
-```css
-.a { composes: b; }
-```
-```css
-.a { compose-with: b; }
-```
-
 ---
 
 <meta slide="examples"></meta>
-
-```css
-
-```
-
----
-
-<meta slide="white"></meta>
 
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
@@ -1225,8 +1208,37 @@ return <button className={styles.normal}>Submit</button>
 </div>
 
 ```html
-<button className={styles.normal}>Submit</button>
+<button class="SubmitButton--Normal">Submit</button>     ⏐
+<button class="SubmitButton--Danger">Delete!</button>
+```
 
+<div data-bullet></div>
+
+#### vs
+
+```html
+<button className={styles.normal}>Submit</button>
+<button className={styles.danger}>Delete!</button>
+```
+
+---
+
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Delete!</button>
+</div>
+
+```html
+<button class="SubmitButton--Normal">Submit</button>     ⏐
+<button class="SubmitButton--Danger">Delete!</button>
+```
+
+#### vs
+
+```html
+<button className={styles.normal}>Submit</button>
 <button className={styles.danger}>Delete!</button>
 ```
 
@@ -1527,24 +1539,20 @@ styles/
 
 ---
 
-## Define an API<br/>into your styles
-### for your markup to use
+## One name in your "markup"
+#### can refer to
+## Styles from all over
+
+---
+
+## The dream of @extend
+# is alive
 
 ---
 
 <meta slide="dramatic"></meta>
 
 ## Modular Style?
-
----
-
-<meta slide="dramatic"></meta>
-
-## Future work
-
-* Site-wide theming
-* Publishing reusable components w/ CSS
-* Non-JS ecosystems
 
 ---
 
@@ -1581,6 +1589,15 @@ styles/
 #### =
 
 ## Composable Classes
+
+---
+
+<meta slide="dramatic"></meta>
+
+## Future work
+
+* Reusable components inc/ CSS on NPM
+* Non-JS ecosystems!!!
 
 ---
 
