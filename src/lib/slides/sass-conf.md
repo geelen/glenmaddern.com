@@ -757,7 +757,31 @@ a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-
 <meta slide="examples"></meta>
 
 ```scss
-.Hero_Wrapper {
+.ComponentName {
+  @include ui(type, "20pt bold lh14");
+  @include ui(flex, "vertical end align-center");
+  @include ui(layout, "90vh 100vw");
+}
+```
+
+#### ⏐
+
+<div data-bullet></div>
+
+```scss
+.ComponentName {
+  @extend %ui-type-20pt, %ui-type-bold, %ui-type-lh14;
+  @extend %ui-flex, %ui-flex-vertical, 
+          %ui-flex-end, %ui-flex-align-center;
+  @extend %ui-layout, %ui-layout-90vh, %ui-layout-100vw;
+}
+```
+
+---
+<meta slide="examples"></meta>
+
+```scss
+.ComponentName {
   @include ui(type, "20pt bold lh14");
   @include ui(flex, "vertical end align-center");
   @include ui(layout, "90vh 100vw");
@@ -767,13 +791,37 @@ a CallToAction button ***is a*** Button <br/> & ***is a*** obnoxiously-shadowed-
 #### compiles to
 
 ```scss
-.Hero_Wrapper {
+.ComponentName {
   @extend %ui-type-20pt, %ui-type-bold, %ui-type-lh14;
   @extend %ui-flex, %ui-flex-vertical, 
           %ui-flex-end, %ui-flex-align-center;
   @extend %ui-layout, %ui-layout-90vh, %ui-layout-100vw;
 }
 ```
+
+---
+
+<meta slide="megacode"></meta>
+
+```css
+.type-18pt, a.btn-on-image, button.btn-on-image, .input-calculator, .input-contact, 
+  .AccountTransactionHistory-Notice h2, .breakpoint-hand .Hero-Copy > p, 
+  .Long-Form-Copy > h4, .PaymentModal-Account > h3, .DashboardCard-welcome p, 
+  .DashboardCard-swipe p, .DashboardCard-touch p, .DashboardCard-hedged p {
+  font-size: 1.125rem;
+}
+
+.type-20pt, .AccountTransactionHistory > h1, .Drawer-Profile-Name-fullname, .Drawer-Links,
+  .Article h3, .AppHeader-Logo > h1, .Hero-Copy > p, .breakpoint-hand 
+  .login-screen__header h2, .Marketing-Section h3, .modal h3, .Story-Quote blockquote p, 
+  .UserProfile-Header > h2 {
+  font-size: 1.25rem; 
+}
+```
+
+---
+
+# <span className={styles.emoji}>👍</span>
 
 ---
 <meta slide="dramatic"></meta>
@@ -908,38 +956,33 @@ scripts/
 components/
     submit-button/
         submit-button.js
-        submit-button.css
+        submit-button.scss
     nav-bar/
         nav-bar.js
-        nav-bar.css
+        nav-bar.scss
     signup-form/
         signup-form.js
-        signup-form.css
+        signup-form.scss
     ...
 ```
 
 ---
-TODO: The key for CSS Modules is the require/import statement
 
-* When each part of your UI, in React's case a component, can import its own stylesheet, it changes the way you think about how your styles relate to each other
+```js
+import styles from "./signup-form.scss"
+```
 
----
-TODO: Globalness is weird
+<div data-bullet></div>
 
----
-TODO: Local scoped class names
-
----
-
-## Make your markup dynamic and simplify your styles
-## Put them both to the work
+### What is `styles`?
 
 ---
-How do you use it?
-* Webpack config
-* Show it running Sass as well
-* Maybe Jade example??
----
+
+```js
+import styles from "./signup-form.scss"
+```
+
+### What is `styles`?
 
 ---
 
