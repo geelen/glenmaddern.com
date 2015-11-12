@@ -7,6 +7,18 @@ by @glenmaddern
 
 ---
 
+<meta bg x-gif src="https://media0.giphy.com/media/m7O3wefEGWnp6/200.gif" n-times="1" align="bottom"></meta>
+
+# Australia!
+
+---
+
+<meta slide="white"></meta>
+
+![](https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png)
+
+---
+
 <meta slide="excellent"></meta>
 
 #### First up
