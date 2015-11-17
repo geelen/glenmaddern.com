@@ -1,10 +1,11 @@
 import React from 'react'
 
-import styles from './slides.css!'
+import styles from './slides.cssm!css'
 import examples from '../articles/examples.css!'
 import icss from './icss.md!markdown'
 import icss2 from './icss-eu.md!markdown'
 import modularStyle from './modular-style.md!markdown'
+import sassConf from './sass-conf.md!markdown'
 styles.examples = examples
 
 const xGifHtmlImport = `<link rel="import" href="/assets/x-gif.html"/>`;
@@ -12,7 +13,8 @@ const xGifHtmlImport = `<link rel="import" href="/assets/x-gif.html"/>`;
 const talks = {
   'interoperable-css': icss,
   'interoperable-css-eu': icss2,
-  'modular-style': modularStyle
+  'modular-style': modularStyle,
+  'from-extension-to-composition': sassConf
 }
 
 export default class Slides extends React.Component {
