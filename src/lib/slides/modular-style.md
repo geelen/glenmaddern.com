@@ -1,4 +1,3 @@
-#### CSS in the Component Age — Part 2
 # The Rise of Modular Style
 
 #### —
@@ -14,6 +13,14 @@ by @glenmaddern
 ### Human interfaces 
 #### vs
 ### Machine interfaces
+
+---
+
+> (In 1952) I had a running compiler and nobody would touch it. They told me computers could only do arithmetic.
+
+## Grace Hopper 
+
+#### Feb 1987
 
 ---
 
@@ -237,15 +244,6 @@ module.exports = function() {
 
 ---
 
-## ICSS
-
-* Compile target, not a human interface
-* Each file stands alone, can import others
-* Unlocks the power of a loader like Webpack/JSPM/Browserify
-* Produces *both* CSS and JS
-
----
-
 ## ICSS syntax
 ```css
 :import("./dependency.css") {
@@ -341,72 +339,256 @@ import styles from './submit-button.css';
 
 ---
 
-## Humans <span className={styles.emoji}>😎</span>
-## Machines <span className={styles.emoji}>🤖</span>
-
----
-
-<meta slide="examples"></meta>
+<meta slide="white-sideways"></meta>
 
 ```css
-.MyHeader {}
-.MyHeader__MyComponent {}
-.MyHeader__MyComponent__MySomethingElse--large {}
-.MyHeader__MyComponent__MySomethingElse--small {}
+⏐
+
+
+
+
+
+
+/* button.css */
+.normal {
+  /* styles here... */
+}
+
+
+
+⏐
 ```
-
-<div data-bullet></div>
-
-```js
-window.NAMESPACE = window.NAMESPACE || {};
-window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
-window.NAMESPACE.Widgets.FooBar = function() {}
-```
-
----
-
-<meta slide="examples"></meta>
 
 ```css
-.MyHeader {}
-.MyHeader__MyComponent {}
-.MyHeader__MyComponent__MySomethingElse--large {}
-.MyHeader__MyComponent__MySomethingElse--small {}
+⏐
+
+
+
+
+
+
+/* menu.css */
+.normal {
+  /* styles here... */
+}
+
+
+
+⏐
 ```
 
-```js
-window.NAMESPACE = window.NAMESPACE || {};
-window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
-window.NAMESPACE.Widgets.FooBar = function() {}
-```
 ---
 
-<meta slide="examples"></meta>
+<meta slide="white-sideways"></meta>
 
 ```css
-.header {}
-.component {}
-.large {}
-.small {}
+⏐
+
+
+:export {
+  normal: normal_f34f7fa0;
+}
+
+/* button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+
+
+
+⏐
 ```
+
+```css
+⏐
+
+
+:export {
+  normal: normal_04e8394b;
+}
+
+/* menu.css */
+.normal_04e8394b {
+  /* styles here... */
+}
+
+
+
+⏐
+```
+
+---
+
+<meta slide="white-sideways"></meta>
+
+```css
+:import("./menu.css") {
+  menus_normal: normal;
+}
+:export {
+  normal: normal_f34f7fa0;
+}
+
+/* button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+
+
+
+⏐
+```
+
+```css
+⏐
+
+
+:export {
+  normal: normal_04e8394b;
+}
+
+/* menu.css */
+.normal_04e8394b {
+  /* styles here... */
+}
+
+
+
+⏐
+```
+
+---
+<meta slide="white-sideways"></meta>
+
+```css
+:import("./menu.css") {
+  menus_normal: normal;
+}
+:export {
+  normal: normal_f34f7fa0;
+}
+
+/* button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+.menus_normal {
+  /* override something */
+  /* (don't do this) */
+}
+```
+
+```css
+⏐
+
+
+:export {
+  normal: normal_04e8394b;
+}
+
+/* menu.css */
+.normal_04e8394b {
+  /* styles here... */
+}
+
+
+
+⏐
+```
+
+---
+<meta slide="white-sideways"></meta>
+
+```css
+⏐
+
+
+
+
+
+
+/* button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+.normal_04e8394b {
+  /* override something */
+  /* (don't do this) */
+}
+```
+
+```css
+⏐
+
+
+
+
+
+
+/* menu.css */
+.normal_04e8394b {
+  /* styles here... */
+}
+
+
+
+⏐
+```
+
+---
+<meta slide="white-sideways"></meta>
+
+```css
+⏐
+
+/* menu.css */
+.normal_04e8394b {
+  /* styles here... */
+}
+
+/* button.css */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+.normal_04e8394b {
+  /* override something */
+  /* (don't do this) */
+}
+```
+
+```css
+⏐
+```
+
+---
 
 ```js
-import styles from './style.css'
+{
+  1: /* dependency.js */,
+  2: [function (require, module, exports) {
+    var dependency = require('./dependency.js');
+    module.exports = function () {
+      ...
+    };
+  
+  }, {"./dependency.js": 1}]
+}
 ```
 
 ---
 
-<meta slide="dramatic"></meta>
+## ICSS
 
-# <span className={styles.emoji}>😎</span>
+* Compile target, not a human interface
+* Each file stands alone, can import others
+* Unlocks the power of a loader like Webpack/JSPM/Browserify
+* Produces *both* CSS and JS
 
 ---
 
-<meta slide="dramatic"></meta>
+<meta slide="white"></meta>
 
-#### Part 2
-
-## Modular Style
+![](https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png)
 
 ---
 <meta slide="examples"></meta>
@@ -525,7 +707,76 @@ return <button className={styles.normal}>Submit</button>
 
 ---
 
-<meta slide="white"></meta>
+## Humans <span className={styles.emoji}>😎</span>
+## Machines <span className={styles.emoji}>🤖</span>
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+.MyHeader {}
+.MyHeader__MyComponent {}
+.MyHeader__MyComponent__MySomethingElse--large {}
+.MyHeader__MyComponent__MySomethingElse--small {}
+```
+
+<div data-bullet></div>
+
+```js
+window.NAMESPACE = window.NAMESPACE || {};
+window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
+window.NAMESPACE.Widgets.FooBar = function() {}
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```css
+.MyHeader {}
+.MyHeader__MyComponent {}
+.MyHeader__MyComponent__MySomethingElse--large {}
+.MyHeader__MyComponent__MySomethingElse--small {}
+```
+
+```js
+window.NAMESPACE = window.NAMESPACE || {};
+window.NAMESPACE.Widgets = window.NAMESPACE.Widgets || {};
+window.NAMESPACE.Widgets.FooBar = function() {}
+```
+---
+
+<meta slide="examples"></meta>
+
+```css
+.header {}
+.component {}
+.large {}
+.small {}
+```
+
+```js
+import styles from './style.css'
+```
+
+---
+
+<meta slide="dramatic"></meta>
+
+# <span className={styles.emoji}>😎</span>
+
+---
+
+<meta slide="dramatic"></meta>
+
+#### Part 2
+
+## Modular Style
+
+---
+
+<meta slide="examples"></meta>
 
 <div className={styles.demo}>
   <button className={styles.examples.normal}>Submit</button>
@@ -535,50 +786,10 @@ return <button className={styles.normal}>Submit</button>
 <div data-bullet></div>
 
 ```css
-.SubmitButton {
-  /* COMMON STYLES */
-}
-.SubmitButton--normal {
-  color: hsl(210, 61%, 31%);
-  background: hsla(210,61%,51%,0.1);
-}
-.SubmitButton--danger {
-  color: hsla(0, 61%, 51%, 0.5);
-  background: white;
-}
+.SubmitButton { /* COMMON STYLES */ }
+.SubmitButton--normal { /* BLUE COLOURS */ }              ⏐
+.SubmitButton--danger { /* RED COLOURS */ }
 ```
-
----
-
-<meta slide="white"></meta>
-
-<div className={styles.demo}>
-  <button className={styles.examples.normal}>Submit</button>
-  <button className={styles.examples.invalid}>Delete!</button>
-</div>
-
-```css
-.SubmitButton {
-  /* COMMON STYLES */
-}
-.SubmitButton--normal {
-  color: hsl(210, 61%, 31%);
-  background: hsla(210,61%,51%,0.1);
-}
-.SubmitButton--danger {
-  color: hsla(0, 61%, 51%, 0.5);
-  background: white;
-}
-```
-
----
-
-<meta slide="white"></meta>
-
-<div className={styles.demo}>
-  <button className={styles.examples.normal}>Submit</button>
-  <button className={styles.examples.invalid}>Delete!</button>
-</div>
 
 ```html
 <button class='SubmitButton SubmitButton--normal'>
@@ -590,9 +801,281 @@ return <button className={styles.normal}>Submit</button>
 </button>
 ```
 
-```html
+---
 
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Delete!</button>
+</div>
+
+
+```css
+.SubmitButton { /* COMMON STYLES */ }
+.SubmitButton--normal { /* BLUE COLOURS */ }              ⏐
+.SubmitButton--danger { /* RED COLOURS */ }
 ```
+
+<div data-bullet></div>
+
+```html
+<button class='SubmitButton SubmitButton--normal'>
+  Submit
+</button>
+
+<button class='SubmitButton SubmitButton--danger'>
+  Delete!
+</button>
+```
+
+---
+
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Delete!</button>
+</div>
+
+```css
+.SubmitButton { /* COMMON STYLES */ }
+.SubmitButton--normal { /* BLUE COLOURS */ }              ⏐
+.SubmitButton--danger { /* RED COLOURS */ }
+```
+
+```html
+<button class='SubmitButton SubmitButton--normal'>
+  Submit
+</button>
+
+<button class='SubmitButton SubmitButton--danger'>
+  Delete!
+</button>
+```
+
+---
+
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normalBroken}>Submit</button>
+  <button className={styles.examples.invalidBroken}>Delete!</button>
+</div>
+
+```css
+.SubmitButton { /* COMMON STYLES */ }
+.SubmitButton--normal { /* BLUE COLOURS */ }              ⏐
+.SubmitButton--danger { /* RED COLOURS */ }
+```
+
+```html
+<button class='SubmitButton--normal'>
+  Submit
+</button>
+
+<button class='SubmitButton--danger'>
+  Delete!
+</button>
+```
+
+---
+
+<meta slide="white"></meta>
+
+# <span className={styles.emoji}>😡</span>
+
+---
+
+<meta slide="white"></meta>
+
+
+## &lt;rant>
+### The number of mistakes a new developer makes when learning to use a system is a **value judgement of the system**, not the developer 
+ 
+---
+
+<meta slide="white"></meta>
+
+## &lt;/rant>
+
+---
+
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normalBroken}>Submit</button>
+  <button className={styles.examples.invalidBroken}>Delete!</button>
+</div>
+
+```css
+.SubmitButton { /* COMMON STYLES */ }
+.SubmitButton--normal { /* BLUE COLOURS */ }              ⏐
+.SubmitButton--danger { /* RED COLOURS */ }
+```
+
+```html
+<button class='SubmitButton--normal'> Submit </button>
+<button class='SubmitButton--danger'> Delete! </button>
+```
+
+---
+
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Delete!</button>
+</div>
+
+```css
+button { /* COMMON STYLES */ }
+.SubmitButton--normal { /* BLUE COLOURS */ }              ⏐
+.SubmitButton--danger { /* RED COLOURS */ }
+```
+
+```html
+<button class='SubmitButton--normal'> Submit </button>
+<button class='SubmitButton--danger'> Delete! </button>
+```
+
+---
+<meta bg x-gif src="http://media0.giphy.com/media/CMvLdjfjQnQAg/giphy.gif"></meta>
+
+---
+
+<meta slide="white"></meta>
+
+![](http://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg)
+
+---
+
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Delete!</button>
+</div>
+
+```scss
+.SubmitButton { /* COMMON STYLES */ }                     ⏐
+.SubmitButton--normal { 
+  @extend .SubmitButton;
+  /* BLUE COLOURS */
+}
+.SubmitButton--danger { 
+  @extend .SubmitButton;
+  /* RED COLOURS */
+}
+```
+
+```html
+<button class='SubmitButton--normal'> Submit </button>
+<button class='SubmitButton--danger'> Delete! </button>
+```
+
+---
+
+<meta slide="examples"></meta>
+
+<div className={styles.demo}>
+  <button className={styles.examples.normal}>Submit</button>
+  <button className={styles.examples.invalid}>Delete!</button>
+</div>
+
+```scss
+.SubmitButton, .SubmitButton--normal, .SubmitButton--danger {
+  /* COMMON STYLES */
+}                                                         ⏐
+.SubmitButton--normal {
+  /* BLUE COLOURS */
+}
+.SubmitButton--danger {
+  /* RED COLOURS */
+}
+```
+
+```html
+<button class='SubmitButton--normal'> Submit </button>
+<button class='SubmitButton--danger'> Delete! </button>
+```
+
+---
+
+# <span className={styles.emoji}>👍</span>
+
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one { }
+.one:hover { }
+.context .one { }
+.one > * { }
+                                                ⏐
+                                                ⏐
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one { }
+.one:hover { }
+.context .one { }
+.one > * { }
+.two { @extend .one }
+                                                ⏐
+```
+
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one, .two { }
+.one:hover, .two:hover { }
+.context .one, .context .two { }
+.one > *, .two > * { }
+.two { }
+                                                ⏐
+```
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one, .two { }
+.one:hover, .two:hover { }
+.context .one, .context .two { }
+.one > *, .two > * { }
+.two { }
+.three { @extend .one }                         ⏐
+```
+---
+
+<meta slide="examples"></meta>
+
+```scss
+.one, .two, .three { }
+.one:hover, .two:hover, .three:hover { }
+.context .one, .context .two, .context .three { }
+.one > *, .two > *, .three > * { }
+.two { }
+.three { }
+```
+
+---
+
+<meta slide="white"></meta>
+
+![](https://dl.dropboxusercontent.com/spa/a9i2yebxv7pg2ex/-hkopc7g.png)
+
+---
+
+# <span className={styles.emoji}>😱</span>
 
 ---
 
@@ -603,15 +1086,15 @@ return <button className={styles.normal}>Submit</button>
   /* COMMON STYLES */
 }
 .SubmitButton--normal {
+  @extend .SubmitButton;
   color: hsl(210, 61%, 31%);
   background: hsla(210,61%,51%,0.1);
 }
 .SubmitButton--danger {
+  @extend .SubmitButton;
   color: hsla(0, 61%, 51%, 0.5);
   background: white;
 }
-​
-​
 ```
 
 <div data-bullet></div>
@@ -628,15 +1111,15 @@ return <button className={styles.normal}>Submit</button>
   /* COMMON STYLES */
 }
 .SubmitButton--normal {
+  @extend .SubmitButton;
   color: hsl(210, 61%, 31%);
   background: hsla(210,61%,51%,0.1);
 }
 .SubmitButton--danger {
+  @extend .SubmitButton;
   color: hsla(0, 61%, 51%, 0.5);
   background: white;
 }
-​
-​
 ```
 
 ```css
@@ -923,16 +1406,6 @@ styles/
 
 <meta slide="dramatic"></meta>
 
-## Future work
-
-* Site-wide theming
-* Publishing reusable components w/ CSS
-* Non-JS ecosystems
-
----
-
-<meta slide="dramatic"></meta>
-
 ## Flexibility
 
 ---
@@ -959,11 +1432,24 @@ styles/
 
 <meta slide="dramatic"></meta>
 
-## Modular Style
+### Modular UI through
 
-#### =
+## Components
+
+#### —
+
+### Modular styling through
 
 ## Composable Classes
+
+---
+
+<meta slide="dramatic"></meta>
+
+## Future work
+
+* Reusable components w/ CSS on NPM
+* Non-JS ecosystems!!!
 
 ---
 
@@ -987,7 +1473,7 @@ styles/
 
 * glenmaddern.com/slides/modular-style
 * github.com/css-modules/css-modules
-* markdalgleish.github.io/<br/>presentation-the-end-of-global-css
+* glenmaddern.com/articles/css-modules
 
 #### —
 
