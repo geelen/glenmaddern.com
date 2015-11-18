@@ -177,7 +177,7 @@ module.exports = y;
 ## Changing the ecosystem
 When the human interface goes from<br/>**a single global context**<br/>to having a real module system
 #### —
-The ecosystem goes from having<br/>**no mechanism for sharing code**<br/>to 175,000 packages on NPM
+The ecosystem goes from having<br/>**no mechanism for sharing code**<br/>to 200,000 packages on NPM
 
 ---
 
