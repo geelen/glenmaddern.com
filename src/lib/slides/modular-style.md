@@ -1079,6 +1079,19 @@ button { /* COMMON STYLES */ }
 
 ---
 
+#### "What Nobody Told You About Sass’s @extend"
+#### "Why You Should Avoid Sass @extend"
+#### "Extending In Sass Without Creating A Mess"
+#### "Sass doesn't create bad code. Bad coders do."
+
+---
+
+<meta slide="white"></meta>
+
+![](https://raw.githubusercontent.com/css-modules/logos/master/css-modules-logo.png)
+
+---
+
 <meta slide="white-sideways"></meta>
 
 ```css
