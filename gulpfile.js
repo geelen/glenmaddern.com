@@ -1,5 +1,6 @@
 var gulp = require( 'gulp' ),
   $ = require( 'gulp-load-plugins' )(),
+  parallelize = require("concurrent-transform"),
   paths = [
     '/',
     '/articles',
@@ -49,3 +50,15 @@ gulp.task( 'meta', function () {
 } )
 
 gulp.task( 'build', ['bundle', 'assets', 'meta', 'snapshots'] )
+
+gulp.task('publish', function() {
+  var aws = require('./aws.json'),
+    publisher = $.awspublish.create(aws),
+    headers = { 'Cache-Control': 'max-age=31536000, no-transform, public' };
+
+  return gulp.src('dist/**')
+      .pipe($.awspublish.gzip())
+      .pipe(parallelize(publisher.publish(headers), 10))
+      .pipe(publisher.cache())
+      .pipe($.awspublish.reporter());
+});
