@@ -33,3 +33,10 @@ body {
   padding: 4rem;
   display: block;
 }
+
+.scss .hljs-class {
+  color: #c82829;
+}
+.css .hljs-rule .hljs-attribute.hljs-attribute {
+  color: black;
+}
