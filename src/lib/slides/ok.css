@@ -1,0 +1,134 @@
+.ptn { padding-top: 0; }
+.ptxs { padding-top: .25rem; }
+.pts { padding-top: .5rem; }
+.ptm { padding-top: 1rem; }
+
+.dn { display: none; }
+.di { display: inline; }
+.db { display: block; }
+.dib { display: inline-block; }
+.dli { display: list-item; }
+
+.pink { color: #ffc0cb; }
+.lightpink { color: #ffb6c1; }
+.hotpink { color: #ff69b4; }
+
+.component-name {}
+.component-name--modifier-name {}
+.component-name__descendant {}
+.component-name__descendant--modifier-name {}
+
+.ComponentName {}
+.ComponentName--modifierName {}
+.ComponentName-descendant {}
+.ComponentName-descendant--modifierName {}
+
+[am-ComponentName] {}
+[am-ComponentName~="modifierName"] {}
+[am-ComponentName-Descendant] {}
+[am-ComponentName-Descendant~="modifierName"] {}
+
+.foo {}
+[class~="foo"] {}
+
+[am-padding~="top-none"] { padding-top: 0; }
+[am-padding~="top-xs"] { padding-top: .25rem; }
+[am-padding~="top-small"] { padding-top: .5rem; }
+[am-padding~="top-med"] { padding-top: 1rem; }
+
+/* MyComponent.css */
+.outer {}
+.icon {}
+
+/* You write this */
+.normal {
+  /* styles here... */
+}
+
+/* It compiles to this */
+.normal_f34f7fa0 {
+  /* styles here... */
+}
+
+.normal\(components\/submit\/button.css\:43\) {
+
+}
+
+.SubmitButton {
+  /* COMMON STYLES */
+}
+.SubmitButton--normal {
+  @extend .SubmitButton;
+  /* BLUE */
+}
+.SubmitButton--danger {
+  @extend .SubmitButton;
+  /* RED */
+}
+
+.SubmitButton,
+.SubmitButton--normal,
+.SubmitButton--danger {
+  /* COMMON STYLES */
+}
+.SubmitButton--normal {
+  /* BLUE */
+}
+.SubmitButton--danger {
+  /* RED */
+}
+
+.base {
+  /* COMMON STYLES */
+}
+.normal {
+  /* BLUE */
+}
+.danger {
+  /* RED */
+}
+
+.base_81f12d56 {
+  /* COMMON STYLES */
+}
+.normal_f34f7fa0 {
+  /* BLUE */
+}
+.danger_b7d2ad6f {
+  /* RED */
+}
+
+/* colors.css */
+.blue {
+  color: hsl(210, 61%, 31%);
+}
+.light-blue-bg {
+  background: hsla(210,61%,51%,0.1);
+}
+
+/* submit-button.css */
+.base {
+  /* COMMON STYLES */
+}
+.normal {
+  composes: base;
+  composes: blue light-blue-bg from "./colors.css";
+}
+
+.blue_c22950a8 {
+  color: hsl(210, 61%, 31%);
+}
+.light-blue-bg_ea7f0091 {
+  background: hsla(210,61%,51%,0.1);
+}
+.base_81f12d56 { /* COMMON STYLES */ }
+.normal_f34f7fa0 {}
+
+.article {
+  composes: flex vertical centered from "./layout.css";
+}
+
+.masthead {
+  composes: serif bold 48pt centered from "./typography.css";
+  composes: m1-bottom p1-left p1-right from "./layout.css";
+}

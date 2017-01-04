@@ -7,7 +7,7 @@
     <title>Glen Maddern: Internet Pro</title>
     <script>
       /* If we have a cached copy of our fonts, inject them */
-      if (window.localStorage && window.localStorage._tk_cache) {
+      if ((window.localStorage || {})._tk_cache) {
         document.head.insertAdjacentHTML('beforeend', '<style>' + window.localStorage._tk_cache + '</style>');
       } else {
         document.documentElement.classList.add('wf-inactive');
