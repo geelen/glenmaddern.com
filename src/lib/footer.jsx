@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
       <figure className={styles.figure}>
         <img className={styles.img} src="/assets/images/me_160.jpg"/>
         <figcaption className={styles.figcaption}>
-          <span className={styles.me}>Glen Maddern</span> is an independent Web Developer from Melbourne, Australia.
+          <span className={styles.me}>Glen Maddern</span> is an independent web developer from Melbourne, Australia.
           You should <span className="t-type--semibold">get in touch</span> using one of the following useful internet services:
           <div className={styles.links}>
             <a className={styles.link} href="https://twitter.com/glenmaddern">
@@ -23,7 +23,7 @@ export default class Footer extends React.Component {
                 <path style={{opacity:1,fill:'currentColor'}} d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M408.028,408.028 c-19.76,19.758-42.756,35.266-68.354,46.093c-6.503,2.75-13.106,5.164-19.8,7.246V423c0-20.167-6.917-35-20.75-44.5 c8.667-0.833,16.625-2,23.875-3.5s14.917-3.667,23-6.5s15.333-6.208,21.75-10.125s12.583-9,18.5-15.25s10.875-13.333,14.875-21.25 s7.167-17.417,9.5-28.5s3.5-23.292,3.5-36.625c0-25.833-8.417-47.833-25.25-66c7.667-20,6.833-41.75-2.5-65.25l-6.25-0.75 c-4.333-0.5-12.125,1.333-23.375,5.5s-23.875,11-37.875,20.5c-19.833-5.5-40.417-8.25-61.75-8.25c-21.5,0-42,2.75-61.5,8.25 c-8.833-6-17.208-10.958-25.125-14.875s-14.25-6.583-19-8s-9.167-2.292-13.25-2.625s-6.708-0.417-7.875-0.25s-2,0.333-2.5,0.5 c-9.333,23.667-10.167,45.417-2.5,65.25c-16.833,18.167-25.25,40.167-25.25,66c0,13.333,1.167,25.542,3.5,36.625 s5.5,20.583,9.5,28.5s8.958,15,14.875,21.25s12.083,11.333,18.5,15.25s13.667,7.292,21.75,10.125s15.75,5,23,6.5 s15.208,2.667,23.875,3.5c-13.667,9.333-20.5,24.167-20.5,44.5v39.115c-7.549-2.247-14.99-4.902-22.3-7.994 c-25.597-10.827-48.594-26.335-68.353-46.093c-19.758-19.759-35.267-42.757-46.093-68.354C46.679,313.195,41,285.043,41,256 s5.679-57.195,16.879-83.675c10.827-25.597,26.335-48.594,46.093-68.353c19.758-19.759,42.756-35.267,68.353-46.093 C198.805,46.679,226.957,41,256,41s57.195,5.679,83.675,16.879c25.599,10.827,48.595,26.335,68.354,46.093 c19.758,19.758,35.266,42.756,46.093,68.353C465.321,198.805,471,226.957,471,256s-5.679,57.195-16.879,83.675 C443.294,365.271,427.786,388.27,408.028,408.028z"></path>
               </svg>
             </a>
-            <a className={styles.link} href="mailto:hi@glenmaddern.com">
+            <a className={styles.link} href="mailto:glen@glenmaddern.com">
               <svg className={styles.svg} version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path style={{opacity:1,fill:'currentColor'}} d="M464,64H48C21.6,64,0,85.6,0,112v320c0,26.4,21.6,48,48,48h416c26.4,0,48-21.6,48-48V112C512,85.6,490.4,64,464,64z  M199.37,275.186L64,380.632V129.811L199.37,275.186z M88.19,128h335.62L256,254L88.19,128z M204.644,280.85L256,336l51.355-55.15 L412.632,416H99.368L204.644,280.85z M312.63,275.186L448,129.811v250.821L312.63,275.186z"></path>
               </svg>

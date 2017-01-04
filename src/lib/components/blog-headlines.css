@@ -1,7 +1,7 @@
 @traits("../../styles/traits/");
 
 .section:traits {
-  layout: p3 p2-1--small;
+  layout: p2 p2-1--small;
 }
 
 .h2:traits {
@@ -30,5 +30,5 @@
 
 .more:traits {
   link: inline;
-  type: small1 italic;
+  type: italic;
 }

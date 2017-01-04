@@ -19,9 +19,9 @@ export default class PreviewList extends React.Component {
             <figure className={styles.figure}>
               { item.url ?
                 <a className={styles.figure_a} target='_blank' href={item.url}>
-                  <img className={styles.img} src={`/assets/images/${item.image}`} />
+                  <div className={styles.img} style={{backgroundImage: `url(/assets/images/${item.image})`}} />
                 </a>
-                : <img className={styles.img} src={`/assets/images/${item.image}`} />
+                : <div className={styles.img} style={{backgroundImage: `url(/assets/images/${item.image})`}} />
               }
               <figcaption className={styles.caption}>
                 <h3 className={styles.h3}>{item.title}</h3>

@@ -5,6 +5,9 @@
   layout: block--small;
 }
 
+.li {
+  overflow: hidden;
+}
 .li:traits {
   flex-child: one-third one-half--medium;
   layout: p1;
@@ -20,6 +23,12 @@
   layout: block;
 }
 
+.img {
+  padding-top: 75%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
 .img:traits {
   layout: block w100;
   border: polaroid;
@@ -40,8 +49,11 @@
   type: sans small2 light;
 }
 
+.link {
+  max-width: calc(100% - 1rem);
+}
 .link:traits {
-  type: small2 italic truncate;
+  type: small2 truncate;
   link: inline;
 }
 
@@ -51,5 +63,4 @@
 
 .more:traits {
   link: inline obvious;
-  type: small2 italic;
 }

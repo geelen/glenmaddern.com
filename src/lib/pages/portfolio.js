@@ -1,5 +1,17 @@
 export default {
   projects: {
+    "frontend-center": {
+      "title": "Front End Center",
+      "strap": "Screencasts for Web Professionals",
+      "url": "https://frontend.center",
+      "image": "front-end-center.png"
+    },
+    "styled-components": {
+      "title": "Styled Components",
+      "strap": "Visual primitives for the component age.",
+      "url": "https://styled-components.com/",
+      "image": "styled-components.png"
+    },
     "typeslab": {
       "title": "TypeSlab",
       "strap": "Simple, shareable typographic posters",
@@ -32,6 +44,24 @@ export default {
     }
   },
   talks: {
+    "future-of-reusable-css": {
+      "title": "The Future of Reusable CSS",
+      "strap": "ColdFront 2016",
+      "url": "https://www.youtube.com/watch?v=XR6eM_5pAb0",
+      "image": "coldfront.jpg"
+    },
+    "css-in-the-age-of-components": {
+      "title": "CSS in the Age of Components",
+      "strap": "Smashing Conf NY 2016",
+      "url": "https://vimeo.com/173326453",
+      "image": "smashing-conf.jpg"
+    },
+    "interoperable-css": {
+      "title": "Interoperable CSS",
+      "strap": "CSSConf EU 2015",
+      "url": "https://www.youtube.com/watch?v=aIyhhHTmsXE",
+      "image": "cssconf-eu.jpg"
+    },
     "gifs-vs-web-components": {
       "title": "GIFs vs Web Components",
       "strap": "JSConf EU 2014",
@@ -58,6 +88,12 @@ export default {
     }
   },
   work: {
+    "coviu": {
+      "title": "Coviu",
+      "strap": "WebRTC interactive video conferencing",
+      "url": "https://coviu.com",
+      "image": "coviu.jpg"
+    },
     "coinjar": {
       "title": "CoinJar",
       "strap": "Bitcoin merchant & online wallet",

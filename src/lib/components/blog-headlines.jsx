@@ -16,7 +16,7 @@ export default class BlogHeadlines extends React.Component {
           return <Link to="Article" params={{slug: key}} className={styles.a} key={i}>
             <h5 className={styles.h5}>{item.title}</h5>
             <span className={styles.span}>{item.strap}
-              <span className={styles.unbroken}> - {item.date}</span>
+              <span className={styles.unbroken}>{item.strap ? ' - ' : ''}{item.date}</span>
             </span>
           </Link>
         })
