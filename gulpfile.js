@@ -4,7 +4,7 @@ var gulp = require( 'gulp' ),
   paths = [
     '/',
     '/articles',
-    '/articles/looking-for-projects',
+    //'/articles/looking-for-projects',
     '/articles/interoperable-css',
     '/articles/javascript-in-2015',
     '/articles/introducing-am-css',

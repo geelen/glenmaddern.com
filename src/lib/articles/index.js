@@ -10,7 +10,7 @@ import metaquery from './metaquery.md!markdown'
 import cssfilters from './css-filters.md!markdown'
 
 export default {
-  'looking-for-projects': lookingForProjects,
+  //'looking-for-projects': lookingForProjects,
   'css-modules-one-point-zero': onePointOh,
   'css-modules': cssmodules,
   'interoperable-css': icss,
